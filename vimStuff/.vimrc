@@ -18,6 +18,9 @@ Plugin 'plasticboy/vim-markdown'
 "Powerline für Vim
 Plugin 'bling/vim-airline'
 set laststatus=2
+" Pop-Up Automatic open
+Plugin 'vim-scripts/AutoComplPop'
+Plugin 'exvim/ex-autocomplpop'
 " Nerdtree
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
@@ -47,6 +50,16 @@ Plugin 'xuhdev/vim-latex-live-preview'
 "let g:Powerline_symbols = 'fancy'
 " Git Integration
 Plugin 'tpope/vim-fugitive'
+
+"Snipmate
+ Plugin 'MarcWeber/vim-addon-mw-utils'
+ Plugin 'tomtom/tlib_vim'
+ Plugin 'garbas/vim-snipmate'
+"
+" Optional
+ Plugin 'honza/vim-snippets'
+ "Autocpomplete
+ Plugin 'Valloric/YouCompleteMe'
 " Powerline 2
 "Plugin 'itchyny/lightline.vim'
 " The following are examples of different formats supported.
@@ -92,7 +105,20 @@ colorscheme solarized
 highlight ColorColumn ctermbg=DarkCyan
 call matchadd('ColorColumn', '\%81v', 100)
 " i3
-noremap j h
-noremap k j
-noremap l k
-noremap ö l
+" noremap j h
+" noremap k j
+" noremap l k
+" noremap ö l
+
+"for C snipmate
+au BufNewFile,BufRead *.c set filetype=r
+" Popup Menu
+set omnifunc=syntaxcomplete#Complete
+"set completeopt=longest,menuone
+" inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
+ "  \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+
+" inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
+ "  \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+

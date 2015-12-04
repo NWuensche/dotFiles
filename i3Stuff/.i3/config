@@ -26,6 +26,8 @@ font pango:DejaVu Sans Mono 8
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+
+
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
 
@@ -102,7 +104,7 @@ bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace $workspace10
 
 set $workspace1 "Arbeit"
-set $workspace10 "Musik"
+set $workspace10 "Unterhaltung"
 set $workspace2 "Firefox"
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $workspace1
@@ -172,7 +174,7 @@ bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad
 # conk
 bar {
 #       output LVDS1
-               status_command conky-i3bar
+               status_command $HOME/.i3/conky-i3bar
                        }
 #                        
 bindsym $mod+F3 exec amixer -D pulse sset Master 5%+
@@ -183,4 +185,13 @@ bindsym $mod+F9 exec playerctl play-pause
 bindsym $mod+F10 exec playerctl play-pause
 bindsym $mod+F11 exec playerctl previous
 bindsym $mod+F12 exec playerctl next
+
+bindsym $mod+F5 exec mocp -G
+bindsym $mod+F6 exec mocp -G
+bindsym $mod+F7 exec mocp -r
+bindsym $mod+F8 exec mocp -f
+
+bindsym $mod+udiaeresis exec firefox
+
 bindsym Print exec scrot
+

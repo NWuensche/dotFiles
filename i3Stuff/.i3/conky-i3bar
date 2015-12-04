@@ -2,5 +2,5 @@
 echo '{"version":1}'
 echo '['
 echo '[],'
-exec conky -c conkyrc
+exec conky -c $HOME/.i3/conkyrc
 

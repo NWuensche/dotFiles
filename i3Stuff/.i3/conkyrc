@@ -16,8 +16,13 @@ TEXT
 { "full_text" : " RAM ${mem}/${memmax} " , "color" : ${if_match ${memperc}<90}"\#ffffff"${else}"\#ff0000"${endif} },
 { "full_text" : " ${if_up wlan0}WLAN ↑${upspeed wlan0} ↓${downspeed wlan0}  ${endif}\
 "},
-{ "full_text" : " Akku: ${battery_percent}% " , "color" : ${if_match ${battery_percent}<=20}"\#ff0000"${else}"\#ffffff"${endif} },
-{ "full_text" : " ${if_running spotify} ${exec ~/6800547/spotify.sh metadata | grep  "artist" | cut -d '|' -f2} - ${exec ~/6800547/spotify.sh metadata | grep  "title" | cut -d '|' -f2} | ${endif}\
+
+{ "full_text" : " Akku: ${battery_percent}% " , "color" : ${if_match "${exec ./.i3/akku.sh}" == "Charging" }"\#00ff00" ${else} ${if_match ${battery_percent}<=20}"\#ff0000"${else}"\#ffffff"${endif}\
+${endif}\
+},
+{ "full_text" : "${if_running mocp}  Moc: ${exec mocp -Q %artist} - ${exec mocp -Q %song} | ${endif}\
+${if_running spotify} Spo: ${exec ./.i3/spotify.sh metadata | grep  "artist" | cut -d '|' -f2} - ${exec ./.i3/spotify.sh metadata | grep  "title" | cut -d '|' -f2} | ${endif}\
 ${time %a %d.%m.%y} ${time %H:%M} " }
+
 
 ],
