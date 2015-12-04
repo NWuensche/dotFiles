@@ -1,6 +1,10 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
-let g:netrw_dirhist_1='/home/fox/Python'
-let g:netrw_dirhist_2='/home/fox/vim-Zeug/.vim'
-let g:netrw_dirhist_3='/home/fox/.vim'
-let g:netrw_dirhist_4='/home/fox/vim-Zeug'
+let g:netrw_dirhist_cnt =8
+let g:netrw_dirhist_1='/home/fox/bin'
+let g:netrw_dirhist_2='/home/fox/ttt'
+let g:netrw_dirhist_3='/home/fox/.dotFiles/vimStuff/.vim'
+let g:netrw_dirhist_4='/home/fox/Dokumente/Studium/CKurs'
+let g:netrw_dirhist_5='/home/fox/.vim'
+let g:netrw_dirhist_6='/home/fox/.vim/bundle/vim-snippets'
+let g:netrw_dirhist_7='/home/fox/.vim/bundle/vim-snippets/snippets'
+let g:netrw_dirhist_8='/home/fox/.dotFiles/vimStuff/.vim/bundle'

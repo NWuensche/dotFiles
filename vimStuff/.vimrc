@@ -1,4 +1,11 @@
-" Vundle
+set relativenumber
+
+"PEP 80
+highlight ColorColumn ctermbg=DarkCyan
+call matchadd('ColorColumn', '\%81v', 100)
+
+
+"" Vundle Begin
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -7,118 +14,51 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
+" Powerline(When nothigns works
+" Plugin 'bling/vim-airline'
+" set laststatus=2
+
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-" solarized
+" Solarized-Theme
 Plugin 'altercation/vim-colors-solarized'
-" Markdown + live preview
-Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
-"Powerline für Vim
-Plugin 'bling/vim-airline'
-set laststatus=2
-" Pop-Up Automatic open
-Plugin 'vim-scripts/AutoComplPop'
-Plugin 'exvim/ex-autocomplpop'
-" Nerdtree
-Plugin 'scrooloose/nerdtree'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
-let g:NERDTreeIndicatorMapCustom = {
-    \ "Modified"  : "✹",
-    \ "Staged"    : "✚",
-    \ "Untracked" : "✭",
-    \ "Renamed"   : "➜",
-    \ "Unmerged"  : "═",
-    \ "Deleted"   : "✖",
-    \ "Dirty"     : "✗",
-    \ "Clean"     : "✔︎",
-    \ "Unknown"   : "?"
-    \ }
-" Strg n öffnet Nerdtree
-map <C-n> :NERDTreeToggle<CR>
-" tmux-vim 
-Plugin 'christoomey/vim-tmux-navigator'
-" vim-late
+" plugin on GitHub repo
+Plugin 'tpope/vim-fugitive'
+" Snipmate
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
+Plugin 'honza/vim-snippets'"default snippets
+
+" Latex
 Plugin 'lervag/vimtex'
 Plugin 'LaTeX-Box-Team/LaTeX-Box'
 Plugin 'xuhdev/vim-latex-live-preview'
-" Automatisch bei start nerdtree öffnen
-"autocmd vimenter * NERDTree
-"Alet g:airline_powerline_fonts = 1
-"Plugin 'Lokaltog/vim-powerline'
-"let g:Powerline_symbols = 'fancy'
-" Git Integration
-Plugin 'tpope/vim-fugitive'
-
-"Snipmate
- Plugin 'MarcWeber/vim-addon-mw-utils'
- Plugin 'tomtom/tlib_vim'
- Plugin 'garbas/vim-snipmate'
-"
-" Optional
- Plugin 'honza/vim-snippets'
- "Autocpomplete
- Plugin 'Valloric/YouCompleteMe'
-" Powerline 2
-"Plugin 'itchyny/lightline.vim'
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
-" plugin on GitHub repo
 " plugin from http://vim-scripts.org/vim/scripts.html
+"Plugin 'L9'
 " Git plugin not hosted on GitHub
+"Plugin 'git://git.wincent.com/command-t.git'
 " git repos on your local machine (i.e. when working on your own plugin)
+"Plugin 'file:///home/gmarik/path/to/plugin'
 " The sparkup vim script is in a subdirectory of this repo called vim.
 " Pass the path to set the runtimepath properly.
+"Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 " Avoid a name conflict with L9
+"Plugin 'user/L9', {'name': 'newL9'}
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
-set t_Co=256
-syntax enable
-set background=dark
-colorscheme solarized
-" set Colors
-syntax enable
-set background=dark
+"" Vundle End
+"Solarized-Dependencies
 let g:solarized_termtrans=1
 let g:solarized_contrast="high"
 let g:solarized_termcolors=256
-colorscheme solarized 
-" test
-"PowerLine Pfeil
-: set number
-: set relativenumber
-" colorcolumn
-highlight ColorColumn ctermbg=DarkCyan
-call matchadd('ColorColumn', '\%81v', 100)
-" i3
-" noremap j h
-" noremap k j
-" noremap l k
-" noremap ö l
-
-"for C snipmate
-au BufNewFile,BufRead *.c set filetype=r
-" Popup Menu
-set omnifunc=syntaxcomplete#Complete
-"set completeopt=longest,menuone
-" inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-" inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
- "  \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
-
-" inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
- "  \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+syntax enable
+set background=dark
+colorscheme solarized
+"Automatically open Snipmate for C
+au BufNewFile,BufRead *.c SnipMateLoadScope c
+"set filetype=r
 
