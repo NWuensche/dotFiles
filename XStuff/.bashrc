@@ -140,3 +140,6 @@ saveDotFiles(){
 	sudo cp -r ~/.i3 ~/.dotFiles/i3Stuff/.i3
 
 }
+gotoStud(){
+	cd ~/Dokumente/Studium
+}

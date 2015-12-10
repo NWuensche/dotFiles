@@ -192,6 +192,8 @@ bindsym $mod+F7 exec mocp -r
 bindsym $mod+F8 exec mocp -f
 
 bindsym $mod+udiaeresis exec firefox
+bindsym $mod+adiaeresis exec pcmanfm
+
 
 bindsym Print exec scrot
 

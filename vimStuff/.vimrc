@@ -1,9 +1,6 @@
 set relativenumber
 
 
-"PEP 80
-highlight ColorColumn ctermbg=DarkCyan
-call matchadd('ColorColumn', '\%81v', 100)
 
 
 "" Vundle Begin
@@ -26,12 +23,16 @@ Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'"default snippets
+" Comment fast
+Plugin 'scrooloose/nerdcommenter'
 " Pop-up Menu Completion(Python)
 "Plugin 'davidhalter/jedi-vim'
 " YouCompleteMe
 Plugin 'Valloric/YouCompleteMe'
 "Powerline
 Plugin 'bling/vim-airline'
+" Fixing whitespaces
+Plugin 'bronson/vim-trailing-whitespace'
 " Latex
 Plugin 'lervag/vimtex'
 Plugin 'LaTeX-Box-Team/LaTeX-Box'
@@ -54,3 +55,11 @@ let g:ycm_min_num_of_chars_for_completion = 2
 "PowerLine Stuff
 set laststatus=2
 let g:airline_powerline_fonts = 1
+"paste-mod
+set pastetoggle=<F2>
+let mapleader=","
+"PEP 80
+highlight ColorColumn ctermbg=DarkCyan
+call matchadd('ColorColumn', '\%81v', 100)
+" Stop Ex-Mode 
+nnoremap Q <nop>
