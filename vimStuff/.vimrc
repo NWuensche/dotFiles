@@ -28,9 +28,9 @@ Plugin 'scrooloose/nerdcommenter'
 " Pop-up Menu Completion(Python)
 "Plugin 'davidhalter/jedi-vim'
 " YouCompleteMe
-Plugin 'Valloric/YouCompleteMe'
+"Plugin 'Valloric/YouCompleteMe'
 "Powerline
-Plugin 'bling/vim-airline'
+"Plugin 'bling/vim-airline'
 " Fixing whitespaces
 Plugin 'bronson/vim-trailing-whitespace'
 " Latex

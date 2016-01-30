@@ -1,5 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_cnt =4
 let g:netrw_dirhist_1='/home/fox/.dotFiles/vimStuff/.vim'
 let g:netrw_dirhist_2='/home/fox/.config'
 let g:netrw_dirhist_3='/home/fox/LPTHW'
+let g:netrw_dirhist_4='/home/nwuensche/.dotFiles'

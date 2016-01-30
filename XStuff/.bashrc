@@ -143,3 +143,6 @@ saveDotFiles(){
 gotoStud(){
 	cd ~/Dokumente/Studium
 }
+gotoBlog(){
+	cd ~/Dokumente/Stuff\ for\ Blog/
+}

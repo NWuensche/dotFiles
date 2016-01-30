@@ -162,6 +162,7 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -- -10
 # Sreen brightness controls
  bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+# Change ESc to Caps lock and via versa
 
 # # Touchpad controls
 bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad
@@ -176,7 +177,7 @@ bar {
 #       output LVDS1
                status_command $HOME/.i3/conky-i3bar
                        }
-#                        
+#
 bindsym $mod+F3 exec amixer -D pulse sset Master 5%+
 bindsym $mod+F2 exec amixer -D pulse sset Master 5%-
 bindsym $mod+F1 exec amixer -D pulse set Master toggle
@@ -191,9 +192,14 @@ bindsym $mod+F6 exec mocp -G
 bindsym $mod+F7 exec mocp -r
 bindsym $mod+F8 exec mocp -f
 
+
 bindsym $mod+udiaeresis exec firefox
-bindsym $mod+adiaeresis exec pcmanfm
+bindsym $mod+adiaeresis exec nautilus --no-desktop
 
 
 bindsym Print exec scrot
+exec setxkbmap -layout de -option caps:escape
 
+exec ~/.xinitrc
+exec xmodmap ~/.speedswapper
+exec redshift -l 55.7:12.6 -t 5700:3600 -g 0.8 -m randr -v
