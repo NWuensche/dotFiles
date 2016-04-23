@@ -1,4 +1,6 @@
 set relativenumber
+set tabstop=4
+set shiftwidth=4
 
 
 
@@ -6,7 +8,7 @@ set relativenumber
 "" Vundle Begin
 set nocompatible              " be iMproved, required
 filetype off                  " required
-
+autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -16,9 +18,13 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 " Solarized-Theme
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'flazz/vim-colorschemes'
+" Plugin 'wikitopian/hardmode'
 " plugin on GitHub repo
 Plugin 'tpope/vim-fugitive'
 " Snipmate
+"Plugin 'takac/vim-hardtime'
+Plugin 'wikitopian/hardmode'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
@@ -42,12 +48,12 @@ call vundle#end()            " required
 filetype plugin indent on    " required
 "" Vundle End
 "Solarized-Dependencies
-let g:solarized_termtrans=1
-let g:solarized_contrast="high"
-let g:solarized_termcolors=256
+"let g:solarized_termtrans=1
+"let g:solarized_contrast="high"
+"let g:solarized_termcolors=256
 syntax enable
 set background=dark
-colorscheme solarized
+"colorscheme solarized
 "Automatically open Snipmate for C
 au BufNewFile,BufRead *.c SnipMateLoadScope c
 let g:ycm_auto_trigger = 1
@@ -63,3 +69,4 @@ highlight ColorColumn ctermbg=DarkCyan
 call matchadd('ColorColumn', '\%81v', 100)
 " Stop Ex-Mode 
 nnoremap Q <nop>
+colorscheme SlateDark
