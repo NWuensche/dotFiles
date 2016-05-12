@@ -1,6 +1,9 @@
 set relativenumber
 set tabstop=4
-set shiftwidth=4
+set shiftwidth=4 
+let g:auto_save = 1  
+let g:auto_save_silent = 1 " do not display auto save time
+let g:hardtime_default_on = 1
 
 
 
@@ -15,7 +18,11 @@ call vundle#begin()
 
 
 " let Vundle manage Vundle, required
+" Autosave
+Plugin 'vim-scripts/vim-auto-save'
 Plugin 'VundleVim/Vundle.vim'
+"for org mode
+Plugin 'tpope/vim-speeddating'
 " Solarized-Theme
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'flazz/vim-colorschemes'
@@ -23,8 +30,8 @@ Plugin 'flazz/vim-colorschemes'
 " plugin on GitHub repo
 Plugin 'tpope/vim-fugitive'
 " Snipmate
-"Plugin 'takac/vim-hardtime'
-Plugin 'wikitopian/hardmode'
+Plugin 'takac/vim-hardtime'
+"Plugin 'wikitopian/hardmode'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
@@ -69,4 +76,4 @@ highlight ColorColumn ctermbg=DarkCyan
 call matchadd('ColorColumn', '\%81v', 100)
 " Stop Ex-Mode 
 nnoremap Q <nop>
-colorscheme SlateDark
+colorscheme molokai

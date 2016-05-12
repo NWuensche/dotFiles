@@ -145,6 +145,13 @@ cdStud(){
 	cd ~/Dokumente/Studium
 }
 
+makeOpenGL(){
+
+	cd build/
+	cmake ..
+	make
+	./test2
+}
 cdÜPro(){
 	cdStud
 	cd ÜPRO/
@@ -152,8 +159,29 @@ cdÜPro(){
 
 cdPrä(){
 	cdStud
-	cd EnglischPrä/
+	cd Englisch/
 }
+
+cdÜSWT(){
+	cdStud
+	cd ÜSWT/
+
+}
+
+
+cdÜPro(){
+	cdStud
+	cd ÜPro/
+
+}
+
+
+cdÜPro(){
+	cdStud
+	cd ÜPro/
+
+}
+
 
 cd_func ()
 {
@@ -214,6 +242,7 @@ if [[ $BASH_VERSION > "2.05a" ]]; then
   bind -x "\"\C-w\":cd_func -- ;"
 fi
 
+# end of c -- program
 
 
 
