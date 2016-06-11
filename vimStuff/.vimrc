@@ -20,6 +20,10 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 " Autosave
 Plugin 'vim-scripts/vim-auto-save'
+" Close Brackets automaticaly
+Plugin 'Raimondi/delimitMate'
+"NerdTree
+Plugin 'scrooloose/nerdtree'
 Plugin 'VundleVim/Vundle.vim'
 "for org mode
 Plugin 'tpope/vim-speeddating'
@@ -70,10 +74,11 @@ set laststatus=2
 let g:airline_powerline_fonts = 1
 "paste-mod
 set pastetoggle=<F2>
-let mapleader=","
+let mapleader = "\<Space>"
 "PEP 80
 highlight ColorColumn ctermbg=DarkCyan
 call matchadd('ColorColumn', '\%81v', 100)
 " Stop Ex-Mode 
 nnoremap Q <nop>
-colorscheme molokai
+colorscheme monokain
+nmap <leader>d :NERDTreeToggle<CR>
