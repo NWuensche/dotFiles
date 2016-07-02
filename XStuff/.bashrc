@@ -138,7 +138,10 @@ saveDotFiles(){
 	sudo cp ~/.Xmodmap ~/.dotFiles/XStuff/.Xmodmap
 	sudo rm -r ~/.dotFiles/i3Stuff/.i3 	
 	sudo cp -r ~/.i3 ~/.dotFiles/i3Stuff/.i3
-
+	cd ~/.dotFiles
+	sudo git add .
+	sudo git commit -m "(`date +%Y-%m-%d`) change dotFiles"
+	sudo git push
 }
 
 cdStud(){

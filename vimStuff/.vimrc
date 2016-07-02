@@ -1,8 +1,6 @@
 set relativenumber
 set tabstop=4
 set shiftwidth=4 
-let g:auto_save = 1  
-let g:auto_save_silent = 1 " do not display auto save time
 let g:hardtime_default_on = 1
 
 
@@ -18,15 +16,11 @@ call vundle#begin()
 
 
 " let Vundle manage Vundle, required
-" Autosave
-Plugin 'vim-scripts/vim-auto-save'
 " Close Brackets automaticaly
 Plugin 'Raimondi/delimitMate'
 "NerdTree
 Plugin 'scrooloose/nerdtree'
 Plugin 'VundleVim/Vundle.vim'
-"for org mode
-Plugin 'tpope/vim-speeddating'
 " Solarized-Theme
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'flazz/vim-colorschemes'
@@ -39,7 +33,8 @@ Plugin 'takac/vim-hardtime'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
-Plugin 'honza/vim-snippets'"default snippets
+"default snippets
+Plugin 'honza/vim-snippets'
 " Comment fast
 Plugin 'scrooloose/nerdcommenter'
 " Pop-up Menu Completion(Python)
@@ -80,5 +75,8 @@ highlight ColorColumn ctermbg=DarkCyan
 call matchadd('ColorColumn', '\%81v', 100)
 " Stop Ex-Mode 
 nnoremap Q <nop>
-colorscheme monokain
+colorscheme Monokai
 nmap <leader>d :NERDTreeToggle<CR>
+
+"F5 to make
+nmap <F5> :!make <CR>
