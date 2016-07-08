@@ -134,6 +134,7 @@ saveDotFiles(){
 	sudo cp ~/.vimrc ~/.dotFiles/vimStuff/.vimrc
 	sudo cp ~/.bashrc ~/.dotFiles/XStuff/.bashrc
 	sudo cp ~/.Xdefaults ~/.dotFiles/XStuff/.Xdefaults
+	sudo cp ~/.zshrc ~/.dotFiles/XStuff/.zshrc
 	sudo cp ~/.Xresources ~/.dotFiles/XStuff/.Xresources
 	sudo cp ~/.Xmodmap ~/.dotFiles/XStuff/.Xmodmap
 	sudo rm -r ~/.dotFiles/i3Stuff/.i3 	
@@ -255,3 +256,9 @@ fi
 
 
 
+
+###-tns-completion-start-###
+if [ -f /home/nwuensche/.tnsrc ]; then 
+    source /home/nwuensche/.tnsrc 
+fi
+###-tns-completion-end-###

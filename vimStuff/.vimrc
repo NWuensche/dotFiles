@@ -1,7 +1,7 @@
 set relativenumber
 set tabstop=4
 set shiftwidth=4 
-let g:hardtime_default_on = 1
+"let g:hardtime_default_on = 1
 
 
 
@@ -59,7 +59,7 @@ filetype plugin indent on    " required
 "let g:solarized_termcolors=256
 syntax enable
 set background=dark
-"colorscheme solarized
+colorscheme solarized
 "Automatically open Snipmate for C
 au BufNewFile,BufRead *.c SnipMateLoadScope c
 let g:ycm_auto_trigger = 1
@@ -75,7 +75,7 @@ highlight ColorColumn ctermbg=DarkCyan
 call matchadd('ColorColumn', '\%81v', 100)
 " Stop Ex-Mode 
 nnoremap Q <nop>
-colorscheme Monokai
+"colorscheme Monokai
 nmap <leader>d :NERDTreeToggle<CR>
 
 "F5 to make
