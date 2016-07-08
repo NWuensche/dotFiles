@@ -49,7 +49,7 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git, wd)
 
 # User configuration
 
@@ -84,7 +84,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
 eval `dircolors ~/.solarized/dircolors.ansi-dark`q
-alias cdStud='cd ~/Dokumente/Studium'
+#alias cdStud='cd ~/Dokumente/Studium'
 alias saveDotFiles='sudo rm -r ~/.dotFiles/vimStuff/.vim;
 	sudo cp -r ~/.vim ~/.dotFiles/vimStuff;
     sudo cp ~/.vimrc ~/.dotFiles/vimStuff/.vimrc;
@@ -101,3 +101,16 @@ alias saveDotFiles='sudo rm -r ~/.dotFiles/vimStuff/.vim;
 	sudo git push
 	'
 alias startRadio='mocp http://streams.radiopsr.de/psr-live/mp3-192/mediaplayer'
+alias update='sudo apt update'
+alias upgrade='sudo apt upgrade'
+alias -s sh=sh
+alias -s txt=vim
+alias -s tex=vim
+alias -s html=firefox
+
+
+cd ~/Dokumente/Studium
+wd add stud
+cd
+clear
+
