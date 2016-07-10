@@ -95,6 +95,7 @@ alias saveDotFiles='sudo rm -r ~/.dotFiles/vimStuff/.vim;
 	sudo cp ~/.Xmodmap ~/.dotFiles/XStuff/.Xmodmap;
 	sudo rm -r ~/.dotFiles/i3Stuff/.i3  ;
 	sudo cp -r ~/.i3 ~/.dotFiles/i3Stuff/.i3;
+	sudo cp /etc/hosts ~/.dotFiles/XStuff/hosts
 	cd ~/.dotFiles;
 	sudo git add .;
 	sudo git commit -m "(`date +%Y-%m-%d`) change dotFiles";
@@ -108,6 +109,7 @@ alias -s txt=vim
 alias -s tex=vim
 alias -s html=firefox
 
+mkcd (){mkdir $1; cd $1}
 
 cd ~/Dokumente/Studium
 wd add stud
