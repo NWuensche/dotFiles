@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/nwuensche/.oh-my-zsh
+export ZSH=/home/nwuensche/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -87,12 +87,13 @@ eval `dircolors ~/.solarized/dircolors.ansi-dark`q
 #alias cdStud='cd ~/Dokumente/Studium'
 alias saveDotFiles='sudo rm -r ~/.dotFiles/vimStuff/.vim;
 	sudo cp -r ~/.vim ~/.dotFiles/vimStuff;
-    sudo cp ~/.vimrc ~/.dotFiles/vimStuff/.vimrc;
+	sudo cp ~/.vimrc ~/.dotFiles/vimStuff/.vimrc;
 	sudo cp ~/.bashrc ~/.dotFiles/XStuff/.bashrc;
 	sudo cp ~/.Xdefaults ~/.dotFiles/XStuff/.Xdefaults;
 	sudo cp ~/.zshrc ~/.dotFiles/XStuff/.zshrc;
 	sudo cp ~/.Xresources ~/.dotFiles/XStuff/.Xresources;
 	sudo cp ~/.Xmodmap ~/.dotFiles/XStuff/.Xmodmap;
+	sudo cp /etc/hosts ~/.dotFiles/XStuff/hosts;
 	sudo rm -r ~/.dotFiles/i3Stuff/.i3  ;
 	sudo cp -r ~/.i3 ~/.dotFiles/i3Stuff/.i3;
 	sudo cp /etc/hosts ~/.dotFiles/XStuff/hosts
@@ -100,16 +101,18 @@ alias saveDotFiles='sudo rm -r ~/.dotFiles/vimStuff/.vim;
 	sudo git add .;
 	sudo git commit -m "(`date +%Y-%m-%d`) change dotFiles";
 	sudo git push
-	'
+'
 alias startRadio='mocp http://streams.radiopsr.de/psr-live/mp3-192/mediaplayer'
-alias update='sudo apt update'
-alias upgrade='sudo apt upgrade'
+#alias update='sudo apt update'
+#alias upgrade='sudo apt upgrade'
 alias -s sh=sh
 alias -s txt=vim
 alias -s tex=vim
 alias -s html=firefox
-
+alias pacman=yaourt
+alias sudo='sudo ' # important, so that aliases work with sudo
 mkcd (){mkdir $1; cd $1}
+
 
 cd ~/Dokumente/Studium
 wd add stud
