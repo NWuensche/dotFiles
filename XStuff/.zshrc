@@ -85,18 +85,15 @@ source $ZSH/oh-my-zsh.sh
 #
 eval `dircolors ~/.solarized/dircolors.ansi-dark`q
 #alias cdStud='cd ~/Dokumente/Studium'
-alias saveDotFiles='sudo rm -r ~/.dotFiles/vimStuff/.vim;
+alias saveDotFiles='
+	sudo rm -r ~/.dotFiles/vimStuff/.vim;
 	sudo cp -r ~/.vim ~/.dotFiles/vimStuff;
 	sudo cp ~/.vimrc ~/.dotFiles/vimStuff/.vimrc;
 	sudo cp ~/.bashrc ~/.dotFiles/XStuff/.bashrc;
-	sudo cp ~/.Xdefaults ~/.dotFiles/XStuff/.Xdefaults;
 	sudo cp ~/.zshrc ~/.dotFiles/XStuff/.zshrc;
-	sudo cp ~/.Xresources ~/.dotFiles/XStuff/.Xresources;
-	sudo cp ~/.Xmodmap ~/.dotFiles/XStuff/.Xmodmap;
 	sudo cp /etc/hosts ~/.dotFiles/XStuff/hosts;
 	sudo rm -r ~/.dotFiles/i3Stuff/.i3  ;
 	sudo cp -r ~/.i3 ~/.dotFiles/i3Stuff/.i3;
-	sudo cp /etc/hosts ~/.dotFiles/XStuff/hosts
 	cd ~/.dotFiles;
 	sudo git add .;
 	sudo git commit -m "(`date +%Y-%m-%d`) change dotFiles";
@@ -111,11 +108,8 @@ alias -s tex=vim
 alias -s html=firefox
 alias pacman=yaourt
 alias sudo='sudo ' # important, so that aliases work with sudo
+#alias steam='LD_PRELOAD="/usr/$LIB/libstdc++.so.6 /usr/$LIB/libgcc_s.so.1 /usr/$LIB/libxcb.so.1 /usr/$LIB/libgpg-error.so" steam'
 mkcd (){mkdir $1; cd $1}
-
-
-cd ~/Dokumente/Studium
-wd add stud
-cd
-clear
-
+getIt (){source ~/.dontDelete $1}
+(cd ~/Dokumente/Studium && wd add! stud && clear)
+alias xclip="xclip -selection c"
