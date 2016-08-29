@@ -97,7 +97,8 @@ alias saveDotFiles='
 	cd ~/.dotFiles;
 	sudo git add .;
 	sudo git commit -m "(`date +%Y-%m-%d`) change dotFiles";
-	sudo git push
+	sudo git push;
+	cd;
 '
 alias startRadio='mocp http://streams.radiopsr.de/psr-live/mp3-192/mediaplayer'
 #alias update='sudo apt update'
