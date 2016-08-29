@@ -109,7 +109,22 @@ alias -s html=firefox
 alias pacman=yaourt
 alias sudo='sudo ' # important, so that aliases work with sudo
 #alias steam='LD_PRELOAD="/usr/$LIB/libstdc++.so.6 /usr/$LIB/libgcc_s.so.1 /usr/$LIB/libxcb.so.1 /usr/$LIB/libgpg-error.so" steam'
+SUDO_EDITOR=/usr/bin/vim
+export SUDO_EDITOR
 mkcd (){mkdir $1; cd $1}
 getIt (){source ~/.dontDelete $1}
-(cd ~/Dokumente/Studium && wd add! stud && clear)
+(cd ~/Dokumente/Studium && wd add! stud && cd && cd Github/laverna/app/scripts && wd add! lav && clear)
 alias xclip="xclip -selection c"
+
+# color man pages
+man() {
+    env \
+        LESS_TERMCAP_mb=$(printf "\e[1;31m") \
+        LESS_TERMCAP_md=$(printf "\e[1;31m") \
+        LESS_TERMCAP_me=$(printf "\e[0m") \
+        LESS_TERMCAP_se=$(printf "\e[0m") \
+        LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
+        LESS_TERMCAP_ue=$(printf "\e[0m") \
+        LESS_TERMCAP_us=$(printf "\e[1;32m") \
+            man "$@"
+}
