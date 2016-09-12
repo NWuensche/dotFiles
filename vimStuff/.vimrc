@@ -1,7 +1,8 @@
 set relativenumber
 set tabstop=4
 set shiftwidth=4 
-let g:hardtime_default_on = 1
+set expandtab
+"let g:hardtime_default_on = 1
 
 
 
