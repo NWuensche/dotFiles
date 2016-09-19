@@ -2,13 +2,12 @@
 export ZSH=/home/nwuensche/.oh-my-zsh
 ZSH_THEME="agnoster"
 plugins=(git, wd)
-(cd ~/Github/leksah && wd add! lek)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-SUDO_EDIT="vim"
-EDITOR="Vim"
-export SUDO_EDITOR
+EDITOR=vim
+export EDITOR
+
 alias saveDotFiles='
 	sudo rm -r ~/.dotFiles/vimStuff/.vim;
 	sudo cp -r ~/.vim ~/.dotFiles/vimStuff;
