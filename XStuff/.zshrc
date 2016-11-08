@@ -20,6 +20,7 @@ alias saveDotFiles='
 	sudo cp /etc/hosts ~/.dotFiles/XStuff/hosts;
 	sudo rm -r ~/.dotFiles/i3Stuff/.i3  ;
 	sudo cp -r ~/.i3 ~/.dotFiles/i3Stuff/.i3;
+    sudo cp -r ~/.oh-my-zsh/themes/agnoster.zsh-theme ~/.dotFiles/agnoster.zsh-theme;
 	cd ~/.dotFiles;
 	sudo git add .;
 	sudo git commit -m "(`date +%Y-%m-%d`) change dotFiles";
@@ -37,9 +38,8 @@ getIt (){source ~/.dontDelete $1}
 rm (){trash-put $1;}
 realrm (){rm $1;}
 (cd ~/Dokumente/Studium/3.\ Semester && wd add! stud)
-(wd stud && cd swt16w17 && wd add! spr)
+(wd stud && cd swt16w17/app && wd add! spr)
 (wd stud && cd Lebenslauf\ für\ Englisch\ -\ MLP\ schon\ auf\ Externer/MLP\ Stipendium\ Wiesloch\ 2016/Lebenslauf && wd add! eng)
 
 alias xclip="xclip -selection c"
-
 clear
