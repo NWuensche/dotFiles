@@ -11,16 +11,20 @@ export EDITOR
 PATH=$PATH:/home/nwuensche/.gem/ruby/2.3.0/bin
 export PATH
 
+alias startMvn='mvn spring-boot:run'
+
 alias saveDotFiles='
+	sudo cp /etc/hosts ~/.dotFiles/XStuff/hosts;
+
 	sudo rm -r ~/.dotFiles/vimStuff/.vim;
 	sudo cp -r ~/.vim ~/.dotFiles/vimStuff;
 	sudo cp ~/.vimrc ~/.dotFiles/vimStuff/.vimrc;
-	sudo cp ~/.bashrc ~/.dotFiles/XStuff/.bashrc;
-	sudo cp ~/.zshrc ~/.dotFiles/XStuff/.zshrc;
-	sudo cp /etc/hosts ~/.dotFiles/XStuff/hosts;
-	sudo rm -r ~/.dotFiles/i3Stuff/.i3  ;
-	sudo cp -r ~/.i3 ~/.dotFiles/i3Stuff/.i3;
-    sudo cp -r ~/.oh-my-zsh/themes/agnoster.zsh-theme ~/.dotFiles/agnoster.zsh-theme;
+
+	sudo cp ~/.bashrc ~/.dotFiles/terminalStuff/.bashrc;
+	sudo cp ~/.zshrc ~/.dotFiles/terminalStuff/.zshrc;
+    sudo cp -r ~/.oh-my-zsh/themes/agnoster.zsh-theme ~/.dotFiles/terminalStuff/agnoster.zsh-theme;
+    sudo cp ~/.tmux.conf ~/.dotFiles/terminalStuff/.tmux.conf
+
 	cd ~/.dotFiles;
 	sudo git add .;
 	sudo git commit -m "(`date +%Y-%m-%d`) change dotFiles";
@@ -42,4 +46,4 @@ realrm (){rm $1;}
 (wd stud && cd Lebenslauf\ für\ Englisch\ -\ MLP\ schon\ auf\ Externer/MLP\ Stipendium\ Wiesloch\ 2016/Lebenslauf && wd add! eng)
 
 alias xclip="xclip -selection c"
-clear
+tmux attach -t base || tmux new -s base
