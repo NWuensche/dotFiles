@@ -46,4 +46,5 @@ realrm (){rm $1;}
 (wd stud && cd Lebenslauf\ für\ Englisch\ -\ MLP\ schon\ auf\ Externer/MLP\ Stipendium\ Wiesloch\ 2016/Lebenslauf && wd add! eng)
 
 alias xclip="xclip -selection c"
+clear
 tmux attach -t base || tmux new -s base
