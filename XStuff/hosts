@@ -7,14 +7,5 @@ fe00::0 ip6-localnet
 ff00::0 ip6-mcastprefix
 ff02::1 ip6-allnodes
 ff02::2 ip6-allrouters
-127.0.0.1 9gag.com
-127.0.0.1 www.9gag.com
-#127.0.0.1 https://www.9gag.com
-#127.0.0.1 http://9gag.com/
-#127.0.0.1 http://9gag.com
-127.0.0.1 www.instagram.com
-127.0.0.1 www.facebook.com
-127.0.0.1 www.twitter.com
-127.0.0.1 twitter.com
-127.0.0.1 www.youtube.com
-127.0.0.1 de.todoist.com
+
+#127.0.0.1 www.youtube.com

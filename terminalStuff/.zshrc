@@ -7,6 +7,8 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 EDITOR=vim
 export EDITOR
+ANDROID_HOME=/home/nwuensche/Android/Sdk
+export ANDROID_HOME
 
 PATH=$PATH:/home/nwuensche/.gem/ruby/2.3.0/bin
 export PATH
@@ -25,6 +27,8 @@ alias saveDotFiles='
     sudo cp -r ~/.oh-my-zsh/themes/agnoster.zsh-theme ~/.dotFiles/terminalStuff/agnoster.zsh-theme;
     sudo cp ~/.tmux.conf ~/.dotFiles/terminalStuff/.tmux.conf
 
+    sudo cp /usr/share/sddm/scripts/Xsetup ~/.dotFiles/sddmStuff/Xsetup
+
 	cd ~/.dotFiles;
 	sudo git add .;
 	sudo git commit -m "(`date +%Y-%m-%d`) change dotFiles";
@@ -37,6 +41,7 @@ alias -s tex=vim
 alias -s html=firefox
 alias pacman=yaourt
 alias sudo='sudo ' # important, so that aliases work with sudo
+alias pacmanremoveorhpans='sudo pacman -Rns $(pacman -Qtdq)'
 mkcd (){mkdir $1; cd $1}
 getIt (){source ~/.dontDelete $1}
 rm (){trash-put $1;}
