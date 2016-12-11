@@ -170,3 +170,5 @@ bindsym $mod+apostrophe exec terminator -e ranger
 
 exec redshift -l 55.7:12.6 -t 5700:3600 -g 0.8 -m randr -v
 exec xmodmap ~/.Xmodmap
+
+exec --no-startup-id nitrogen --restore # Get Wallpaper with nitrogen
