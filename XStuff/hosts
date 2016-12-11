@@ -8,4 +8,6 @@ ff00::0 ip6-mcastprefix
 ff02::1 ip6-allnodes
 ff02::2 ip6-allrouters
 
+127.0.0.1 www.9gag.com
+
 #127.0.0.1 www.youtube.com

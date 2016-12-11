@@ -17,6 +17,7 @@ alias startMvn='mvn spring-boot:run'
 
 alias saveDotFiles='
 	sudo cp /etc/hosts ~/.dotFiles/XStuff/hosts;
+    sudo cp ~/.Xmodmap ~/.dotFiles/XStuff/.Xmodmap;
 
 	sudo rm -r ~/.dotFiles/vimStuff/.vim;
 	sudo cp -r ~/.vim ~/.dotFiles/vimStuff;
@@ -25,9 +26,11 @@ alias saveDotFiles='
 	sudo cp ~/.bashrc ~/.dotFiles/terminalStuff/.bashrc;
 	sudo cp ~/.zshrc ~/.dotFiles/terminalStuff/.zshrc;
     sudo cp -r ~/.oh-my-zsh/themes/agnoster.zsh-theme ~/.dotFiles/terminalStuff/agnoster.zsh-theme;
-    sudo cp ~/.tmux.conf ~/.dotFiles/terminalStuff/.tmux.conf
 
     sudo cp /usr/share/sddm/scripts/Xsetup ~/.dotFiles/sddmStuff/Xsetup
+
+    sudo rm -r ~/.dotFiles/i3Stuff
+    sudo cp -r ~/.i3 ~/i3Stuff
 
 	cd ~/.dotFiles;
 	sudo git add .;
@@ -52,4 +55,3 @@ realrm (){rm $1;}
 
 alias xclip="xclip -selection c"
 clear
-tmux attach -t base || tmux new -s base
