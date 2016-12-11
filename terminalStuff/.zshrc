@@ -19,8 +19,6 @@ alias saveDotFiles='
 	sudo cp /etc/hosts ~/.dotFiles/XStuff/hosts;
     sudo cp ~/.Xmodmap ~/.dotFiles/XStuff/.Xmodmap;
 
-	sudo rm -r ~/.dotFiles/vimStuff/.vim;
-	sudo cp -r ~/.vim ~/.dotFiles/vimStuff;
 	sudo cp ~/.vimrc ~/.dotFiles/vimStuff/.vimrc;
 
 	sudo cp ~/.bashrc ~/.dotFiles/terminalStuff/.bashrc;
