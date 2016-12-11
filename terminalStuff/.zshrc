@@ -12,6 +12,8 @@ export ANDROID_HOME
 
 PATH=$PATH:/home/nwuensche/.gem/ruby/2.3.0/bin
 export PATH
+BROWSER=chromium
+export BROWSER
 
 alias startMvn='mvn spring-boot:run'
 
