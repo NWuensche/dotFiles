@@ -45,6 +45,8 @@ alias -s html=firefox
 alias pacman=yaourt
 alias sudo='sudo ' # important, so that aliases work with sudo
 alias pacmanremoveorhpans='sudo pacman -Rns $(pacman -Qtdq)'
+alias vscode='/usr/bin/code'
+alias intellij='sh /opt/IntelliJ\ Ultimate/bin/idea.sh'
 mkcd (){mkdir $1; cd $1}
 getIt (){source ~/.dontDelete $1}
 rm (){trash-put $1;}
