@@ -27,10 +27,10 @@ alias saveDotFiles='
 	sudo cp ~/.zshrc ~/.dotFiles/terminalStuff/.zshrc;
     sudo cp -r ~/.oh-my-zsh/themes/agnoster.zsh-theme ~/.dotFiles/terminalStuff/agnoster.zsh-theme;
 
-    sudo cp /usr/share/sddm/scripts/Xsetup ~/.dotFiles/sddmStuff/Xsetup
+    sudo cp /usr/share/sddm/scripts/Xsetup ~/.dotFiles/sddmStuff/Xsetup;
 
-    sudo rm -r ~/.dotFiles/i3Stuff
-    sudo cp -r ~/.i3 ~/.dotFiles/i3Stuff
+    sudo rm -r ~/.dotFiles/i3Stuff;
+    sudo cp -r ~/.i3 ~/.dotFiles/i3Stuff;
 
 	cd ~/.dotFiles;
 	sudo git add .;
@@ -54,28 +54,6 @@ mkcd (){mkdir $1; cd $1}
 getIt (){source ~/.dontDelete $1}
 rm (){trash-put $1;}
 realrm (){rm $1;}
-saveDotFiles (){
-	sudo cp /etc/hosts ~/.dotFiles/XStuff/hosts;
-    sudo cp ~/.Xmodmap ~/.dotFiles/XStuff/.Xmodmap;
-
-	sudo cp ~/.vimrc ~/.dotFiles/vimStuff/.vimrc;
-
-	sudo cp ~/.bashrc ~/.dotFiles/terminalStuff/.bashrc;
-	sudo cp ~/.zshrc ~/.dotFiles/terminalStuff/.zshrc;
-    sudo cp -r ~/.oh-my-zsh/themes/agnoster.zsh-theme ~/.dotFiles/terminalStuff/agnoster.zsh-theme;
-
-    sudo cp /usr/share/sddm/scripts/Xsetup ~/.dotFiles/sddmStuff/Xsetup
-
-    sudo rm -r ~/.dotFiles/i3Stuff
-    sudo cp -r ~/.i3 ~/.dotFiles/i3Stuff
-
-	cd ~/.dotFiles;
-	sudo git add .;
-	sudo git commit -m $1;
-	sudo git push;
-	cd;
-}
-
 (cd ~/Dokumente/Studium/3.\ Semester && wd add! stud)
 (wd stud && cd swt16w17/app && wd add! spr)
 (wd stud && cd Lebenslauf\ für\ Englisch\ -\ MLP\ schon\ auf\ Externer/MLP\ Stipendium\ Wiesloch\ 2016/Lebenslauf && wd add! eng)
