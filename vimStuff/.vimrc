@@ -39,6 +39,8 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/nerdcommenter'
 " Fixing whitespaces
 Plugin 'bronson/vim-trailing-whitespace'
+" Kotlin Syntax
+Plugin 'udalov/kotlin-vim'
 "	------- PLUGINS END ------- "
 
 call vundle#end()            " required

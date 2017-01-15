@@ -15,8 +15,6 @@ export PATH
 BROWSER=chromium
 export BROWSER
 
-alias startMvn='mvn spring-boot:run'
-
 alias saveDotFiles='
 	sudo cp /etc/hosts ~/.dotFiles/XStuff/hosts;
     sudo cp ~/.Xmodmap ~/.dotFiles/XStuff/.Xmodmap;
@@ -41,7 +39,7 @@ alias saveDotFiles='
 alias -s sh=sh
 alias -s txt=vim
 alias -s tex=vim
-alias -s html=firefox
+alias -s html=chromium
 alias pacman=yaourt
 alias sudo='sudo ' # important, so that aliases work with sudo
 alias pacmanremoveorhpans='sudo pacman -Rns $(pacman -Qtdq)'
@@ -50,13 +48,20 @@ alias intellij='sh /opt/IntelliJ\ Ultimate/bin/idea.sh'
 alias transde="trans en:de -b"
 alias transen="trans de:en -b"
 alias emptytrash="sudo rm -rf ~/.local/share/Trash/*"
-mkcd (){mkdir $1; cd $1}
-getIt (){source ~/.dontDelete $1}
-rm (){trash-put $1;}
-realrm (){rm $1;}
+alias mkcd='f() { mkdir $1; cd $1 }; f'
+alias getIt='f() { source ~/.dontDelete $1 }; f'
+alias rm='echo "rm is disabled, use trash-put or realrm instead."'
+alias realrm='f() { /bin/rm $1 }; f'
+alias xclip="xclip -selection c"
+alias example='f() { echo Your arg was $1. };f'
+alias kcc='f() { kotlinc $1 -include-runtime -d program.jar; java -jar program.jar }; f'
+
 (cd ~/Dokumente/Studium/3.\ Semester && wd add! stud)
 (wd stud && cd swt16w17/app && wd add! spr)
 (wd stud && cd Lebenslauf\ für\ Englisch\ -\ MLP\ schon\ auf\ Externer/MLP\ Stipendium\ Wiesloch\ 2016/Lebenslauf && wd add! eng)
 
-alias xclip="xclip -selection c"
 clear
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/home/nwuensche/.sdkman"
+[[ -s "/home/nwuensche/.sdkman/bin/sdkman-init.sh" ]] && source "/home/nwuensche/.sdkman/bin/sdkman-init.sh"
