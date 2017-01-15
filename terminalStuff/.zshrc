@@ -27,7 +27,7 @@ alias saveDotFiles='
 
     sudo cp /usr/share/sddm/scripts/Xsetup ~/.dotFiles/sddmStuff/Xsetup;
 
-    sudo rm -r ~/.dotFiles/i3Stuff;
+    sudo realrm -r ~/.dotFiles/i3Stuff;
     sudo cp -r ~/.i3 ~/.dotFiles/i3Stuff;
 
 	cd ~/.dotFiles;
