@@ -40,6 +40,7 @@ alias -s sh=sh
 alias -s txt=vim
 alias -s tex=vim
 alias -s html=chromium
+alias -s pdf=chromium
 alias pacman=yaourt
 alias sudo='sudo ' # important, so that aliases work with sudo
 alias pacmanremoveorhpans='sudo pacman -Rns $(pacman -Qtdq)'
