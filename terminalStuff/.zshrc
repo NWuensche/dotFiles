@@ -12,6 +12,8 @@ export ANDROID_HOME
 
 PATH=$PATH:/home/nwuensche/.gem/ruby/2.3.0/bin
 export PATH
+PATH=$PATH:/home/nwuensche/.gem/ruby/2.4.0/bin
+export PATH
 BROWSER=chromium
 export BROWSER
 
@@ -59,7 +61,6 @@ alias kcc='f() { kotlinc $1 -include-runtime -d program.jar; java -jar program.j
 
 (cd ~/Dokumente/Studium/3.\ Semester && wd add! stud)
 (wd stud && cd swt16w17/app && wd add! spr)
-(wd stud && cd Lebenslauf\ für\ Englisch\ -\ MLP\ schon\ auf\ Externer/MLP\ Stipendium\ Wiesloch\ 2016/Lebenslauf && wd add! eng)
 
 clear
 
