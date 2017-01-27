@@ -41,6 +41,8 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'bronson/vim-trailing-whitespace'
 " Kotlin Syntax
 Plugin 'udalov/kotlin-vim'
+" JS Syntax
+Plugin 'pangloss/vim-javascript'
 "	------- PLUGINS END ------- "
 
 call vundle#end()            " required
