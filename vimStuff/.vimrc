@@ -43,6 +43,8 @@ Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'udalov/kotlin-vim'
 " JS Syntax
 Plugin 'pangloss/vim-javascript'
+" Markdown Folding
+Plugin 'nelstrom/vim-markdown-folding'
 "	------- PLUGINS END ------- "
 
 call vundle#end()            " required
