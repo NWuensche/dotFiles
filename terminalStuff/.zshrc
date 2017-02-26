@@ -9,6 +9,9 @@ EDITOR=vim
 export EDITOR
 ANDROID_HOME=/home/nwuensche/Android/Sdk
 export ANDROID_HOME
+MAVEN_OPTS="-Xmx1024m -Xms512m"
+export MAVEN_OPTS
+
 
 PATH=$PATH:/home/nwuensche/.gem/ruby/2.3.0/bin
 export PATH
@@ -18,6 +21,7 @@ BROWSER=chromium
 export BROWSER
 
 alias saveDotFiles='
+
 	sudo cp /etc/hosts ~/.dotFiles/XStuff/hosts;
     sudo cp ~/.Xmodmap ~/.dotFiles/XStuff/.Xmodmap;
 
@@ -26,6 +30,7 @@ alias saveDotFiles='
 	sudo cp ~/.bashrc ~/.dotFiles/terminalStuff/.bashrc;
 	sudo cp ~/.zshrc ~/.dotFiles/terminalStuff/.zshrc;
     sudo cp -r ~/.oh-my-zsh/themes/agnoster.zsh-theme ~/.dotFiles/terminalStuff/agnoster.zsh-theme;
+
 
     sudo cp /usr/share/sddm/scripts/Xsetup ~/.dotFiles/sddmStuff/Xsetup;
 
@@ -45,7 +50,7 @@ alias -s html=chromium
 alias -s pdf=chromium
 alias pacman=yaourt
 alias sudo='sudo ' # important, so that aliases work with sudo
-alias pacmanremoveorhpans='sudo pacman -Rns $(pacman -Qtdq)'
+alias pacmanremoveorphans='sudo pacman -Rns $(pacman -Qtdq)'
 alias vscode='/usr/bin/code'
 #alias intellij='sh /opt/IntelliJ\ Ultimate/bin/idea.sh'
 alias transde="trans en:de -b"
