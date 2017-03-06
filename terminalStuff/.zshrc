@@ -58,13 +58,13 @@ alias transen="trans de:en -b"
 alias emptytrash="sudo rm -rf ~/.local/share/Trash/*"
 alias mkcd='f() { mkdir $1; cd $1 }; f'
 alias getIt='f() { source ~/.dontDelete $1 }; f'
-alias rm='echo "rm is disabled, use trash-put or realrm instead."'
+alias rm='echo "rm is disabled, use trash or realrm instead."'
 alias realrm='/bin/rm'
 alias xclip="xclip -selection c"
 alias example='f() { echo Your arg was $1. };f'
 alias kcc='f() { kotlinc $1 -include-runtime -d program.jar; java -jar program.jar }; f'
 
-(cd ~/Dokumente/Studium/3.\ Semester && wd add! stud)
+(cd ~/Dokumente/Studium/4.\ Semester && wd add! stud)
 (wd stud && cd swt16w17/app && wd add! spr)
 
 clear
