@@ -61,11 +61,10 @@ alias getIt='f() { source ~/.dontDelete $1 }; f'
 alias rm='echo "rm is disabled, use trash or realrm instead."'
 alias realrm='/bin/rm'
 alias xclip="xclip -selection c"
-alias example='f() { echo Your arg was $1. };f'
 alias kcc='f() { kotlinc $1 -include-runtime -d program.jar; java -jar program.jar }; f'
+alias youtubemp3='f() { (mkcd MusikDownloads; youtube-dl -f m4a $1) }; f'
 
 (cd ~/Dokumente/Studium/4.\ Semester && wd add! stud)
-(wd stud && cd swt16w17/app && wd add! spr)
 
 clear
 
