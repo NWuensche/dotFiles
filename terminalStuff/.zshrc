@@ -64,7 +64,8 @@ alias xclip="xclip -selection c"
 alias kcc='f() { kotlinc $1 -include-runtime -d program.jar; java -jar program.jar }; f'
 alias youtubemp3='f() { (mkcd MusikDownloads; youtube-dl -f m4a $1) }; f'
 
-(cd ~/Dokumente/Studium/4.\ Semester && wd add! stud)
+(cd ~/Dokumente/Studium/4.Semester && wd add! stud)
+(cd ~/Dokumente/Studium/4.Semester/SHKSWT/inloop-tasks && wd add! shk)
 
 clear
 
