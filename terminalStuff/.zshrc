@@ -20,6 +20,10 @@ export PATH
 BROWSER=chromium
 export BROWSER
 
+(cd ~/Dokumente/Studium/4.Semester && wd add! stud)
+(cd ~/Dokumente/Studium/4.Semester/SHKSWT/inloop-tasks && wd add! shk)
+(cd ~/Dokumente/Studium/4.Semester/HP/Versuch1 && wd add! hp)
+
 alias saveDotFiles='
 
 	sudo cp /etc/hosts ~/.dotFiles/XStuff/hosts;
@@ -63,9 +67,8 @@ alias realrm='/bin/rm'
 alias xclip="xclip -selection c"
 alias kcc='f() { kotlinc $1 -include-runtime -d program.jar; java -jar program.jar }; f'
 alias youtubemp3='f() { (mkcd MusikDownloads; youtube-dl -f m4a $1) }; f'
-
-(cd ~/Dokumente/Studium/4.Semester && wd add! stud)
-(cd ~/Dokumente/Studium/4.Semester/SHKSWT/inloop-tasks && wd add! shk)
+alias mv='mv -iv'
+alias cp='cp -iv'
 
 clear
 

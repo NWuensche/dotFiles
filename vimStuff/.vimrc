@@ -46,6 +46,8 @@ Plugin 'udalov/kotlin-vim'
 Plugin 'pangloss/vim-javascript'
 " Markdown Folding
 Plugin 'nelstrom/vim-markdown-folding'
+" Surrond text with brackets
+Plugin 'tpope/vim-surround'
 "	------- PLUGINS END ------- "
 
 call vundle#end()            " required
