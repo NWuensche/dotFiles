@@ -5,6 +5,7 @@ set expandtab
 set spell
 syntax enable
 let mapleader = "\<Space>"
+set spelllang=en,de
 
 " Type <Leader>w to save file
 nnoremap <Leader>w :w<CR>

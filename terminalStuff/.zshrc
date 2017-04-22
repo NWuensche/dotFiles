@@ -69,6 +69,7 @@ alias kcc='f() { kotlinc $1 -include-runtime -d program.jar; java -jar program.j
 alias youtubemp3='f() { (mkcd MusikDownloads; youtube-dl -f m4a $1) }; f'
 alias mv='mv -iv'
 alias cp='cp -iv'
+alias pdflatex='f() { (pdflatex $1; trash *.aux; trash *.log; trash *.nav; trash *.out; trash *.snm; trash *.toc) }; f'
 
 clear
 
