@@ -34,7 +34,7 @@ alias saveDotFiles='
 
 	sudo cp ~/.bashrc ~/.dotFiles/terminalStuff/.bashrc;
 	sudo cp ~/.zshrc ~/.dotFiles/terminalStuff/.zshrc;
-    sudo git config --list | grep alias > ~/.dotFiles/terminalStuff/gitaliases.txt;
+    git config --list | grep alias > ~/.dotFiles/terminalStuff/gitaliases.txt;
     sudo cp -r ~/.oh-my-zsh/themes/agnoster.zsh-theme ~/.dotFiles/terminalStuff/agnoster.zsh-theme;
 
 
