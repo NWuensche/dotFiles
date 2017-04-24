@@ -23,6 +23,7 @@ export BROWSER
 (cd ~/Dokumente/Studium/4.Semester && wd add! stud)
 (cd ~/Dokumente/Studium/4.Semester/SHKSWT/inloop-tasks && wd add! shk)
 (cd ~/Dokumente/Studium/4.Semester/HP/Versuch1 && wd add! hp)
+(cd ~/Proseminar && wd add! pro)
 
 alias saveDotFiles='
 
@@ -33,6 +34,7 @@ alias saveDotFiles='
 
 	sudo cp ~/.bashrc ~/.dotFiles/terminalStuff/.bashrc;
 	sudo cp ~/.zshrc ~/.dotFiles/terminalStuff/.zshrc;
+    sudo git config --list | grep alias > ~/.dotFiles/terminalStuff/gitaliases.txt;
     sudo cp -r ~/.oh-my-zsh/themes/agnoster.zsh-theme ~/.dotFiles/terminalStuff/agnoster.zsh-theme;
 
 
