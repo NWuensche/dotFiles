@@ -2,3 +2,4 @@ alias.graph=log --decorate --graph --oneline
 alias.stageddiff=diff --staged
 alias.noffmerge=merge --no-ff
 alias.rmgitignorefile=rm --cached 
+alias.sdiff=diff --staged
