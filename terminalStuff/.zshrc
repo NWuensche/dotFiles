@@ -27,6 +27,7 @@ export BROWSER
 
 alias saveDotFiles='
 
+    git config --list | grep alias > ~/.dotFiles/terminalStuff/gitaliases.txt;
 	sudo cp /etc/hosts ~/.dotFiles/XStuff/hosts;
     sudo cp ~/.Xmodmap ~/.dotFiles/XStuff/.Xmodmap;
 
@@ -34,7 +35,6 @@ alias saveDotFiles='
 
 	sudo cp ~/.bashrc ~/.dotFiles/terminalStuff/.bashrc;
 	sudo cp ~/.zshrc ~/.dotFiles/terminalStuff/.zshrc;
-    git config --list | grep alias > ~/.dotFiles/terminalStuff/gitaliases.txt;
     sudo cp -r ~/.oh-my-zsh/themes/agnoster.zsh-theme ~/.dotFiles/terminalStuff/agnoster.zsh-theme;
 
 
