@@ -28,6 +28,8 @@ export BROWSER
 alias saveDotFiles='
 
     git config --list | grep alias > ~/.dotFiles/terminalStuff/gitaliases.txt;
+
+
 	sudo cp /etc/hosts ~/.dotFiles/XStuff/hosts;
     sudo cp ~/.Xmodmap ~/.dotFiles/XStuff/.Xmodmap;
 
@@ -37,13 +39,14 @@ alias saveDotFiles='
 	sudo cp ~/.zshrc ~/.dotFiles/terminalStuff/.zshrc;
     sudo cp -r ~/.oh-my-zsh/themes/agnoster.zsh-theme ~/.dotFiles/terminalStuff/agnoster.zsh-theme;
 
-    sudo cp ~/.1SekVideos.sh ~/.dotFiles/terminalStuff/.1SekVideos.sh;
 
 
     sudo cp /usr/share/sddm/scripts/Xsetup ~/.dotFiles/sddmStuff/Xsetup;
 
     sudo realrm -r ~/.dotFiles/i3Stuff;
     sudo cp -r ~/.i3 ~/.dotFiles/i3Stuff;
+
+    sudo cp ~/.1SekVideos.sh ~/.dotFiles/terminalStuff/.1SekVideos.sh;
 
 	cd ~/.dotFiles;
 	sudo git add .;
