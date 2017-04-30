@@ -1,3 +1,4 @@
+# Lege dieses Skript in den Ordner mit den Videos, benenne die Videos entsprechend ihres Datums um und starte das Skript
 for i in *.mp4; do
   #Dateiendung weg
   name=`echo $i | cut -d'.' -f1`;
