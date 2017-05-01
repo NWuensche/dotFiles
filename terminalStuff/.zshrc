@@ -47,7 +47,8 @@ alias saveDotFiles='
     sudo realrm -r ~/.dotFiles/i3Stuff;
     sudo cp -r ~/.i3 ~/.dotFiles/i3Stuff;
 
-    sudo cp ~/.1SekVideos.sh ~/.dotFiles/terminalStuff/.1SekVideos.sh;
+    sudo cp ~/.1SekVideos.sh ~/.dotFiles/scripts/.1SekVideos.sh;
+    sudo cp ~/.convertMusic.sh ~/.dotFiles/scripts/convertMusic.sh;
 
 	cd ~/.dotFiles;
 	sudo git add .;
