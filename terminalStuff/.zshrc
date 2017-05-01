@@ -38,6 +38,7 @@ alias saveDotFiles='
 	sudo cp ~/.bashrc ~/.dotFiles/terminalStuff/.bashrc;
 	sudo cp ~/.zshrc ~/.dotFiles/terminalStuff/.zshrc;
     sudo cp -r ~/.oh-my-zsh/themes/agnoster.zsh-theme ~/.dotFiles/terminalStuff/agnoster.zsh-theme;
+    sudo cp ~/.config/terminator/config ~/.dotFiles/terminalStuff/configTerminator
 
 
 
