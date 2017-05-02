@@ -51,6 +51,8 @@ alias saveDotFiles='
     sudo cp ~/.convertMusic.sh ~/.dotFiles/scripts/.convertMusic.sh;
     sudo cp ~/.musicMetadata.sh ~/.dotFiles/scripts/.musicMetadata.sh;
 
+    pacman -Qs > ~/.dotFiles/terminalStuff/packages.txt;
+
 	cd ~/.dotFiles;
 	sudo git add .;
 	sudo git commit -m "(`date +%Y-%m-%d`) change dotFiles";
