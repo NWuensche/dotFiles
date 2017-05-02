@@ -49,6 +49,7 @@ alias saveDotFiles='
 
     sudo cp ~/.1SekVideos.sh ~/.dotFiles/scripts/.1SekVideos.sh;
     sudo cp ~/.convertMusic.sh ~/.dotFiles/scripts/.convertMusic.sh;
+    sudo cp ~/.musicMetadata.sh ~/.dotFiles/scripts/.musicMetadata.sh;
 
 	cd ~/.dotFiles;
 	sudo git add .;
@@ -75,7 +76,7 @@ alias rm='echo "rm is disabled, use trash or realrm instead."'
 alias realrm='/bin/rm'
 alias xclip="xclip -selection c"
 alias kcc='f() { kotlinc $1 -include-runtime -d program.jar; java -jar program.jar }; f'
-alias youtubemp3='f() { (mkcd MusikDownloads; youtube-dl -f m4a $1) }; f'
+alias youtubemp3='f() { (mkcd MusikDownloads; youtube-dl -f m4a $1; cp ~/.convertMusic.sh .; ./.convertMusic.sh;) }; f'
 alias mv='mv -iv'
 alias cp='cp -iv'
 alias pdflatex='f() { (pdflatex $1; trash *.aux; trash *.log; trash *.nav; trash *.out; trash *.snm; trash *.toc) }; f'
