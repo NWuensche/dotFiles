@@ -36,9 +36,9 @@ extra/apache 2.4.25-2
     A high performance Unix-based HTTP server
 community/apm 1.18.1-1
     Atom package manager
-extra/appstream 0.10.6-1
+extra/appstream 0.11.0-1
     Provides a standard for creating app stores across distributions
-extra/appstream-qt 0.10.6-1
+extra/appstream-qt 0.11.0-1
     Qt5 interface for AppStream
 extra/apr 1.5.2-2
     The Apache Portable Runtime
@@ -158,7 +158,7 @@ extra/chmlib 0.40-4
     Library for dealing with Microsoft ITSS/CHM format files
 extra/chromaprint 1.4.2-1
     Library that implements a custom algorithm for extracting fingerprints from any audio source
-extra/chromium 58.0.3029.81-4
+extra/chromium 58.0.3029.96-1
     A web browser built for speed, simplicity, and security
 extra/cifs-utils 6.7-2
     CIFS filesystem user-space tools
@@ -166,7 +166,7 @@ extra/cln 1.3.4-3
     Class library for numbers
 extra/clucene 2.3.3.4-9
     C++ port of the high-performance text search engine Lucene
-extra/cmake 3.7.2-1
+extra/cmake 3.8.0-1
     A cross-platform open-source make system
 community/cmark 0.27.1-1
     CommonMark parsing and rendering library and program in C
@@ -214,7 +214,7 @@ core/diffutils 3.5-1 (base)
     Utility programs used for creating patch files
 extra/djvulibre 3.5.27-3
     Suite to create, manipulate and view DjVu ('déjà vu') documents
-community/dmenu 4.6-1
+community/dmenu 4.7-1
     A generic menu for X
 extra/dmxproto 2.3.1-3
     X11 Distributed Multihead X extension wire protocol
@@ -226,7 +226,7 @@ extra/docbook-xsl 1.79.1-2
     XML stylesheets for Docbook-xml transformations
 community/docker 1:17.04.0-1
     Pack, ship and run any application as a lightweight container
-community/docker-compose 1.11.2-1
+community/docker-compose 1.12.0-1
     Fast, isolated development environments using Docker
 extra/dolphin 17.04.0-1 (kde-applications kdebase)
     File Manager
@@ -442,8 +442,6 @@ extra/gtkmm 2.24.5-2
     C++ bindings for gtk2
 extra/gtkmm3 3.22.0-2
     C++ bindings for GTK+ 3
-extra/gtksourceview2 2.10.5-3
-    A text widget adding syntax highlighting and more to GNOME
 extra/gtksourceview3 3.24.1+1+ge88e8299-1
     A text widget adding syntax highlighting and more to GNOME
 extra/gtkspell 2.0.16-3
@@ -456,8 +454,6 @@ extra/guile2.0 2.0.14-1
     Portable, embeddable Scheme implementation written in C
 community/gulp 3.9.1-2
     The streaming build system
-community/gummi 1:0.6.6-2
-    Simple LaTex editor for GTK users
 community/guvcview 2.0.5-1
     A video viewer and capturer for the linux uvc driver
 extra/gvfs 1.32.1-1 (gnome)
@@ -526,7 +522,7 @@ extra/inputproto 2.3.2-1
     X11 Input extension wire protocol
 community/intellij-idea-community-edition 2:2017.1.2-1
     IDE for Java, Groovy and other programming languages with advanced refactoring features
-core/iproute2 4.10.0-3 (base)
+core/iproute2 4.11.0-1 (base)
     IP Routing Utilities
 core/iptables 1.6.1-1
     Linux kernel packet control tool
@@ -766,10 +762,14 @@ multilib/lib32-alsa-lib 1.1.3-1
     An alternative implementation of Linux sound support (32 bit)
 multilib/lib32-alsa-plugins 1.1.1-1
     Extra alsa plugins (32-bit)
+multilib/lib32-atk 2.22+1+gd57f97d-1
+    A library providing a set of interfaces for accessibility (32-bit)
 multilib/lib32-attr 2.4.47-1
     Extended attribute support library for ACL support (32-bit)
 multilib/lib32-bzip2 1.0.6-2
     A high-quality data compression program (32-bit)
+multilib/lib32-cairo 1.14.6-2
+    Cairo vector graphics library (32-bit)
 multilib/lib32-curl 7.53.1-1
     An URL retrieval utility and library (32-bit)
 multilib/lib32-dbus 1.10.18-1
@@ -786,6 +786,8 @@ multilib/lib32-freetype2 2.7.1-1
     TrueType font rendering library (32-bit)
 multilib/lib32-gcc-libs 6.3.1-2
     Runtime libraries shipped by GCC (32-bit)
+multilib/lib32-gdk-pixbuf2 2.36.2-2
+    An image loading library (32-bit)
 multilib/lib32-gettext 0.19.8.1-1
     GNU internationalization library (32-bit)
 multilib/lib32-glib2 2.50.1-2
@@ -798,6 +800,8 @@ multilib/lib32-gmp 6.1.1-1
     A free library for arbitrary precision arithmetic (32-bit)
 multilib/lib32-gnutls 3.4.15-1
     A library which provides a secure layer over a reliable transport layer (32-bit)
+multilib/lib32-gtk2 2.24.30-1
+    GObject-based multi-platform GUI toolkit (legacy) (32-bit)
 multilib/lib32-harfbuzz 1.4.1-2
     OpenType text shaping engine (32-bit)
 multilib/lib32-icu 59.1-1
@@ -812,6 +816,10 @@ multilib/lib32-libasyncns 0.8+3+g68cd5af-1
     A C library for executing name service queries asynchronously
 multilib/lib32-libcap 2.25-1
     POSIX 1003.1e capabilities (32-bit)
+multilib/lib32-libcups 2.2.1-1
+    The CUPS Printing System - client libraries (32-bit)
+multilib/lib32-libdatrie 0.2.10-1
+    Implementation of double-array structure for representing trie, as proposed by Junichi Aoe.
 multilib/lib32-libdrm 2.4.79-1
     Userspace interface to kernel DRM services (32-bit)
 multilib/lib32-libelf 0.168-1
@@ -860,6 +868,8 @@ multilib/lib32-libssh2 1.8.0-2
     A library implementing the SSH2 protocol as defined by Internet Drafts (32-bit)
 multilib/lib32-libtasn1 4.10-1
     The ASN.1 library used in GNUTLS (32 bit)
+multilib/lib32-libthai 0.1.26-1
+    Thai language support routines
 multilib/lib32-libtiff 4.0.7-1
     Library for manipulation of TIFF images (32-bit)
 multilib/lib32-libtxc_dxtn 1.0.1-5
@@ -874,6 +884,8 @@ multilib/lib32-libxau 1.0.8-1
     X11 authorisation library (32-bit)
 multilib/lib32-libxcb 1.12-2
     X11 client-side library (32-bit)
+multilib/lib32-libxcomposite 0.4.4-2
+    X11 Composite extension library (32-bit)
 multilib/lib32-libxcursor 1.1.14-1
     X cursor management library (32-bit)
 multilib/lib32-libxdamage 1.1.4-2
@@ -884,6 +896,8 @@ multilib/lib32-libxext 1.3.3-1
     X11 miscellaneous extensions library (32-bit)
 multilib/lib32-libxfixes 5.0.3-1
     X11 miscellaneous 'fixes' extension library (32-bit)
+multilib/lib32-libxft 2.3.2-1
+    FreeType-based font drawing library for X (32-bit)
 multilib/lib32-libxi 1.7.7-2
     X11 Input extension library (32-bit)
 multilib/lib32-libxinerama 1.1.3-1
@@ -920,9 +934,13 @@ local/lib32-openssl-1.0 1.0.2.k-1
     The Open Source toolkit for Secure Sockets Layer and Transport Layer Security (32-bit)
 multilib/lib32-p11-kit 0.23.2-1
     Library to work with PKCS#11 modules (32-bit)
+multilib/lib32-pango 1.40.3-1
+    A library for layout and rendering of text (32-bit)
 multilib/lib32-pcre 8.39-1
     A library that implements Perl 5-style regular expressions (32-bit)
-local/lib32-qt4 4.8.7-11
+multilib/lib32-pixman 0.34.0-1
+    Pixman library (32-bit)
+local/lib32-qt4 4.8.7-12
     A cross-platform application and UI framework (32-bit)
 multilib/lib32-readline 7.0-1
     GNU readline library (32-bit)
@@ -1314,7 +1332,7 @@ local/libudev.so.0 0.1.1-3
     Creates /usr/lib/libudev.so.0 -> /usr/lib/libudev.so symlink
 core/libunistring 0.9.7-1
     Library for manipulating Unicode strings and C strings
-extra/libunwind 1.1-3
+extra/libunwind 1.2-1
     Portable and efficient C programming interface (API) to determine the call-chain of a program
 extra/libupnp 1.6.21-1
     Portable Open Source UPnP Development Kit
@@ -1542,7 +1560,7 @@ extra/nautilus 3.24.1-1 (gnome)
     Default file manager for GNOME
 extra/nautilus-sendto 3.8.4+41+gf790d15-1 (gnome-extra)
     Easily send files via mail
-core/ncurses 6.0+20170401-1
+core/ncurses 6.0+20170429-1
     System V Release 4.0 curses emulation library
 extra/neon 0.30.2-2
     HTTP and WebDAV client library with a C interface
@@ -1562,7 +1580,7 @@ extra/nitrogen 1.6.1-1
     Background browser and setter for X windows
 extra/nm-connection-editor 1.4.6-1
     NetworkManager GUI connection editor and widgets
-community/nodejs 7.9.0-2
+community/nodejs 7.10.0-1
     Evented I/O for V8 javascript
 extra/noto-fonts 20170307-2
     Google Noto TTF fonts
@@ -1632,7 +1650,7 @@ core/pam 1.3.0-1
     PAM (Pluggable Authentication Modules) library
 core/pambase 20130928-1
     Base PAM configuration for services
-community/pandoc 1.19.2.1-45
+community/pandoc 1.19.2.1-49
     Conversion between markup formats
 extra/pango 1.40.5-1
     A library for layout and rendering of text
@@ -1684,7 +1702,7 @@ extra/perl-io-html 1.001-1
     Open an HTML file with automatic charset detection
 extra/perl-ipc-system-simple 1.25-1
     Run commands simply, with detailed diagnostics
-extra/perl-libwww 6.24-1
+extra/perl-libwww 6.26-1
     The World-Wide Web library for Perl
 extra/perl-lwp-mediatypes 6.02-2
     Guess the media type of a file or a URL
@@ -1788,7 +1806,7 @@ extra/pulseaudio-gconf 10.0-3
     GConf support for PulseAudio
 extra/purpose 1.1-2
     Framework for providing abstractions to get the developer's purposes fulfilled
-extra/putty 0.68-1
+extra/putty 0.69-1
     A terminal integrated SSH/Telnet client
 community/pwgen 2.07-2
     Password generator for creating easily memorable passwords
@@ -1814,11 +1832,11 @@ community/python-cached-property 1.3.0-2
     A decorator for caching properties in classes
 extra/python-chardet 2.3.0-4
     Python3 module for character encoding auto-detection
-community/python-colorama 0.3.7-2
+community/python-colorama 0.3.9-1
     Python API for cross-platform colored terminal text.
 extra/python-dbus-common 1.2.4-2
     Common dbus-python files shared between python-dbus and python2-dbus
-community/python-docker 2.1.0-1
+community/python-docker 2.2.1-1
     A Python library for the Docker Engine API
 community/python-docker-pycreds 0.2.1-2
     Python bindings for the docker credentials store API
@@ -1856,7 +1874,7 @@ extra/python-six 1.10.0-3
     Python 2 and 3 compatibility utilities
 community/python-texttable 0.8.8-1
     Generate a formatted text table using ASCII characters
-extra/python-urllib3 1.21-1
+extra/python-urllib3 1.21.1-1
     HTTP library with thread-safe connection pooling and file post support
 community/python-websocket-client 0.40.0-2
     WebSocket client library for Python
@@ -2094,7 +2112,7 @@ core/sqlite 3.18.0-1
     A C library that implements an SQL database engine
 extra/sratom 0.4.6-1
     An LV2 Atom RDF serialisation library
-community/stack 1.4.0-37
+community/stack 1.4.0-41
     The Haskell Tool Stack
 extra/startup-notification 0.12-5
     Monitor and display application startup
@@ -2212,7 +2230,7 @@ extra/udisks2 2.6.4-1
     Disk Management Service, version 2
 community/uglify-js 2.8.22-1
     JavaScript parser, mangler/compressor and beautifier toolkit
-community/unetbootin 625-1
+community/unetbootin 647-1
     Create bootable Live USB drives
 extra/unrar 1:5.4.5-1
     The RAR uncompression program
@@ -2246,7 +2264,7 @@ extra/vim-spell-de 20150901-1
     Language files for Vim spell checking
 community/virtualbox 5.1.22-1
     Powerful x86 virtualization for enterprise as well as home use
-local/virtualbox-ext-oracle 5.1.20-1
+local/virtualbox-ext-oracle 5.1.22-1
     Oracle VM VirtualBox Extension Pack
 community/virtualbox-guest-iso 5.1.22-1
     The official VirtualBox Guest Additions ISO image
@@ -2396,7 +2414,7 @@ extra/xorg-xinit 1.3.4-4
     X.Org initialisation program
 extra/xorg-xinput 1.6.2-1 (xorg-apps xorg)
     Small commandline tool to configure devices
-extra/xorg-xkbcomp 1.3.1-1 (xorg-apps xorg)
+extra/xorg-xkbcomp 1.4.0-1 (xorg-apps xorg)
     X Keyboard description compiler
 extra/xorg-xlsatoms 1.1.2-1 (xorg-apps xorg)
     List interned atoms defined on server
@@ -2436,7 +2454,7 @@ extra/yajl 2.1.0-1
     Yet Another JSON Library
 archlinuxfr/yaourt 1.8.1-1
     A pacman wrapper with extended features and AUR support
-community/youtube-dl 2017.04.28-1
+community/youtube-dl 2017.05.01-1
     A small command-line program to download videos from YouTube.com and a few more sites
 extra/zenity 3.24.0-1
     Display graphical dialog boxes from shell scripts

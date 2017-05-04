@@ -165,7 +165,7 @@ bindsym XF86AudioMute exec "amixer -D pulse set Master toggle"
 bindsym XF86AudioMicMute exec "amixer -D pulse sset Capture toggle"
 
 bindsym Print exec scrot '%d.%m.%Y %H:%M:%S.png' -e 'mv "$f" ~/Bilder/'
-bindsym $mod+semicolon exec chromium
+bindsym $mod+backslash exec chromium
 bindsym $mod+apostrophe exec terminator -e ranger
 
 # Still need toggle from standard i3

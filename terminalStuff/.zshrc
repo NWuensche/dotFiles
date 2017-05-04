@@ -34,6 +34,7 @@ alias saveDotFiles='
     sudo cp ~/.Xmodmap ~/.dotFiles/XStuff/.Xmodmap;
 
 	sudo cp ~/.vimrc ~/.dotFiles/vimStuff/.vimrc;
+    sudo cp -r ~/.vim/snippets ~/.dotFiles/vimStuff
 
 	sudo cp ~/.bashrc ~/.dotFiles/terminalStuff/.bashrc;
 	sudo cp ~/.zshrc ~/.dotFiles/terminalStuff/.zshrc;
