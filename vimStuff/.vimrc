@@ -31,20 +31,10 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 " Close Brackets automaticaly
 Plugin 'Raimondi/delimitMate'
-"NerdTree
-Plugin 'scrooloose/nerdtree'
 " Solarized-Theme
 Plugin 'altercation/vim-colors-solarized'
-" plugin on GitHub repo
-Plugin 'tpope/vim-fugitive'
-" Comment fast
-Plugin 'scrooloose/nerdcommenter'
 " Fixing whitespaces
 Plugin 'bronson/vim-trailing-whitespace'
-" Kotlin Syntax
-Plugin 'udalov/kotlin-vim'
-" JS Syntax
-Plugin 'pangloss/vim-javascript'
 " Markdown Folding
 Plugin 'nelstrom/vim-markdown-folding'
 " Surround text with brackets
