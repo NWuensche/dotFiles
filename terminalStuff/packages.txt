@@ -115,7 +115,6 @@ mesa-demos
 mgba-qt
 moc
 nano
-nautilus
 netctl
 network-manager-applet
 nitrogen

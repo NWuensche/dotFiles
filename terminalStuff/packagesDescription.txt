@@ -204,8 +204,6 @@ extra/enca 1.19-1
     Charset analyser and converter
 extra/enchant 1.6.1-2
     A wrapper library for generic spell checking
-extra/exempi 2.4.2+1+gc26d5be-1
-    A library to parse XMP metadata
 extra/exiv2 0.25-3
     Exif, Iptc and XMP metadata manipulation library and tools
 extra/expac 8-1
@@ -310,10 +308,6 @@ extra/glu 9.0.0-4
     Mesa OpenGL Utility library
 core/gmp 6.1.2-1
     A free library for arbitrary precision arithmetic
-extra/gnome-autoar 0.2.2-1
-    Automatic archives creating and extracting library
-extra/gnome-desktop 1:3.24.2-1
-    Library with common API for various GNOME modules
 extra/gnome-themes-standard 3.22.3-1 (gnome)
     Standard Themes for GNOME Applications
 extra/gnu-netcat 0.7.1-6
@@ -914,8 +908,6 @@ extra/libmwaw 0.3.11-1
     Import library for some old mac text documents.
 extra/libmythes 1:1.2.4-2
     a simple thesaurus
-extra/libnautilus-extension 3.24.1-1
-    Library for extending the Default file manager for GNOME
 extra/libndp 1.6-1
     Library for Neighbor Discovery Protocol
 community/libnewt 0.52.20-1
@@ -1012,8 +1004,6 @@ extra/libssh 0.7.5-1
     Library for accessing ssh client services through C libraries
 core/libssh2 1.8.0-2
     A library implementing the SSH2 protocol as defined by Internet Drafts
-extra/libstemmer 0+337-2
-    Stemming library supporting several languages
 extra/libsynctex 2016.41290-12
     Library for synchronization between TeX files and resulting file
 core/libsystemd 232-8
@@ -1038,8 +1028,6 @@ community/libtommath 1.0-1
     Highly optimized and portable routines for integer based number theoretic applications
 core/libtool 2.4.6-7 (base-devel)
     A generic library support script
-extra/libtracker-sparql 1.12.0+1+g922c213a5-2
-    Desktop-neutral user information store, search tool and indexer (SPARQL library)
 extra/libtxc_dxtn 1.0.1-6
     S3 Texture Compression (S3TC) library for Mesa
 local/libudev.so.0 0.1.1-3
@@ -1250,10 +1238,6 @@ extra/mtools 4.0.18-3
     A collection of utilities to access MS-DOS disks
 core/nano 2.8.2-1 (base)
     Pico editor clone with enhancements
-extra/nautilus 3.24.1-1 (gnome)
-    Default file manager for GNOME
-extra/nautilus-sendto 3.8.4+41+gf790d15-1 (gnome-extra)
-    Easily send files via mail
 core/ncurses 6.0+20170429-1
     System V Release 4.0 curses emulation library
 extra/neon 0.30.2-2
