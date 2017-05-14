@@ -41,7 +41,7 @@ alias saveDotFiles='
 	sudo cp ~/.zshrc ~/.dotFiles/terminalStuff/.zshrc;
     sudo cp -r ~/.oh-my-zsh/themes/agnoster.zsh-theme ~/.dotFiles/terminalStuff/agnoster.zsh-theme;
 
-    sudo cp ~/.config/terminator/config ~/.dotFiles/terminalStuff/config.terminator;
+    sudo cp ~/.config/terminator/config ~/.dotFiles/configs/config.terminator;
     sudo cp ~/.config/ranger/rc.conf ~/.dotFiles/configs/rc.conf.ranger;
 
     sudo cp /etc/udev/rules.d/99-udisks2.rules ~/.dotFiles/rules/99-udisks2.rules;
