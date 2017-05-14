@@ -28,34 +28,34 @@ export BROWSER
 
 alias saveDotFiles='
 
-    git config --list | grep alias > ~/.dotFiles2/gitStuff/gitaliases.txt;
+    git config --list | grep alias > ~/.dotFiles/gitStuff/gitaliases.txt;
 
-	cp /etc/hosts ~/.dotFiles2/XStuff/hosts;
-    cp ~/.Xmodmap ~/.dotFiles2/XStuff/.Xmodmap;
-    cp /usr/share/sddm/scripts/Xsetup ~/.dotFiles2/XStuff/Xsetup;
+	cp /etc/hosts ~/.dotFiles/XStuff/hosts;
+    cp ~/.Xmodmap ~/.dotFiles/XStuff/.Xmodmap;
+    cp /usr/share/sddm/scripts/Xsetup ~/.dotFiles/XStuff/Xsetup;
 
-	cp ~/.vimrc ~/.dotFiles2/vimStuff/.vimrc;
-    cp -r ~/.vim/snippets ~/.dotFiles2/vimStuff;
+	cp ~/.vimrc ~/.dotFiles/vimStuff/.vimrc;
+    cp -r ~/.vim/snippets ~/.dotFiles/vimStuff;
 
-	cp ~/.bashrc ~/.dotFiles2/terminalStuff/.bashrc;
-	cp ~/.zshrc ~/.dotFiles2/terminalStuff/.zshrc;
-    cp -r ~/.oh-my-zsh/themes/agnoster.zsh-theme ~/.dotFiles2/terminalStuff/agnoster.zsh-theme;
+	cp ~/.bashrc ~/.dotFiles/terminalStuff/.bashrc;
+	cp ~/.zshrc ~/.dotFiles/terminalStuff/.zshrc;
+    cp -r ~/.oh-my-zsh/themes/agnoster.zsh-theme ~/.dotFiles/terminalStuff/agnoster.zsh-theme;
 
-    cp ~/.config/terminator/config ~/.dotFiles2/configs/config.terminator;
-    cp ~/.config/ranger/rc.conf ~/.dotFiles2/configs/rc.conf.ranger;
+    cp ~/.config/terminator/config ~/.dotFiles/configs/config.terminator;
+    cp ~/.config/ranger/rc.conf ~/.dotFiles/configs/rc.conf.ranger;
 
-    cp /etc/udev/rules.d/99-udisks2.rules ~/.dotFiles2/rules/99-udisks2.rules;
+    cp /etc/udev/rules.d/99-udisks2.rules ~/.dotFiles/rules/99-udisks2.rules;
 
-    realrm -r ~/.dotFiles2/i3Stuff;
-    cp -r ~/.i3 ~/.dotFiles2/i3Stuff;
+    realrm -r ~/.dotFiles/i3Stuff;
+    cp -r ~/.i3 ~/.dotFiles/i3Stuff;
 
-    realrm -r ~/.dotFiles2/scripts;
-    cp -r ~/.scripts ~/.dotFiles2/scripts;
+    realrm -r ~/.dotFiles/scripts;
+    cp -r ~/.scripts ~/.dotFiles/scripts;
 
-    pacman -Qs > ~/.dotFiles2/packages/packagesDescription.txt;
-    pacman -Qeq > ~/.dotFiles2/packages/packages.txt;
+    pacman -Qs > ~/.dotFiles/packages/packagesDescription.txt;
+    pacman -Qeq > ~/.dotFiles/packages/packages.txt;
 
-    cd ~/.dotFiles2;
+    cd ~/.dotFiles;
 	git add .;
 	git commit -m "(`date +%Y-%m-%d`) change dotFiles";
 	git push;
