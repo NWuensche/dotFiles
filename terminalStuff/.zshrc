@@ -28,22 +28,23 @@ export BROWSER
 
 alias saveDotFiles='
 
-    git config --list | grep alias > ~/.dotFiles/terminalStuff/gitaliases.txt;
-
+    git config --list | grep alias > ~/.dotFiles/gitStuff/gitaliases.txt;
 
 	sudo cp /etc/hosts ~/.dotFiles/XStuff/hosts;
     sudo cp ~/.Xmodmap ~/.dotFiles/XStuff/.Xmodmap;
+    sudo cp /usr/share/sddm/scripts/Xsetup ~/.dotFiles/XStuff/Xsetup;
 
 	sudo cp ~/.vimrc ~/.dotFiles/vimStuff/.vimrc;
-    sudo cp -r ~/.vim/snippets ~/.dotFiles/vimStuff
+    sudo cp -r ~/.vim/snippets ~/.dotFiles/vimStuff;
 
 	sudo cp ~/.bashrc ~/.dotFiles/terminalStuff/.bashrc;
 	sudo cp ~/.zshrc ~/.dotFiles/terminalStuff/.zshrc;
     sudo cp -r ~/.oh-my-zsh/themes/agnoster.zsh-theme ~/.dotFiles/terminalStuff/agnoster.zsh-theme;
-    sudo cp ~/.config/terminator/config ~/.dotFiles/terminalStuff/configTerminator
-    sudo cp /etc/udev/rules.d/99-udisks2.rules ~/.dotFiles/terminalStuff/99-udisks2.rules
 
-    sudo cp /usr/share/sddm/scripts/Xsetup ~/.dotFiles/sddmStuff/Xsetup;
+    sudo cp ~/.config/terminator/config ~/.dotFiles/terminalStuff/config.terminator;
+    sudo cp ~/.config/ranger/rc.conf ~/.dotFiles/configs/rc.conf.ranger;
+
+    sudo cp /etc/udev/rules.d/99-udisks2.rules ~/.dotFiles/rules/99-udisks2.rules;
 
     sudo realrm -r ~/.dotFiles/i3Stuff;
     sudo cp -r ~/.i3 ~/.dotFiles/i3Stuff;
@@ -52,8 +53,11 @@ alias saveDotFiles='
     sudo cp ~/.convertMusic.sh ~/.dotFiles/scripts/.convertMusic.sh;
     sudo cp ~/.musicMetadata.sh ~/.dotFiles/scripts/.musicMetadata.sh;
 
-    pacman -Qs > ~/.dotFiles/terminalStuff/packagesDescription.txt;
-    pacman -Qeq > ~/.dotFiles/terminalStuff/packages.txt;
+    sudo realrm -r ~/.dotFiles/scripts;
+    sudo cp -r ~/.scripts ~/.dotFiles/scripts;
+
+    pacman -Qs > ~/.dotFiles/packages/packagesDescription.txt;
+    pacman -Qeq > ~/.dotFiles/packages/packages.txt;
 
 	cd ~/.dotFiles;
 	sudo git add .;
