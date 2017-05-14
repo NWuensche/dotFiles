@@ -28,37 +28,37 @@ export BROWSER
 
 alias saveDotFiles='
 
-    git config --list | grep alias > ~/.dotFiles/gitStuff/gitaliases.txt;
+    git config --list | grep alias > ~/.dotFiles2/gitStuff/gitaliases.txt;
 
-	sudo cp /etc/hosts ~/.dotFiles/XStuff/hosts;
-    sudo cp ~/.Xmodmap ~/.dotFiles/XStuff/.Xmodmap;
-    sudo cp /usr/share/sddm/scripts/Xsetup ~/.dotFiles/XStuff/Xsetup;
+	cp /etc/hosts ~/.dotFiles2/XStuff/hosts;
+    cp ~/.Xmodmap ~/.dotFiles2/XStuff/.Xmodmap;
+    cp /usr/share/sddm/scripts/Xsetup ~/.dotFiles2/XStuff/Xsetup;
 
-	sudo cp ~/.vimrc ~/.dotFiles/vimStuff/.vimrc;
-    sudo cp -r ~/.vim/snippets ~/.dotFiles/vimStuff;
+	cp ~/.vimrc ~/.dotFiles2/vimStuff/.vimrc;
+    cp -r ~/.vim/snippets ~/.dotFiles2/vimStuff;
 
-	sudo cp ~/.bashrc ~/.dotFiles/terminalStuff/.bashrc;
-	sudo cp ~/.zshrc ~/.dotFiles/terminalStuff/.zshrc;
-    sudo cp -r ~/.oh-my-zsh/themes/agnoster.zsh-theme ~/.dotFiles/terminalStuff/agnoster.zsh-theme;
+	cp ~/.bashrc ~/.dotFiles2/terminalStuff/.bashrc;
+	cp ~/.zshrc ~/.dotFiles2/terminalStuff/.zshrc;
+    cp -r ~/.oh-my-zsh/themes/agnoster.zsh-theme ~/.dotFiles2/terminalStuff/agnoster.zsh-theme;
 
-    sudo cp ~/.config/terminator/config ~/.dotFiles/configs/config.terminator;
-    sudo cp ~/.config/ranger/rc.conf ~/.dotFiles/configs/rc.conf.ranger;
+    cp ~/.config/terminator/config ~/.dotFiles2/configs/config.terminator;
+    cp ~/.config/ranger/rc.conf ~/.dotFiles2/configs/rc.conf.ranger;
 
-    sudo cp /etc/udev/rules.d/99-udisks2.rules ~/.dotFiles/rules/99-udisks2.rules;
+    cp /etc/udev/rules.d/99-udisks2.rules ~/.dotFiles2/rules/99-udisks2.rules;
 
-    sudo realrm -r ~/.dotFiles/i3Stuff;
-    sudo cp -r ~/.i3 ~/.dotFiles/i3Stuff;
+    realrm -r ~/.dotFiles2/i3Stuff;
+    cp -r ~/.i3 ~/.dotFiles2/i3Stuff;
 
-    sudo realrm -r ~/.dotFiles/scripts;
-    sudo cp -r ~/.scripts ~/.dotFiles/scripts;
+    realrm -r ~/.dotFiles2/scripts;
+    cp -r ~/.scripts ~/.dotFiles2/scripts;
 
-    pacman -Qs > ~/.dotFiles/packages/packagesDescription.txt;
-    pacman -Qeq > ~/.dotFiles/packages/packages.txt;
+    pacman -Qs > ~/.dotFiles2/packages/packagesDescription.txt;
+    pacman -Qeq > ~/.dotFiles2/packages/packages.txt;
 
-	cd ~/.dotFiles;
-	sudo git add .;
-	sudo git commit -m "(`date +%Y-%m-%d`) change dotFiles";
-	sudo git push;
+    cd ~/.dotFiles2;
+	git add .;
+	git commit -m "(`date +%Y-%m-%d`) change dotFiles";
+	git push;
 	cd;
 '
 alias -s sh=sh
