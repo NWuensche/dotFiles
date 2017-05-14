@@ -43,6 +43,7 @@ alias saveDotFiles='
 
     cp ~/.config/terminator/config ~/.dotFiles/configs/config.terminator;
     cp ~/.config/ranger/rc.conf ~/.dotFiles/configs/rc.conf.ranger;
+    cp ~/.config/ranger/rifle.conf ~/.dotFiles/configs/rifle.conf.ranger;
 
     cp /etc/udev/rules.d/99-udisks2.rules ~/.dotFiles/rules/99-udisks2.rules;
 
