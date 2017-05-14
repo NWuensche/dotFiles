@@ -21,9 +21,10 @@ BROWSER=chromium
 export BROWSER
 
 (cd ~/Dokumente/Studium/4.Semester && wd add! stud)
-(cd ~/Dokumente/Studium/4.Semester/SHKSWT/inloop-tasks && wd add! shk)
-(cd ~/Dokumente/Studium/4.Semester/HP/Versuch2 && wd add! hp)
-(cd ~/Proseminar && wd add! pro)
+(cd ~/InloopNoBackUp/inloop-tasks && wd add! shk)
+(cd ~/Dokumente/Studium/4.Semester/HP/Versuch3 && wd add! hp)
+(cd ~/Dokumente/Studium/4.Semester/Proseminar && wd add! pro)
+(cd ~/.wine/drive_c/Program\ Files\ \(x86\)/ && wd add! wine)
 
 alias saveDotFiles='
 
@@ -40,8 +41,7 @@ alias saveDotFiles='
 	sudo cp ~/.zshrc ~/.dotFiles/terminalStuff/.zshrc;
     sudo cp -r ~/.oh-my-zsh/themes/agnoster.zsh-theme ~/.dotFiles/terminalStuff/agnoster.zsh-theme;
     sudo cp ~/.config/terminator/config ~/.dotFiles/terminalStuff/configTerminator
-
-
+    sudo cp /etc/udev/rules.d/99-udisks2.rules ~/.dotFiles/terminalStuff/99-udisks2.rules
 
     sudo cp /usr/share/sddm/scripts/Xsetup ~/.dotFiles/sddmStuff/Xsetup;
 
