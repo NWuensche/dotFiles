@@ -65,3 +65,10 @@ nmap <F5> :!make <CR>
 
 " Add spaces after comment delimiters by default
 let g:NERDSpaceDelims = 1
+
+" Automatically load PDF preview on tex Files
+autocmd Filetype tex call StartPDF()
+function StartPDF()
+    LLPStartPreview
+    call feedkeys ("\<return>")
+endfunction

@@ -13,6 +13,12 @@
 # is initialized.  As a result, you can not use commands which rely
 # on the UI such as :delete or :mark.
 # ===================================================================
+map DD shell trash %s;
+map gD cd ~/Downloads
+map gH cd ~/Dokumente/Studium/4.Semester/HP/Versuch3
+map gS cd ~/InloopNoBackUp/inloop-tasks
+map gP cd ~/Dokumente/Studium/4.Semester/Proseminar
+map S shell zsh -c "cd %d; zsh"
 
 # ===================================================================
 # == Options
@@ -23,9 +29,6 @@
 #     multipane: Midnight-commander like multipane view showing all tabs next
 #                to each other
 set viewmode miller
-map DD shell trash %s
-map gd shell cd ~/Downloads
-map S shell zsh -c "cd %d; zsh"
 #set viewmode multipane
 
 # How many columns are there, and what are their relative widths?

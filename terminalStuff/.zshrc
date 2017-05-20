@@ -1,7 +1,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH=/home/nwuensche/.oh-my-zsh
 ZSH_THEME="agnoster"
-plugins=(git, wd)
+plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -19,12 +19,6 @@ PATH=$PATH:/home/nwuensche/.gem/ruby/2.4.0/bin
 export PATH
 BROWSER=chromium
 export BROWSER
-
-(cd ~/Dokumente/Studium/4.Semester && wd add! stud)
-(cd ~/InloopNoBackUp/inloop-tasks && wd add! shk)
-(cd ~/Dokumente/Studium/4.Semester/HP/Versuch3 && wd add! hp)
-(cd ~/Dokumente/Studium/4.Semester/Proseminar && wd add! pro)
-(cd ~/.wine/drive_c/Program\ Files\ \(x86\)/ && wd add! wine)
 
 alias saveDotFiles='
 
