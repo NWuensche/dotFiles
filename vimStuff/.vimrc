@@ -45,6 +45,8 @@ Plugin 'vim-latex-live-preview'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
+" Automatically delete swap file
+Plugin 'gioele/vim-autoswap'
 "	------- PLUGINS END ------- "
 
 call vundle#end()            " required

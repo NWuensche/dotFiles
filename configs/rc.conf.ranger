@@ -24,6 +24,8 @@
 #                to each other
 set viewmode miller
 map DD shell trash %s
+map gd shell cd ~/Downloads
+map S shell zsh -c "cd %d; zsh"
 #set viewmode multipane
 
 # How many columns are there, and what are their relative widths?

@@ -1,3 +1,4 @@
+a2ps
 acpi
 acpid
 adobe-source-code-pro-fonts
@@ -37,8 +38,10 @@ dosfstools
 e2fsprogs
 eclim
 eclipse-java
+evince
 extundelete
 fakeroot
+feh
 file
 filesystem
 filezilla
@@ -115,6 +118,7 @@ mesa-demos
 mgba-qt
 moc
 nano
+nautilus
 netctl
 network-manager-applet
 nitrogen

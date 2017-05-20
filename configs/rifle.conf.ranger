@@ -1,5 +1,8 @@
 # Own Stuff
 ext pdf = chromium $1 &
+ext png = geeqie $1 &
+ext jpg = geeqie $1 &
+ext mp4 = vlc $1 &
 # vim: ft=cfg
 #
 # This is the configuration file of "rifle", ranger's file executor/opener.
