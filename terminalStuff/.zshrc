@@ -30,29 +30,29 @@ alias saveDotFiles='
 
     git config --list | grep alias > ~/.dotFiles/gitStuff/gitaliases.txt;
 
-	cp /etc/hosts ~/.dotFiles/XStuff/hosts;
-    cp ~/.Xmodmap ~/.dotFiles/XStuff/.Xmodmap;
-    cp /usr/share/sddm/scripts/Xsetup ~/.dotFiles/XStuff/Xsetup;
+	realcp /etc/hosts ~/.dotFiles/XStuff/hosts;
+    realcp ~/.Xmodmap ~/.dotFiles/XStuff/.Xmodmap;
+    realcp /usr/share/sddm/scripts/Xsetup ~/.dotFiles/XStuff/Xsetup;
 
-	cp ~/.vimrc ~/.dotFiles/vimStuff/.vimrc;
-    cp -r ~/.vim/snippets ~/.dotFiles/vimStuff;
-    cp ~/.vim/bundle/vim-autoswap/plugin/autoswap.vim ~/.dotFiles/vimStuff/autoswap.vim
+	realcp ~/.vimrc ~/.dotFiles/vimStuff/.vimrc;
+    realcp -r ~/.vim/snippets ~/.dotFiles/vimStuff;
+    realcp ~/.vim/bundle/vim-autoswap/plugin/autoswap.vim ~/.dotFiles/vimStuff/autoswap.vim
 
-	cp ~/.bashrc ~/.dotFiles/terminalStuff/.bashrc;
-	cp ~/.zshrc ~/.dotFiles/terminalStuff/.zshrc;
-    cp -r ~/.oh-my-zsh/themes/agnoster.zsh-theme ~/.dotFiles/terminalStuff/agnoster.zsh-theme;
+	realcp ~/.bashrc ~/.dotFiles/terminalStuff/.bashrc;
+	realcp ~/.zshrc ~/.dotFiles/terminalStuff/.zshrc;
+    realcp -r ~/.oh-my-zsh/themes/agnoster.zsh-theme ~/.dotFiles/terminalStuff/agnoster.zsh-theme;
 
-    cp ~/.config/terminator/config ~/.dotFiles/configs/config.terminator;
-    cp ~/.config/ranger/rc.conf ~/.dotFiles/configs/rc.conf.ranger;
-    cp ~/.config/ranger/rifle.conf ~/.dotFiles/configs/rifle.conf.ranger;
+    realcp ~/.config/terminator/config ~/.dotFiles/configs/config.terminator;
+    realcp ~/.config/ranger/rc.conf ~/.dotFiles/configs/rc.conf.ranger;
+    realcp ~/.config/ranger/rifle.conf ~/.dotFiles/configs/rifle.conf.ranger;
 
-    cp /etc/udev/rules.d/99-udisks2.rules ~/.dotFiles/rules/99-udisks2.rules;
+    realcp /etc/udev/rules.d/99-udisks2.rules ~/.dotFiles/rules/99-udisks2.rules;
 
     realrm -r ~/.dotFiles/i3Stuff;
-    cp -r ~/.i3 ~/.dotFiles/i3Stuff;
+    realcp -r ~/.i3 ~/.dotFiles/i3Stuff;
 
     realrm -r ~/.dotFiles/scripts;
-    cp -r ~/.scripts ~/.dotFiles/scripts;
+    realcp -r ~/.scripts ~/.dotFiles/scripts;
 
     pacman -Qs > ~/.dotFiles/packages/packagesDescription.txt;
     pacman -Qeq > ~/.dotFiles/packages/packages.txt;
@@ -80,6 +80,7 @@ alias mkcd='f() { mkdir $1; cd $1 }; f'
 alias getIt='f() { source ~/.dontDelete $1 }; f'
 alias rm='echo "rm is disabled, use trash or realrm instead."'
 alias realrm='/bin/rm'
+alias realcp='/bin/cp'
 alias xclip="xclip -selection c"
 alias kcc='f() { kotlinc $1 -include-runtime -d program.jar; java -jar program.jar }; f'
 alias youtubemp3='f() { (mkcd MusikDownloads; youtube-dl -f m4a $1; cp ~/.convertMusic.sh .; ./.convertMusic.sh;) }; f'
