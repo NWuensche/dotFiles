@@ -63,13 +63,12 @@ function! AS_HandleSwapfile (filename, swapname)
 		call delete(v:swapname)
 		let v:swapchoice = 'e'
 
-	" Otherwise, open file read-only...
+	" My Modification
 	else
+		call AS_DelayedMsg('Swapfile detected, recovered and deleted')
 		let v:swapchoice = 'r'
         call feedkeys("\<return>")
 		call delete(v:swapname)
-		call AS_DelayedMsg('Swapfile detected, recovered and deleted')
-
 	endif
 endfunction
 

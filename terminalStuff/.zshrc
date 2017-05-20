@@ -36,7 +36,7 @@ alias saveDotFiles='
 
 	cp ~/.vimrc ~/.dotFiles/vimStuff/.vimrc;
     cp -r ~/.vim/snippets ~/.dotFiles/vimStuff;
-    cp ~/.vim/bundle/vim-autoswap/plugin/autoswap.vim ~/.dotFiles/autoswap.vim
+    cp ~/.vim/bundle/vim-autoswap/plugin/autoswap.vim ~/.dotFiles/vimStuff/autoswap.vim
 
 	cp ~/.bashrc ~/.dotFiles/terminalStuff/.bashrc;
 	cp ~/.zshrc ~/.dotFiles/terminalStuff/.zshrc;
