@@ -146,6 +146,8 @@ core/coreutils 8.27-1 (base)
     The basic file, shell and text manipulation utilities of the GNU operating system
 core/cracklib 2.9.6-1
     Password Checking Library
+core/cronie 1.5.1-1
+    Daemon that runs specified programs at scheduled times and related tools
 core/cryptsetup 1.7.5-1 (base)
     Userspace setup tool for transparent encryption of block devices using dm-crypt
 extra/cups 2.2.3-1
@@ -338,6 +340,8 @@ extra/goffice0.8 0.8.17-3
     A library of document-centric objects and utilities built on top of GLib and Gtk+
 extra/gparted 0.28.1-1
     A Partition Magic clone, frontend to GNU Parted
+extra/gperf 3.1-1
+    Perfect hash function generator
 core/gpgme 1.9.0-3
     A C wrapper library for GnuPG
 core/gpm 1.20.7-7
@@ -1412,6 +1416,8 @@ extra/perl-uri 1.71-1
     Uniform Resource Identifiers (absolute and relative)
 extra/perl-www-robotrules 6.02-2
     Database of robots.txt-derived permissions
+community/phantomjs 2.1.1-7
+    Headless WebKit with JavaScript API
 extra/phonon-qt5 4.9.1-2
     The multimedia framework for KF5
 extra/phonon-qt5-gstreamer 4.9.0-2

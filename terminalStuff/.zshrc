@@ -48,6 +48,8 @@ alias saveDotFiles='
     realrm -r ~/.dotFiles/scripts;
     realcp -r ~/.scripts ~/.dotFiles/scripts;
     realcp /bin/extract ~/.dotFiles/scripts/extract;
+    realcp /bin/newFolderRanger ~/.dotFiles/scripts/newFolderRanger;
+    realcp /bin/newVimFile ~/.dotFiles/scripts/newVimFile;
 
     pacman -Qs > ~/.dotFiles/packages/packagesDescription.txt;
     pacman -Qeq > ~/.dotFiles/packages/packages.txt;
@@ -83,6 +85,7 @@ alias mv='mv -iv'
 alias cp='cp -iv'
 alias pdflatex='f() { (pdflatex $1; trash *.aux; trash *.log; trash *.nav; trash *.out; trash *.snm; trash *.toc) }; f'
 alias extract='/bin/extract'
+alias newFolder='~/.scripts/newFolderRanger.sh'
 
 clear
 

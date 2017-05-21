@@ -26,6 +26,7 @@ calc
 calibre
 chromium
 coreutils
+cronie
 cryptsetup
 cups
 device-mapper
@@ -135,6 +136,7 @@ pavucontrol
 pciutils
 pcmciautils
 perl
+phantomjs
 php-apache
 phpmyadmin
 pkg-config
