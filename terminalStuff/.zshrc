@@ -47,6 +47,7 @@ alias saveDotFiles='
 
     realrm -r ~/.dotFiles/scripts;
     realcp -r ~/.scripts ~/.dotFiles/scripts;
+    realcp /bin/extract ~/.dotFiles/scripts/extract;
 
     pacman -Qs > ~/.dotFiles/packages/packagesDescription.txt;
     pacman -Qeq > ~/.dotFiles/packages/packages.txt;
@@ -81,6 +82,7 @@ alias youtubemp3='f() { (mkcd MusikDownloads; youtube-dl -f m4a $1; cp ~/.conver
 alias mv='mv -iv'
 alias cp='cp -iv'
 alias pdflatex='f() { (pdflatex $1; trash *.aux; trash *.log; trash *.nav; trash *.out; trash *.snm; trash *.toc) }; f'
+alias extract='/bin/extract'
 
 clear
 
