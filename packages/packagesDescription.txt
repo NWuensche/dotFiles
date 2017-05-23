@@ -16,11 +16,11 @@ local/adwaita-compact-gtk-theme 3.20.9.1-1
     Compact modification of Adwaita gtk2 and gtk3 theme
 extra/adwaita-icon-theme 3.24.0-1 (gnome)
     GNOME standard icons
-extra/alsa-lib 1.1.3-1
+extra/alsa-lib 1.1.4-1
     An alternative implementation of Linux sound support
-extra/alsa-plugins 1.1.1-1
+extra/alsa-plugins 1.1.4-1
     Extra alsa plugins
-extra/alsa-utils 1.1.3-2
+extra/alsa-utils 1.1.4-1
     An alternative implementation of Linux sound support
 community/android-file-transfer 3.1-1
     Android MTP client with minimalistic UI
@@ -28,7 +28,7 @@ local/android-studio 2.3.2.0-1
     The official Android IDE (Stable branch)
 local/anki 2.1.0a13-6
     Friendly, intelligent flash cards
-extra/apache 2.4.25-2
+extra/apache 2.4.25-3
     A high performance Unix-based HTTP server
 community/apm 1.18.1-1
     Atom package manager
@@ -52,7 +52,7 @@ extra/atk 2.24.0-2
     The interface definitions of accessibility infrastructure
 extra/atkmm 2.24.2+1+gf30b47f-2
     C++ bindings for ATK
-community/atom 1.16.0-1
+community/atom 1.17.0-1
     A hackable text editor for the 21st Century
 core/attr 2.4.47-2
     Extended attribute support library for ACL support
@@ -152,7 +152,7 @@ core/cryptsetup 1.7.5-1 (base)
     Userspace setup tool for transparent encryption of block devices using dm-crypt
 extra/cups 2.2.3-1
     The CUPS Printing System - daemon package
-extra/cups-filters 1.13.5-1
+extra/cups-filters 1.14.0-1
     OpenPrinting CUPS Filters
 core/curl 7.54.0-3
     An URL retrieval utility and library
@@ -174,7 +174,7 @@ core/device-mapper 2.02.171-1 (base)
     Device mapper userspace library and tools
 core/dhcpcd 6.11.5-1 (base)
     RFC2131 compliant DHCP client daemon
-core/dialog 1:1.3_20170131-1
+core/dialog 1:1.3_20170509-1
     A tool to display dialog boxes from shell scripts
 core/diffutils 3.5-1 (base)
     Utility programs used for creating patch files
@@ -224,8 +224,8 @@ extra/faad2 2.7-4
     ISO AAC audio decoder
 core/fakeroot 1.21-2 (base-devel)
     Tool for simulating superuser privileges
-extra/feh 2.18.3-1
-    Fast and light imlib2-based image viewer
+extra/fbida 2.13-1
+    Few applications to display and elementary edit images: fbi, fbgs, ida, exiftran
 extra/ffmpeg 1:3.3.1-8
     Complete solution to record, convert and stream audio and video
 extra/ffmpeg2.8 2.8.11-9
@@ -388,7 +388,7 @@ extra/gtkmm 2.24.5-2
     C++ bindings for gtk2
 extra/gtkmm3 3.22.0-2
     C++ bindings for GTK+ 3
-extra/gtksourceview3 3.24.1+1+ge88e8299-1
+extra/gtksourceview3 3.24.2-1
     A text widget adding syntax highlighting and more to GNOME
 extra/gtkspell 2.0.16-3
     Provides word-processor-style highlighting and replacement of misspelled words in a GtkTextView widget
@@ -452,7 +452,7 @@ extra/ijs 0.35-1
     a library which implements a protocol for transmission of raster page images
 extra/ilmbase 2.2.0-2
     Base libraries from ILM for OpenEXR
-extra/imagemagick 6.9.8.5-1
+extra/imagemagick 6.9.8.6-1
     An image viewing/manipulation program
 extra/imlib2 1.4.10-1
     Library that does image file loading and saving as well as rendering, manipulation, arbitrary polygon support
@@ -484,7 +484,7 @@ extra/jack 0.125.0-3
     A low-latency audio server
 community/jansson 2.10-1
     C library for encoding, decoding and manipulating JSON data
-extra/jasper 2.0.12-1
+extra/jasper 2.0.13-1
     Software-based implementation of the codec specified in the emerging JPEG-2000 Part-1 standard
 extra/java-environment-common 2-2
     Common files for Java Development Kits
@@ -542,11 +542,13 @@ core/ldns 1.7.0-3
     Fast DNS library supporting recent RFCs
 core/less 487-1 (base)
     A terminal based program for viewing text files
+extra/lesstif 0.95.2-6
+    LGPL'd re-implementation of Motif
 multilib/lib32-acl 2.2.52-2
     Access control list libraries (32-bit)
-multilib/lib32-alsa-lib 1.1.3-1
+multilib/lib32-alsa-lib 1.1.4-1
     An alternative implementation of Linux sound support (32 bit)
-multilib/lib32-alsa-plugins 1.1.1-1
+multilib/lib32-alsa-plugins 1.1.4-1
     Extra alsa plugins (32-bit)
 multilib/lib32-attr 2.4.47-1
     Extended attribute support library for ACL support (32-bit)
@@ -586,7 +588,7 @@ multilib/lib32-icu 59.1-1
     International Components for Unicode library (32 bit)
 multilib/lib32-keyutils 1.5.9-1
     Linux Key Management Utilities (32-bit)
-multilib/lib32-krb5 1.15-1
+multilib/lib32-krb5 1.15.1-1
     The Kerberos network authentication system (32-bit)
 multilib/lib32-lcms2 2.8-1
     Small-footprint color management engine, version 2 (32-bit)
@@ -594,7 +596,7 @@ multilib/lib32-libasyncns 0.8+3+g68cd5af-1
     A C library for executing name service queries asynchronously
 multilib/lib32-libcap 2.25-1
     POSIX 1003.1e capabilities (32-bit)
-multilib/lib32-libdrm 2.4.79-1
+multilib/lib32-libdrm 2.4.80-1
     Userspace interface to kernel DRM services (32-bit)
 multilib/lib32-libelf 0.168-1
     Libraries to handle ELF object files and DWARF debugging information (32-bit)
@@ -688,7 +690,9 @@ multilib/lib32-libxxf86vm 1.1.4-1
     X11 XFree86 video mode extension library (32-bit)
 multilib/lib32-llvm-libs 4.0.0-1
     Low Level Virtual Machine (runtime library)(32-bit)
-multilib/lib32-mesa 17.0.5-1
+multilib/lib32-lm_sensors 3.4.0-1
+    Collection of user space tools for general SMBus access and hardware monitoring (32-bit)
+multilib/lib32-mesa 17.1.0-1
     an open-source implementation of the OpenGL specification (32-bit)
 multilib/lib32-ncurses 6.0-2
     System V Release 4.0 curses emulation library (32-bit)
@@ -922,6 +926,8 @@ extra/libmspub 0.1.2-7
     Microsoft Publisher file format parser library (latest snapshot)
 extra/libmtp 1.1.13-1
     Library implementation of the Media Transfer Protocol
+community/libmupdf 1.11-1
+    Library for Lightweight PDF and XPS viewer
 extra/libmwaw 0.3.11-1
     Import library for some old mac text documents.
 extra/libmythes 1:1.2.4-2
@@ -1148,6 +1154,8 @@ extra/libxml2 2.9.4+16+g07418011-2
     XML parsing library, version 2
 extra/libxmu 1.1.2-1
     X11 miscellaneous micro-utility library
+extra/libxp 1.0.3-1
+    X11 X Print Library
 extra/libxpm 3.5.12-1
     X11 pixmap library
 extra/libxrandr 1.5.1-1
@@ -1192,6 +1200,8 @@ extra/lirc 1:0.9.4.d-1
     Linux Infrared Remote Control utilities
 extra/llvm-libs 4.0.0-2
     Low Level Virtual Machine (runtime libraries)
+extra/lm_sensors 3.4.0-2
+    Collection of user space tools for general SMBus access and hardware monitoring
 core/logrotate 3.12.2-1 (base)
     Rotates system logs automatically
 extra/lpsolve 5.5.2.5-2
@@ -1228,7 +1238,7 @@ core/mdadm 4.0-1 (base)
     A tool for managing/monitoring Linux md device arrays, also known as Software RAID
 extra/meld 3.16.4-1
     Visual diff and merge tool
-extra/mesa 17.0.5-1
+extra/mesa 17.1.0-1
     an open-source implementation of the OpenGL specification
 extra/mesa-demos 8.3.0-2
     Mesa demos and tools
@@ -1370,7 +1380,7 @@ core/pcre 8.40-1
     A library that implements Perl 5-style regular expressions
 extra/pcre2 10.23-1
     A library that implements Perl 5-style regular expressions. 2nd version
-community/pcsclite 1.8.20-1
+community/pcsclite 1.8.21-1
     PC/SC Architecture smartcard middleware library
 core/perl 5.24.1-1 (base)
     A highly capable, feature-rich programming language
@@ -1462,6 +1472,8 @@ community/powertop 2.9-1
     A tool to diagnose issues with power consumption and power management
 core/ppp 2.4.7-2
     A daemon which implements the Point-to-Point Protocol for dial-up networking
+extra/printproto 1.0.5-3
+    X11 print extension wire protocol
 core/procps-ng 3.3.12-1 (base)
     Utilities for monitoring your system and its processes
 extra/protobuf 3.3.1-1
@@ -1534,7 +1546,7 @@ extra/python-pyparsing 2.2.0-1
     General parsing module for Python
 extra/python-pyqt5 5.8.2-2
     A set of Python 3.x bindings for the Qt5 toolkit
-extra/python-requests 2.13.0-1
+extra/python-requests 2.14.2-1
     Python HTTP for Humans
 community/python-send2trash 1.3.0-1
     Send file to trash natively
@@ -1560,7 +1572,7 @@ community/python2-apsw 3.15.2-1
     Python2 wrapper for SQLite
 community/python2-beautifulsoup3 3.2.1-3
     A Python HTML/XML parser designed for quick turnaround projects like screen-scraping
-extra/python2-cairo 1.10.0-2
+extra/python2-cairo 1.13.1-1
     Python2 bindings for the cairo graphics library
 extra/python2-chardet 3.0.2-1
     Python2 module for character encoding auto-detection
@@ -1618,7 +1630,7 @@ extra/qt4 4.8.7-20
     A cross-platform application and UI framework
 extra/qt5-base 5.8.0-11 (qt qt5)
     A cross-platform application and UI framework
-extra/qt5-declarative 5.8.0-1 (qt qt5)
+extra/qt5-declarative 5.8.0-2 (qt qt5)
     Classes for QML and JavaScript languages
 extra/qt5-location 5.8.0-1 (qt qt5)
     Provides access to position, satellite and area monitoring classes
@@ -1750,7 +1762,7 @@ core/sqlite 3.18.0-1
     A C library that implements an SQL database engine
 extra/sratom 0.4.6-1
     An LV2 Atom RDF serialisation library
-community/stack 1.4.0-48
+community/stack 1.4.0-50
     The Haskell Tool Stack
 extra/startup-notification 0.12-5
     Monitor and display application startup
@@ -1858,7 +1870,7 @@ community/udiskie 1.7.0-1
     Removable disk automounter using udisks
 extra/udisks2 2.6.5-1
     Disk Management Service, version 2
-community/uglify-js 3.0.9-1
+community/uglify-js 3.0.10-1
     JavaScript parser, mangler/compressor and beautifier toolkit
 community/unetbootin 647-1
     Create bootable Live USB drives
@@ -1904,7 +1916,7 @@ extra/vpnc 0.5.3.svn550-2
     VPN client for cisco3000 VPN Concentrators
 extra/vte-common 0.48.3-1
     Common files used by vte and vte3
-community/vte3-ng 0.48.2.a-1
+community/vte3-ng 0.48.3.a-1
     Enhanced Virtual Terminal Emulator widget for use with GTK3
 extra/vulkan-icd-loader 1.0.46.0-1
     Vulkan Installable Client Driver (ICD) Loader

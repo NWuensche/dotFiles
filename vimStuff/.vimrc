@@ -10,6 +10,11 @@ set spelllang=en,de
 " Type <Leader>w to save file
 nnoremap <Leader>w :w<CR>
 
+nnoremap <Up> <nop>
+nnoremap <Down> <nop>
+nnoremap <Left> <nop>
+nnoremap <Right> <nop>
+
 " Disable arrow keys in insert mode
 inoremap <Up> <nop>
 inoremap <Down> <nop>
@@ -47,6 +52,8 @@ Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
 " Automatically delete swap file
 Plugin 'gioele/vim-autoswap'
+" more grep, like Rgrep
+Plugin 'yegappan/grep'
 "	------- PLUGINS END ------- "
 
 call vundle#end()            " required
@@ -59,12 +66,6 @@ colorscheme solarized
 "Blue after 120 chars
 highlight ColorColumn ctermbg=DarkCyan
 call matchadd('ColorColumn', '\%121v', 100)
-
-nmap <leader><leader> :NERDTreeToggle<CR>
-nmap <F5> :!make <CR>
-
-" Add spaces after comment delimiters by default
-let g:NERDSpaceDelims = 1
 
 " Automatically load PDF preview on tex Files
 autocmd Filetype tex call StartPDF()

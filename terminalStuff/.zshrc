@@ -65,6 +65,9 @@ alias -s txt=vim
 alias -s tex=vim
 alias -s html=chromium
 alias -s pdf=chromium
+alias -s jpg=geeqie
+alias -s jpeg=geeqie
+alias -s png=geeqie
 alias pacman=yaourt
 alias sudo='sudo ' # important, so that aliases work with sudo
 alias pacmanremoveorphans='sudo pacman -Rns $(pacman -Qtdq)'
@@ -86,6 +89,7 @@ alias cp='cp -iv'
 alias pdflatex='f() { (pdflatex $1; trash *.aux; trash *.log; trash *.nav; trash *.out; trash *.snm; trash *.toc) }; f'
 alias extract='/bin/extract'
 alias newFolder='~/.scripts/newFolderRanger.sh'
+alias checkInloop='sh ~/.scripts/checkInloop.sh'
 
 clear
 

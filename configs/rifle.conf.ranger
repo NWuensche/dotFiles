@@ -3,7 +3,6 @@ ext pdf = chromium $1 &
 ext png|jpg = geeqie $1 &
 ext mp4 = vlc $1 &
 ext zip = extract "$@"
-label extract, ext 7z|ace|ar|arc|bz2?|cab|cpio|cpt|deb|dgc|dmg|gz, = /bin/extract
 
 # vim: ft=cfg
 #

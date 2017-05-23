@@ -14,11 +14,12 @@
 # on the UI such as :delete or :mark.
 # ===================================================================
 map DD shell trash %s;
+
 map gD cd ~/Downloads
 map gH cd ~/Dokumente/Studium/4.Semester/HP/Versuch3
 map gS cd ~/InloopNoBackUp/inloop-tasks
 map gP cd ~/Dokumente/Studium/4.Semester/Proseminar
-map S shell zsh -c "cd %d; zsh"
+
 map xF shell newFolderRanger
 map xV shell newVimFile
 

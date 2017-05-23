@@ -42,7 +42,7 @@ eclipse-java
 evince
 extundelete
 fakeroot
-feh
+fbida
 file
 filesystem
 filezilla
