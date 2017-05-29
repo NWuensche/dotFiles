@@ -50,6 +50,7 @@ alias saveDotFiles='
     realcp /bin/extract ~/.dotFiles/scripts/extract;
     realcp /bin/newFolderRanger ~/.dotFiles/scripts/newFolderRanger;
     realcp /bin/newVimFile ~/.dotFiles/scripts/newVimFile;
+    crontab -l > ~/.dotFiles/scripts/crontab
 
     pacman -Qs > ~/.dotFiles/packages/packagesDescription.txt;
     pacman -Qeq > ~/.dotFiles/packages/packages.txt;
@@ -83,7 +84,7 @@ alias realrm='/bin/rm'
 alias realcp='/bin/cp'
 alias xclip="xclip -selection c"
 alias kcc='f() { kotlinc $1 -include-runtime -d program.jar; java -jar program.jar }; f'
-alias youtubemp3='f() { (mkcd MusikDownloads; youtube-dl -f m4a $1; cp ~/.convertMusic.sh .; ./.convertMusic.sh;) }; f'
+alias youtubemp3='f() { (mkcd MusikDownloads; youtube-dl -f m4a $1; realcp ~/.scripts/.convertMusic.sh .; ./.convertMusic.sh;) }; f'
 alias mv='mv -iv'
 alias cp='cp -iv'
 alias pdflatex='f() { (pdflatex $1; trash *.aux; trash *.log; trash *.nav; trash *.out; trash *.snm; trash *.toc) }; f'

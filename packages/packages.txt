@@ -166,7 +166,6 @@ sed
 shadow
 skype
 smartmontools
-spotify
 stack
 steam
 sudo

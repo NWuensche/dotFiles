@@ -1,5 +1,5 @@
 # Own Stuff
-ext pdf = chromium $1 &
+ext pdf = chromium "$@" &
 ext png|jpg = geeqie $1 &
 ext mp4 = vlc $1 &
 ext zip = extract "$@"

@@ -6,6 +6,12 @@ rename " " "_" *;
 rename " " "_" *;
 rename " " "_" *;
 rename " " "_" *;
+rename " " "_" *;
+rename " " "_" *;
+rename " " "_" *;
+rename " " "_" *;
+rename " " "_" *;
+rename " " "_" *;
 
 
 for i in *.m4a; do
@@ -15,6 +21,12 @@ for i in *.m4a; do
 done
 
 #So oft, weil jedes Rename nur 1x in einem Namen wirkt
+rename "_" " " *;
+rename "_" " " *;
+rename "_" " " *;
+rename "_" " " *;
+rename "_" " " *;
+rename "_" " " *;
 rename "_" " " *;
 rename "_" " " *;
 rename "_" " " *;
