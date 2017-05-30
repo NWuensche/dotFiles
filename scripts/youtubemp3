@@ -1,0 +1,30 @@
+#!/bin/bash
+
+cd ~;
+mkdir MusikDownloads;
+cd MusikDownloads;
+youtube-dl -f m4a $1;
+
+read -p "Interpret: " INTERPRET
+read -p "Title: " TITLE
+
+#Should be just one file
+for i in *.m4a; do
+    # replace all blanks
+    mv "$i" "${INTERPRET// /_}_-_${TITLE// /_}.m4a"
+done
+
+#So oft, weil jedes Rename nur 1x in einem Namen wirkt
+for i in `seq 1 10`; do
+    rename " " "_" *;
+done
+
+for i in *.m4a; do
+    POSTFIXFREE=`echo $i | cut -d'.' -f1`;
+    ffmpeg -i "$i" -metadata artist="$INTERPRET" -metadata title="$TITLE" $POSTFIXFREE.mp3;
+    trash "$i";
+done
+
+for i in `seq 1 10`; do
+    rename "_" " " *;
+done
