@@ -30,8 +30,6 @@ local/anki 2.1.0a13-6
     Friendly, intelligent flash cards
 extra/apache 2.4.25-3
     A high performance Unix-based HTTP server
-community/apm 1.18.2-1
-    Atom package manager
 extra/apr 1.5.2-2
     The Apache Portable Runtime
 extra/apr-util 1.5.4-3
@@ -52,8 +50,6 @@ extra/atk 2.24.0-2
     The interface definitions of accessibility infrastructure
 extra/atkmm 2.24.2+1+gf30b47f-2
     C++ bindings for ATK
-community/atom 1.17.2-1
-    A hackable text editor for the 21st Century
 core/attr 2.4.47-2
     Extended attribute support library for ACL support
 extra/audacity 2.1.3-1
@@ -112,7 +108,7 @@ extra/cairo 1.14.8-1
     Cairo vector graphics library
 extra/cairomm 1.12.2-2
     C++ bindings for Cairo
-community/calc 2.12.5.3-2
+community/calc 2.12.5.6-1
     console calculator
 community/calibre 2.85.1-1
     Ebook management application
@@ -200,8 +196,6 @@ extra/eclipse-common 4.6.3-1
     Highly extensible IDE (common files)
 extra/eclipse-java 4.6.3-1
     Highly extensible IDE (JAVA variant)
-community/electron 1.4.16-2
-    Build cross platform desktop apps with web technologies
 extra/enca 1.19-1
     Charset analyser and converter
 extra/enchant 1.6.1-2
@@ -246,7 +240,7 @@ extra/flac 1.3.2-1
     Free Lossless Audio Codec
 core/flex 2.6.4-1 (base-devel)
     A tool for generating text-scanning programs
-extra/fontconfig 2.12.1-4
+extra/fontconfig 2.12.3-1
     A library for configuring and customizing font access
 extra/fontsproto 2.1.3-1
     X11 font extension wire protocol
@@ -258,7 +252,7 @@ extra/freetype2 2.8-2
     Font rasterization library
 extra/fribidi 0.19.7-1
     A Free Implementation of the Unicode Bidirectional Algorithm
-extra/fuse-common 3.0.1-1
+extra/fuse-common 3.0.2-1
     Common files for fuse2/3 packages
 extra/fuse2 2.9.7-3
     A library that makes it possible to implement a filesystem in a userspace program.
@@ -286,7 +280,7 @@ extra/geeqie 1.3-1
     A lightweight image browser and viewer
 extra/gegl02 0.2.0-7
     Graph based image processing framework (v0.2)
-extra/geoclue2 2.4.6-1
+extra/geoclue2 2.4.7-1
     Modular geoinformation service built on the D-Bus messaging system
 core/gettext 0.19.8.1-2 (base base-devel)
     GNU internationalization library
@@ -326,7 +320,7 @@ extra/gnome-themes-standard 3.22.3-1 (gnome)
     Standard Themes for GNOME Applications
 extra/gnu-netcat 0.7.1-6
     GNU rewrite of netcat, the network piping application
-extra/gnucash 2.6.16-1
+extra/gnucash 2.6.16-2
     A personal and small-business financial-accounting application
 core/gnupg 2.1.21-1
     Complete and free implementation of the OpenPGP standard
@@ -412,7 +406,7 @@ extra/harfbuzz 1.4.6-1
     OpenType text shaping engine
 extra/harfbuzz-icu 1.4.6-1
     OpenType text shaping engine (ICU integration)
-extra/hdf5 1.10.0_patch1-1
+community/hdf5 1.10.0_patch1-1
     General purpose library and file format for storing scientific data
 core/hdparm 9.52-1
     A shell utility for manipulating Linux IDE drive/driver parameters
@@ -452,7 +446,7 @@ extra/ijs 0.35-1
     a library which implements a protocol for transmission of raster page images
 extra/ilmbase 2.2.0-2
     Base libraries from ILM for OpenEXR
-extra/imagemagick 6.9.8.6-1
+extra/imagemagick 6.9.8.8-1
     An image viewing/manipulation program
 extra/imlib2 1.4.10-1
     Library that does image file loading and saving as well as rendering, manipulation, arbitrary polygon support
@@ -564,9 +558,9 @@ multilib/lib32-expat 2.2.0-1
     An XML Parser library written in C (32 bit)
 multilib/lib32-flac 1.3.2-1
     Free Lossless Audio Codec (32-bit)
-multilib/lib32-fontconfig 2.12.1-4
+multilib/lib32-fontconfig 2.12.3-1
     A library for configuring and customizing font access (32-bit)
-multilib/lib32-freetype2 2.7.1-2
+multilib/lib32-freetype2 2.8-2
     TrueType font rendering library (32-bit)
 multilib/lib32-gcc-libs 7.1.1-3
     Runtime libraries shipped by GCC (32-bit)
@@ -894,7 +888,7 @@ extra/liblqr 0.4.2-1
     A seam-carving C/C++ library called Liquid Rescale
 extra/libmad 0.15.1b-7
     A high-quality MPEG audio decoder
-extra/libmariadbclient 10.1.23-2
+extra/libmariadbclient 10.1.24-1
     MariaDB client libraries
 extra/libmatroska 1.4.7-1
     Matroska library
@@ -1222,9 +1216,9 @@ core/man-db 2.7.6.1-2 (base)
     A utility for reading man pages
 core/man-pages 4.11-1 (base)
     Linux man pages
-extra/mariadb 10.1.23-2
+extra/mariadb 10.1.24-1
     Fast SQL database server, drop-in replacement for MySQL
-extra/mariadb-clients 10.1.23-2
+extra/mariadb-clients 10.1.24-1
     MariaDB client tools
 community/maven 3.5.0-1
     A Java project management and project comprehension tool
@@ -1276,7 +1270,7 @@ core/ncurses 6.0+20170429-1
     System V Release 4.0 curses emulation library
 extra/neon 0.30.2-2
     HTTP and WebDAV client library with a C interface
-extra/netcdf 4.4.1-2
+community/netcdf 4.4.1-2
     network Common Data Form interface for array-oriented data access and corresponding library
 core/netctl 1.12-2 (base)
     Profile based systemd network management
@@ -1294,8 +1288,6 @@ community/nodejs 7.10.0-2
     Evented I/O for V8 javascript
 extra/noto-fonts 20170428-1
     Google Noto TTF fonts
-community/npm 4.6.1-1
-    A package manager for javascript
 core/npth 1.4-1
     New portable threads library
 core/nspr 4.14-1
@@ -1422,9 +1414,9 @@ extra/perl-www-robotrules 6.02-2
     Database of robots.txt-derived permissions
 community/phantomjs 2.1.1-8
     Headless WebKit with JavaScript API
-extra/phonon-qt5 4.9.1-2
+extra/phonon-qt5 4.9.1-4
     The multimedia framework for KF5
-extra/phonon-qt5-gstreamer 4.9.0-2
+extra/phonon-qt5-gstreamer 4.9.0-3
     Phonon GStreamer backend for Qt5
 extra/php 7.1.5-1
     A general-purpose scripting language that is especially suited to web development
@@ -1544,7 +1536,7 @@ extra/python-requests 2.14.2-1
     Python HTTP for Humans
 community/python-send2trash 1.3.0-1
     Send file to trash natively
-extra/python-setuptools 1:35.0.2-1
+extra/python-setuptools 1:36.0.0-1
     Easily download, build, install, upgrade, and uninstall Python packages
 extra/python-sip 4.19.2-1
     Python 3.x SIP bindings for C and C++ libraries
@@ -1614,7 +1606,7 @@ extra/python2-pyqt4 4.12-4
     A set of Python 2.x bindings for the Qt toolkit
 extra/python2-pyqt5 5.8.2-2
     A set of Python 2.x bindings for the Qt5 toolkit
-extra/python2-setuptools 1:35.0.2-1
+extra/python2-setuptools 1:36.0.0-1
     Easily download, build, install, upgrade, and uninstall Python packages
 extra/python2-sip 4.19.2-1
     Python 2.x SIP bindings for C and C++ libraries
@@ -1704,8 +1696,8 @@ extra/schroedinger 1.0.11-3
     An implemenation of the Dirac video codec in ANSI C code
 extra/scrnsaverproto 1.2.2-2
     X11 Screen Saver extension wire protocol
-community/scrot 0.8.13-1
-    A simple command-line screenshot utility for X
+community/scrot 0.8.17-1
+    Simple command-line screenshot utility for X
 extra/sddm 0.14.0-2
     QML based X11 display manager
 extra/sdl 1.2.15-8
@@ -1758,7 +1750,7 @@ core/sqlite 3.18.0-1
     A C library that implements an SQL database engine
 extra/sratom 0.4.6-1
     An LV2 Atom RDF serialisation library
-community/stack 1.4.0-57
+community/stack 1.4.0-58
     The Haskell Tool Stack
 extra/startup-notification 0.12-5
     Monitor and display application startup
@@ -1866,7 +1858,7 @@ community/udiskie 1.7.0-1
     Removable disk automounter using udisks
 extra/udisks2 2.6.5-1
     Disk Management Service, version 2
-community/uglify-js 3.0.13-1
+community/uglify-js 3.0.14-1
     JavaScript parser, mangler/compressor and beautifier toolkit
 community/unetbootin 647-1
     Create bootable Live USB drives
@@ -1904,8 +1896,6 @@ community/virtualbox-guest-iso 5.1.22-1
     The official VirtualBox Guest Additions ISO image
 community/virtualbox-host-modules-arch 5.1.22-3
     Virtualbox host kernel modules for Arch Kernel
-local/visual-studio-code 1.12.2-1
-    Visual Studio Code: Editor for building and debugging modern web and cloud applications (official binary version)
 extra/vlc 2.2.6-1
     Multi-platform MPEG, VCD/DVD, and DivX player
 extra/vpnc 0.5.3.svn550-2

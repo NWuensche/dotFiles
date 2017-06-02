@@ -9,7 +9,6 @@ android-studio
 anki
 apache
 arandr
-atom
 audacity
 autoconf
 automake
@@ -216,7 +215,6 @@ virtualbox
 virtualbox-ext-oracle
 virtualbox-guest-iso
 virtualbox-host-modules-arch
-visual-studio-code
 vlc
 webkitgtk
 wget
