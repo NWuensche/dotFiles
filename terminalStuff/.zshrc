@@ -48,7 +48,7 @@ alias saveDotFiles='
     realrm -r ~/.dotFiles/scripts;
     realcp -r ~/.scripts ~/.dotFiles/scripts;
     realcp /bin/youtubemp3 ~/.dotFiles/scripts/youtubemp3;
-    realcp /bin/1SekVideo ~/.dotFiles/scripts/1SekVideo;
+    realcp /bin/1SekVideos ~/.dotFiles/scripts/1SekVideos;
     realcp /bin/extract ~/.dotFiles/scripts/extract;
     realcp /bin/newFolderRanger ~/.dotFiles/scripts/newFolderRanger;
     realcp /bin/newVimFile ~/.dotFiles/scripts/newVimFile;
