@@ -36,7 +36,3 @@ for i in *.ts; do
     trash $i;
 done
 trash concat.txt;
-
-#pkill vlc
-
-#TODO output.mp4 -> Mai 2017.mp4

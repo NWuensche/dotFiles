@@ -1,7 +1,7 @@
 # Own Stuff
 ext pdf = chromium "$@" &
 ext png|jpg = geeqie $1 &
-ext mp4 = vlc $1 &
+ext mp4 = vlc "$@" &
 ext zip = extract "$@"
 
 # vim: ft=cfg
