@@ -45,10 +45,9 @@ alias saveDotFiles='
     realrm -r ~/.dotFiles/i3Stuff;
     realcp -r ~/.i3 ~/.dotFiles/i3Stuff;
 
-    realrm -r ~/.dotFiles/scripts;
-    realcp -r ~/.scripts ~/.dotFiles/scripts;
     realcp /bin/youtubemp3 ~/.dotFiles/scripts/youtubemp3;
     realcp /bin/1SekVideos ~/.dotFiles/scripts/1SekVideos;
+    realcp /bin/checkInloop ~/.dotFiles/scripts/checkInloop;
     realcp /bin/extract ~/.dotFiles/scripts/extract;
     realcp /bin/newFolderRanger ~/.dotFiles/scripts/newFolderRanger;
     realcp /bin/newVimFile ~/.dotFiles/scripts/newVimFile;
@@ -90,8 +89,7 @@ alias mv='mv -iv'
 alias cp='cp -iv'
 alias pdflatex='f() { (pdflatex $1; trash *.aux; trash *.log; trash *.nav; trash *.out; trash *.snm; trash *.toc) }; f'
 alias extract='/bin/extract'
-alias newFolder='~/.scripts/newFolderRanger.sh'
-alias checkInloop='sh ~/.scripts/checkInloop.sh'
+alias newFolder='/bin/newFolderRanger.sh'
 
 clear
 

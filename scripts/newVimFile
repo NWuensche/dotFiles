@@ -1,5 +1,0 @@
-#!/bin/bash
-
-read -p "New File name: " FILENAME
-
-vim $FILENAME

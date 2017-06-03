@@ -1,1 +1,0 @@
-*/5 * * * * java -cp testSelenium/out/artifacts/testSelenium_jar/testSelenium.jar TestIt
