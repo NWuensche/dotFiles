@@ -1,0 +1,32 @@
+#!/bin/bash
+DOCKER=""
+COUNT="1"
+SUM=$(ls -d */ | grep -oP "\w*[A-Z]+\w*" | wc -l ) #Only directories + which start with a capital letter
+REALSUM=$(($SUM + 2)) # There are (somewhere) 2 more projects
+
+function dockersum {
+    while read -r line; do
+#        echo "$line"
+        if [[ $line == *"init"* ]]; then
+            echo "$COUNT/$REALSUM..."
+            COUNT=$(($COUNT + 1))
+        fi
+        if [[ $line == *"Failed"* ]]; then
+            return 123
+        fi
+    done
+}
+
+git fetch origin
+git rebase origin/master
+echo "Make Docker..."
+make dockerimage > /dev/null
+echo "Run Docker..."
+python3 run_docker.py 2>&1 | dockersum
+if [ "$?" == 123 ]; then
+    echo "Docker: BUILD FAILED"
+else
+    echo "Docker: BUILD SUCCESSFUL"
+fi
+echo "Run Gradle..."
+./gradlew clean test 2>&1| grep "BUILD" | awk '{print "Gradle: " $1" "$2}'
