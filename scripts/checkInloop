@@ -4,11 +4,19 @@ COUNT="1"
 SUM=$(ls -d */ | grep -oP "\w*[A-Z]+\w*" | wc -l ) #Only directories + which start with a capital letter
 REALSUM=$(($SUM + 2)) # There are (somewhere) 2 more projects
 
+function clearLastLine() {
+        tput cuu 1 && tput el
+}
+
 function dockersum {
+    tput sc
+    printf "0/$REALSUM"
     while read -r line; do
 #        echo "$line"
         if [[ $line == *"init"* ]]; then
-            echo "$COUNT/$REALSUM..."
+            tput rc
+            tput el
+            printf "$COUNT/$REALSUM..."
             COUNT=$(($COUNT + 1))
         fi
         if [[ $line == *"Failed"* ]]; then
