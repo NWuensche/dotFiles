@@ -9,13 +9,13 @@ function clearLastLine() {
 }
 
 function dockersum {
-    tput sc
+    tput sc #Save cursor position
     printf "0/$REALSUM"
     while read -r line; do
 #        echo "$line"
         if [[ $line == *"init"* ]]; then
-            tput rc
-            tput el
+            tput rc #goto last line
+            tput el #Delete last line
             printf "$COUNT/$REALSUM..."
             COUNT=$(($COUNT + 1))
         fi
