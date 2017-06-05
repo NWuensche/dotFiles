@@ -73,3 +73,6 @@ function StartPDF()
     LLPStartPreview
     call feedkeys ("\<return>")
 endfunction
+
+let @t='gg/\[*\]($"adiwb"sdi(h"apcs([lxelxGGo["apA: "sp' " for Issue 39
+

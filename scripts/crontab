@@ -1,1 +1,2 @@
-*/5 * * * * java -cp testSelenium/out/artifacts/testSelenium_jar/testSelenium.jar TestIt
+*/5 * * * * java -cp ~/testSelenium/out/artifacts/testSelenium_jar/testSelenium.jar TestIt
+55 19 * * * python3 ~/PocketAndroid/pocketAndroid.py

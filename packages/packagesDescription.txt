@@ -16,7 +16,7 @@ local/adwaita-compact-gtk-theme 3.20.9.1-1
     Compact modification of Adwaita gtk2 and gtk3 theme
 extra/adwaita-icon-theme 3.24.0-1 (gnome)
     GNOME standard icons
-extra/alsa-lib 1.1.4-1
+extra/alsa-lib 1.1.4.1-1
     An alternative implementation of Linux sound support
 extra/alsa-plugins 1.1.4-1
     Extra alsa plugins
@@ -1068,7 +1068,7 @@ extra/libutempter 1.1.6-2
     Interface for terminal emulators such as screen and xterm to record user sessions to utmp and wtmp files
 core/libutil-linux 2.29.2-2
     util-linux runtime libraries
-extra/libuv 1.11.0-1
+extra/libuv 1.12.0-1
     Multi-platform support library with a focus on asynchronous I/O
 extra/libva 1.8.2-1
     Video Acceleration (VA) API for Linux
@@ -1346,7 +1346,7 @@ core/pam 1.3.0-1
     PAM (Pluggable Authentication Modules) library
 core/pambase 20130928-1
     Base PAM configuration for services
-community/pandoc 1.19.2.1-63
+community/pandoc 1.19.2.1-64
     Conversion between markup formats
 extra/pango 1.40.6+9+g92cc73c8-1
     A library for layout and rendering of text
@@ -1750,7 +1750,7 @@ core/sqlite 3.19.2-2
     A C library that implements an SQL database engine
 extra/sratom 0.4.6-1
     An LV2 Atom RDF serialisation library
-community/stack 1.4.0-63
+community/stack 1.4.0-64
     The Haskell Tool Stack
 extra/startup-notification 0.12-5
     Monitor and display application startup
