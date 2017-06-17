@@ -1,6 +1,6 @@
 # Own Stuff
 ext pdf = chromium "$@" &
-ext png|jpg = geeqie $1 &
+ext png|jpg = geeqie "$@" &
 ext mp4 = vlc "$@" &
 ext zip = extract "$@"
 

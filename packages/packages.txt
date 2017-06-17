@@ -9,6 +9,7 @@ android-studio
 anki
 apache
 arandr
+aspell-de
 audacity
 autoconf
 automake
@@ -64,11 +65,13 @@ groff
 grub
 grub-customizer
 gtk-engine-murrine
+gtk3-print-backends
 gulp
 guvcview
 gzip
 heroku-toolbelt
 hexchat
+htop
 hunspell-de
 i3-wm
 i3lock
@@ -139,7 +142,6 @@ phantomjs
 php-apache
 phpmyadmin
 pkg-config
-plasma-workspace-wallpapers
 playonlinux
 pmount
 powertop
@@ -149,6 +151,7 @@ pulseaudio-alsa
 putty
 pwgen
 python-pip
+r
 ranger
 recordmydesktop
 redshift
