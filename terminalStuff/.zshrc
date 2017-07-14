@@ -22,7 +22,7 @@ export BROWSER
 
 alias saveDotFiles='
 
-    ~/.gitconfig > ~/.dotFiles/gitStuff/.gitconfig;
+    realcp ~/.gitconfig ~/.dotFiles/gitStuff/.gitconfig;
 
     realcp ~/.Xmodmap ~/.dotFiles/XStuff/.Xmodmap;
     realcp /usr/share/sddm/scripts/Xsetup ~/.dotFiles/XStuff/Xsetup;
