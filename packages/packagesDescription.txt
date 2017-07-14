@@ -26,19 +26,17 @@ community/android-file-transfer 3.1-1
     Android MTP client with minimalistic UI
 local/android-studio 2.3.3.0-1
     The official Android IDE (Stable branch)
-local/anki 2.1.0a14-2
-    Friendly, intelligent flash cards
-extra/apache 2.4.25-3
+extra/apache 2.4.26-3
     A high performance Unix-based HTTP server
-extra/apr 1.5.2-2
+extra/apr 1.6.2-1
     The Apache Portable Runtime
-extra/apr-util 1.5.4-3
+extra/apr-util 1.6.0-1
     The Apache Portable Runtime
 community/aqbanking 5.6.12-2
     A library for online banking and financial applications
 community/arandr 0.1.9-2
     Provide a simple visual front end for XRandR 1.2.
-core/archlinux-keyring 20170320-1
+core/archlinux-keyring 20170611-1
     Arch Linux PGP keyring
 extra/aspell 0.60.6.1-5
     A spell checker designed to eventually replace Ispell
@@ -58,7 +56,7 @@ extra/audacity 2.1.3-1
     A program that lets you manipulate digital audio waveforms
 core/autoconf 2.69-4 (base-devel)
     A GNU tool for automatically configuring source code
-core/automake 1.15-2 (base-devel)
+core/automake 1.15.1-1 (base-devel)
     A GNU tool for automatically creating Makefiles
 extra/avahi 0.6.32-3
     Service Discovery for Linux using mDNS/DNS-SD -- compatible with Bonjour
@@ -70,11 +68,11 @@ extra/bc 1.07.1-1
     An arbitrary precision calculator language
 extra/beep 1.3-3
     Advanced PC speaker beeping program
-core/binutils 2.28.0-3 (base-devel)
+core/binutils 2.28.0-4 (base-devel)
     A set of programs to assemble and manipulate binary and object files
 core/bison 3.0.4-2 (base-devel)
     The GNU general-purpose parser generator
-extra/blas 3.7.0-2
+extra/blas 3.7.1-1
     Basic Linear Algebra Subprograms
 extra/bluez 5.45-1
     Daemons for the bluetooth protocol stack
@@ -82,14 +80,16 @@ extra/bluez-libs 5.45-1
     Deprecated libraries for the bluetooth protocol stack
 extra/bluez-utils 5.45-1
     Development and debugging utilities for the bluetooth protocol stack
-extra/boost-libs 1.64.0-1
+extra/boost-libs 1.64.0-4
     Free peer-reviewed portable C++ source libraries - runtime libraries
 community/bower 1.8.0-1
     A package manager for the web
-extra/breeze-gtk 5.10.2-1 (plasma)
+extra/breeze-gtk 5.10.3-1 (plasma)
     Breeze widget theme for GTK 2 and 3
 core/bridge-utils 1.6-1
     Utilities for configuring the Linux ethernet bridge
+core/btrfs-progs 4.11.1-1
+    Btrfs filesystem utilities
 core/bzip2 1.0.6-6 (base)
     A high-quality data compression program
 extra/c-ares 1.12.0-1
@@ -102,21 +102,21 @@ core/ca-certificates-mozilla 3.31-3
     Mozilla's set of trusted CA certificates
 core/ca-certificates-utils 20170307-1
     Common CA certificates (utilities)
-community/cabal-install 1.24.0.0-11
+community/cabal-install 1.24.0.2-2
     The command-line interface for Cabal and Hackage.
 community/cabextract 1.6-1
     A program to extract Microsoft cabinet (.CAB) files
-extra/cairo 1.14.8-1
+extra/cairo 1.14.10-1
     Cairo vector graphics library
 extra/cairomm 1.12.2-2
     C++ bindings for Cairo
 community/calc 2.12.5.6-1
     console calculator
-community/calibre 2.85.1-2
+community/calibre 3.3.0-1
     Ebook management application
 extra/cantarell-fonts 1:0.0.25-3
     Cantarell font family
-extra/cblas 3.7.0-2
+extra/cblas 3.7.1-1
     C interface to BLAS
 extra/cdparanoia 10.2-5
     Compact Disc Digital Audio extraction tool
@@ -126,7 +126,7 @@ extra/chmlib 0.40-4
     Library for dealing with Microsoft ITSS/CHM format files
 extra/chromaprint 1.4.2-1
     Library that implements a custom algorithm for extracting fingerprints from any audio source
-extra/chromium 59.0.3071.104-1
+extra/chromium 59.0.3071.115-1
     A web browser built for speed, simplicity, and security
 extra/cifs-utils 6.7-2
     CIFS filesystem user-space tools
@@ -148,11 +148,11 @@ core/cronie 1.5.1-1
     Daemon that runs specified programs at scheduled times and related tools
 core/cryptsetup 1.7.5-1 (base)
     Userspace setup tool for transparent encryption of block devices using dm-crypt
-extra/cups 2.2.3-1
+extra/cups 2.2.4-2
     The CUPS Printing System - daemon package
-extra/cups-filters 1.14.0-1
+extra/cups-filters 1.14.1-1
     OpenPrinting CUPS Filters
-core/curl 7.54.1-1
+core/curl 7.54.1-2
     An URL retrieval utility and library
 extra/damageproto 1.2.1-3
     X11 Damage extension wire protocol
@@ -168,7 +168,7 @@ extra/dconf 0.26.0+1+g701d19d-1
     Configuration database system
 extra/desktop-file-utils 0.23-1
     Command line utilities for working with desktop entries
-core/device-mapper 2.02.171-1 (base)
+core/device-mapper 2.02.172-2 (base)
     Device mapper userspace library and tools
 core/dhcpcd 6.11.5-1 (base)
     RFC2131 compliant DHCP client daemon
@@ -180,13 +180,19 @@ extra/djvulibre 3.5.27-3
     Suite to create, manipulate and view DjVu ('déjà vu') documents
 community/dmenu 4.7-1
     A generic menu for X
+core/dmraid 1.0.0.rc16.3-10
+    Device mapper RAID interface
 extra/dmxproto 2.3.1-3
     X11 Distributed Multihead X extension wire protocol
 core/dnssec-anchors 20170228-1
     DNSSEC trust anchors for the root zone
+extra/docbook-xml 4.5-6
+    A widely used XML scheme for writing documentation and help
+extra/docbook-xsl 1.79.2-3
+    XML stylesheets for Docbook-xml transformations
 community/docker 1:17.05.0-1
     Pack, ship and run any application as a lightweight container
-community/docker-compose 1.13.0-1
+community/docker-compose 1.14.0-1
     Fast, isolated development environments using Docker
 core/dosfstools 4.1-1
     DOS filesystem utilities
@@ -194,12 +200,6 @@ extra/double-conversion 2.0.1-3
     Binary-decimal and decimal-binary routines for IEEE doubles
 core/e2fsprogs 1.43.4-1 (base)
     Ext2/3/4 filesystem utilities
-local/eclim 2.6.0-1
-    Brings Eclipse functionality to Vim
-extra/eclipse-common 4.6.3-1
-    Highly extensible IDE (common files)
-extra/eclipse-java 4.6.3-1
-    Highly extensible IDE (JAVA variant)
 extra/enca 1.19-1
     Charset analyser and converter
 extra/enchant 1.6.1-2
@@ -212,7 +212,7 @@ extra/exiv2 0.25-3
     Exif, Iptc and XMP metadata manipulation library and tools
 extra/expac 8-1
     pacman database extraction utility
-core/expat 2.2.0-2
+core/expat 2.2.1-1
     An XML parser library
 community/extundelete 0.2.4-3
     Utility for recovering deleted files from ext2, ext3 or ext4 partitions by parsing the journal
@@ -234,7 +234,7 @@ core/file 5.31-1 (base base-devel)
     File type identification utility
 core/filesystem 2017.03-2 (base)
     Base Arch Linux files
-community/filezilla 3.26.2-1
+community/filezilla 3.26.2-2
     Fast and reliable FTP, FTPS and SFTP client
 core/findutils 4.6.0-2 (base base-devel)
     GNU utilities to locate files
@@ -256,7 +256,7 @@ extra/freetype2 2.8-2
     Font rasterization library
 extra/fribidi 0.19.7-1
     A Free Implementation of the Unicode Bidirectional Algorithm
-extra/fuse-common 3.0.2-1
+extra/fuse-common 3.1.0-1
     Common files for fuse2/3 packages
 extra/fuse2 2.9.7-3
     A library that makes it possible to implement a filesystem in a userspace program.
@@ -266,9 +266,9 @@ core/gawk 4.1.4-2 (base base-devel)
     GNU version of awk
 extra/gc 7.6.0-1
     A garbage collector for C and C++
-multilib/gcc-libs-multilib 7.1.1-3
+multilib/gcc-libs-multilib 7.1.1-4
     Runtime libraries shipped by GCC for multilib
-multilib/gcc-multilib 7.1.1-3 (multilib-devel)
+multilib/gcc-multilib 7.1.1-4 (multilib-devel)
     The GNU Compiler Collection - C and C++ frontends for multilib
 extra/gconf 3.2.6-5
     A configuration database system
@@ -280,7 +280,7 @@ core/gdbm 1.13-1
     GNU database library
 extra/gdk-pixbuf2 2.36.6-2
     An image loading library
-extra/geeqie 1.3-1
+extra/geeqie 1.3-2
     A lightweight image browser and viewer
 extra/gegl02 0.2.0-7
     Graph based image processing framework (v0.2)
@@ -288,7 +288,7 @@ extra/geoclue2 2.4.7-1
     Modular geoinformation service built on the D-Bus messaging system
 core/gettext 0.19.8.1-2 (base base-devel)
     GNU internationalization library
-community/ghc 8.0.1-1
+community/ghc 8.0.2-2
     The Glasgow Haskell Compiler
 extra/ghostscript 9.21-2
     An interpreter for the PostScript language
@@ -296,21 +296,23 @@ extra/giblib 1.2.4-6
     A library that feh uses as a wrapper to imlib2
 extra/giflib 5.1.4-1
     A library for reading and writing gif images
-extra/gimp 2.8.20-1
+extra/gimp 2.8.22-1
     GNU Image Manipulation Program
-extra/git 2.13.1-1
+extra/git 2.13.2-1
     the fast distributed version control system
-extra/gksu 2.0.2-5
+extra/gksu 2.0.2-6
     A graphical frontend for su
 extra/glew 2.0.0-1
     The OpenGL Extension Wrangler Library
 extra/glib-networking 2.50.0-2
     Network extensions for GLib
-core/glib2 2.52.2+9+g3245eba16-1
+core/glib2 2.52.3-1
     Low level core library
-core/glibc 2.25-2 (base)
+core/glib2-docs 2.52.3-1
+    Documentation for glib2
+core/glibc 2.25-7 (base)
     GNU C Library
-extra/glibmm 2.51.7-1
+extra/glibmm 2.52.0-1
     C++ bindings for GLib
 extra/glu 9.0.0-4
     Mesa OpenGL Utility library
@@ -324,17 +326,17 @@ extra/gnome-themes-standard 3.22.3-1 (gnome)
     Standard Themes for GNOME Applications
 extra/gnu-netcat 0.7.1-6
     GNU rewrite of netcat, the network piping application
-extra/gnucash 2.6.16-2
+local/gnucash 2.6.17-3
     A personal and small-business financial-accounting application
 core/gnupg 2.1.21-3
     Complete and free implementation of the OpenPGP standard
-core/gnutls 3.5.13-1
+core/gnutls 3.5.14-1
     A library which provides a secure layer over a reliable transport layer
 extra/gobject-introspection 1.52.1-1
     Introspection system for GObject-based libraries
 extra/gobject-introspection-runtime 1.52.1-1
     Introspection system for GObject-based libraries (runtime library)
-extra/goffice0.8 0.8.17-3
+local/goffice0.8 0.8.17-4
     A library of document-centric objects and utilities built on top of GLib and Gtk+
 extra/gparted 0.28.1-1
     A Partition Magic clone, frontend to GNU Parted
@@ -344,13 +346,15 @@ core/gpgme 1.9.0-3
     A C wrapper library for GnuPG
 core/gpm 1.20.7-7
     A mouse server for the console and xterm
-community/gradle 3.5-1
+extra/gptfdisk 1.0.1-2
+    A text-mode partitioning tool that works on GUID Partition Table (GPT) disks
+community/gradle 4.0.1-1
     Powerful build system for the JVM
 extra/graphene 1.6.0-1
     A thin layer of graphic data types
 extra/graphite 1:1.3.10-1
     reimplementation of the SIL Graphite text processing engine
-core/grep 3.0-1 (base base-devel)
+core/grep 3.1-1 (base base-devel)
     A string search utility
 core/groff 1.22.3-7 (base-devel)
     GNU troff text-formatting system
@@ -362,33 +366,35 @@ extra/gsettings-desktop-schemas 3.24.0-1
     Shared GSettings schemas for the desktop
 extra/gsfonts 20160531-3
     URW+ Postscript core35 fonts
-extra/gsl 2.3-1
+extra/gsl 2.4-1
     The GNU Scientific Library (GSL) is a modern numerical library for C and C++ programmers
 extra/gsm 1.0.16-1
     Shared libraries for GSM 06.10 lossy speech compression
-extra/gst-plugins-bad 1.12.0-1
+extra/gst-plugins-bad 1.12.1-1
     GStreamer Multimedia Framework Bad Plugins
-extra/gst-plugins-base 1.12.0-1
+extra/gst-plugins-base 1.12.1-1
     GStreamer Multimedia Framework Base Plugins
-extra/gst-plugins-base-libs 1.12.0-1
+extra/gst-plugins-base-libs 1.12.1-1
     GStreamer Multimedia Framework Base Plugin libraries
-extra/gstreamer 1.12.0-1
+extra/gstreamer 1.12.1-1
     GStreamer open-source multimedia framework core library
+extra/gtk-doc 1.25+33+g567353f-1
+    Documentation tool for public library API
 community/gtk-engine-murrine 0.98.2-2
     GTK2 engine to make your desktop look like a 'murrina', an italian word meaning the art glass works done by Venicians glass blowers.
-extra/gtk-update-icon-cache 3.22.15-1
+extra/gtk-update-icon-cache 3.22.16-1
     GTK+ icon cache updater
 extra/gtk2 2.24.31-1
     GObject-based multi-platform GUI toolkit (legacy)
-extra/gtk3 3.22.15-1
+extra/gtk3 3.22.16-1
     GObject-based multi-platform GUI toolkit
-extra/gtk3-print-backends 3.22.15-1 (gnome)
+extra/gtk3-print-backends 3.22.16-1 (gnome)
     Print backends for GTK3
 extra/gtkmm 2.24.5-2
     C++ bindings for gtk2
-extra/gtkmm3 3.22.0-2
+extra/gtkmm3 3.22.1-1
     C++ bindings for GTK+ 3
-extra/gtksourceview3 3.24.2-1
+extra/gtksourceview3 3.24.3-1
     A text widget adding syntax highlighting and more to GNOME
 extra/gtkspell 2.0.16-3
     Provides word-processor-style highlighting and replacement of misspelled words in a GtkTextView widget
@@ -396,13 +402,11 @@ extra/guile 2.2.2-1
     Portable, embeddable Scheme implementation written in C
 extra/guile1.8 1.8.8-5
     Portable, embeddable Scheme implementation written in C. Legacy branch.
-extra/guile2.0 2.0.14-1
-    Portable, embeddable Scheme implementation written in C
 community/gulp 3.9.1-2
     The streaming build system
-community/guvcview 2.0.5-1
+community/guvcview 2.0.5-2
     A video viewer and capturer for the linux uvc driver
-extra/gvfs 1.32.1-1 (gnome)
+extra/gvfs 1.32.1+3+gd852665e-1 (gnome)
     Virtual filesystem implementation for GIO
 community/gwenhywfar 4.17.0-2
     OS abstraction functions for various projects
@@ -412,6 +416,424 @@ extra/harfbuzz 1.4.6-1
     OpenType text shaping engine
 extra/harfbuzz-icu 1.4.6-1
     OpenType text shaping engine (ICU integration)
+community/haskell-aeson 1.1.2.0-11
+    A JSON parsing and encoding library optimized for ease of use and high performance.
+community/haskell-aeson-compat 0.3.7-7
+    Compatibility layer for aeson
+community/haskell-annotated-wl-pprint 0.7.0-3
+    The Wadler/Leijen Pretty Printer, with annotation support
+community/haskell-ansi-terminal 0.6.3.1-2
+    Simple ANSI terminal support, with Windows compatibility
+community/haskell-ansi-wl-pprint 0.6.7.3-6
+    The Wadler/Leijen Pretty Printer for colored ANSI terminal output
+community/haskell-asn1-encoding 0.9.5-13
+    ASN1 data reader and writer in RAW, BER and DER forms
+community/haskell-asn1-parse 0.9.4-24
+    Simple monadic parser for ASN1 stream types.
+community/haskell-asn1-types 0.3.2-20
+    ASN.1 types
+community/haskell-async 2.1.1.1-2
+    Run IO operations asynchronously and wait for their results
+community/haskell-attoparsec 0.13.1.0-16
+    Fast combinator parsing for bytestrings and text
+community/haskell-attoparsec-iso8601 1.0.0.0-10
+    Parsing of ISO 8601 dates, originally from aeson
+community/haskell-auto-update 0.1.4-3
+    Efficiently run periodic, on-demand actions
+community/haskell-base-compat 0.9.3-2
+    A compatibility layer for base
+community/haskell-base-orphans 0.6-2
+    Backwards-compatible orphan instances for base
+community/haskell-base16-bytestring 0.1.1.6-4
+    Fast base16 (hex) encoding and decoding for ByteStrings
+community/haskell-base64-bytestring 1.0.0.1-7
+    Fast base64 encoding and decoding for ByteStrings
+community/haskell-bifunctors 5.4.2-3
+    Bifunctors
+community/haskell-binary-tagged 0.1.4.2-28
+    Tagged binary serialisation.
+community/haskell-bitarray 0.0.1.1-2
+    Mutable and immutable bit arrays
+community/haskell-blaze-builder 0.4.0.2-4
+    Efficient buffered output
+community/haskell-blaze-html 0.8.1.3-4
+    A blazingly fast HTML combinator library for Haskell
+community/haskell-blaze-markup 0.7.1.1-3
+    A blazingly fast markup combinator library for Haskell
+community/haskell-byteable 0.1.1-4
+    Type class for sequence of bytes
+community/haskell-call-stack 0.1.0-2
+    Use GHC call-stacks in a backward compatible way
+community/haskell-case-insensitive 1.2.0.10-3
+    Case insensitive string comparison
+community/haskell-cereal 0.5.4.0-2
+    A binary serialization library
+community/haskell-clock 0.7.2-3
+    High-resolution clock functions: monotonic, realtime, cputime.
+community/haskell-cmark 0.5.5.1-3
+    Fast, accurate CommonMark (Markdown) parser and renderer
+community/haskell-comonad 5.0.1-2
+    Comonads
+community/haskell-conduit 1.2.11-4
+    Streaming data processing library.
+community/haskell-conduit-extra 1.1.16-17
+    Batteries included conduit: adapters for common libraries.
+community/haskell-connection 0.2.8-17
+    Simple and easy network connections API
+community/haskell-constraints 0.9.1-5
+    Constraint manipulation
+community/haskell-contravariant 1.4-17
+    Contravariant functors
+community/haskell-cookie 0.4.2.1-5
+    HTTP cookie parsing and rendering
+community/haskell-cryptohash 0.11.9-28
+    Collection of crypto hashes, fast, pure and practical
+community/haskell-cryptohash-sha256 0.11.100.1-2
+    Fast, pure and practical SHA-256 implementation
+community/haskell-cryptonite 0.24-1
+    Cryptography Primitives sink
+community/haskell-cryptonite-conduit 0.2.0-37
+    Conduit bridge for cryptonite
+community/haskell-data-default 0.7.1.1-6
+    A class for types with a default value
+community/haskell-data-default-class 0.1.2.0-2
+    A class for types with a default value
+community/haskell-data-default-instances-containers 0.0.1-14
+    Default instances for types in containers
+community/haskell-data-default-instances-dlist 0.0.1-19
+    Default instances for types in dlist
+community/haskell-data-default-instances-old-locale 0.0.1-14
+    Default instances for types in old-locale
+community/haskell-digest 0.0.1.2-4
+    Various cryptographic hashes for bytestrings; CRC32 and Adler32 for now.
+community/haskell-distributive 0.5.2-3
+    Distributive functors -- Dual to Traversable
+community/haskell-dlist 0.8.0.3-1
+    Differences lists
+community/haskell-doctemplates 0.1.0.2-26
+    Pandoc-style document templates
+community/haskell-easy-file 0.2.1-3
+    Cross-platform File handling
+community/haskell-ed25519 0.0.5.0-3
+    Ed25519 cryptographic signatures
+community/haskell-either 4.4.1.1-25
+    An either monad transformer
+community/haskell-errors 2.2.1-1
+    Simplified error-handling
+community/haskell-exceptions 0.8.3-2
+    Extensible optionally-pure exceptions
+community/haskell-extensible-exceptions 0.1.1.4-15
+    extensible exceptions for both new and old versions of GHC
+community/haskell-extra 1.5.3-2
+    Extra functions I use.
+community/haskell-fast-logger 2.4.10-3
+    A fast logging system
+community/haskell-file-embed 0.0.10-3
+    Use Template Haskell to embed file contents directly.
+community/haskell-filelock 0.1.0.1-3
+    Portable interface to file locking (flock / LockFileEx)
+community/haskell-filemanip 0.3.6.3-8
+    Expressive file and directory manipulation for Haskell.
+community/haskell-foundation 0.0.13-1
+    Alternative prelude with batteries and no dependencies
+community/haskell-free 4.12.4-32
+    Monads for free
+community/haskell-fsnotify 0.2.1-11
+    Cross platform library for file change notification.
+community/haskell-generic-deriving 1.11.2-2
+    Generic programming library for generalised deriving.
+community/haskell-generics-sop 0.3.1.0-1
+    Generic Programming using True Sums of Products
+community/haskell-gitrev 1.2.0-3
+    Compile git revision info into Haskell projects
+community/haskell-glob 0.7.14-3
+    Globbing library
+community/haskell-hackage-security 0.5.2.2-5
+    Hackage security library
+community/haskell-haddock-library 1.4.3-2
+    A documentation-generation tool for Haskell libraries
+community/haskell-hashable 1.2.6.1-1
+    Mutable hash tables in the ST monad
+community/haskell-hashtables 1.2.1.1-5
+    Mutable hash tables in the ST monad
+community/haskell-hastache 0.6.1-9
+    Haskell implementation of Mustache templates
+community/haskell-hinotify 0.3.9-3
+    Haskell binding to inotify
+community/haskell-hit 0.6.3-44
+    Git operations in haskell
+community/haskell-hourglass 0.2.10-3
+    simple performant time related library
+community/haskell-hpack 0.17.1-10
+    An alternative format for Haskell packages
+community/haskell-hslua 0.4.1-4
+    A Lua language interpreter embedding in Haskell
+community/haskell-hspec 2.4.4-2
+    A Testing Framework for Haskell
+community/haskell-hspec-core 2.4.4-2
+    A Testing Framework for Haskell
+community/haskell-hspec-discover 2.4.4-1
+    Automatically discover and run Hspec tests
+community/haskell-hspec-expectations 0.8.2-3
+    Catchy combinators for HUnit
+community/haskell-hspec-smallcheck 0.4.2-11
+    SmallCheck support for the Hspec testing framework
+community/haskell-http 4000.3.7-3
+    A library for client-side HTTP
+community/haskell-http-api-data 0.3.7.1-13
+    Converting to/from HTTP API data like URL pieces, headers and query parameters.
+community/haskell-http-client 0.5.7.0-4
+    An HTTP client engine
+community/haskell-http-client-tls 0.3.5.1-6
+    http-client backend using the connection package and tls library
+community/haskell-http-conduit 2.2.3.2-1
+    HTTP client package with conduit interface and HTTPS support
+community/haskell-http-types 0.9.1-12
+    Generic HTTP types for Haskell (for both client and server code).
+community/haskell-hunit 1.6.0.0-2
+    A unit testing framework for Haskell
+community/haskell-hxt 9.3.1.16-3
+    A collection of tools for processing XML with Haskell.
+community/haskell-hxt-charproperties 9.2.0.1-2
+    Character properties and classes for XML and Unicode
+community/haskell-hxt-regex-xmlschema 9.2.0.3-3
+    A regular expression library for W3C XML Schema regular expressions
+community/haskell-hxt-unicode 9.0.2.4-2
+    Unicode en-/decoding functions for utf8, iso-latin-* and other encodings
+community/haskell-ieee754 0.8.0-2
+    Utilities for dealing with IEEE floating point numbers
+community/haskell-integer-logarithms 1.0.2-1
+    Integer logarithms
+community/haskell-juicypixels 3.2.8.2-1
+    Picture loading/serialization (in png, jpeg, bitmap, gif, tga, tiff and radiance)
+community/haskell-lexer 1.0.1-2
+    A fully compliant Haskell 98 lexer.
+community/haskell-lifted-async 0.9.3-2
+    Run lifted IO operations asynchronously and wait for their results
+community/haskell-lifted-base 0.2.3.11-4
+    lifted IO operations from the base library
+community/haskell-logict 0.6.0.2-2
+    A backtracking logic-programming monad.
+community/haskell-math-functions 0.2.1.0-3
+    Special functions and Chebyshev polynomials
+community/haskell-memory 0.14.6-4
+    memory and related abstraction stuff
+community/haskell-microlens 0.4.8.0-2
+    A tiny lens library with no dependencies. If you're writing an app, you probably want microlens-platform, not this.
+community/haskell-microlens-mtl 0.1.11.0-1
+    microlens support for Reader/Writer/State from mtl
+community/haskell-microlens-th 0.4.1.1-2
+    Automatic generation of record lenses for microlens
+community/haskell-mime-types 0.1.0.7-4
+    Basic mime-type handling types and functions
+community/haskell-mmorph 1.1.0-2
+    Monad morphisms
+community/haskell-monad-control 1.0.2.1-1
+    Lift control operations, like exception catching, through monad transformers
+community/haskell-monad-logger 0.3.24-18
+    A class of monads which can log messages.
+community/haskell-monad-loops 0.4.3-4
+    Monadic loops
+community/haskell-monad-unlift 0.2.0-10
+    Typeclasses for representing monad transformer unlifting
+community/haskell-monadrandom 0.5.1-3
+    Random-number generation monad.
+community/haskell-mono-traversable 1.0.2-8
+    Type classes for mapping, folding, and traversing monomorphic containers
+community/haskell-mtl 2.2.1-7
+    Monad classes, using functional dependencies
+community/haskell-mwc-random 0.13.6.0-2
+    Fast, high quality pseudo random number generation
+community/haskell-network 2.6.3.2-2
+    Low-level networking interface
+community/haskell-network-uri 2.6.1.0-5
+    A library for client-side HTTP
+community/haskell-old-locale 1.0.0.7-9
+    This package provides the ability to adapt to locale conventions such as date and time formats.
+community/haskell-old-time 1.1.0.3-9
+    This package provides the ability to adapt to locale conventions such as date and time formats.
+community/haskell-open-browser 0.2.1.0-3
+    Open a web browser from Haskell.
+community/haskell-optparse-applicative 0.13.2.0-4
+    Utilities and combinators for parsing command line options
+community/haskell-optparse-simple 0.0.3-50
+    Simple interface to optparse-applicative
+community/haskell-pandoc-types 1.17.0.5-21
+    Types for representing a structured document
+community/haskell-parsec 3.1.11-4
+    Monadic parser combinators
+community/haskell-path 0.6.1-5
+    Path
+community/haskell-path-io 1.3.2-1
+    Interface to ‘directory’ package for users of ‘path’
+community/haskell-path-pieces 0.2.1-7
+    Components of paths
+community/haskell-patience 0.1.1-2
+    Patience diff and longest increasing subsequence
+community/haskell-pem 0.2.2-4
+    Privacy Enhanced Mail (PEM) format reader and writer.
+community/haskell-persistent 2.6.1-42
+    Type-safe, multi-backend data serialization
+community/haskell-persistent-sqlite 2.6.2-41
+    Backend for the persistent library using sqlite3
+community/haskell-persistent-template 2.5.2-44
+    Type-safe, non-relational, multi-backend persistence
+community/haskell-pid1 0.1.1.0-1
+    Do signal handling and orphan reaping for Unix PID1 init processes
+community/haskell-prelude-extras 0.4.0.3-3
+    Higher order versions of Prelude classes
+community/haskell-pretty-show 1.6.13-2
+    Tools for working with derived `Show` instances and generic inspection of values.
+community/haskell-primitive 0.6.2.0-2
+    Wrappers for primitive operations
+community/haskell-profunctors 5.2-29
+    Profunctors
+community/haskell-project-template 0.2.0-69
+    Specify Haskell project templates and generate files
+community/haskell-quickcheck 2.10.0.1-1
+    Automatic testing of Haskell programs
+community/haskell-quickcheck-io 0.2.0-2
+    Use HUnit assertions as QuickCheck properties
+community/haskell-random 1.1-7
+    random number library
+community/haskell-regex-applicative 0.3.3-3
+    Regex-based parsing with applicative interface
+community/haskell-regex-applicative-text 0.1.0.1-3
+    Wrapped regex-applicative primitives to work with Text
+community/haskell-regex-base 0.93.2-27
+    Interface API for regex-posix,pcre,parsec,tdfa,dfa
+community/haskell-regex-pcre 0.94.4-3
+    Replaces/Enhances Text.Regex
+community/haskell-resource-pool 0.2.3.2-18
+    A high-performance striped resource pooling implementation
+community/haskell-resourcet 1.1.9-7
+    Deterministic allocation and freeing of scarce resources.
+community/haskell-retry 0.7.4.2-2
+    Retry combinators for monadic actions that may fail
+community/haskell-safe 0.3.15-1
+    Library of safe (exception free) functions
+community/haskell-safe-exceptions 0.1.6.0-1
+    Safe, consistent, and easy exception handling
+community/haskell-scientific 0.3.5.1-2
+    Numbers represented using scientific notation
+community/haskell-semigroupoids 5.2-2
+    Semigroupoids: Category sans id
+community/haskell-semigroups 0.18.3-3
+    Anything that associates
+community/haskell-setenv 0.1.1.3-4
+    A cross-platform library for setting environment variables
+community/haskell-sha 1.6.4.2-6
+    Implementations of the SHA suite of message digest functions
+community/haskell-silently 1.2.5-4
+    Prevent or capture writing to stdout and other handles.
+community/haskell-skylighting 0.1.1.5-27
+    Syntax highlighting library
+community/haskell-smallcheck 1.1.1-2
+    A property-based testing library
+community/haskell-socks 0.5.5-8
+    Socks proxy (version 5) implementation.
+community/haskell-split 0.2.3.2-2
+    Combinator library for splitting lists.
+community/haskell-statevar 1.1.0.4-3
+    State variables
+community/haskell-stm 2.4.4.1-4
+    A modular composable concurrency abstraction.
+community/haskell-stm-chans 3.0.0.4-5
+    Additional types of channels for STM.
+community/haskell-store 0.4.3.1-25
+    Fast binary serialization
+community/haskell-store-core 0.4.1-3
+    Fast and lightweight binary serialization
+community/haskell-streaming-commons 0.1.18-2
+    Common lower-level functions needed by various streaming data libraries
+community/haskell-syb 0.6-5
+    library for generic programming in Haskell
+community/haskell-system-fileio 0.3.16.3-3
+    Consistent filesystem interaction across GHC versions
+community/haskell-system-filepath 0.4.13.4-3
+    High-level, byte-based file and directory path manipulations
+community/haskell-tagged 0.8.5-2
+    Haskell 98 phantom types to avoid unsafely passing dummy arguments
+community/haskell-tagsoup 0.14.1-3
+    Parsing and extracting information from (possibly malformed) HTML/XML documents
+community/haskell-tar 0.5.0.3-3
+    Reading, writing and manipulating ".tar" archive files.
+community/haskell-temporary 1.2.1-2
+    Portable temporary file and directory support
+community/haskell-texmath 0.9.4.1-5
+    Conversion between formats used to represent mathematics.
+community/haskell-text 1.2.2.2-2
+    An efficient packed Unicode text type.
+community/haskell-text-binary 0.2.1.1-3
+    Binary instances for text types
+community/haskell-text-metrics 0.2.0-3
+    Calculate various string metrics efficiently
+community/haskell-tf-random 0.5-11
+    High-quality splittable pseudorandom number generator
+community/haskell-th-expand-syns 0.4.3.0-2
+    Expands type synonyms in Template Haskell ASTs
+community/haskell-th-lift 0.7.7-2
+    Derive Template Haskell's Lift class for datatypes.
+community/haskell-th-lift-instances 0.1.11-5
+    Lift instances for template-haskell for common data types.
+community/haskell-th-orphans 0.13.3-13
+    Orphan instances for TH datatypes
+community/haskell-th-reify-many 0.1.7-3
+    Recurseively reify template haskell datatype info
+community/haskell-th-utilities 0.2.0.1-15
+    Collection of useful functions for use with Template Haskell
+community/haskell-time-locale-compat 0.1.1.3-2
+    Compatibility of TimeLocale between old-locale and time-1.5
+community/haskell-tls 1.3.11-3
+    TLS/SSL protocol native implementation (Server and Client)
+community/haskell-transformers-base 0.4.4-6
+    Lift computations from the bottom of a transformer stack
+community/haskell-transformers-compat 0.5.1.4-4
+    A small compatibility shim exposing the new types from transformers 0.3 to older Haskell platforms.
+community/haskell-unexceptionalio 0.3.0-3
+    IO without any non-error, synchronous exceptions
+community/haskell-unicode-transforms 0.3.1-1
+    Unicode transforms (normalization NFC/NFD/NFKC/NFKD)
+community/haskell-unix-compat 0.4.3.1-2
+    Portable POSIX-compatibility layer.
+community/haskell-unix-time 0.3.7-2
+    Unix time parser/formatter and utilities
+community/haskell-unordered-containers 0.2.8.0-5
+    Efficient hashing-based container types
+community/haskell-uri-bytestring 0.2.3.3-6
+    Haskell URI parsing as ByteStrings
+community/haskell-utf8-string 1.0.1.1-3
+    Support for reading and writing UTF8 Strings
+community/haskell-uuid-types 1.0.3-7
+    Type definitions for Universally Unique Identifiers
+community/haskell-vector 0.12.0.1-2
+    Efficient Arrays
+community/haskell-vector-algorithms 0.7.0.1-7
+    Efficient algorithms for vector arrays
+community/haskell-vector-binary-instances 0.2.3.5-2
+    Instances of Data.Binary and Data.Serialize for vector
+community/haskell-vector-th-unbox 0.2.1.6-4
+    Deriver for Data.Vector.Unboxed using Template Haskell
+community/haskell-void 0.7.2-2
+    A Haskell 98 logically uninhabited data type
+community/haskell-x509 1.6.5-21
+    X509 reader and writer
+community/haskell-x509-store 1.6.2-22
+    X.509 collection accessing and storing methods
+community/haskell-x509-system 1.6.4-22
+    Handle per-operating-system X.509 accessors and storage
+community/haskell-x509-validation 1.6.5-22
+    X.509 Certificate and CRL validation
+community/haskell-xml 1.3.14-7
+    A simple XML library
+community/haskell-yaml 0.8.23.1-7
+    Support for parsing and rendering YAML documents.
+community/haskell-zip-archive 0.3.1.1-1
+    Library for creating and modifying zip archives.
+community/haskell-zlib 0.6.1.2-2
+    Compression and decompression in the gzip and zlib formats
+community/haskell-zlib-bindings 0.1.1.5-3
+    Low-level bindings to the zlib package.
 core/hdparm 9.52-1
     A shell utility for manipulating Linux IDE drive/driver parameters
 local/heroku-toolbelt 3.43.9-1
@@ -436,7 +858,7 @@ extra/hyphen 2.8.8-1
     library for high quality hyphenation and justification
 community/i3-wm 4.13-1 (i3)
     An improved dynamic tiling window manager
-community/i3lock 2.9-1 (i3)
+community/i3lock 2.9.1-1 (i3)
     An improved screenlocker based upon XCB and PAM
 local/i3lock-wrapper 2016.04.27.g999e133-1 (i3)
     A simple wrapper around i3lock which blurs the current desktop
@@ -460,19 +882,21 @@ core/inetutils 1.9.4-5 (base)
     A collection of common network programs
 extra/iniparser 4.0-2
     A free stand-alone ini file parsing library written in portable ANSI C
-extra/inkscape 0.92.1-2
+extra/inkscape 0.92.1-3
     Professional vector graphics editor
 extra/inputproto 2.3.2-1
     X11 Input extension wire protocol
-community/intellij-idea-community-edition 2:2017.1.3-1
+community/intellij-idea-community-edition 2:2017.1.4-1
     IDE for Java, Groovy and other programming languages with advanced refactoring features
-core/iproute2 4.11.0-1 (base)
+extra/intltool 0.51.0-2
+    The internationalization tool collection
+core/iproute2 4.12.0-2 (base)
     IP Routing Utilities
 core/iptables 1.6.1-1
     Linux kernel packet control tool
 core/iputils 20161105.1f2bb12-2 (base)
     Network monitoring tools, including ping
-extra/iso-codes 3.74-1
+extra/iso-codes 3.75-1
     Lists of the country, language, and currency names
 local/isousb 1.5-1
     A graphical tool to copy a hybrid ISO onto a USB key.
@@ -482,9 +906,11 @@ local/j4-dmenu-desktop 2.15-1
     A much faster replacement for i3-dmenu-desktop. Its purpose is to find .desktop files and offer you a menu to start an application using dmenu.
 extra/jack 0.125.0-3
     A low-latency audio server
-community/jansson 2.10-1
+community/jad 1.5.8e-6
+    Java decompiler
+community/jansson 2.10-2
     C library for encoding, decoding and manipulating JSON data
-extra/jasper 2.0.13-1
+extra/jasper 2.0.13-2
     Software-based implementation of the codec specified in the emerging JPEG-2000 Part-1 standard
 extra/java-environment-common 2-2
     Common files for Java Development Kits
@@ -494,7 +920,7 @@ extra/jbig2dec 0.13-1
     Decoder implementation of the JBIG2 image compression format
 extra/jdk8-openjdk 8.u131-1
     OpenJDK Java 8 development kit
-extra/jemalloc 4.5.0-1
+extra/jemalloc 1:5.0.1-2
     General-purpose scalable concurrent malloc implementation
 core/jfsutils 1.1.15-4 (base)
     JFS filesystem utilities
@@ -522,13 +948,13 @@ core/krb5 1.15.1-1
     The Kerberos network authentication system
 community/ktoblzcheck 1.49-1
     A library to check account numbers and bank codes of German banks
-extra/kwallet-pam 5.10.2-1 (plasma)
+extra/kwallet-pam 5.10.3-1 (plasma)
     KWallet PAM integration
 extra/ladspa 1.13-6
     Linux Audio Developer's Simple Plugin API (LADSPA)
 extra/lame 3.99.5-3
     A high quality MPEG Audio Layer III (MP3) encoder
-extra/lapack 3.7.0-2
+extra/lapack 3.7.1-1
     Linear Algebra PACKage
 local/latex-beamer-ctan 3.41-1
     A LaTeX class for creating slides for presentations. CTAN package
@@ -554,7 +980,7 @@ multilib/lib32-attr 2.4.47-1
     Extended attribute support library for ACL support (32-bit)
 multilib/lib32-bzip2 1.0.6-2
     A high-quality data compression program (32-bit)
-multilib/lib32-curl 7.54.0-1
+multilib/lib32-curl 7.54.1-2
     An URL retrieval utility and library (32-bit)
 multilib/lib32-dbus 1.10.18-1
     Freedesktop.org message bus system (32-bit)
@@ -568,25 +994,25 @@ multilib/lib32-fontconfig 2.12.3-1
     A library for configuring and customizing font access (32-bit)
 multilib/lib32-freetype2 2.8-2
     TrueType font rendering library (32-bit)
-multilib/lib32-gcc-libs 7.1.1-3
+multilib/lib32-gcc-libs 7.1.1-4
     Runtime libraries shipped by GCC (32-bit)
 multilib/lib32-gettext 0.19.8.1-1
     GNU internationalization library (32-bit)
 multilib/lib32-glib2 2.52.2+9+g3245eba16-1
     Low level core library (32-bit)
-multilib/lib32-glibc 2.25-3
+multilib/lib32-glibc 2.25-4
     GNU C Library (32-bit)
 multilib/lib32-glu 9.0.0-3
     Mesa OpenGL utility library (32 bits)
-multilib/lib32-gmp 6.1.1-1
+multilib/lib32-gmp 6.1.2-1
     A free library for arbitrary precision arithmetic (32-bit)
-multilib/lib32-gnutls 3.4.15-1
+multilib/lib32-gnutls 3.5.13-1
     A library which provides a secure layer over a reliable transport layer (32-bit)
-multilib/lib32-harfbuzz 1.4.1-2
+multilib/lib32-harfbuzz 1.4.6-1
     OpenType text shaping engine (32-bit)
 multilib/lib32-icu 59.1-1
     International Components for Unicode library (32 bit)
-multilib/lib32-keyutils 1.5.9-1
+multilib/lib32-keyutils 1.5.10-1
     Linux Key Management Utilities (32-bit)
 multilib/lib32-krb5 1.15.1-1
     The Kerberos network authentication system (32-bit)
@@ -602,11 +1028,11 @@ multilib/lib32-libelf 0.169-1
     Libraries to handle ELF object files and DWARF debugging information (32-bit)
 multilib/lib32-libffi 3.2.1-1
     A portable, high level programming interface to various calling conventions (32-bit)
-multilib/lib32-libgcrypt 1.7.3-1
+multilib/lib32-libgcrypt 1.7.8-1
     General purpose cryptographic library based on the code from GnuPG (32-bit)
 multilib/lib32-libglvnd 0.2.999+g4ba53457-2
     The GL Vendor-Neutral Dispatch library
-multilib/lib32-libgpg-error 1.24-1
+multilib/lib32-libgpg-error 1.27-1
     Support library for libgcrypt (32-bit)
 multilib/lib32-libice 1.0.9-1
     X11 Inter-Client Exchange library (32-bit)
@@ -620,7 +1046,7 @@ multilib/lib32-libldap 2.4.44-2
     Lightweight Directory Access Protocol (LDAP) client libraries (32-bit)
 local/lib32-libmng 2.0.3-3
     A collection of routines used to create and manipulate MNG format graphics files (32-bit)
-multilib/lib32-libnl 3.2.29-1
+multilib/lib32-libnl 3.3.0-1
     Library for applications dealing with netlink sockets (32 bit)
 multilib/lib32-libogg 1.3.2-1
     Ogg bitstream and framing library (32-bit)
@@ -668,11 +1094,11 @@ multilib/lib32-libxext 1.3.3-1
     X11 miscellaneous extensions library (32-bit)
 multilib/lib32-libxfixes 5.0.3-1
     X11 miscellaneous 'fixes' extension library (32-bit)
-multilib/lib32-libxi 1.7.7-2
+multilib/lib32-libxi 1.7.9-1
     X11 Input extension library (32-bit)
 multilib/lib32-libxinerama 1.1.3-1
     X11 Xinerama extension library (32-bit)
-multilib/lib32-libxml2 2.9.3-1
+multilib/lib32-libxml2 2.9.4+16+g07418011-1
     XML parsing library, version 2 (32-bit)
 multilib/lib32-libxrandr 1.5.1-1
     X11 RandR extension library (32-bit)
@@ -688,31 +1114,31 @@ multilib/lib32-libxv 1.0.11-1
     X11 Video extension library (32-bit)
 multilib/lib32-libxxf86vm 1.1.4-1
     X11 XFree86 video mode extension library (32-bit)
-multilib/lib32-llvm-libs 4.0.0-1
+multilib/lib32-llvm-libs 4.0.1-1
     Low Level Virtual Machine (runtime library)(32-bit)
 multilib/lib32-lm_sensors 3.4.0-1
     Collection of user space tools for general SMBus access and hardware monitoring (32-bit)
-multilib/lib32-mesa 17.1.2-1
+multilib/lib32-mesa 17.1.4-1
     an open-source implementation of the OpenGL specification (32-bit)
-multilib/lib32-ncurses 6.0-2
+multilib/lib32-ncurses 6.0+20170527-1
     System V Release 4.0 curses emulation library (32-bit)
 multilib/lib32-nettle 3.3-1
     A low-level cryptographic library (32-bit)
-multilib/lib32-openal 1.18.0-1
+multilib/lib32-openal 1.18.0-2
     A cross-platform 3D audio library (32-bit)
 multilib/lib32-openssl 1:1.1.0.f-1
     The Open Source toolkit for Secure Sockets Layer and Transport Layer Security (32-bit)
 multilib/lib32-p11-kit 0.23.7-1
     Provides a way to load and enumerate PKCS#11 modules (32-bit)
-multilib/lib32-pcre 8.39-1
+multilib/lib32-pcre 8.40-1
     A library that implements Perl 5-style regular expressions (32-bit)
 local/lib32-qt4 4.8.7-13
     A cross-platform application and UI framework (32-bit)
-multilib/lib32-readline 7.0-1
+multilib/lib32-readline 7.0.003-1
     GNU readline library (32-bit)
 multilib/lib32-sqlite 3.19.3-1
     A C library that implements an SQL database engine (32-bit)
-multilib/lib32-systemd 232-1
+multilib/lib32-systemd 233.75-2
     system and service manager (32-bit)
 multilib/lib32-util-linux 2.29.2-1
     Miscellaneous system utilities for Linux (32-bit)
@@ -728,7 +1154,7 @@ extra/libabw 0.1.1-2
     a library that parses the file format of AbiWord documents
 core/libaio 0.3.110-1
     The Linux-native asynchronous I/O facility (aio) library
-core/libarchive 3.3.1-5
+core/libarchive 3.3.2-1
     library that can create and read several streaming archive formats
 extra/libart-lgpl 2.3.21-3
     A library for high-performance 2D graphics
@@ -744,10 +1170,14 @@ extra/libatomic_ops 7.4.6-1
     Provides semi-portable access to hardware provided atomic memory operations
 extra/libavc1394 0.5.4-2
     A library to control A/V devices using the 1394ta AV/C commands.
-extra/libbluray 1.0.0-1
+extra/libblockdev 2.10-1
+    A library for manipulating block devices
+extra/libbluray 1.0.1-1
     Library to access Blu-Ray disks for video playback
-extra/libbsd 0.8.3-2
+extra/libbsd 0.8.5-2
     Provides useful functions commonly found on BSD systems like strlcpy()
+extra/libbytesize 0.10-1
+    A tiny library providing a C "class" for working with arbitrary big sizes in bytes
 extra/libcaca 0.99.beta19-1
     Color AsCii Art library
 extra/libcanberra 0.30+2+gc0620e4-1
@@ -770,9 +1200,9 @@ extra/libcmis 0.5.1-6
     a C/C++ client library for the CMIS protocol
 extra/libcroco 0.6.12+4+g9ad7287-1
     A CSS parsing library
-extra/libcups 2.2.3-1
+extra/libcups 2.2.4-2
     The CUPS Printing System - client libraries and headers
-community/libcurl-compat 7.54.0-1
+community/libcurl-compat 7.54.1-1
     An URL retrieval library (without versioned symbols)
 extra/libdaemon 0.14-3
     Lightweight C library that eases the writing of UNIX daemons
@@ -780,7 +1210,7 @@ extra/libdatrie 0.2.10-2
     Implementation of double-array structure for representing trie, as proposed by Junichi Aoe.
 community/libdbi 0.9.0-2
     A database independant abstraction layer for C
-community/libdbi-drivers 0.9.0-4
+community/libdbi-drivers 0.9.0-6
     Database drivers for libdbi (MySQL, PostgreSQL, and SQLite)
 extra/libdc1394 2.2.5-1
     High level programming interface to control IEEE 1394 based cameras
@@ -804,7 +1234,7 @@ extra/libebml 1.3.4-2
     Extensible Binary Meta Language library
 core/libedit 20170329_3.1-1
     Command line editor library providing generic line editing, history, and tokenization functions
-core/libelf 0.169-1
+core/libelf 0.169-2
     Libraries to handle ELF object files and DWARF debugging information
 extra/libepoxy 1.4.3-1
     Library handling OpenGL function pointer management
@@ -814,7 +1244,7 @@ community/libev 4.24-1
     A full-featured and high-performance event loop
 extra/libevdev 1.5.7-1
     Wrapper library for evdev devices
-core/libevent 2.0.22-4
+core/libevent 2.1.8-1
     An event notification library
 extra/libexif 0.6.21-2
     A library to parse an EXIF file and read the data from those tags
@@ -822,7 +1252,7 @@ extra/libexttextcat 3.4.4-1
     N-Gram-Based Text Categorization library primarily intended for language guessing
 community/libfaketime 0.9.6-2
     Report fake dates and times to programs without having to change the system-wide time.
-extra/libfbclient 2.5.7.27050-2
+extra/libfbclient 2.5.7.27050-3
     Client library for Firebird.
 community/libfdk-aac 0.1.5-1
     Fraunhofer FDK AAC codec library
@@ -834,7 +1264,7 @@ extra/libfontenc 1.1.3-1
     X11 font encoding library
 community/libftdi 1.3-4
     A library to talk to FTDI chips, optional python bindings.
-core/libgcrypt 1.7.7-1
+core/libgcrypt 1.7.8-1
     General purpose cryptographic library based on the code from GnuPG
 extra/libgksu 2.0.12-7
     gksu authorization library
@@ -852,7 +1282,7 @@ core/libgpg-error 1.27-1
     Support library for libgcrypt
 extra/libgsf 1.14.41+3+gc7b4b53-1
     An extensible I/O abstraction library for dealing with structured file formats
-extra/libgtop 2.36.0-1
+extra/libgtop 2.36.0+2+ge0f97e7d-1
     A library that reads information about processes and the running system
 extra/libgudev 231+1+g0841288-1
     GObject bindings for libudev
@@ -872,11 +1302,11 @@ extra/libiec61883 1.2.0-4
     A higher level API for streaming DV, MPEG-2 and audio over Linux IEEE 1394
 extra/libimobiledevice 1.2.0-6
     Library that talks the protocols to support iPhone and iPod Touch devices on Linux
-extra/libinput 1.7.3-1
+extra/libinput 1.8.0-2
     Input device management and event handling library
 extra/libixion 0.12.2-2
     A general purpose formula parser & interpreter
-extra/libjpeg-turbo 1.5.1-1
+extra/libjpeg-turbo 1.5.2-1
     JPEG image codec with accelerated baseline compression and decompression
 extra/libkate 0.4.1-5
     A karaoke and text codec for embedding in ogg
@@ -894,7 +1324,7 @@ extra/liblqr 0.4.2-1
     A seam-carving C/C++ library called Liquid Rescale
 extra/libmad 0.15.1b-7
     A high-quality MPEG audio decoder
-extra/libmariadbclient 10.1.24-1
+extra/libmariadbclient 10.1.25-1
     MariaDB client libraries
 extra/libmatroska 1.4.7-1
     Matroska library
@@ -902,7 +1332,7 @@ extra/libmbim 1.14.0-4
     MBIM modem protocol helper library
 community/libmgba 0.5.2-3
     Shared library of mGBA
-extra/libmm-glib 1.6.6-1
+extra/libmm-glib 1.6.8-1
     ModemManager library
 extra/libmms 0.6.4-1
     MMS stream protocol library
@@ -938,17 +1368,17 @@ core/libnftnl 1.0.7-1
     Netfilter library providing interface to the nf_tables subsystem
 core/libnghttp2 1.23.1-1
     Framing layer of HTTP/2 is implemented as a reusable C library
-core/libnl 3.2.29-2
+core/libnl 3.3.0-1
     Library for applications dealing with netlink sockets
-extra/libnm 1.8.0-1
+extra/libnm 1.8.2-1
     NetworkManager client library
-extra/libnm-glib 1.8.0-1
+extra/libnm-glib 1.8.2-1
     NetworkManager client library (legacy)
 extra/libnotify 0.7.7-1
     Library for sending desktop notifications
 extra/libodfgen 0.1.6-1
     Library for generating documents in Open Document Format
-extra/libofa 0.9.3-6
+extra/libofa 0.9.3-7
     An open-source audio fingerprint by MusicIP
 community/libofx 0.9.11-1
     API for the OFX banking standard
@@ -972,9 +1402,9 @@ core/libpipeline 1.4.1-1
     a C library for manipulating pipelines of subprocesses in a flexible and convenient way
 extra/libplist 2.0.0-1
     A library to handle Apple Property List format whereas it's binary or XML
-extra/libpng 1.6.29-1
+extra/libpng 1.6.30-1
     A collection of routines used to create PNG format graphics files
-extra/libproxy 0.4.15-2
+extra/libproxy 0.4.15-3
     A library that provides automatic proxy configuration management
 core/libpsl 0.17.0-2
     Public Suffix List library
@@ -984,9 +1414,9 @@ extra/libqmi 1.18.0-1
     QMI modem protocol helper library
 extra/libraw1394 2.1.2-1
     Provides an API to the Linux IEEE1394 (FireWire) driver
-extra/libreoffice-fresh 5.3.3-2
+extra/libreoffice-fresh 5.3.4-1
     LibreOffice branch which contains new features and program enhancements
-extra/libreoffice-fresh-de 5.3.3-1
+extra/libreoffice-fresh-de 5.3.4-1
     German language pack for LibreOffice Fresh
 extra/librevenge 0.0.4-1
     library for REVerses ENGineered formats filters
@@ -1030,7 +1460,7 @@ extra/libstemmer 0+337-2
     Stemming library supporting several languages
 extra/libsynctex 2016.41290-12
     Library for synchronization between TeX files and resulting file
-core/libsystemd 232-8
+core/libsystemd 233.75-3
     systemd client libraries
 extra/libtar 1.2.20-3
     C library for manipulating POSIX tar files
@@ -1046,13 +1476,13 @@ extra/libtiff 4.0.8-1
     Library for manipulation of TIFF images
 extra/libtiger 0.3.4-4
     A rendering library for Kate streams using Pango and Cairo
-core/libtirpc 1.0.1-3
+core/libtirpc 1.0.2-1
     Transport Independent RPC library (SunRPC replacement)
-community/libtommath 1.0-1
+community/libtommath 1.0-2
     Highly optimized and portable routines for integer based number theoretic applications
 core/libtool 2.4.6-8 (base-devel)
     A generic library support script
-extra/libtracker-sparql 1.12.0+1+g922c213a5-2
+extra/libtracker-sparql 1.12.1-1
     Desktop-neutral user information store, search tool and indexer (SPARQL library)
 extra/libtxc_dxtn 1.0.1-6
     S3 Texture Compression (S3TC) library for Mesa
@@ -1060,11 +1490,13 @@ local/libudev.so.0 0.1.1-3
     Creates /usr/lib/libudev.so.0 -> /usr/lib/libudev.so symlink
 core/libunistring 0.9.7-1
     Library for manipulating Unicode strings and C strings
+extra/libunrar 1:5.5.6-2
+    Library and header file for applications that use libunrar
 extra/libunwind 1.2.1-1
     Portable and efficient C programming interface (API) to determine the call-chain of a program
-extra/libupnp 1.6.21-1
+extra/libupnp 1.6.21-2
     Portable Open Source UPnP Development Kit
-core/libusb 1.0.21-1
+core/libusb 1.0.21-2
     Library that provides generic access to USB devices
 extra/libusb-compat 0.1.5-1
     Library to enable user space application programs to communicate with USB devices
@@ -1074,7 +1506,7 @@ extra/libutempter 1.1.6-2
     Interface for terminal emulators such as screen and xterm to record user sessions to utmp and wtmp files
 core/libutil-linux 2.29.2-2
     util-linux runtime libraries
-extra/libuv 1.12.0-1
+extra/libuv 1.13.1-1
     Multi-platform support library with a focus on asynchronous I/O
 extra/libva 1.8.2-1
     Video Acceleration (VA) API for Linux
@@ -1084,7 +1516,7 @@ extra/libvisio 0.1.5-4
     Library providing ability to interpret and import visio diagrams
 extra/libvisual 0.4.0-6
     Abstraction library that comes between applications and audio visualisation plugins
-extra/libvoikko 4.1-1
+extra/libvoikko 4.1.1-1
     A spelling and grammar checker, hyphenator and collection of related linguistic data for Finnish language
 extra/libvorbis 1.3.5-1
     Vorbis codec library
@@ -1106,7 +1538,7 @@ extra/libwps 0.4.6-1
     a Microsoft Works file word processor format import filter library
 extra/libx11 1.6.5-1
     X11 client-side library
-extra/libx264 2:148.20170519-1
+extra/libx264 2:148.20170521-1
     Library for encoding H264/AVC video streams (8bit depth)
 extra/libxau 1.0.8-2
     X11 authorisation library
@@ -1144,7 +1576,7 @@ extra/libxkbfile 1.0.9-1
     X11 keyboard file manipulation library
 extra/libxml++2.6 2.40.1-2
     C++ bindings to libxml2
-extra/libxml2 2.9.4+16+g07418011-2
+extra/libxml2 2.9.4+96+gfb56f80e-1
     XML parsing library, version 2
 extra/libxmu 1.1.2-1
     X11 miscellaneous micro-utility library
@@ -1184,7 +1616,7 @@ core/licenses 20140629-2 (base)
     The standard licenses distribution package
 extra/lilv 0.22.0-2
     A C library interface to the LV2 plug-in standard
-core/linux 4.11.5-1 (base)
+core/linux 4.11.9-1 (base)
     The Linux kernel and modules
 core/linux-api-headers 4.10.1-1
     Kernel headers sanitized for use in userspace
@@ -1192,21 +1624,21 @@ core/linux-firmware 20170422.ade8332-1
     Firmware files for Linux
 extra/lirc 1:0.9.4.d-1
     Linux Infrared Remote Control utilities
-extra/llvm-libs 4.0.0-3
+extra/llvm-libs 4.0.1-4
     Low Level Virtual Machine (runtime libraries)
 extra/lm_sensors 3.4.0-2
     Collection of user space tools for general SMBus access and hardware monitoring
-core/logrotate 3.12.2-1 (base)
+core/logrotate 3.12.3-1 (base)
     Rotates system logs automatically
 extra/lpsolve 5.5.2.5-2
     a Mixed Integer Linear Programming (MILP) solver
 extra/lsof 4.89-1
     Lists open files for running Unix processes
-extra/lua 5.3.4-1
+extra/lua 5.3.4-2
     Powerful lightweight programming language designed for extending applications
 extra/lv2 1.14.0-2
     Successor to the LADSPA audio plug-in standard
-core/lvm2 2.02.171-1 (base)
+core/lvm2 2.02.172-2 (base)
     Logical Volume Manager 2 utilities
 extra/lyx 2.2.3-2
     An advanced WYSIWYM document processor & LaTeX front-end
@@ -1222,9 +1654,9 @@ core/man-db 2.7.6.1-2 (base)
     A utility for reading man pages
 core/man-pages 4.11-1 (base)
     Linux man pages
-extra/mariadb 10.1.24-1
+extra/mariadb 10.1.25-1
     Fast SQL database server, drop-in replacement for MySQL
-extra/mariadb-clients 10.1.24-1
+extra/mariadb-clients 10.1.25-1
     MariaDB client tools
 community/maven 3.5.0-1
     A Java project management and project comprehension tool
@@ -1232,7 +1664,7 @@ core/mdadm 4.0-1 (base)
     A tool for managing/monitoring Linux md device arrays, also known as Software RAID
 extra/meld 3.16.4-1
     Visual diff and merge tool
-extra/mesa 17.1.2-1
+extra/mesa 17.1.4-1
     an open-source implementation of the OpenGL specification
 extra/mesa-demos 8.3.0-2
     Mesa demos and tools
@@ -1240,19 +1672,19 @@ community/mgba-qt 0.5.2-3
     A Nintendo Gameboy Advance Emulator focusing on both speed and accuracy. Qt5 UI.
 extra/mime-types 9-1
     Provides /etc/mime.types
-core/minizip 1:1.2.11-1
+core/minizip 1:1.2.11-2
     Mini zip and unzip based on zlib
 extra/mjpegtools 2.1.0-3
     Set of tools that can do recording of videos and playback, simple cut-and-paste editing and the MPEG compression of audio and video
 core/mkinitcpio 23-1
     Modular initramfs image creation utility
-core/mkinitcpio-busybox 1.25.1-2
+core/mkinitcpio-busybox 1.26.1-1
     Base initramfs tools
 extra/mobile-broadband-provider-info 20170310-1
     Network Management daemon
 extra/moc 1:2.5.2-1
     An ncurses console audio player designed to be powerful and easy to use
-extra/modemmanager 1.6.6-1
+extra/modemmanager 1.6.8-1
     Mobile broadband modem management service
 extra/mozilla-common 1.4-4
     Common Initialization Profile for Mozilla.org products
@@ -1264,13 +1696,13 @@ extra/mplayer 37916-2
     Media player for Linux
 extra/mtdev 1.1.5-1
     A stand-alone library which transforms all variants of kernel MT events to the slotted type B protocol
-extra/mtools 4.0.18-3
+extra/mtools 4.0.18-4
     A collection of utilities to access MS-DOS disks
-core/nano 2.8.4-1 (base)
+core/nano 2.8.5-1 (base)
     Pico editor clone with enhancements
 extra/nautilus 3.24.1-1 (gnome)
     Default file manager for GNOME
-extra/nautilus-sendto 3.8.4+41+gf790d15-1 (gnome-extra)
+extra/nautilus-sendto 3.8.5-1 (gnome-extra)
     Easily send files via mail
 core/ncurses 6.0+20170527-1
     System V Release 4.0 curses emulation library
@@ -1282,13 +1714,13 @@ core/nettle 3.3-1
     A low-level cryptographic library
 extra/network-manager-applet 1.8.2-1
     Applet for managing network connections
-extra/networkmanager 1.8.0-1 (gnome)
+extra/networkmanager 1.8.2-1 (gnome)
     Network connection manager and user applications
 extra/nitrogen 1.6.1-1
     Background browser and setter for X windows
 extra/nm-connection-editor 1.8.2-1
     NetworkManager GUI connection editor and widgets
-community/nodejs 8.1.2-1
+community/nodejs 8.1.4-1
     Evented I/O for V8 javascript
 extra/noto-fonts 20170428-1
     Google Noto TTF fonts
@@ -1324,11 +1756,11 @@ core/openssh 7.5p1-2
     Free version of the SSH connectivity tools
 core/openssl 1.1.0.f-1
     The Open Source toolkit for Secure Sockets Layer and Transport Layer Security
-extra/openssl-1.0 1.0.2.l-1
+core/openssl-1.0 1.0.2.l-1
     The Open Source toolkit for Secure Sockets Layer and Transport Layer Security
 community/optipng 0.7.6-2
     Compresses PNG files to a smaller size, without losing any information.
-extra/opus 1.1.5-1
+extra/opus 1.2.1-1
     Totally open, royalty-free, highly versatile audio codec
 extra/orc 0.4.26+2+g249c709-1
     Optimized Inner Loop Runtime Compiler
@@ -1342,15 +1774,15 @@ archlinuxfr/package-query 1.8-1
     Query ALPM and AUR
 local/packer 20160325-1
     Bash wrapper for pacman and aur
-core/pacman 5.0.2-1 (base base-devel)
+core/pacman 5.0.2-2 (base base-devel)
     A library-based package manager with dependency support
-core/pacman-mirrorlist 20170427-1
+core/pacman-mirrorlist 20170628-1
     Arch Linux mirror list for use by pacman
 core/pam 1.3.0-1
     PAM (Pluggable Authentication Modules) library
 core/pambase 20130928-1
     Base PAM configuration for services
-community/pandoc 1.19.2.1-72
+community/pandoc 1.19.2.1-90
     Conversion between markup formats
 extra/pango 1.40.6+9+g92cc73c8-1
     A library for layout and rendering of text
@@ -1370,7 +1802,7 @@ core/pcre 8.40-1
     A library that implements Perl 5-style regular expressions
 extra/pcre2 10.23-1
     A library that implements Perl 5-style regular expressions. 2nd version
-community/pcsclite 1.8.21-1
+community/pcsclite 1.8.22-1
     PC/SC Architecture smartcard middleware library
 core/perl 5.26.0-1 (base)
     A highly capable, feature-rich programming language
@@ -1392,7 +1824,7 @@ extra/perl-http-daemon 6.01-3
     A simple http server class
 extra/perl-http-date 6.02-3
     Date conversion routines
-extra/perl-http-message 6.11-3
+extra/perl-http-message 6.13-1
     HTTP style messages
 extra/perl-http-negotiate 6.01-3
     Choose a variant to serve
@@ -1412,17 +1844,19 @@ extra/perl-uri 1.71-2
     Uniform Resource Identifiers (absolute and relative)
 extra/perl-www-robotrules 6.02-3
     Database of robots.txt-derived permissions
+extra/perl-xml-parser 2.44-4
+    Expat-based XML parser module for perl
 community/phantomjs 2.1.1-8
     Headless WebKit with JavaScript API
 extra/phonon-qt5 4.9.1-4
     The multimedia framework for KF5
 extra/phonon-qt5-gstreamer 4.9.0-3
     Phonon GStreamer backend for Qt5
-extra/php 7.1.6-1
+extra/php 7.1.7-2
     A general-purpose scripting language that is especially suited to web development
-extra/php-apache 7.1.6-1
+extra/php-apache 7.1.7-2
     Apache SAPI for PHP
-community/phpmyadmin 4.7.1-1
+community/phpmyadmin 4.7.2-1
     PHP and hence web-based tool to administrate MySQL over the WWW
 core/pinentry 1.0.0-1
     Collection of simple PIN or passphrase entry dialogs which utilize the Assuan protocol
@@ -1438,17 +1872,17 @@ community/podofo 0.9.5-2
     A C++ library to work with the PDF file format
 extra/polkit 0.113+29+g3272a98-1
     Application development toolkit for controlling system-wide privileges
-extra/poppler 0.55.0-3
+extra/poppler 0.56.0-1
     PDF rendering library based on xpdf 3.0
-extra/poppler-glib 0.55.0-3
+extra/poppler-glib 0.56.0-1
     Poppler glib bindings
-core/popt 1.16-8
+core/popt 1.16-9
     A commandline option parser
 community/portaudio 190600_20161030-1
     A free, cross-platform, open source, audio I/O library.
 extra/portsmf 228-2
     Portable library for reading/writing Standard MIDI Files
-extra/postgresql-libs 9.6.3-2
+extra/postgresql-libs 9.6.3-3
     Libraries for use with PostgreSQL
 extra/potrace 1.14-1
     Utility for tracing a bitmap (input: PBM,PGM,PPM,BMP; output: EPS,PS,PDF,SVG,DXF,PGM,Gimppath,XFig)
@@ -1460,9 +1894,7 @@ extra/printproto 1.0.5-3
     X11 print extension wire protocol
 core/procps-ng 3.3.12-1 (base)
     Utilities for monitoring your system and its processes
-extra/protobuf 3.3.1-1
-    Protocol Buffers - Google's data interchange format
-core/psmisc 22.21-3 (base)
+core/psmisc 23.1-1 (base)
     Miscellaneous procfs tools
 extra/psutils 1.17-5
     A set of postscript utilities
@@ -1470,7 +1902,7 @@ extra/pulseaudio 10.0-3
     A featureful, general-purpose sound server
 extra/pulseaudio-alsa 2-3
     ALSA Configuration for PulseAudio
-extra/putty 0.69-1
+extra/putty 0.70-1
     A terminal integrated SSH/Telnet client
 community/pwgen 2.07-2
     Password generator for creating easily memorable passwords
@@ -1480,9 +1912,9 @@ extra/pygobject2-devel 2.28.6-13
     Development files for the pygobject bindings
 extra/pygtk 2.24.0-6
     Python bindings for the GTK widget set
-extra/pyqt4-common 4.12-4
+extra/pyqt4-common 4.12.1-1
     Common PyQt files shared between python-pyqt4 and python2-pyqt4
-extra/pyqt5-common 5.8.2-3
+extra/pyqt5-common 5.9-1
     Common PyQt files shared between python-pyqt5 and python2-pyqt5
 extra/python 3.6.1-1
     Next generation of the python high-level scripting language
@@ -1490,8 +1922,6 @@ extra/python-appdirs 1.4.3-1
     A small Python module for determining appropriate platform-specific dirs, e.g. a "user data dir".
 extra/python-beaker 1.8.1-2
     Caching and sessions WSGI middleware for use with web applications and stand-alone Python scripts and applications
-community/python-beautifulsoup4 4.6.0-1
-    A Python HTML/XML parser designed for quick turnaround projects like screen-scraping
 community/python-cached-property 1.3.0-2
     A decorator for caching properties in classes
 extra/python-chardet 3.0.4-1
@@ -1500,7 +1930,7 @@ community/python-colorama 0.3.9-1
     Python API for cross-platform colored terminal text.
 extra/python-dbus-common 1.2.4-2
     Common dbus-python files shared between python-dbus and python2-dbus
-community/python-docker 2.3.0-1
+community/python-docker 2.4.2-1
     A Python library for the Docker Engine API
 community/python-docker-pycreds 0.2.1-2
     Python bindings for the docker credentials store API
@@ -1510,91 +1940,81 @@ community/python-docopt 0.6.2-4
     Pythonic argument parser, that will make you smile
 extra/python-gobject 3.24.1-1
     Python Bindings for GLib/GObject/GIO/GTK+
-community/python-httplib2 0.10.3-1
-    Comprehensive HTTP client library, supporting many features
 extra/python-idna 2.5-1
     Internationalized Domain Names in Applications (IDNA)
 community/python-jsonschema 2.6.0-1
     An implementation of JSON Schema validation for Python
 community/python-keyutils 0.4-1
     A set of python bindings for keyutils
-extra/python-mako 1.0.6-2
-    Hyperfast and lightweight templating for the Python2 platform
+extra/python-mako 1.0.7-1
+    A super-fast templating language that borrows the best ideas from the existing templating languages
 extra/python-markupsafe 1.0-1
     Implements a XML/HTML/XHTML Markup safe string for Python
 extra/python-packaging 16.8-2
     Core utilities for Python packages
 extra/python-pip 9.0.1-2
     The PyPA recommended tool for installing Python packages
-community/python-pyaudio 0.2.11-1
-    Python bindings for PortAudio
 extra/python-pyparsing 2.2.0-1
     General parsing module for Python
-extra/python-pyqt5 5.8.2-3
-    A set of Python 3.x bindings for the Qt5 toolkit
 extra/python-requests 2.18.1-1
     Python HTTP for Humans
-community/python-send2trash 1.3.0-1
-    Send file to trash natively
-extra/python-setuptools 1:36.0.1-2
+extra/python-setuptools 1:36.2.0-1
     Easily download, build, install, upgrade, and uninstall Python packages
-extra/python-sip 4.19.2-1
-    Python 3.x SIP bindings for C and C++ libraries
 extra/python-six 1.10.0-3
     Python 2 and 3 compatibility utilities
-community/python-texttable 0.9.0-1
+community/python-texttable 0.9.1-1
     Generate a formatted text table using ASCII characters
 extra/python-urllib3 1.21.1-1
     HTTP library with thread-safe connection pooling and file post support
-community/python-websocket-client 0.40.0-2
+community/python-websocket-client 0.44.0-1
     WebSocket client library for Python
 community/python-yaml 3.12-2
     Python bindings for YAML, using fast libYAML library
-extra/python2 2.7.13-2
+extra/python2 2.7.13-3
     A high-level scripting language
 extra/python2-appdirs 1.4.3-1
     A small Python module for determining appropriate platform-specific dirs, e.g. a "user data dir".
 community/python2-apsw 3.15.2-1
     Python2 wrapper for SQLite
-community/python2-beautifulsoup3 3.2.1-3
+local/python2-beautifulsoup3 3.2.1-3
     A Python HTML/XML parser designed for quick turnaround projects like screen-scraping
 extra/python2-cairo 1.13.3-1
     Python2 bindings for the cairo graphics library
-extra/python2-chardet 3.0.4-1
-    Python2 module for character encoding auto-detection
-community/python2-cherrypy 8.9.1-1
-    A pythonic, object-oriented web development framework
 extra/python2-cssselect 1.0.1-1
     A Python2 library that parses CSS3 Selectors and translates them to XPath 1.0
 community/python2-cssutils 1.0.2-1
     A CSS Cascading Style Sheets library for Python
-community/python2-dateutil 2.6.0-2
+community/python2-dateutil 2.6.1-1
     Provides powerful extensions to the standard datetime module
 extra/python2-dbus 1.2.4-2
     Python 2.7 bindings for DBUS
 community/python2-dnspython 1.15.0-2
     A DNS toolkit for Python
+community/python2-dukpy 0.3-2
+    Python bindings for the duktape embeddable JavaScript engine
 extra/python2-gobject 3.24.1-1
     Python2 Bindings for GLib/GObject/GIO/GTK+
 extra/python2-gobject2 2.28.6-13
     Python 2 bindings for GObject2
 community/python2-html5lib 0.999999999-2
     A Python2 HTML parser/tokenizer based on the WHATWG HTML5 spec
-extra/python2-lxml 3.8.0-1
+extra/python2-lxml 3.8.0-2
     Python2 binding for the libxml2 and libxslt libraries
-community/python2-mechanize 1:0.3.3-1
+community/python2-mechanize 1:0.3.5-1
     Stateful programmatic web browsing in Python
+community/python2-msgpack 0.4.8-2
+    MessagePack serializer implementation for Python2
 community/python2-netifaces 0.10.6-1
     Portable module to access network interface information in Python
 extra/python2-nose 1.3.7-3
     A discovery-based unittest extension
-extra/python2-numpy 1.13.0-1
+extra/python2-numpy 1.13.1-2
     Scientific tools for Python
-community/python2-olefile 0.43-2
+community/python2-olefile 0.44-1
     Python library to parse, read and write Microsoft OLE2 files (formerly OleFileIO_PL)
 extra/python2-packaging 16.8-2
     Core utilities for Python packages
-community/python2-pillow 4.1.1-1
+community/python2-pillow 4.2.1-1
     Python Imaging Library (PIL) fork. Python2 version.
 community/python2-psutil 5.2.2-1
     A cross-platform process and system utilities module for Python2
@@ -1602,48 +2022,48 @@ community/python2-pygments 2.2.0-1
     Python syntax highlighter
 extra/python2-pyparsing 2.2.0-1
     General parsing module for Python
-extra/python2-pyqt4 4.12-4
+extra/python2-pyqt4 4.12.1-1
     A set of Python 2.x bindings for the Qt toolkit
-extra/python2-pyqt5 5.8.2-3
+extra/python2-pyqt5 5.9-1
     A set of Python 2.x bindings for the Qt5 toolkit
-extra/python2-setuptools 1:36.0.1-2
+community/python2-regex 2017.06.23-1
+    Alternative python regular expression module. (python2 version)
+extra/python2-setuptools 1:36.2.0-1
     Easily download, build, install, upgrade, and uninstall Python packages
-extra/python2-sip 4.19.2-1
+extra/python2-sip 4.19.3-1
     Python 2.x SIP bindings for C and C++ libraries
 extra/python2-six 1.10.0-3
     Python 2 and 3 compatibility utilities
+community/python2-unrardll 0.1.3-3
+    Python wrapper for UnRAR DLL
 community/python2-webencodings 0.5.1-1
     This is a Python implementation of the WHATWG Encoding standard.
 extra/qpdf 6.0.0-2
     QPDF: A Content-Preserving PDF Transformation System
-extra/qt4 4.8.7-20
+extra/qt4 4.8.7-22
     A cross-platform application and UI framework
-extra/qt5-base 5.9.0-2 (qt qt5)
+extra/qt5-base 5.9.1-3 (qt qt5)
     A cross-platform application and UI framework
-extra/qt5-declarative 5.9.0-1 (qt qt5)
+extra/qt5-declarative 5.9.1-3 (qt qt5)
     Classes for QML and JavaScript languages
-extra/qt5-location 5.9.0-1 (qt qt5)
+extra/qt5-location 5.9.1-2 (qt qt5)
     Provides access to position, satellite and area monitoring classes
-extra/qt5-multimedia 5.9.0-1 (qt qt5)
+extra/qt5-multimedia 5.9.1-2 (qt qt5)
     Classes for audio, video, radio and camera functionality
-extra/qt5-sensors 5.9.0-1 (qt qt5)
+extra/qt5-sensors 5.9.1-2 (qt qt5)
     Provides access to sensor hardware and motion gesture recognition
-extra/qt5-svg 5.9.0-1 (qt qt5)
+extra/qt5-svg 5.9.1-2 (qt qt5)
     Classes for displaying the contents of SVG files
-extra/qt5-tools 5.9.0-1 (qt qt5)
+extra/qt5-tools 5.9.1-4 (qt qt5)
     A cross-platform application and UI framework (Development Tools, QtHelp)
-extra/qt5-webchannel 5.9.0-1 (qt qt5)
+extra/qt5-webchannel 5.9.1-2 (qt qt5)
     Provides access to QObject or QML objects from HTML clients for seamless integration of Qt applications with HTML/JavaScript clients
-extra/qt5-webengine 5.9.0-1 (qt qt5)
-    Provides support for web applications using the Chromium browser project
-extra/qt5-webkit 5.9.0-1 (qt qt5)
+extra/qt5-webkit 5.212.0alpha2-4 (qt qt5)
     Classes for a WebKit2 based implementation and a new QML API
-extra/qt5-x11extras 5.9.0-1 (qt qt5)
+extra/qt5-x11extras 5.9.1-2 (qt qt5)
     Provides platform-specific APIs for X11
-extra/qt5-xmlpatterns 5.9.0-1 (qt qt5)
+extra/qt5-xmlpatterns 5.9.1-2 (qt qt5)
     Support for XPath, XQuery, XSLT and XML schema validation
-extra/r 3.4.0-2
-    Language and environment for statistical computing and graphics
 extra/randrproto 1.5.0-1
     X11 RandR extension wire protocol
 community/ranger 1.8.1-1
@@ -1706,7 +2126,7 @@ extra/sddm 0.14.0-2
     QML based X11 display manager
 extra/sdl 1.2.15-8
     A library for portable low-level access to a video framebuffer, audio output, mouse, and keyboard
-extra/sdl2 2.0.5-3
+extra/sdl2 2.0.5-4
     A library for portable low-level access to a video framebuffer, audio output, mouse, and keyboard (Version 2)
 extra/sdl_image 1.2.12-4
     A simple library to load images of various formats as SDL surfaces
@@ -1722,7 +2142,7 @@ core/shadow 4.4-3 (base)
     Password and account management tool suite with support for shadow files and PAM
 extra/shared-mime-info 1.8-1
     Freedesktop.org Shared MIME Info
-extra/sip 4.19.2-1
+extra/sip 4.19.3-1
     A tool that makes it easy to create Python bindings for C and C++ libraries
 local/skype 4.3.0.37-10
     P2P software for high-quality voice communication
@@ -1744,6 +2164,8 @@ extra/sound-theme-freedesktop 0.8-2
     Freedesktop sound theme
 extra/soundtouch 1.9.2-1
     An audio processing library
+extra/source-highlight 3.1.8-12
+    Convert source code to syntax highlighted document
 extra/spandsp 0.0.6-1
     A DSP library for telephony
 extra/speex 1.2.0-1
@@ -1754,7 +2176,7 @@ core/sqlite 3.19.3-1
     A C library that implements an SQL database engine
 extra/sratom 0.4.6-1
     An LV2 Atom RDF serialisation library
-community/stack 1.4.0-79
+community/stack 1.4.0-109
     The Haskell Tool Stack
 extra/startup-notification 0.12-5
     Monitor and display application startup
@@ -1766,9 +2188,9 @@ core/sysfsutils 2.1.0-9 (base)
     System Utilities Based on Sysfs
 core/syslinux 6.03-7
     Collection of boot loaders that boot from FAT, ext2/3/4 and btrfs filesystems, from CDs and via PXE
-core/systemd 232-8
+core/systemd 233.75-3
     system and service manager
-core/systemd-sysvcompat 232-8 (base)
+core/systemd-sysvcompat 233.75-3 (base)
     sysvinit compat for systemd
 extra/t1lib 5.1.2-6
     Library for generating character- and string-glyphs from Adobe Type 1 fonts
@@ -1778,7 +2200,7 @@ extra/talloc 2.1.9-1
     Hierarchical pool based memory allocator with destructors
 core/tar 1.29-2 (base)
     Utility used to store, backup, and transport files
-extra/tcl 8.6.6-1
+extra/tcl 8.6.6-2
     The Tcl scripting language
 community/tcsh 6.20.00-1
     Enhanced version of the Berkeley C shell.
@@ -1792,7 +2214,7 @@ extra/tevent 1:0.9.31-1
     An event system based on the talloc memory management library
 extra/tex-gyre-fonts 2.005-3
     Substitute PostScript fonts in OpenType format
-core/texinfo 6.3-2 (base base-devel)
+core/texinfo 6.4-1 (base base-devel)
     GNU documentation system for on-line information and printed output
 extra/texlive-bibtexextra 2016.43765-1 (texlive-most)
     TeX Live - Additional BibTeX styles and bibliography databases
@@ -1828,19 +2250,19 @@ extra/texlive-science 2016.43747-1 (texlive-most)
     TeX Live - Typesetting for mathematics, natural and computer sciences
 core/thin-provisioning-tools 0.7.0-1
     Suite of tools for manipulating the metadata of the dm-thin device-mapper target
-extra/thunderbird 52.2.0-1
+extra/thunderbird 52.2.1-1
     Standalone mail and news reader from mozilla.org
-extra/thunderbird-i18n-de 52.2.0-1
+extra/thunderbird-i18n-de 52.2.1-1
     German language pack for Thunderbird
-extra/tk 8.6.6-1
+extra/tk 8.6.6-2
     A windowing toolkit for use with tcl
 community/tlp 1.0-1
     Linux Advanced Power Management
-community/tor 0.3.0.8-2
+community/tor 0.3.0.9-1
     Anonymizing overlay network.
 local/translate-shell 0.9.6.3-1
     Google Translate to serve as a command-line tool.
-community/trash-cli 0.17.1.14-1
+community/trash-cli 0.17.1.14-2
     Command line trashcan (recycle bin) interface
 extra/truecrypt 1:7.1a-5
     Free open-source cross-platform disk encryption software
@@ -1860,13 +2282,13 @@ core/tzdata 2017b-1
     Sources for time zone and daylight saving time data
 community/udiskie 1.7.0-1
     Removable disk automounter using udisks
-extra/udisks2 2.6.5-1
+extra/udisks2 2.7.1-2
     Disk Management Service, version 2
-community/uglify-js 3.0.17-1
+community/uglify-js 3.0.24-1
     JavaScript parser, mangler/compressor and beautifier toolkit
 community/unetbootin 647-1
     Create bootable Live USB drives
-extra/unrar 1:5.5.4-1
+extra/unrar 1:5.5.6-2
     The RAR uncompression program
 extra/unzip 6.0-12
     For extracting and viewing files in .zip archives
@@ -1892,16 +2314,18 @@ extra/vim-runtime 8.0.0628-1
     Runtime for vim and gvim
 extra/vim-spell-de 20150901-1
     Language files for Vim spell checking
-community/virtualbox 5.1.22-2
+community/virtualbox 5.1.22-5
     Powerful x86 virtualization for enterprise as well as home use
 local/virtualbox-ext-oracle 5.1.22-1
     Oracle VM VirtualBox Extension Pack
 community/virtualbox-guest-iso 5.1.22-1
     The official VirtualBox Guest Additions ISO image
-community/virtualbox-host-modules-arch 5.1.22-4
+community/virtualbox-host-modules-arch 5.1.22-6
     Virtualbox host kernel modules for Arch Kernel
-extra/vlc 2.2.6-1
+extra/vlc 2.2.6-2
     Multi-platform MPEG, VCD/DVD, and DivX player
+extra/volume_key 0.3.9-3
+    A library for manipulating storage volume encryption keys and storing them separately from volumes to handle forgotten passphrases
 extra/vpnc 0.5.3.svn550-2
     VPN client for cisco3000 VPN Concentrators
 extra/vte-common 0.48.3-1
@@ -1914,11 +2338,11 @@ extra/wayland 1.13.0-1
     A computer display server protocol
 extra/wayland-protocols 1.8-1
     Specifications of extended Wayland protocols
-extra/webkit2gtk 2.16.3-1
+extra/webkit2gtk 2.16.5-1
     GTK+ Web content engine library
-extra/webkitgtk 2.4.11-6
+local/webkitgtk 2.4.11-6
     Legacy Web content engine for GTK+ 3
-extra/webkitgtk2 2.4.11-6
+local/webkitgtk2 2.4.11-6
     Legacy Web content engine for GTK+ 2
 extra/webrtc-audio-processing 0.3-2
     AudioProcessing library based on Google's implementation of WebRTC
@@ -1928,7 +2352,7 @@ core/which 2.21-2 (base base-devel)
     A utility to show the full path of commands
 extra/wildmidi 0.4.1-1
     Open Source MIDI Synthesizer
-multilib/wine 2.10-1
+multilib/wine 2.12-1
     A compatibility layer for running Windows programs
 community/winetricks 20170614-1
     Script to install various redistributable runtime libraries in Wine.
@@ -1936,13 +2360,15 @@ core/wireless_tools 30.pre9-1
     Tools allowing to manipulate the Wireless Extensions
 community/wordpress 4.8-1
     Blog tool and publishing platform
-core/wpa_supplicant 1:2.6-6
+core/wpa_supplicant 1:2.6-7
     A utility providing key negotiation for WPA wireless networks
-extra/wxgtk-common 3.0.3.1-6
+extra/wxgtk-common 3.0.3.1-7
     Common libraries and headers for wxgtk2 and wxgtk3
-extra/wxgtk2 3.0.3.1-6
+extra/wxgtk2 3.0.3.1-7
     GTK+2 implementation of wxWidgets API for GUI
-extra/wxpython 3.0.2.0-2
+extra/wxgtk3 3.0.3.1-7
+    GTK+3 implementation of wxWidgets API for GUI
+community/wxpython 3.0.2.0-3
     A wxWidgets GUI toolkit for Python
 extra/x265 2.4-1
     Open Source H265/HEVC video encoder
@@ -1988,7 +2414,7 @@ core/xfsprogs 4.11.0-1 (base)
     XFS filesystem utilities
 extra/xineramaproto 1.2.1-3
     X11 Xinerama extension wire protocol
-extra/xkeyboard-config 2.21-1
+extra/xkeyboard-config 2.21-2
     X keyboard configuration files
 extra/xorg-bdftopcf 1.0.5-1 (xorg xorg-apps)
     Convert X font from Bitmap Distribution Format to Portable Compiled Format
@@ -2076,7 +2502,7 @@ extra/xproto 7.0.31-1
     X11 core wire protocol and auxiliary headers
 local/xss-lock 0.3.0-2
     use external locker as X screen saver
-extra/xterm 329-1
+extra/xterm 330-1
     X Terminal Emulator
 extra/xvidcore 1.3.4-1
     XviD is an open source MPEG-4 video codec
@@ -2086,11 +2512,11 @@ extra/yajl 2.1.0-1
     Yet Another JSON Library
 archlinuxfr/yaourt 1.8.1-1
     A pacman wrapper with extended features and AUR support
-community/youtube-dl 2017.06.12-1
+community/youtube-dl 2017.07.09-1
     A small command-line program to download videos from YouTube.com and a few more sites
 extra/zenity 3.24.0-1
     Display graphical dialog boxes from shell scripts
-community/zeromq 4.2.1-1
+community/zeromq 4.2.2-1
     Fast messaging system built on sockets. C and C++ bindings. aka 0MQ, ZMQ.
 extra/zip 3.0-7
     Compressor/archiver for creating and modifying zipfiles
@@ -2098,7 +2524,7 @@ extra/zita-alsa-pcmi 0.2.0-3
     The successor of clalsadrv, provides easy access to ALSA PCM devices.
 extra/zita-resampler 1.3.0-5
     A C++ library for resampling audio signals
-core/zlib 1:1.2.11-1
+core/zlib 1:1.2.11-2
     Compression library implementing the deflate compression method found in gzip and PKZIP
 extra/zsh 5.3.1-2
     A very advanced and programmable command interpreter (shell) for UNIX

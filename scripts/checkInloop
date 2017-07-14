@@ -21,8 +21,17 @@ function dockersum {
     done
 }
 
+read -p "Branch to rebase(master|develop): " BRANCH
 git fetch origin
-git rebase origin/master
+
+if [[ $BRANCH == "master" ]]; then
+    git rebase origin/master
+elif [[ $BRANCH == "develop" ]]; then
+    git rebase origin/develop
+else
+    echo "Don't know this branch!"
+fi
+
 echo "Make Docker..."
 make dockerimage > /dev/null
 echo "Run Docker..."

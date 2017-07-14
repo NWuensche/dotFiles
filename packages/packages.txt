@@ -6,7 +6,6 @@ adwaita-compact-gtk-theme
 alsa-utils
 android-file-transfer
 android-studio
-anki
 apache
 arandr
 aspell-de
@@ -37,8 +36,6 @@ docker
 docker-compose
 dosfstools
 e2fsprogs
-eclim
-eclipse-java
 evince
 extundelete
 fakeroot
@@ -84,6 +81,7 @@ iproute2
 iputils
 isousb
 j4-dmenu-desktop
+jad
 jdk8-openjdk
 jfsutils
 jmtpfs
@@ -151,7 +149,6 @@ pulseaudio-alsa
 putty
 pwgen
 python-pip
-r
 ranger
 recordmydesktop
 redshift

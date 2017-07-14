@@ -22,9 +22,8 @@ export BROWSER
 
 alias saveDotFiles='
 
-    git config --list | grep alias > ~/.dotFiles/gitStuff/gitaliases.txt;
+    realcp ~/.gitconfig > ~/.dotFiles/gitStuff/.gitconfig;
 
-	realcp /etc/hosts ~/.dotFiles/XStuff/hosts;
     realcp ~/.Xmodmap ~/.dotFiles/XStuff/.Xmodmap;
     realcp /usr/share/sddm/scripts/Xsetup ~/.dotFiles/XStuff/Xsetup;
 
@@ -90,6 +89,14 @@ alias cp='cp -iv'
 alias pdflatex='f() { (pdflatex $1; trash *.aux; trash *.log; trash *.nav; trash *.out; trash *.snm; trash *.toc) }; f'
 alias extract='/bin/extract'
 alias newFolder='/bin/newFolderRanger.sh'
+alias downloadFolder='wget -r --no-parent'
+alias createLink='ln -s'
+alias z='(cd ~; vim .zshrc)'
+alias p='pacman -Syua'
+alias s='sudoedit /etc/hosts'
+alias r='ranger'
+alias downloadPDFsfrom='wget -r -l1 -A.pdf --no-check-certificate'
+
 
 clear
 

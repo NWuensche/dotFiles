@@ -16,7 +16,7 @@
 map DD shell trash %s;
 
 map gD cd ~/Downloads
-map gH cd ~/Dokumente/Studium/4.Semester/HP/Versuch4
+map gH cd ~/Dokumente/Studium/4.Semester/HP/Versuch5
 map gS cd ~/InloopNoBackUp/inloop-tasks
 map gP cd ~/Dokumente/Studium/4.Semester/Proseminar
 

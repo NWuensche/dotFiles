@@ -6,6 +6,8 @@ set spell
 syntax enable
 let mapleader = "\<Space>"
 set spelllang=en,de
+" Show Line Number
+set number
 
 " Type <Leader>w to save file
 nnoremap <Leader>w :w<CR>
