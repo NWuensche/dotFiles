@@ -55,13 +55,14 @@ alias saveDotFiles='
     pacman -Qs > ~/.dotFiles/packages/packagesDescription.txt;
     pacman -Qeq > ~/.dotFiles/packages/packages.txt;
 
+    saveStuff;
+
     cd ~/.dotFiles;
 	git add .;
 	git commit -m "(`date +%Y-%m-%d`) change dotFiles";
 	git push;
 	cd;
 
-    saveStuff;
 '
 alias -s sh=sh
 alias -s txt=vim
