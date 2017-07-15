@@ -65,10 +65,11 @@ alias saveDotFiles='
     mkcd saveFolder;
     mkdir thunderBirdFilter;
     find ~/.thunderbird -type f -name msgFilterRules.dat -exec cp --parents {}  ~/saveFolder/thunderBirdFilter \;
-    realcp /etc/hosts ~/saveFolder/
-    LatestAndroidStudioVersion=$(find ~ -maxdepth 1 -type d -name ".AndroidStudio*" | tail -1)
-    realcp -r "$LatestAndroidStudioVersion/config" ~/saveFolder/
-    realmv ~/saveFolder/config ~/saveFolder/AndroidStudioConfig
+    realcp /etc/hosts ~/saveFolder/;
+    LatestAndroidStudioVersion=$(find ~ -maxdepth 1 -type d -name ".AndroidStudio*" | tail -1);
+    realcp -r "$LatestAndroidStudioVersion/config" ~/saveFolder/;
+    realmv ~/saveFolder/config ~/saveFolder/AndroidStudioConfig;
+    cd;
 '
 alias -s sh=sh
 alias -s txt=vim
@@ -106,6 +107,7 @@ alias s='sudoedit /etc/hosts'
 alias r='ranger'
 alias downloadPDFsfrom='wget -r -l1 -A.pdf --no-check-certificate'
 alias 2pagesPDF='pdfnup --nup 2x1 --suffix test'
+alias realmv='/bin/mv'
 
 
 clear
