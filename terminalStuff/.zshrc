@@ -66,7 +66,8 @@ alias saveDotFiles='
     mkdir thunderBirdFilter;
     find ~/.thunderbird -type f -name msgFilterRules.dat -exec cp --parents {}  ~/saveFolder/thunderBirdFilter \;
     realcp /etc/hosts ~/saveFolder/
-    realcp -r ~/.AndroidStudio2.3/config ~/saveFolder/
+    LatestAndroidStudioVersion=$(find ~ -maxdepth 1 -type d -name ".AndroidStudio*" | tail -1)
+    realcp -r "$LatestAndroidStudioVersion/config" ~/saveFolder/
 '
 alias -s sh=sh
 alias -s txt=vim
