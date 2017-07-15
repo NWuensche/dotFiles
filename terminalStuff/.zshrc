@@ -61,7 +61,7 @@ alias saveDotFiles='
 	git push;
 	cd;
 
-    savePrivateStuff;
+    saveStuff;
 '
 alias -s sh=sh
 alias -s txt=vim
