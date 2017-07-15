@@ -61,16 +61,7 @@ alias saveDotFiles='
 	git push;
 	cd;
 
-    cd;
-    mkdir -p saveFolder/thunderBirdFilter;
-    find ~/.thunderbird -type f -name msgFilterRules.dat -exec cp --parents {}  ~/saveFolder/thunderBirdFilter \;
-    realcp /etc/hosts ~/saveFolder/;
-    LatestAndroidStudioVersion=$(find ~ -maxdepth 1 -type d -name ".AndroidStudio*" | tail -1);
-    realcp -r "$LatestAndroidStudioVersion/config" ~/saveFolder/;
-    trash ~/saveFolder/AndroidStudioConfig;
-    realmv ~/saveFolder/config ~/saveFolder/AndroidStudioConfig;
-    cd;
-    saveStuff;
+    savePrivateStuff;
 '
 alias -s sh=sh
 alias -s txt=vim
