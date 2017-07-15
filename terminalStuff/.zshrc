@@ -64,7 +64,7 @@ alias saveDotFiles='
     cd;
     mkcd saveFolder;
     mkdir thunderBirdFilter;
-    find ~/.thunderbird -type f -name msgFilterRules.dat -exec realcp --parents {}  ~/saveFolder/thunderBirdFilter \;
+    find ~/.thunderbird -type f -name msgFilterRules.dat -exec cp --parents {}  ~/saveFolder/thunderBirdFilter \;
     realcp /etc/hosts ~/saveFolder/
     realcp -r ~/.AndroidStudio2.3/config ~/saveFolder/
 '
