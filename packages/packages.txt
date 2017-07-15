@@ -64,6 +64,7 @@ grub-customizer
 gtk-engine-murrine
 gtk3-print-backends
 gulp
+gummi
 guvcview
 gzip
 heroku-toolbelt

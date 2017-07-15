@@ -2,4 +2,4 @@
 
 read -p "New Folder name: " FOLDERNAME
 
-mkdir $FOLDERNAME
+mkdir "$FOLDERNAME"

@@ -60,6 +60,13 @@ alias saveDotFiles='
 	git commit -m "(`date +%Y-%m-%d`) change dotFiles";
 	git push;
 	cd;
+
+    cd;
+    mkcd saveFolder;
+    mkdir thunderBirdFilter;
+    find ~/.thunderbird -type f -name msgFilterRules.dat -exec realcp --parents {} ~/saveFolder/thunderBirdFilter \;
+    realcp /etc/hosts ~/saveFolder/
+    realcp -r ~/.AndroidStudio2.3/config ~/saveFolder/
 '
 alias -s sh=sh
 alias -s txt=vim
@@ -96,6 +103,7 @@ alias p='pacman -Syua'
 alias s='sudoedit /etc/hosts'
 alias r='ranger'
 alias downloadPDFsfrom='wget -r -l1 -A.pdf --no-check-certificate'
+alias 2pagesPDF='pdfnup --nup 2x1 --suffix test'
 
 
 clear

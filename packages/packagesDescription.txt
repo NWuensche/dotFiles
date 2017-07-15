@@ -26,7 +26,7 @@ community/android-file-transfer 3.1-1
     Android MTP client with minimalistic UI
 local/android-studio 2.3.3.0-1
     The official Android IDE (Stable branch)
-extra/apache 2.4.26-3
+extra/apache 2.4.27-1
     A high performance Unix-based HTTP server
 extra/apr 1.6.2-1
     The Apache Portable Runtime
@@ -204,7 +204,7 @@ extra/enca 1.19-1
     Charset analyser and converter
 extra/enchant 1.6.1-2
     A wrapper library for generic spell checking
-extra/evince 3.24.0+8+ga8363215-1 (gnome)
+extra/evince 3.24.0+12+g717df38f-1 (gnome)
     Document viewer (PDF, Postscript, djvu, tiff, dvi, XPS, SyncTex support with gedit, comics books (cbr,cbz,cb7 and cbt))
 extra/exempi 2.4.2+1+gc26d5be-1
     A library to parse XMP metadata
@@ -298,7 +298,7 @@ extra/giflib 5.1.4-1
     A library for reading and writing gif images
 extra/gimp 2.8.22-1
     GNU Image Manipulation Program
-extra/git 2.13.2-1
+extra/git 2.13.3-2
     the fast distributed version control system
 extra/gksu 2.0.2-6
     A graphical frontend for su
@@ -370,13 +370,13 @@ extra/gsl 2.4-1
     The GNU Scientific Library (GSL) is a modern numerical library for C and C++ programmers
 extra/gsm 1.0.16-1
     Shared libraries for GSM 06.10 lossy speech compression
-extra/gst-plugins-bad 1.12.1-1
+extra/gst-plugins-bad 1.12.2-1
     GStreamer Multimedia Framework Bad Plugins
-extra/gst-plugins-base 1.12.1-1
+extra/gst-plugins-base 1.12.2-1
     GStreamer Multimedia Framework Base Plugins
-extra/gst-plugins-base-libs 1.12.1-1
+extra/gst-plugins-base-libs 1.12.2-1
     GStreamer Multimedia Framework Base Plugin libraries
-extra/gstreamer 1.12.1-1
+extra/gstreamer 1.12.2-1
     GStreamer open-source multimedia framework core library
 extra/gtk-doc 1.25+33+g567353f-1
     Documentation tool for public library API
@@ -394,6 +394,8 @@ extra/gtkmm 2.24.5-2
     C++ bindings for gtk2
 extra/gtkmm3 3.22.1-1
     C++ bindings for GTK+ 3
+extra/gtksourceview2 2.10.5-3
+    A text widget adding syntax highlighting and more to GNOME
 extra/gtksourceview3 3.24.3-1
     A text widget adding syntax highlighting and more to GNOME
 extra/gtkspell 2.0.16-3
@@ -404,6 +406,8 @@ extra/guile1.8 1.8.8-5
     Portable, embeddable Scheme implementation written in C. Legacy branch.
 community/gulp 3.9.1-2
     The streaming build system
+community/gummi 1:0.6.6-2
+    Simple LaTex editor for GTK users
 community/guvcview 2.0.5-2
     A video viewer and capturer for the linux uvc driver
 extra/gvfs 1.32.1+3+gd852665e-1 (gnome)
@@ -678,7 +682,7 @@ community/haskell-persistent-sqlite 2.6.2-41
     Backend for the persistent library using sqlite3
 community/haskell-persistent-template 2.5.2-44
     Type-safe, non-relational, multi-backend persistence
-community/haskell-pid1 0.1.1.0-1
+community/haskell-pid1 0.1.2.0-1
     Do signal handling and orphan reaping for Unix PID1 init processes
 community/haskell-prelude-extras 0.4.0.3-3
     Higher order versions of Prelude classes
@@ -920,7 +924,7 @@ extra/jbig2dec 0.13-1
     Decoder implementation of the JBIG2 image compression format
 extra/jdk8-openjdk 8.u131-1
     OpenJDK Java 8 development kit
-extra/jemalloc 1:5.0.1-2
+extra/jemalloc 1:5.0.1-3
     General-purpose scalable concurrent malloc implementation
 core/jfsutils 1.1.15-4 (base)
     JFS filesystem utilities
@@ -1776,7 +1780,7 @@ local/packer 20160325-1
     Bash wrapper for pacman and aur
 core/pacman 5.0.2-2 (base base-devel)
     A library-based package manager with dependency support
-core/pacman-mirrorlist 20170628-1
+core/pacman-mirrorlist 20170714-1
     Arch Linux mirror list for use by pacman
 core/pam 1.3.0-1
     PAM (Pluggable Authentication Modules) library
@@ -1910,7 +1914,7 @@ extra/pygobject-devel 3.24.1-1
     Common development files for pygobject
 extra/pygobject2-devel 2.28.6-13
     Development files for the pygobject bindings
-extra/pygtk 2.24.0-6
+extra/pygtk 2.24.0-7
     Python bindings for the GTK widget set
 extra/pyqt4-common 4.12.1-1
     Common PyQt files shared between python-pyqt4 and python2-pyqt4
@@ -2176,7 +2180,7 @@ core/sqlite 3.19.3-1
     A C library that implements an SQL database engine
 extra/sratom 0.4.6-1
     An LV2 Atom RDF serialisation library
-community/stack 1.4.0-109
+community/stack 1.4.0-110
     The Haskell Tool Stack
 extra/startup-notification 0.12-5
     Monitor and display application startup
@@ -2352,7 +2356,7 @@ core/which 2.21-2 (base base-devel)
     A utility to show the full path of commands
 extra/wildmidi 0.4.1-1
     Open Source MIDI Synthesizer
-multilib/wine 2.12-1
+multilib/wine 2.12-2
     A compatibility layer for running Windows programs
 community/winetricks 20170614-1
     Script to install various redistributable runtime libraries in Wine.
@@ -2512,7 +2516,7 @@ extra/yajl 2.1.0-1
     Yet Another JSON Library
 archlinuxfr/yaourt 1.8.1-1
     A pacman wrapper with extended features and AUR support
-community/youtube-dl 2017.07.09-1
+community/youtube-dl 2017.07.15-1
     A small command-line program to download videos from YouTube.com and a few more sites
 extra/zenity 3.24.0-1
     Display graphical dialog boxes from shell scripts
