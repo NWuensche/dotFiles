@@ -62,8 +62,7 @@ alias saveDotFiles='
 	cd;
 
     cd;
-    mkcd saveFolder;
-    mkdir thunderBirdFilter;
+    mkdir -p saveFolder/thunderBirdFilter;
     find ~/.thunderbird -type f -name msgFilterRules.dat -exec cp --parents {}  ~/saveFolder/thunderBirdFilter \;
     realcp /etc/hosts ~/saveFolder/;
     LatestAndroidStudioVersion=$(find ~ -maxdepth 1 -type d -name ".AndroidStudio*" | tail -1);
