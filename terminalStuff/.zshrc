@@ -70,6 +70,7 @@ alias saveDotFiles='
     realcp -r "$LatestAndroidStudioVersion/config" ~/saveFolder/;
     realmv ~/saveFolder/config ~/saveFolder/AndroidStudioConfig;
     cd;
+    saveStuff;
 '
 alias -s sh=sh
 alias -s txt=vim

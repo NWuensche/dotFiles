@@ -112,7 +112,7 @@ extra/cairomm 1.12.2-2
     C++ bindings for Cairo
 community/calc 2.12.5.6-1
     console calculator
-community/calibre 3.3.0-1
+community/calibre 3.4.0-1
     Ebook management application
 extra/cantarell-fonts 1:0.0.25-3
     Cantarell font family
@@ -2030,7 +2030,7 @@ extra/python2-pyqt4 4.12.1-1
     A set of Python 2.x bindings for the Qt toolkit
 extra/python2-pyqt5 5.9-1
     A set of Python 2.x bindings for the Qt5 toolkit
-community/python2-regex 2017.06.23-1
+community/python2-regex 2017.07.11-1
     Alternative python regular expression module. (python2 version)
 extra/python2-setuptools 1:36.2.0-1
     Easily download, build, install, upgrade, and uninstall Python packages
