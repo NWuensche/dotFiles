@@ -68,7 +68,7 @@ alias saveDotFiles='
     realcp /etc/hosts ~/saveFolder/;
     LatestAndroidStudioVersion=$(find ~ -maxdepth 1 -type d -name ".AndroidStudio*" | tail -1);
     realcp -r "$LatestAndroidStudioVersion/config" ~/saveFolder/;
-    realrm ~/saveFolder/AndroidStudioConfig;
+    trash ~/saveFolder/AndroidStudioConfig;
     realmv ~/saveFolder/config ~/saveFolder/AndroidStudioConfig;
     cd;
     saveStuff;
