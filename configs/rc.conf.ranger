@@ -16,9 +16,10 @@
 map DD shell trash %s;
 
 map gD cd ~/Downloads
-map gH cd ~/Dokumente/Studium/4.Semester/HP/Versuch5
-map gS cd ~/InloopNoBackUp/inloop-tasks
-map gP cd ~/Dokumente/Studium/4.Semester/Proseminar
+
+map gS cd ~/Dokumente/Studium/4.Semester
+map gB cd ~/Dokumente/Studium/4.Semester/DB
+map gA cd ~/Dokumente/Studium/4.Semester/RA
 
 map xF shell newFolderRanger
 map xV shell newVimFile
