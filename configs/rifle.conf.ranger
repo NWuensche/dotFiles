@@ -3,6 +3,7 @@ ext pdf = chromium "$@" &
 ext png|jpg = geeqie "$@" &
 ext mp4 = vlc "$@" &
 ext zip = extract "$@"
+ext gz = extract "$@"
 
 # vim: ft=cfg
 #

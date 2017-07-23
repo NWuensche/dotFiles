@@ -23,6 +23,7 @@ cd "$TARGET"
 case "$ARC" in
     *.tar.bz2)   tar xjf "$ARC"     ;;
     *.tar.gz)    tar xzf "$ARC"     ;;
+    *.tar.xz)     tar xf "$ARC"     ;;
     *.bz2)       bunzip2 "$ARC"     ;;
     *.rar)       unrar e "$ARC"     ;;
     *.gz)        gunzip "$ARC"      ;;

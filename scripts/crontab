@@ -1,2 +1,2 @@
-55 19 * * * python3 ~/PocketAndroid/pocketAndroid.py
+55 19 * * * pocketAndroid
 30 *  * * * java -cp ~/TrilexNotifier.jar TrilexWebScrapper

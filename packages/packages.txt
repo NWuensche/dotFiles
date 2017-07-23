@@ -8,6 +8,8 @@ android-file-transfer
 android-studio
 apache
 arandr
+archon
+archon-exec
 aspell-de
 audacity
 autoconf
@@ -65,7 +67,6 @@ gtk-engine-murrine
 gtk3-print-backends
 gulp
 gummi
-guvcview
 gzip
 heroku-toolbelt
 hexchat
@@ -166,6 +167,7 @@ sed
 shadow
 skype
 smartmontools
+sshfs
 stack
 steam
 sudo
@@ -181,13 +183,10 @@ texlive-bibtexextra
 texlive-fontsextra
 texlive-formatsextra
 texlive-games
-texlive-genericextra
-texlive-htmlxml
 texlive-humanities
 texlive-latexextra
 texlive-music
 texlive-pictures
-texlive-plainextra
 texlive-pstricks
 texlive-publishers
 texlive-science
@@ -222,6 +221,8 @@ wget
 which
 wine
 winetricks
+wireshark-cli
+wireshark-qt
 wordpress
 wpa_supplicant
 xclip

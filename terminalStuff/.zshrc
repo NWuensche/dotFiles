@@ -3,6 +3,7 @@ export ZSH=/home/nwuensche/.oh-my-zsh
 ZSH_THEME="agnoster"
 plugins=(git)
 source $ZSH/oh-my-zsh.sh
+export SSLKEYLOGFILE=~/SSL/ssl.log
 
 # User configuration
 EDITOR=vim
