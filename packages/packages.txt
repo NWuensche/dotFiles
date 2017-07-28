@@ -9,7 +9,6 @@ android-studio
 apache
 arandr
 archon
-archon-exec
 aspell-de
 audacity
 autoconf
@@ -137,6 +136,7 @@ patch
 pavucontrol
 pciutils
 pcmciautils
+pepper-flash
 perl
 phantomjs
 php-apache
@@ -209,6 +209,7 @@ unzip
 usbutils
 util-linux
 vi
+vifm
 vim
 vim-spell-de
 virtualbox

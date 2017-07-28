@@ -166,7 +166,7 @@ bindsym XF86AudioMicMute exec "amixer -D pulse sset Capture toggle"
 
 bindsym Print exec scrot '%d.%m.%Y %H:%M:%S.png' -e 'mv "$f" ~/Bilder/'
 bindsym $mod+backslash exec chromium
-bindsym $mod+apostrophe exec terminator -e ranger
+bindsym $mod+apostrophe exec terminator -e "vifm ~"
 
 # Still need toggle from standard i3
 bindsym XF86WLAN exec sh ~/.i3/toggle-wifi.sh

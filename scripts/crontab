@@ -1,2 +1,1 @@
-55 19 * * * pocketAndroid
 30 *  * * * java -cp ~/TrilexNotifier.jar TrilexWebScrapper

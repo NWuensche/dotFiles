@@ -3,7 +3,6 @@ export ZSH=/home/nwuensche/.oh-my-zsh
 ZSH_THEME="agnoster"
 plugins=(git)
 source $ZSH/oh-my-zsh.sh
-export SSLKEYLOGFILE=~/SSL/ssl.log
 
 # User configuration
 EDITOR=vim
@@ -37,8 +36,7 @@ alias saveDotFiles='
     realcp -r ~/.oh-my-zsh/themes/agnoster.zsh-theme ~/.dotFiles/terminalStuff/agnoster.zsh-theme;
 
     realcp ~/.config/terminator/config ~/.dotFiles/configs/config.terminator;
-    realcp ~/.config/ranger/rc.conf ~/.dotFiles/configs/rc.conf.ranger;
-    realcp ~/.config/ranger/rifle.conf ~/.dotFiles/configs/rifle.conf.ranger;
+    realcp ~/.config/vifm/vifmrc ~/.dotFiles/configs/vifmrc;
 
     realcp /etc/udev/rules.d/99-udisks2.rules ~/.dotFiles/rules/99-udisks2.rules;
 
@@ -49,8 +47,6 @@ alias saveDotFiles='
     realcp /bin/1SekVideos ~/.dotFiles/scripts/1SekVideos;
     realcp /bin/checkInloop ~/.dotFiles/scripts/checkInloop;
     realcp /bin/extract ~/.dotFiles/scripts/extract;
-    realcp /bin/newFolderRanger ~/.dotFiles/scripts/newFolderRanger;
-    realcp /bin/newVimFile ~/.dotFiles/scripts/newVimFile;
     crontab -l > ~/.dotFiles/scripts/crontab
 
     pacman -Qs > ~/.dotFiles/packages/packagesDescription.txt;
@@ -80,7 +76,6 @@ alias vscode='/usr/bin/code'
 #alias intellij='sh /opt/IntelliJ\ Ultimate/bin/idea.sh'
 alias transde="trans en:de -b"
 alias transen="trans de:en -b"
-alias emptytrash="sudo rm -rf ~/.local/share/Trash/*"
 alias mkcd='f() { mkdir $1; cd $1 }; f'
 alias getIt='f() { source ~/.dontDelete $1 }; f'
 alias rm='echo "rm is disabled, use trash or realrm instead."'
@@ -92,13 +87,12 @@ alias mv='mv -iv'
 alias cp='cp -iv'
 alias pdflatex='f() { (pdflatex $1; trash *.aux; trash *.log; trash *.nav; trash *.out; trash *.snm; trash *.toc) }; f'
 alias extract='/bin/extract'
-alias newFolder='/bin/newFolderRanger.sh'
 alias downloadFolder='wget -r --no-parent'
 alias createLink='ln -s'
 alias z='(cd ~; vim .zshrc)'
 alias p='pacman -Syua'
 alias s='sudoedit /etc/hosts'
-alias r='ranger'
+alias v='vifm .'
 alias downloadPDFsfrom='wget -r -l1 -A.pdf --no-check-certificate'
 alias 2pagesPDF='pdfnup --nup 2x1 --suffix test'
 alias realmv='/bin/mv'
