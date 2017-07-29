@@ -60,7 +60,7 @@ core/autoconf 2.69-4 (base-devel)
     A GNU tool for automatically configuring source code
 core/automake 1.15.1-1 (base-devel)
     A GNU tool for automatically creating Makefiles
-extra/avahi 0.6.32-3
+extra/avahi 0.7-1
     Service Discovery for Linux using mDNS/DNS-SD -- compatible with Bonjour
 extra/babl 0.1.24-1
     Dynamic, any to any, pixel format conversion library
@@ -242,7 +242,7 @@ extra/flac 1.3.2-1
     Free Lossless Audio Codec
 core/flex 2.6.4-1 (base-devel)
     A tool for generating text-scanning programs
-extra/fontconfig 2.12.3-1
+extra/fontconfig 2.12.4-1
     A library for configuring and customizing font access
 extra/fontsproto 2.1.3-2
     X11 font extension wire protocol
@@ -348,7 +348,7 @@ core/gpgme 1.9.0-3
     A C wrapper library for GnuPG
 core/gpm 1.20.7-7
     A mouse server for the console and xterm
-extra/gptfdisk 1.0.1-2
+extra/gptfdisk 1.0.3-1
     A text-mode partitioning tool that works on GUID Partition Table (GPT) disks
 community/gradle 4.0.1-1
     Powerful build system for the JVM
@@ -744,7 +744,7 @@ community/haskell-stm 2.4.4.1-4
     A modular composable concurrency abstraction.
 community/haskell-stm-chans 3.0.0.4-5
     Additional types of channels for STM.
-community/haskell-store 0.4.3.1-26
+community/haskell-store 0.4.3.1-27
     Fast binary serialization
 community/haskell-store-core 0.4.1-3
     Fast and lightweight binary serialization
@@ -776,11 +776,11 @@ community/haskell-th-lift 0.7.7-2
     Derive Template Haskell's Lift class for datatypes.
 community/haskell-th-lift-instances 0.1.11-5
     Lift instances for template-haskell for common data types.
-community/haskell-th-orphans 0.13.3-14
+community/haskell-th-orphans 0.13.4-1
     Orphan instances for TH datatypes
 community/haskell-th-reify-many 0.1.8-1
     Recurseively reify template haskell datatype info
-community/haskell-th-utilities 0.2.0.1-16
+community/haskell-th-utilities 0.2.0.1-17
     Collection of useful functions for use with Template Haskell
 community/haskell-time-locale-compat 0.1.1.3-2
     Compatibility of TimeLocale between old-locale and time-1.5
@@ -914,7 +914,7 @@ extra/java-runtime-common 2-2
     Common files for Java Runtime Environments
 extra/jbig2dec 0.13-1
     Decoder implementation of the JBIG2 image compression format
-extra/jdk8-openjdk 8.u141-1
+extra/jdk8-openjdk 8.u144-1
     OpenJDK Java 8 development kit
 extra/jemalloc 1:5.0.1-3
     General-purpose scalable concurrent malloc implementation
@@ -922,9 +922,9 @@ core/jfsutils 1.1.15-4 (base)
     JFS filesystem utilities
 local/jmtpfs 0.5-1
     mtpfs with better support for Android
-extra/jre8-openjdk 8.u141-1
+extra/jre8-openjdk 8.u144-1
     OpenJDK Java 8 full runtime environment
-extra/jre8-openjdk-headless 8.u141-1
+extra/jre8-openjdk-headless 8.u144-1
     OpenJDK Java 8 headless runtime environment
 extra/js 24.2.0-4
     JavaScript interpreter and libraries
@@ -1018,7 +1018,7 @@ multilib/lib32-libasyncns 0.8+3+g68cd5af-1
     A C library for executing name service queries asynchronously
 multilib/lib32-libcap 2.25-1
     POSIX 1003.1e capabilities (32-bit)
-multilib/lib32-libdrm 2.4.81-1
+multilib/lib32-libdrm 2.4.82-1
     Userspace interface to kernel DRM services (32-bit)
 multilib/lib32-libelf 0.169-1
     Libraries to handle ELF object files and DWARF debugging information (32-bit)
@@ -1036,7 +1036,7 @@ multilib/lib32-libidn 1.33-1
     Implementation of the Stringprep, Punycode and IDNA specifications (32 bit)
 multilib/lib32-libjpeg-turbo 1.5.2-1
     libjpeg derivative with accelerated baseline JPEG compression and decompression (32-bit)
-multilib/lib32-libjpeg6-turbo 1.5.1-1
+multilib/lib32-libjpeg6-turbo 1.5.2-1
     libjpeg derivative with accelerated baseline JPEG compression and decompression
 multilib/lib32-libldap 2.4.44-2
     Lightweight Directory Access Protocol (LDAP) client libraries (32-bit)
@@ -1136,7 +1136,7 @@ multilib/lib32-sqlite 3.19.3-1
     A C library that implements an SQL database engine (32-bit)
 multilib/lib32-systemd 233.75-2
     system and service manager (32-bit)
-multilib/lib32-util-linux 2.29.2-1
+multilib/lib32-util-linux 2.30.1-1
     Miscellaneous system utilities for Linux (32-bit)
 multilib/lib32-v4l-utils 1.12.5-1
     Userspace tools and conversion library for Video 4 Linux (32-bit)
@@ -1216,7 +1216,7 @@ extra/libdca 0.0.5-4
     Free library for decoding DTS Coherent Acoustics streams
 extra/libdmx 1.1.3-1
     X11 Distributed Multihead extension library
-extra/libdrm 2.4.81-1
+extra/libdrm 2.4.82-1
     Userspace interface to kernel DRM services
 extra/libdv 1.0.0-6
     The Quasar DV codec (libdv) is a software codec for DV video
@@ -1450,7 +1450,7 @@ extra/libspectre 0.2.8-1
     Small library for rendering Postscript documents
 extra/libspiro 1:0.5.20150702-1
     Simplifies the drawing of beautiful curves
-extra/libsrtp 1:1.5.4-1
+extra/libsrtp 1:1.5.4-2
     Library for SRTP (Secure Realtime Transport Protocol)
 extra/libssh 0.7.5-2
     Library for accessing ssh client services through C libraries
@@ -1504,7 +1504,7 @@ extra/libusbmuxd 1.0.10-2
     USB Multiplex Daemon
 extra/libutempter 1.1.6-2
     Interface for terminal emulators such as screen and xterm to record user sessions to utmp and wtmp files
-core/libutil-linux 2.29.2-2
+core/libutil-linux 2.30.1-2
     util-linux runtime libraries
 extra/libuv 1.13.1-1
     Multi-platform support library with a focus on asynchronous I/O
@@ -1618,11 +1618,11 @@ core/licenses 20140629-2 (base)
     The standard licenses distribution package
 extra/lilv 0.22.0-2
     A C library interface to the LV2 plug-in standard
-core/linux 4.11.9-1 (base)
+core/linux 4.12.3-1 (base)
     The Linux kernel and modules
 core/linux-api-headers 4.10.1-1
     Kernel headers sanitized for use in userspace
-core/linux-firmware 20170422.ade8332-1
+core/linux-firmware 20170622.7d2c913-1
     Firmware files for Linux
 extra/lirc 1:0.9.4.d-1
     Linux Infrared Remote Control utilities
@@ -1748,7 +1748,7 @@ extra/opencore-amr 0.1.5-1
     Open source implementation of the Adaptive Multi Rate (AMR) speech codec
 extra/openexr 2.2.0-3
     An high dynamic-range image file format library
-extra/openjdk8-src 8.u141-1
+extra/openjdk8-src 8.u144-1
     OpenJDK Java 8 sources
 extra/openjpeg 1.5.2-1
     An open source JPEG 2000 codec
@@ -1760,7 +1760,7 @@ extra/opensp 1.5.2-7
     A library and a set of tools for validating, parsing and manipulating SGML and XML documents
 core/openssh 7.5p1-2
     Free version of the SSH connectivity tools
-core/openssl 1.1.0.f-1
+core/openssl 1.1.0.f-2
     The Open Source toolkit for Secure Sockets Layer and Transport Layer Security
 core/openssl-1.0 1.0.2.l-1
     The Open Source toolkit for Secure Sockets Layer and Transport Layer Security
@@ -1782,7 +1782,7 @@ local/packer 20160325-1
     Bash wrapper for pacman and aur
 core/pacman 5.0.2-2 (base base-devel)
     A library-based package manager with dependency support
-core/pacman-mirrorlist 20170714-1
+core/pacman-mirrorlist 20170729-1
     Arch Linux mirror list for use by pacman
 core/pam 1.3.0-1
     PAM (Pluggable Authentication Modules) library
@@ -2124,9 +2124,7 @@ extra/scrnsaverproto 1.2.2-2
     X11 Screen Saver extension wire protocol
 community/scrot 0.8.17-2
     Simple command-line screenshot utility for X
-extra/sddm 0.14.0-2
-    QML based X11 display manager
-extra/sdl 1.2.15-8
+extra/sdl 1.2.15-9
     A library for portable low-level access to a video framebuffer, audio output, mouse, and keyboard
 extra/sdl2 2.0.5-4
     A library for portable low-level access to a video framebuffer, audio output, mouse, and keyboard (Version 2)
@@ -2180,7 +2178,7 @@ extra/sratom 0.4.6-1
     An LV2 Atom RDF serialisation library
 community/sshfs 3.0.0-1
     FUSE client based on the SSH File Transfer Protocol
-community/stack 1.5.0-5
+community/stack 1.5.0-6
     The Haskell Tool Stack
 extra/startup-notification 0.12-5
     Monitor and display application startup
@@ -2296,7 +2294,7 @@ extra/usbmuxd 1.1.0-2
     USB Multiplex Daemon
 core/usbutils 008-1 (base)
     USB Device Utilities
-core/util-linux 2.29.2-2 (base base-devel)
+core/util-linux 2.30.1-2 (base base-devel)
     Miscellaneous system utilities for Linux
 extra/v4l-utils 1.12.5-1
     Userspace tools and conversion library for Video 4 Linux
@@ -2322,7 +2320,7 @@ local/virtualbox-ext-oracle 5.1.26-1
     Oracle VM VirtualBox Extension Pack
 community/virtualbox-guest-iso 5.1.26-1
     The official VirtualBox Guest Additions ISO image
-community/virtualbox-host-modules-arch 5.1.26-1
+community/virtualbox-host-modules-arch 5.1.26-2
     Virtualbox host kernel modules for Arch Kernel
 extra/vlc 2.2.6-2
     Multi-platform MPEG, VCD/DVD, and DivX player
@@ -2540,5 +2538,5 @@ extra/zsh 5.3.1-2
     A very advanced and programmable command interpreter (shell) for UNIX
 extra/zvbi 0.2.35-1
     VBI capture and decoding library
-extra/zziplib 0.13.66-2
+extra/zziplib 0.13.67-1
     A lightweight library that offers the ability to easily extract data from files archived in a single zip file

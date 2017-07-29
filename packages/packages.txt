@@ -161,7 +161,6 @@ samba
 sbt
 scala
 scrot
-sddm
 sed
 shadow
 skype

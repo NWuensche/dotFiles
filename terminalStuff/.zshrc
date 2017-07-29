@@ -24,13 +24,11 @@ alias saveDotFiles='
 
     realcp ~/.gitconfig ~/.dotFiles/gitStuff/.gitconfig;
 
-    realcp ~/.Xmodmap ~/.dotFiles/XStuff/.Xmodmap;
-    realcp /usr/share/sddm/scripts/Xsetup ~/.dotFiles/XStuff/Xsetup;
-
 	realcp ~/.vimrc ~/.dotFiles/vimStuff/.vimrc;
     realcp -r ~/.vim/snippets ~/.dotFiles/vimStuff;
     realcp ~/.vim/bundle/vim-autoswap/plugin/autoswap.vim ~/.dotFiles/vimStuff/autoswap.vim
 
+    realcp ~/.xinitrc ~/.dotFiles/terminalStuff/.xinitrc;
 	realcp ~/.bashrc ~/.dotFiles/terminalStuff/.bashrc;
 	realcp ~/.zshrc ~/.dotFiles/terminalStuff/.zshrc;
     realcp -r ~/.oh-my-zsh/themes/agnoster.zsh-theme ~/.dotFiles/terminalStuff/agnoster.zsh-theme;

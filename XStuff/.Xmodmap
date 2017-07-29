@@ -1,5 +1,2 @@
-clear Lock
-keysym Caps_Lock = Escape
-keysym Escape = Caps_Lock
-add Lock = Caps_Lock
-
+add mod5 = ISO_Level3_Shift
+keysym Alt_R = Mode_switch
