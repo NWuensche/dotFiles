@@ -31,6 +31,7 @@ alias saveDotFiles='
     realcp ~/.xinitrc ~/.dotFiles/XStuff/.xinitrc;
 	realcp ~/.bashrc ~/.dotFiles/terminalStuff/.bashrc;
 	realcp ~/.zshrc ~/.dotFiles/terminalStuff/.zshrc;
+	realcp ~/.zprofile ~/.dotFiles/terminalStuff/.zprofile;
     realcp -r ~/.oh-my-zsh/themes/agnoster.zsh-theme ~/.dotFiles/terminalStuff/agnoster.zsh-theme;
 
     realcp ~/.config/terminator/config ~/.dotFiles/configs/config.terminator;
