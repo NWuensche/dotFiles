@@ -277,7 +277,7 @@ filetype *.ftp
        \ FUSE_MOUNT2|curlftpfs -o ftp_port=-,,disable_eprt %PARAM %DESTINATION_DIR,
 
 " Office files
-filextype *.odt,*.doc,*.docx,*.xls,*.xlsx,*.odp,*.pptx libreoffice %f &
+filextype *.odt,*.doc,*.docx,*.xls,*.xlsx,*.odp,*.pptx libreoffice %f &>/dev/null &
 fileviewer *.doc catdoc %c
 fileviewer *.docx, docx2txt.pl %f -
 
@@ -417,7 +417,7 @@ nnoremap <f8> :delete<cr>
 "filesize in status bar
 set statusline="  %t%= %A %10u:%-7g %15E %20d  "
 
-filetype *.pdf chromium %f &
+filetype *.pdf chromium %f &>/dev/null &
 filetype *.png,*.jpg = geeqie %f &
 fileviewer *.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,
           \*.fl[icv],*.m2v,*.mov,*.webm,*.ts,*.mts,*.m4v,*.r[am],*.qt,*.divx,
@@ -428,8 +428,9 @@ filetype *.zip,*.gz extract %f
 
 nmap `h :cd ~ <CR>
 nmap `d :cd ~/Downloads <CR>
-nmap `r :cd ~/Dokumente/Studium/4.Semester/RA <CR>
+nmap `r :cd ~/Dokumente/Studium/4.Semester/RN <CR>
 nmap `s :cd ~/Dokumente/Studium/4.Semester <CR>
+nmap `m :cd /media <CR>
 
 nmap < :!zsh<CR>
 nmap q :q<CR>

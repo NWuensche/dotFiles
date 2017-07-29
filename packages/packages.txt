@@ -151,7 +151,6 @@ pulseaudio-alsa
 putty
 pwgen
 python-pip
-ranger
 recordmydesktop
 redshift
 reiserfsprogs

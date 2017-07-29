@@ -45,7 +45,6 @@ alias saveDotFiles='
 
     realcp /bin/youtubemp3 ~/.dotFiles/scripts/youtubemp3;
     realcp /bin/1SekVideos ~/.dotFiles/scripts/1SekVideos;
-    realcp /bin/checkInloop ~/.dotFiles/scripts/checkInloop;
     realcp /bin/extract ~/.dotFiles/scripts/extract;
     crontab -l > ~/.dotFiles/scripts/crontab
 

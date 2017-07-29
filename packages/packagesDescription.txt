@@ -2070,8 +2070,6 @@ extra/qt5-xmlpatterns 5.9.1-2 (qt qt5)
     Support for XPath, XQuery, XSLT and XML schema validation
 extra/randrproto 1.5.0-1
     X11 RandR extension wire protocol
-community/ranger 1.8.1-1
-    A simple, vim-like file manager
 extra/raptor 2.0.15-6
     A C library that parses RDF/XML/N-Triples into RDF triples
 extra/rasqal 1:0.9.33-1
