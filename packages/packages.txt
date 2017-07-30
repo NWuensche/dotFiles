@@ -33,8 +33,6 @@ device-mapper
 dhcpcd
 dialog
 diffutils
-docker
-docker-compose
 dosfstools
 e2fsprogs
 evince

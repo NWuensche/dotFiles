@@ -141,7 +141,7 @@ nnoremap <f3> :!less %f<cr>
 nnoremap <f4> :edit<cr>
 nnoremap <f5> :copy<cr>
 nnoremap <f6> :move<cr>
-nnoremap <f7> :mkdir<space>
+nnoremap <f7> :mkdirspace<space>
 nnoremap <f8> :delete<cr>
 nnoremap <f9> :!vim<space>
 
@@ -177,3 +177,6 @@ fileviewer *.png,*.jpeg,*.jpg,*.gif
  \ img2txt %c 
 fileviewer *.pdf
   \ pdftotext %c -
+
+"Make mkdir work with spaces in name
+command mkdirspace mkdir "%a"
