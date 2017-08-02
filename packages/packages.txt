@@ -1,6 +1,7 @@
 a2ps
 acpi
 acpid
+acroread
 adobe-source-code-pro-fonts
 adwaita-compact-gtk-theme
 alsa-utils
@@ -134,6 +135,7 @@ patch
 pavucontrol
 pciutils
 pcmciautils
+pdfgrep
 pepper-flash
 perl
 phantomjs
@@ -223,6 +225,7 @@ wireshark-qt
 wordpress
 wpa_supplicant
 xclip
+xdotool
 xf86-input-mtrack
 xf86-input-synaptics
 xf86-video-intel

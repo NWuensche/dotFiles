@@ -36,11 +36,9 @@ alias saveDotFiles='
 
     realcp ~/.config/terminator/config ~/.dotFiles/configs/config.terminator;
     realcp ~/.config/vifm/vifmrc ~/.dotFiles/configs/vifmrc;
+    realcp ~/.i3/config ~/.dotFiles/configs/config.i3;
 
     realcp /etc/udev/rules.d/99-udisks2.rules ~/.dotFiles/rules/99-udisks2.rules;
-
-    realrm -r ~/.dotFiles/i3Stuff;
-    realcp -r ~/.i3 ~/.dotFiles/i3Stuff;
 
     realcp /bin/youtubemp3 ~/.dotFiles/scripts/youtubemp3;
     realcp /bin/1SekVideos ~/.dotFiles/scripts/1SekVideos;
