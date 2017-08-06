@@ -169,12 +169,12 @@ bindsym Print exec scrot '%d.%m.%Y %H:%M:%S.png' -e 'mv "$f" ~/Bilder/'
 bindsym $mod+apostrophe exec chromium
 bindsym $mod+backslash exec terminator -e "vifm ~"
 
-exec redshift -l 55.7:12.6 -t 5700:3600 -g 0.8 -m randr -v
+exec redshift -l 55.7:12.6 -t 5700:3600 -g 0.8 -m randr -v &>/dev/null &
 
 exec --no-startup-id nitrogen --restore # Get Wallpaper with nitrogen
 
 # Lock when Laptop lid closed
 exec xss-lock -- i3lock-wrapper -n &
 exec xbacklight -set 30
-exec xdotool key XF86WLAN # Default: WiFi off
+#exec xdotool key XF86WLAN # Default: WiFi off
 exec udiskie &

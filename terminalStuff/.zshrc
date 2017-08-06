@@ -40,6 +40,8 @@ alias saveDotFiles='
 
     realcp /etc/udev/rules.d/99-udisks2.rules ~/.dotFiles/rules/99-udisks2.rules;
 
+    realcp /etc/systemd/system/rfkill-own.service ~/.dotFiles/services/;
+
     realcp /bin/youtubemp3 ~/.dotFiles/scripts/youtubemp3;
     realcp /bin/1SekVideos ~/.dotFiles/scripts/1SekVideos;
     realcp /bin/extract ~/.dotFiles/scripts/extract;

@@ -62,6 +62,7 @@ groff
 grub
 grub-customizer
 gtk-engine-murrine
+gtk-recordmydesktop
 gtk3-print-backends
 gulp
 gummi
@@ -86,6 +87,7 @@ jdk8-openjdk
 jfsutils
 jmtpfs
 jre8-openjdk
+kazam
 kwallet-pam
 latex-beamer-ctan
 less
@@ -222,6 +224,7 @@ wine
 winetricks
 wireshark-cli
 wireshark-qt
+wmctrl
 wordpress
 wpa_supplicant
 xclip
