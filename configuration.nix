@@ -49,11 +49,14 @@
    environment.systemPackages = with pkgs; [
      wget
      vim
+     sudo
+     i3
      chromium
      terminator
      jre
      openjdk
      git
+     ((pkgs.callPackage /etc/nixos/nix-home-package.nix) { })
    ];
 
   # List services that you want to enable:
@@ -99,3 +102,4 @@
   system.stateVersion = "17.03";
 
 }
+
