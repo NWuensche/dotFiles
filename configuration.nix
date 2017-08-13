@@ -51,58 +51,58 @@
      vim
      sudo
      i3
-     chromium
+     #chromium
      terminator
-     jre
-     openjdk
+     #jre
+     #openjdk
      git
-     jetbrains.idea-community
-     android-studio
+     #jetbrains.idea-community
+     #android-studio
      ((pkgs.callPackage /etc/nixos/nix-home-package.nix) { }) #nix-home
-     hexchat
-     htop
-     ghc
-     gparted
-     gradle
-     imagemagick
-     geeqie
+     #hexchat
+     #htop
+     #ghc
+     #gparted
+     #gradle
+     #imagemagick
+     #geeqie
      curl
-     ffmpeg
-     evince
-     gimp
-     oh-my-zsh
-     cron
-     calibre
-     audacity
-     arandr
-     cups
-     aspell
-     aspellDicts.de
-     maven
-     rubber #Latex
-     mariadb
+     #ffmpeg
+     #evince
+     #gimp
+     #oh-my-zsh
+     #cron
+     #calibre
+     #audacity
+     #arandr
+     #cups
+     #aspell
+     #aspellDicts.de
+     #maven
+     #rubber #Latex
+     #mariadb
      #libreoffice
      #steam
      #thunderbird
      hunspell_1_6
-     redshift
-     pandoc
-     phantomjs
-     python36
-     zsh
-     unzip
-     vifm
-     virtualbox
-     vlc
-     wine
-     winetricks
-     python35Packages.youtube-dl-light
-     trash-cli
-     truecrypt
-     udiskie
-     tdesktop #Telegram
+     #redshift
+     #pandoc
+     #phantomjs
+     #python36
+     #zsh
+     #unzip
+     #vifm
+     #virtualbox
+     #vlc
+     #wine
+     #winetricks
+     #python35Packages.youtube-dl-light
+     #trash-cli
+     #truecrypt
+     #udiskie
+     #tdesktop #Telegram
      sshfs-fuse 
-     super-user-spark 
+     #super-user-spark 
 
    ];
 
