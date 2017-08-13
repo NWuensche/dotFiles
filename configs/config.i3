@@ -153,9 +153,22 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
         status_command i3status
+        mode hide
         position top
+        workspace_buttons yes
 }
+
+
 # END STANDARD CONFIG
+
+no_focus [window_role="pop-up"]
+
+assign [class="Thunderbird"] 10
+assign [class="Chromium"] 3
+assign [class="Terminator"] 2
+assign [title="Android Studio"] 1
+assign [title="Tip of the Day"] 1
+assign [title="IntelliJ"] 1
 
 bindsym XF86MonBrightnessUp exec xbacklight -inc 20
 bindsym XF86MonBrightnessDown exec xbacklight -dec 20
@@ -169,6 +182,10 @@ bindsym Print exec scrot '%d.%m.%Y %H:%M:%S.png' -e 'mv "$f" ~/Bilder/'
 bindsym $mod+apostrophe exec chromium
 bindsym $mod+backslash exec terminator -e "vifm ~"
 
+popup_during_fullscreen smart
+
+workspace_auto_back_and_forth yes
+
 exec redshift -l 55.7:12.6 -t 5700:3600 -g 0.8 -m randr -v &>/dev/null &
 
 exec --no-startup-id nitrogen --restore # Get Wallpaper with nitrogen
@@ -176,5 +193,5 @@ exec --no-startup-id nitrogen --restore # Get Wallpaper with nitrogen
 # Lock when Laptop lid closed
 exec xss-lock -- i3lock-wrapper -n &
 exec xbacklight -set 30
-#exec xdotool key XF86WLAN # Default: WiFi off
 exec udiskie &
+
