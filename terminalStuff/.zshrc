@@ -57,7 +57,6 @@ alias saveDotFiles='
 	git commit -m "(`date +%Y-%m-%d`) change dotFiles";
 	git push;
 	cd;
-
 '
 alias -s sh=sh
 alias -s txt=vim

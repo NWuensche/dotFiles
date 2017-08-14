@@ -167,6 +167,7 @@ assign [class="Thunderbird"] 10
 assign [class="Chromium"] 3
 assign [class="Terminator"] 2
 assign [title="Android Studio"] 1
+assign [title="Libreoffice"] 1
 assign [title="Tip of the Day"] 1
 assign [title="IntelliJ"] 1
 
