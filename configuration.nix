@@ -58,7 +58,6 @@
      git
      #jetbrains.idea-community
      #android-studio
-     ((pkgs.callPackage /etc/nixos/nix-home-package.nix) { }) #nix-home
      #hexchat
      #htop
      #ghc
@@ -102,7 +101,7 @@
      #udiskie
      #tdesktop #Telegram
      sshfs-fuse 
-     #super-user-spark 
+     super-user-spark 
 
    ];
 

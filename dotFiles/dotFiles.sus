@@ -1,0 +1,79 @@
+card main {
+	spark card vim
+	spark card git
+	spark card terminal
+	spark card configs
+	spark card rules
+	spark card systemd
+	spark card scripts
+}
+
+card vim {
+	into ~
+	outof vimStuff
+	.vimrc
+	{
+		into .vim
+		snippets -> ~/.vim/snippets
+	}
+}
+
+card git {
+	into ~
+	outof gitStuff
+
+	.gitConfig
+}
+
+card terminal {
+	into ~
+	outof terminalStuff
+
+	.bashrc
+	.zshrc
+	.zprofile
+
+	{
+		into .i3
+		config.i3 -> config
+	}
+}
+
+card configs {
+	into ~/.config
+	outof configs
+
+
+	{
+		into terminator
+		config.terminator -> config
+	}
+
+	{
+		into vifm
+		vifmrc -> vifmrc
+	}
+}
+
+card rules {
+	into /etc/udev/rules.d
+	outof rules
+	
+	99-udisks2.rules -> 99-udisks2.rules
+}
+
+card systemd {
+	into /etc/systemd/system
+	outof services
+
+	rfkill-own.service -> rfkill-own.service	
+}
+
+card scripts {
+	into /bin
+	outof scripts
+	
+	youtubemp3 -> youtubemp3
+	1SekVideos -> 1SekVideos
+	extract -> extract
+}
