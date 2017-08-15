@@ -1,0 +1,21 @@
+[user]
+	email = Niklas.Wuensche@mailbox.tu-dresden.de
+	name = nwuensche
+[core]
+	editor = vim
+	autocrlf = input
+[alias]
+	graph = log --decorate --graph --oneline
+	stageddiff = diff --staged
+	noffmerge = merge --no-ff
+	rmgitignorefile = "rm --cached "
+	sdiff = diff --staged
+	ustashls = diff --staged
+	ustash = stash --include-untracked
+	deleteCommit = "! f() { git rebase -p --onto \"$1^\" \"$1\" -m --strategy-option=theirs;}; f"
+	deleteOldBranches = "! f() { git branch --merged | egrep -v \"(^\\\\*|master|develop)\" | xargs git branch -d; }; f"
+
+[pull]
+	rebase = true
+[merge]
+	ff = false

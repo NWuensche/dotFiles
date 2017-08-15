@@ -1,0 +1,11 @@
+[Unit]
+Description=RFKill-Block %I
+After=rfkill-unblock@all.service
+
+[Service]
+Type=idle
+ExecStart=/usr/bin/rfkill block wlan
+
+[Install]
+WantedBy=multi-user.target
+

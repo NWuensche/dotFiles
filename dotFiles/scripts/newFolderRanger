@@ -1,0 +1,5 @@
+#!/bin/bash
+
+read -p "New Folder name: " FOLDERNAME
+
+mkdir "$FOLDERNAME"

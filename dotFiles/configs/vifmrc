@@ -1,0 +1,182 @@
+" :com[mand][!] command_name action
+" The following macros can be used in a command
+" %a is replaced with the user arguments.
+" %c the current file under the cursor.
+" %C the current file under the cursor in the other directory.
+" %f the current selected file, or files.
+" %F the current selected file, or files in the other directory.
+" %b same as %f %F.
+" %d the current directory name.
+" %D the other window directory name.
+" %m run the command in a menu window
+
+" If you would like to use another vi clone such as Elvis or Vile
+" you will need to change this setting.
+set vicmd=vim
+
+" Trash Directory
+" The default is to move files that are deleted with dd or :d to
+" the trash directory.  If you change this you will not be able to move
+" files by deleting them and then using p to put the file in the new location.
+" I recommend not changing this until you are familiar with vifm.
+" This probably shouldn't be an option.
+set trash
+
+" This is how many directories to store in the directory history.
+set history=100
+
+" Automatically resolve symbolic links on l or Enter.
+set nofollowlinks
+
+" Natural sort of (version) numbers within text.
+set sortnumbers
+
+" Maximum number of changes that can be undone.
+set undolevels=100
+
+" If you installed the vim.txt help file set vimhelp.
+" If would rather use a plain text help file set novimhelp.
+set novimhelp
+
+" If you would like to run an executable file when you
+" press return on the file name set this.
+set norunexec
+
+" Use KiB, MiB, ... suffixes instead of K, M, ... for size.
+set noiec
+
+" Selected color scheme
+colorscheme Default
+
+" Format for displaying time in file list. For example:
+set timefmt=%d/%m\ %H:%M
+
+" Show list of matches on tab completion in command-line mode
+set wildmenu
+
+" Display completions in a form of popup with descriptions of the matches
+set wildstyle=popup
+
+" Display suggestions in normal, visual and view modes for keys, marks and
+" registers (at most 5 files).  In other view, when available.
+set suggestoptions=normal,visual,view,otherpane,keys,marks,registers
+
+" Ignore case in search patterns unless it contains at least one uppercase letter
+set ignorecase
+set smartcase
+
+" Don't highlight search results automatically
+set nohlsearch
+
+" Use increment searching (search while typing)
+set incsearch
+
+" Try to leave some space from cursor to upper/lower border in lists
+set scrolloff=4
+
+" Don't do too many requests to slow file systems
+if !has('win')
+    set slowfs=curlftpfs
+endif
+
+" Set custom status line look
+set statusline="  %t%= %A %10u:%-7g %15E %20d  "
+
+" :mark mark /full/directory/path [filename]
+mark b ~/bin/
+mark h ~/
+
+command! df df -h %m 2> /dev/null
+command! diff vim -d %f %F
+command! run !! ./%f
+command! make !!make %a
+command! mkcd :mkdir %a | cd %a
+command! vgrep vim "+grep %a"
+command! reload :write | restart
+
+" Media
+filextype *.wav,*.mp3,*.flac,*.m4a,*.wma,*.ape,*.ac3,*.og[agx],*.spx,*.opus,*.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,
+         \*.fl[icv],*.m2v,*.mov,*.webm,*.ts,*.mts,*.m4v,*.r[am],*.qt,*.divx,
+         \*.as[fx]
+        \ vlc %f &>/dev/null &
+
+filextype *.odt,*.ods,*.doc,*.docx,*.xls,*.xlsx,*.odp,*.pptx libreoffice %f &>/dev/null &
+
+" Syntax highlighting in preview
+" Leave it for automatic detection
+fileviewer *[^/] pygmentize -O style=monokai -f console256 -g
+
+" What should be saved automatically between vifm runs
+" Like in previous versions of vifm
+" set vifminfo=options,filetypes,commands,bookmarks,dhistory,state,cs
+" Like in vi
+set vifminfo=dhistory,savedirs,chistory,state,tui,shistory,
+    \phistory,fhistory,dirstack,registers,bookmarks,bmarks
+
+" Sample mappings
+
+" Start shell in current directory
+nnoremap s :shell<cr>
+
+" Display sorting dialog
+nnoremap S :sort<cr>
+
+" Toggle visibility of preview window
+nnoremap w :view<cr>
+vnoremap w :view<cr>gv
+
+" Yank current directory path into the clipboard
+nnoremap yd :!echo %d | xclip %i<cr>
+
+" Yank current file path into the clipboard
+nnoremap yf :!echo %c:p | xclip %i<cr>
+
+" Mappings for faster renaming
+nnoremap I cw<c-a>
+nnoremap cc cw<c-u>
+nnoremap A cw
+
+" Example of standard two-panel file managers mappings
+nnoremap <f3> :!less %f<cr>
+nnoremap <f4> :edit<cr>
+nnoremap <f5> :copy<cr>
+nnoremap <f6> :move<cr>
+nnoremap <f7> :mkdirspace<space>
+nnoremap <f8> :delete<cr>
+nnoremap <f9> :!vim<space>
+
+" New stuff
+
+"filesize in status bar
+
+filetype *.pdf chromium %f &>/dev/null &
+filetype *.png,*.jpg,*.gif,*.jpeg = geeqie %f &
+fileviewer *.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,
+          \*.fl[icv],*.m2v,*.mov,*.webm,*.ts,*.mts,*.m4v,*.r[am],*.qt,*.divx,
+          \*.as[fx]
+         \ vlc %f &
+filextype *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm geeqie %f &
+filetype *.zip,*.gz extract %f
+
+nmap `h :cd ~ <CR>
+nmap `d :cd ~/Downloads <CR>
+nmap `r :cd ~/Dokumente/Studium/4.Semester/RN <CR>
+nmap `s :cd ~/Dokumente/Studium/4.Semester <CR>
+nmap `m :cd /media <CR>
+
+nmap q :q<CR>
+nmap DD :!trash %f<CR>
+nmap v av
+vmap <esc> <CR>
+nmap r :!
+
+"Autostart :view is very slow
+
+"Image preview
+fileviewer *.png,*.jpeg,*.jpg,*.gif
+ \ img2txt %c 
+fileviewer *.pdf
+  \ pdftotext %c -
+
+"Make mkdir work with spaces in name
+command mkdirspace mkdir "%a"
