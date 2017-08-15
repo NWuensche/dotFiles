@@ -31,8 +31,8 @@
   # Define on which hard drive you want to install Grub.
   # boot.loader.grub.device = "/dev/sda"; # or "nodev" for efi only
 
-  # networking.hostName = "nixos"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+   networking.hostName = "nixos"; # Define your hostname.
+   networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Select internationalisation properties.
    i18n = {
@@ -47,65 +47,69 @@
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
    environment.systemPackages = with pkgs; [
+     xz
      wget
      vim
      sudo
      i3
-     #chromium
+     chromium 
      terminator
-     #jre
-     #openjdk
+     jre
+     openjdk
      git
-     #jetbrains.idea-community
-     #android-studio
-     #hexchat
-     #htop
-     #ghc
-     #gparted
-     #gradle
-     #imagemagick
-     #geeqie
+     jetbrains.idea-community
+     android-studio
+     hexchat
+     htop
+     ghc
+     gparted
+     gradle
+     imagemagick
+     geeqie
      curl
-     #ffmpeg
-     #evince
-     #gimp
-     #oh-my-zsh
-     #cron
-     #calibre
-     #audacity
-     #arandr
-     #cups
-     #aspell
-     #aspellDicts.de
-     #maven
-     #rubber #Latex
-     #mariadb
-     #libreoffice
-     #steam
-     #thunderbird
+     ffmpeg
+     evince
+     gimp
+     oh-my-zsh
+     cron
+     calibre
+     audacity
+     arandr
+     cups
+     aspell
+     aspellDicts.de
+     maven
+     rubber #Latex
+     mariadb
+     libreoffice
+     steam
+     thunderbird
      hunspell_1_6
-     #redshift
-     #pandoc
-     #phantomjs
-     #python36
-     #zsh
-     #unzip
-     #vifm
-     #virtualbox
-     #vlc
-     #wine
+     redshift
+     pandoc
+     phantomjs
+     python36
+     zsh
+     unzip
+     vifm
+     virtualbox
+     vlc
+     #wine 
      #winetricks
-     #python35Packages.youtube-dl-light
-     #trash-cli
-     #truecrypt
-     #udiskie
-     #tdesktop #Telegram
+     python35Packages.youtube-dl-light
+     trash-cli
+     truecrypt
+     udiskie
+     tdesktop #Telegram
      sshfs-fuse 
      super-user-spark 
-
+     iw
+     wpa_supplicant
+     wpa_supplicant_gui
    ];
 
   nixpkgs.config.allowUnfree = true;
+  hardware.pulseaudio.enable = true;
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
@@ -118,7 +122,7 @@
   # networking.firewall.enable = false;
 
   # Enable CUPS to print documents.
-  # services.printing.enable = true;
+  services.printing.enable = true;
 
   # Enable the X11 windowing system.
   # services.xserver.enable = true;
