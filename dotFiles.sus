@@ -1,4 +1,5 @@
 card main {
+	spark card nixOS
 	spark card vim
 	spark card git
 	spark card terminal
@@ -8,9 +9,18 @@ card main {
 	spark card scripts
 }
 
+card nixOS {
+	into /etc/nixOS
+	outof nixOS
+	
+	configuration.nix -> configuration.nix
+	hardware-configuration.nix -> hardware-configuration.nix
+}
+
 card vim {
 	into ~
 	outof vimStuff
+
 	.vimrc
 	{
 		into .vim
