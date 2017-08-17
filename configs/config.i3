@@ -171,8 +171,8 @@ assign [title="Libreoffice"] 1
 assign [title="Tip of the Day"] 1
 assign [title="IntelliJ"] 1
 
-bindsym XF86MonBrightnessUp exec "sudo /usr/bin/light-intel 100"
-bindsym XF86MonBrightnessDown exec "sudo /usr/bin/light-intel -100"
+bindsym XF86MonBrightnessUp exec "sudo light-intel 100"
+bindsym XF86MonBrightnessDown exec "sudo light-intel -100"
 
 bindsym XF86AudioRaiseVolume exec "pamixer -i 5"
 bindsym XF86AudioLowerVolume exec "pamixer -d 5"
