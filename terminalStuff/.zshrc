@@ -1,8 +1,8 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/home/nwuensche/.oh-my-zsh
-ZSH_THEME="agnoster"
-plugins=(git)
-source $ZSH/oh-my-zsh.sh
+#export ZSH=/home/nwuensche/.oh-my-zsh
+#ZSH_THEME="agnoster"
+#plugins=(git)
+#source $ZSH/oh-my-zsh.sh
 
 # User configuration
 EDITOR=vim
@@ -12,11 +12,6 @@ export ANDROID_HOME
 MAVEN_OPTS="-Xmx1024m -Xms512m"
 export MAVEN_OPTS
 
-
-PATH=$PATH:/home/nwuensche/.gem/ruby/2.3.0/bin
-export PATH
-PATH=$PATH:/home/nwuensche/.gem/ruby/2.4.0/bin
-export PATH
 BROWSER=chromium
 export BROWSER
 
@@ -76,8 +71,8 @@ alias transen="trans de:en -b"
 alias mkcd='f() { mkdir $1; cd $1 }; f'
 alias getIt='f() { source ~/.dontDelete $1 }; f'
 alias rm='echo "rm is disabled, use trash or realrm instead."'
-alias realrm='/bin/rm'
-alias realcp='/bin/cp'
+alias realrm='/run/current-system/sw/bin/rm'
+alias realcp='/run/current-system/sw/bin/cp'
 alias xclip="xclip -selection c"
 alias kcc='f() { kotlinc $1 -include-runtime -d program.jar; java -jar program.jar }; f'
 alias mv='mv -iv'
@@ -92,7 +87,7 @@ alias s='sudoedit /etc/hosts'
 alias v='vifm .'
 alias downloadPDFsfrom='wget -r -l1 -A.pdf --no-check-certificate'
 alias 2pagesPDF='pdfnup --nup 2x1 --suffix test'
-alias realmv='/bin/mv'
+alias realmv='/run/current-system/sw/bin/mv'
 
 
 clear

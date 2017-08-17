@@ -171,13 +171,13 @@ assign [title="Libreoffice"] 1
 assign [title="Tip of the Day"] 1
 assign [title="IntelliJ"] 1
 
-bindsym XF86MonBrightnessUp exec xbacklight -inc 20
-bindsym XF86MonBrightnessDown exec xbacklight -dec 20
+bindsym XF86MonBrightnessUp exec "~/light.sh 100"
+bindsym XF86MonBrightnessDown exec "~/light.sh -100"
 
-bindsym XF86AudioRaiseVolume exec "amixer -D pulse sset Master '5%+'"
-bindsym XF86AudioLowerVolume exec "amixer -D pulse sset Master '5%-'"
-bindsym XF86AudioMute exec "amixer -D pulse set Master toggle"
-bindsym XF86AudioMicMute exec "amixer -D pulse sset Capture toggle"
+bindsym XF86AudioRaiseVolume exec "pamixer -i 5"
+bindsym XF86AudioLowerVolume exec "pamixer -d 5"
+bindsym XF86AudioMute exec "pamixer -t"
+bindsym XF86AudioMicMute exec "pamixer --source 1 -t"
 
 bindsym Print exec scrot '%d.%m.%Y %H:%M:%S.png' -e 'mv "$f" ~/Bilder/'
 bindsym $mod+apostrophe exec chromium
@@ -193,6 +193,7 @@ exec --no-startup-id nitrogen --restore # Get Wallpaper with nitrogen
 
 # Lock when Laptop lid closed
 exec xss-lock -- i3lock-wrapper -n &
-exec xbacklight -set 30
+#exec xbacklight -set 30
+exec "echo 400 > /sys/class/backlight/intel_backlight/brightness"
 exec udiskie &
 

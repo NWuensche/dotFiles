@@ -4,13 +4,12 @@ card main {
 	spark card git
 	spark card terminal
 	spark card configs
-	spark card rules
-	spark card systemd
 	spark card scripts
+    spark card i3
 }
 
 card nixOS {
-	into /etc/nixOS
+	into /etc/nixos
 	outof nixOS
 	
 	configuration.nix -> configuration.nix
@@ -32,7 +31,7 @@ card git {
 	into ~
 	outof gitStuff
 
-	.gitConfig
+	.gitconfig
 }
 
 card terminal {
@@ -40,13 +39,10 @@ card terminal {
 	outof terminalStuff
 
 	.bashrc
+    .bash_profile
 	.zshrc
 	.zprofile
 
-	{
-		into .i3
-		config.i3 -> config
-	}
 }
 
 card configs {
@@ -65,6 +61,12 @@ card configs {
 	}
 }
 
+card i3 {
+	into ~/.i3
+	outof configs
+	config.i3 -> config
+}
+
 card rules {
 	into /etc/udev/rules.d
 	outof rules
@@ -80,7 +82,7 @@ card systemd {
 }
 
 card scripts {
-	into /bin
+	into ~/bin
 	outof scripts
 	
 	youtubemp3 -> youtubemp3

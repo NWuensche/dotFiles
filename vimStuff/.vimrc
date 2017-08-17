@@ -5,7 +5,7 @@ set expandtab
 set spell
 syntax enable
 let mapleader = "\<Space>"
-set spelllang=en,de
+set spelllang=en
 " Show Line Number
 set number
 
