@@ -171,8 +171,8 @@ assign [title="Libreoffice"] 1
 assign [title="Tip of the Day"] 1
 assign [title="IntelliJ"] 1
 
-bindsym XF86MonBrightnessUp exec "~/light.sh 100"
-bindsym XF86MonBrightnessDown exec "~/light.sh -100"
+bindsym XF86MonBrightnessUp exec "sudo /usr/bin/light-intel 100"
+bindsym XF86MonBrightnessDown exec "sudo /usr/bin/light-intel -100"
 
 bindsym XF86AudioRaiseVolume exec "pamixer -i 5"
 bindsym XF86AudioLowerVolume exec "pamixer -d 5"
@@ -194,6 +194,6 @@ exec --no-startup-id nitrogen --restore # Get Wallpaper with nitrogen
 # Lock when Laptop lid closed
 exec xss-lock -- i3lock-wrapper -n &
 #exec xbacklight -set 30
-exec "echo 400 > /sys/class/backlight/intel_backlight/brightness"
+exec "echo 400 > /sys/class/backlight/intel_backlight/brightness"# TODO Als Systemd command
 exec udiskie &
 

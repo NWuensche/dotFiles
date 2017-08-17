@@ -21,7 +21,7 @@
    '';
 
   videoDrivers = [  "intel"  ];
-};
+  };
 
   networking.nameservers = [
     "8.8.8.8"
@@ -32,7 +32,7 @@
   boot.initrd.checkJournalingFS = false;
   services.sshd.enable = true;
 
-  security.sudo.configFile = ''nwuensche ALL = NOPASSWD: /run/wrappers/bin/light-intel''; # Make background light working
+  security.sudo.extraConfig = "nwuensche ALL=(root) NOPASSWD: /usr/bin/light-intel"; # Make background light working
 
   programs.zsh.enable = true;
   programs.zsh.ohMyZsh.enable = true;
