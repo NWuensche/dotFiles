@@ -180,8 +180,8 @@ bindsym XF86AudioMute exec "pamixer -t"
 bindsym XF86AudioMicMute exec "pamixer --source 1 -t"
 
 bindsym Print exec scrot '%d.%m.%Y %H:%M:%S.png' -e 'mv "$f" ~/Bilder/'
-bindsym $mod+apostrophe exec chromium
-bindsym $mod+backslash exec terminator -e "vifm ~"
+bindsym $mod+backslash exec chromium
+bindsym $mod+apostrophe exec terminator -e "vifm ~"
 
 popup_during_fullscreen smart
 

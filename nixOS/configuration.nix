@@ -32,6 +32,8 @@
   boot.initrd.checkJournalingFS = false;
   services.sshd.enable = true;
 
+  programs.vim.defaultEditor = true;
+
   security.sudo.extraConfig = "nwuensche ALL=(root) NOPASSWD: /run/wrappers/bin/light-intel"; # Make background light working
 
   programs.zsh.enable = true;
@@ -62,13 +64,14 @@ owner = "root"; setuid = true; };
 127.0.0.1 www.9gag.com
  127.0.0.1 9gag.com
 127.0.0.1 https://9gag.com
-127.0.0.1 www.youtube.com
+#127.0.0.1 www.youtube.com
 127.0.0.1 www.instagram.com
 127.0.0.1 www.facebook.com
   ";
 
+# Mount everything in /media
   services.udev.extraRules = ''
-	ENV{ID_FS_USAGE}=="filesystem|other|crypto", ENV{UDISKS_FILESYSTEM_SHARED}="1"	# Mount everything in /media
+	ENV{ID_FS_USAGE}=="filesystem|other|crypto", ENV{UDISKS_FILESYSTEM_SHARED}="1"	
   '';
    
   systemd.user.services.rfkill-own = {
@@ -103,6 +106,17 @@ owner = "root"; setuid = true; };
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
    environment.systemPackages = with pkgs; [
+    (pkgs.oh-my-zsh.overrideAttrs (oldAttrs: rec {
+    phases = "installPhase customThemePhase";
+    srcTheme = fetchurl {
+        url = "https://raw.githubusercontent.com/NWuensche/dotFiles/master/terminalStuff/agnoster.zsh-theme";
+        sha256 = "b99455c561bdcf9ec0601669da3d1aa680328ec1836430de22c6e7e32497ea5b";
+    };
+    customThemePhase = "
+    chmod -R +w $outdir/themes
+    cp $srcTheme $outdir/themes/agnoster.zsh-theme
+";
+  }))
      xz
      wget
      vim
