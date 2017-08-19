@@ -15,13 +15,6 @@
   boot.loader.grub.version = 2;
   boot.loader.grub.device = "/dev/sda";
 
-  services.xserver = {
-   deviceSection = ''
-       Option      "Backlight"  "intel_backlight"
-   '';
-
-  videoDrivers = [  "intel"  ];
-  };
 
   networking.nameservers = [
     "8.8.8.8"
@@ -30,7 +23,6 @@
  
   virtualisation.virtualbox.guest.enable = true;
   boot.initrd.checkJournalingFS = false;
-  services.sshd.enable = true;
 
   programs.vim.defaultEditor = true;
 
@@ -46,29 +38,19 @@ echo $(($CURR+$1)) | sudo tee /sys/class/backlight/intel_backlight/brightness
 ''; 
 owner = "root"; setuid = true; };
 
-  services.xserver.enable = true;
-  services.xserver.windowManager.i3.enable = true;
-  services.xserver.synaptics.enable = true;
-  services.xserver.multitouch.enable = true;
   hardware.trackpoint.emulateWheel = true;
-  services.xserver.synaptics.maxSpeed = "0.5";
-  services.xserver.synaptics.minSpeed = "0.1"; 
-  services.xserver.displayManager.sessionCommands = "setxkbmap eu -option caps:escape";
 
   boot.loader.timeout = 0;
   networking.extraHosts = "
 127.0.0.1 www.9gag.com
  127.0.0.1 9gag.com
 127.0.0.1 https://9gag.com
-#127.0.0.1 www.youtube.com
+127.0.0.1 www.youtube.com
 127.0.0.1 www.instagram.com
 127.0.0.1 www.facebook.com
   ";
 
 # Mount everything in /media
-  services.udev.extraRules = ''
-	ENV{ID_FS_USAGE}=="filesystem|other|crypto", ENV{UDISKS_FILESYSTEM_SHARED}="1"	
-  '';
    
   systemd.user.services.rfkill-own = {
    description = "RFKill-Block WLAN";
@@ -138,6 +120,10 @@ owner = "root"; setuid = true; };
      mariadb
      libreoffice
      steam
+     hibernate
+     i3lock
+     xss-lock
+     xautolock
      xorg.xev
      jmtpfs # mtp with Android
      vimPlugins.vundle
@@ -232,8 +218,6 @@ owner = "root"; setuid = true; };
   # networking.firewall.enable = false;
 
   # Enable CUPS to print documents.
-  services.printing.enable = true;
-  services.printing.drivers = [ pkgs.splix ];
 
   # Enable the X11 windowing system.
   # services.xserver.enable = true;
@@ -260,8 +244,44 @@ owner = "root"; setuid = true; };
   };
   security.sudo.wheelNeedsPassword = true;
 
+# Screen Locking (time-based & on suspend) + Keyboard
+
+   services = {
+    acpid = {
+      enable = true;
+      lidEventCommands = ''
+        if grep -q closed /proc/acpi/button/lid/LID/state; then
+          date >> /tmp/i3lock.log
+          DISPLAY=":0.0" XAUTHORITY=/home/fadenb/.Xauthority ${pkgs.i3lock}/bin/i3lock &>> /tmp/i3lock.log
+        fi
+      '';
+    };
+    xserver = {
+        videoDrivers = [  "intel"  ];
+       deviceSection = ''
+           Option      "Backlight"  "intel_backlight"
+       '';
+      enable = true;
+      windowManager.i3.enable = true;
+      synaptics.enable = true;
+      multitouch.enable = true;
+      synaptics.maxSpeed = "0.5";
+      synaptics.minSpeed = "0.1"; 
+       displayManager.sessionCommands = ''
+            setxkbmap eu -option caps:escape
+        #  ${pkgs.xautolock}/bin/xautolock -detectsleep -time 1 \
+        #                -locker "${pkgs.i3lock}/bin/i3lock -c 000070" &
+        #  ${pkgs.xss-lock}/bin/xss-lock -- ${pkgs.i3lock}/bin/i3lock -c 000070 &
+       '';
+    };
+    sshd.enable = true;
+    udev.extraRules = ''
+	ENV{ID_FS_USAGE}=="filesystem|other|crypto", ENV{UDISKS_FILESYSTEM_SHARED}="1"	
+      '';
+  printing.enable = true;
+  printing.drivers = [ pkgs.splix ];
+   };
   # The NixOS release to be compatible with for stateful data such as databases.
   system.stateVersion = "17.03";
 
 }
-
