@@ -36,10 +36,6 @@
 
   security.sudo.extraConfig = "nwuensche ALL=(root) NOPASSWD: /run/wrappers/bin/light-intel"; # Make background light working
 
-  programs.zsh.enable = true;
-  programs.zsh.ohMyZsh.enable = true;
-  programs.zsh.ohMyZsh.plugins = ["git"];
-  programs.zsh.ohMyZsh.theme = "agnoster";
   users.users.nwuensche.shell = pkgs.zsh;
 
   security.wrappers.light-intel = { source = pkgs.writeScript "light-intel" 
@@ -106,17 +102,6 @@ owner = "root"; setuid = true; };
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
    environment.systemPackages = with pkgs; [
-    (pkgs.oh-my-zsh.overrideAttrs (oldAttrs: rec {
-    phases = "installPhase customThemePhase";
-    srcTheme = fetchurl {
-        url = "https://raw.githubusercontent.com/NWuensche/dotFiles/master/terminalStuff/agnoster.zsh-theme";
-        sha256 = "b99455c561bdcf9ec0601669da3d1aa680328ec1836430de22c6e7e32497ea5b";
-    };
-    customThemePhase = "
-    chmod -R +w $outdir/themes
-    cp $srcTheme $outdir/themes/agnoster.zsh-theme
-";
-  }))
      xz
      wget
      vim
@@ -186,8 +171,52 @@ owner = "root"; setuid = true; };
      i3status
      pamixer
      scrot
+    #(pkgs.oh-my-zsh.overrideAttrs (oldAttrs: rec {
+    #phases = "installPhase customThemePhase";
+    #srcTheme = fetchurl {
+        #url = "https://raw.githubusercontent.com/NWuensche/dotFiles/master/terminalStuff/agnoster.zsh-theme";
+        #sha256 = "b99455c561bdcf9ec0601669da3d1aa680328ec1836430de22c6e7e32497ea5b";
+    #};
+    #customThemePhase = "
+    #chmod +w $outdir/themes/agnoster.zsh-theme
+    #cp $srcTheme $out/share/oh-my-zsh/themes/agnoster.zsh-theme
+#";
+  #}))
    ];
 
+    programs.zsh = {
+  enable = true;
+        ohMyZsh = let 
+      packages = [
+        {
+            owner = "nwuensche";
+            repo = "dotFiles";
+            rev = "6efde8b3fa744d1c9d6cd5bab9968000dbbf6303"; #Commit
+            sha256 = "0n8xagqilkw13h20knb6by6ycpqjrx0qdjnpiaizbfkj8j5p4nyj";
+        }
+      ];
+
+      fetchToFolder = { repo, ...}@attrs:
+        pkgs.fetchFromGitHub (attrs // {
+          extraPostFetch = ''
+            tmp=$(mktemp -d)
+            mv $out/* $tmp
+            mkdir $out/${repo}
+            mv $tmp/* $out/${repo}
+          '';
+        });
+      custom = pkgs.buildEnv {
+        name = "zsh-custom";
+        paths = builtins.map fetchToFolder packages;
+      };
+    in
+    {
+      enable = true;
+      custom = custom.outPath;
+      theme = "dotFiles/terminalStuff/agnoster";
+      plugins = [ "git" "pass" "brew" "colored-man" "colorize" ];
+    };
+};
   nixpkgs.config.allowUnfree = true; #For Steam
   hardware.opengl.driSupport32Bit = true; #For Steam
   hardware.pulseaudio.enable = true;

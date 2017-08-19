@@ -90,7 +90,7 @@ alias 2pagesPDF='pdfnup --nup 2x1 --suffix test'
 alias realmv='/run/current-system/sw/bin/mv'
 
 
-clear
+#clear
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/nwuensche/.sdkman"
