@@ -194,6 +194,5 @@ exec --no-startup-id nitrogen --restore # Get Wallpaper with nitrogen
 # Lock when Laptop lid closed
 exec xss-lock -- i3lock-wrapper -n &
 #exec xbacklight -set 30
-exec "echo 400 > /sys/class/backlight/intel_backlight/brightness"# TODO Als Systemd command
 exec udiskie &
 

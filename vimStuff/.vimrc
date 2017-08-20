@@ -47,7 +47,7 @@ Plugin 'nelstrom/vim-markdown-folding'
 " Surround text with brackets
 Plugin 'tpope/vim-surround'
 " Latex Preview in Okular
-Plugin 'vim-latex-live-preview'
+Plugin 'xuhdev/vim-latex-live-preview'
 " Allow Snippets(+Dependecies)
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'

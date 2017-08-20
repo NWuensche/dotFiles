@@ -38,6 +38,37 @@ echo $(($CURR+$1)) | sudo tee /sys/class/backlight/intel_backlight/brightness
 ''; 
 owner = "root"; setuid = true; };
 
+# Need this just for bLight service
+  security.wrappers.light-intel-abs = { source = pkgs.writeScript "light-intel-abs" 
+''
+#!/bin/sh
+echo $1 | tee /sys/class/backlight/intel_backlight/brightness
+''; 
+
+owner = "root"; setuid = true; };
+  security.wrappers.i = { source = pkgs.writeScript "i" 
+''
+#!/bin/sh
+/run/current-system/sw/bin/idea-community
+
+''; 
+owner = "root"; setuid = false; };
+
+  security.wrappers.a = { source = pkgs.writeScript "a" 
+''
+#!/bin/sh
+/run/current-system/sw/bin/android-studio
+
+''; 
+owner = "root"; setuid = false; };
+
+  security.wrappers.t = { source = pkgs.writeScript "t" 
+''
+#!/bin/sh
+/run/current-system/sw/bin/thunderbird
+''; 
+owner = "root"; setuid = false; };
+
   hardware.trackpoint.emulateWheel = true;
 
   boot.loader.timeout = 0;
@@ -52,15 +83,28 @@ owner = "root"; setuid = true; };
 
 # Mount everything in /media
    
-  systemd.user.services.rfkill-own = {
+  systemd.services.rfkill-own = {
    description = "RFKill-Block WLAN";
    serviceConfig = {
-     Type = "idle";
+     Type = "oneshot";
+     after = [ "multi-user.target" ];
      ExecStart = "/run/current-system/sw/bin/rfkill block wlan";
    };
    wantedBy = [ "multi-user.target" ];
+   enable = true;
  };
- systemd.services.rfkill-own.enable = true;
+
+  systemd.services.bLight = {
+   description = "Set background light";
+   serviceConfig = {
+     Type = "oneshot";
+     after = [ "multi-user.target" ];
+     ExecStart = "/run/wrappers/bin/light-intel-abs 400";
+     #ExecStart = "/run/current-system/sw/bin/echo 400 > /sys/class/backlight/intel_backlight/brightness";
+   };
+   wantedBy = [ "multi-user.target" ];
+   enable = true;
+ };
 
   # boot.loader.grub.efiSupport = true;
   # boot.loader.grub.efiInstallAsRemovable = true;
@@ -116,11 +160,14 @@ owner = "root"; setuid = true; };
      aspell
      aspellDicts.de
      maven
-     rubber #Latex
+     #rubber #Latex
+     tetex
      mariadb
      libreoffice
      steam
+     ntfs3g #allow write for NTFS devices
      hibernate
+     physlock
      i3lock
      xss-lock
      xautolock
@@ -275,9 +322,9 @@ owner = "root"; setuid = true; };
        '';
     };
     sshd.enable = true;
-    udev.extraRules = ''
-	ENV{ID_FS_USAGE}=="filesystem|other|crypto", ENV{UDISKS_FILESYSTEM_SHARED}="1"	
-      '';
+    #udev.extraRules = ''
+	#ENV{ID_FS_USAGE}=="filesystem|other|crypto", ENV{UDISKS_FILESYSTEM_SHARED}="1"	
+    #  '';
   printing.enable = true;
   printing.drivers = [ pkgs.splix ];
    };
