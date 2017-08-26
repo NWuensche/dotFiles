@@ -10,6 +10,9 @@
       ./hardware-configuration.nix
     ];
 
+       networking.wireless.userControlled.enable = true;
+    
+
   # Use the GRUB 2 boot loader.
   boot.loader.grub.enable = true;
   boot.loader.grub.version = 2;
@@ -17,18 +20,22 @@
 
 
   networking.nameservers = [
+
     "8.8.8.8"
     "fe80::1%wlp4s0"
   ];
  
-  virtualisation.virtualbox.guest.enable = true;
-  boot.initrd.checkJournalingFS = false;
-
   programs.vim.defaultEditor = true;
 
   security.sudo.extraConfig = "nwuensche ALL=(root) NOPASSWD: /run/wrappers/bin/light-intel"; # Make background light working
 
   users.users.nwuensche.shell = pkgs.zsh;
+
+  fonts.fonts = with pkgs; [
+    meslo-lg
+  ];
+  fonts.enableDefaultFonts = true;
+
 
   security.wrappers.light-intel = { source = pkgs.writeScript "light-intel" 
 ''
@@ -44,15 +51,22 @@ owner = "root"; setuid = true; };
 #!/bin/sh
 echo $1 | tee /sys/class/backlight/intel_backlight/brightness
 ''; 
-
 owner = "root"; setuid = true; };
+
+  security.wrappers.i3lock-custom = { source = pkgs.writeScript "i3lock-custom" 
+''
+#!/bin/sh
+i3lock
+''; 
+owner = "nwuensche"; setuid = false; };
+
   security.wrappers.i = { source = pkgs.writeScript "i" 
 ''
 #!/bin/sh
 /run/current-system/sw/bin/idea-community
 
 ''; 
-owner = "root"; setuid = false; };
+owner = "nwuensche"; setuid = false; };
 
   security.wrappers.a = { source = pkgs.writeScript "a" 
 ''
@@ -60,14 +74,21 @@ owner = "root"; setuid = false; };
 /run/current-system/sw/bin/android-studio
 
 ''; 
-owner = "root"; setuid = false; };
+owner = "nwuensche"; setuid = false; };
 
   security.wrappers.t = { source = pkgs.writeScript "t" 
 ''
 #!/bin/sh
 /run/current-system/sw/bin/thunderbird
 ''; 
-owner = "root"; setuid = false; };
+owner = "nwuensche"; setuid = false; };
+
+  security.wrappers.lowriter = { source = pkgs.writeScript "lowriter" 
+''
+#!/bin/sh
+/run/current-system/sw/bin/libreoffice --writer
+''; 
+owner = "nwuensche"; setuid = false; };
 
   hardware.trackpoint.emulateWheel = true;
 
@@ -76,23 +97,23 @@ owner = "root"; setuid = false; };
 127.0.0.1 www.9gag.com
  127.0.0.1 9gag.com
 127.0.0.1 https://9gag.com
-127.0.0.1 www.youtube.com
-127.0.0.1 www.instagram.com
-127.0.0.1 www.facebook.com
+#127.0.0.1 www.youtube.com
+#127.0.0.1 www.instagram.com
+#127.0.0.1 www.facebook.com
   ";
 
 # Mount everything in /media
    
-  systemd.services.rfkill-own = {
-   description = "RFKill-Block WLAN";
-   serviceConfig = {
-     Type = "oneshot";
-     after = [ "multi-user.target" ];
-     ExecStart = "/run/current-system/sw/bin/rfkill block wlan";
-   };
-   wantedBy = [ "multi-user.target" ];
-   enable = true;
- };
+#systemd.services.rfkill-own = {
+  #description = "RFKill-Block WLAN";
+  #serviceConfig = {
+    #Type = "oneshot";
+    #after = [ "multi-user.target" ];
+    #ExecStart = "/run/current-system/sw/bin/rfkill block wlan";
+    #};
+    #wantedBy = [ "multi-user.target" ];
+    #enable = true;
+    #};
 
   systemd.services.bLight = {
    description = "Set background light";
@@ -114,6 +135,7 @@ owner = "root"; setuid = false; };
 
    networking.hostName = "nixos"; # Define your hostname.
    networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+
 
   # Select internationalisation properties.
    i18n = {
@@ -165,17 +187,18 @@ owner = "root"; setuid = false; };
      mariadb
      libreoffice
      steam
-     ntfs3g #allow write for NTFS devices
-     hibernate
-     physlock
-     i3lock
      xss-lock
      xautolock
+     gist
+     tcsh
+     pmutils
+     ntfs3g #allow write for NTFS devices
+     physlock
+     i3lock
      xorg.xev
      jmtpfs # mtp with Android
      vimPlugins.vundle
      pwgen
-     meslo-lg
      xclip
      dmenu
      thunderbird
@@ -297,11 +320,11 @@ owner = "root"; setuid = false; };
     acpid = {
       enable = true;
       lidEventCommands = ''
-        if grep -q closed /proc/acpi/button/lid/LID/state; then
-          date >> /tmp/i3lock.log
-          DISPLAY=":0.0" XAUTHORITY=/home/fadenb/.Xauthority ${pkgs.i3lock}/bin/i3lock &>> /tmp/i3lock.log
-        fi
-      '';
+        #if grep -q closed /proc/acpi/button/lid/LID/state; then
+        #  date >> /tmp/i3lock.log
+        #  DISPLAY=":0.0" XAUTHORITY=/home/fadenb/.Xauthority ${pkgs.i3lock}/bin/i3lock &>> /tmp/i3lock.log
+        #fi
+              '';
     };
     xserver = {
         videoDrivers = [  "intel"  ];
@@ -315,7 +338,10 @@ owner = "root"; setuid = false; };
       synaptics.maxSpeed = "0.5";
       synaptics.minSpeed = "0.1"; 
        displayManager.sessionCommands = ''
-            setxkbmap eu -option caps:escape
+                     setxkbmap eu -option caps:escape
+         xautolock -locker i3lock -time 10& #suspend lock
+         xss-lock -- i3lock & #lid close lock
+
         #  ${pkgs.xautolock}/bin/xautolock -detectsleep -time 1 \
         #                -locker "${pkgs.i3lock}/bin/i3lock -c 000070" &
         #  ${pkgs.xss-lock}/bin/xss-lock -- ${pkgs.i3lock}/bin/i3lock -c 000070 &
@@ -326,8 +352,9 @@ owner = "root"; setuid = false; };
 	#ENV{ID_FS_USAGE}=="filesystem|other|crypto", ENV{UDISKS_FILESYSTEM_SHARED}="1"	
     #  '';
   printing.enable = true;
-  printing.drivers = [ pkgs.splix ];
+  printing.drivers = [ pkgs.splix (( pkgs.callPackage_i686 /home/nwuensche/brotherppd/printer2.nix) { })];
    };
+  services.printing.extraConf = ''LogLevel debug'';
   # The NixOS release to be compatible with for stateful data such as databases.
   system.stateVersion = "17.03";
 

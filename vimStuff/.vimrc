@@ -38,6 +38,8 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 " Close Brackets automaticaly
 Plugin 'Raimondi/delimitMate'
+"Nix Syntax
+Plugin 'LnL7/vim-nix'
 " Solarized-Theme
 Plugin 'altercation/vim-colors-solarized'
 " Fixing whitespaces
