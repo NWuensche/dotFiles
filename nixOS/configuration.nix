@@ -97,9 +97,10 @@ owner = "nwuensche"; setuid = false; };
 127.0.0.1 www.9gag.com
  127.0.0.1 9gag.com
 127.0.0.1 https://9gag.com
-#127.0.0.1 www.youtube.com
-#127.0.0.1 www.instagram.com
-#127.0.0.1 www.facebook.com
+127.0.0.1 www.youtube.com
+127.0.0.1 www.instagram.com
+127.0.0.1 www.facebook.com
+127.0.0.1 www.twitter.com
   ";
 
 # Mount everything in /media
@@ -187,6 +188,8 @@ owner = "nwuensche"; setuid = false; };
      mariadb
      libreoffice
      steam
+     #teamviewer
+     nitrogen
      xss-lock
      xautolock
      gist
@@ -201,7 +204,15 @@ owner = "nwuensche"; setuid = false; };
      pwgen
      xclip
      dmenu
-     thunderbird
+     #     thunderbird
+     (pkgs.thunderbird.overrideAttrs (oldAttrs: {
+       postInstall = oldAttrs.postInstall + ''
+echo 'pref("useragent.locale", "de");' > $out/lib/thunderbird-52.2.1/defaults/pref/local-settings.js 
+       '';
+    }))
+    #     (pkgs.teamviewer.overrideAttrs (oldAttrs: {
+      #   version = "12.0.76279";
+      #}))
      hunspell_1_6
      redshift
      pandoc
@@ -352,7 +363,7 @@ owner = "nwuensche"; setuid = false; };
 	#ENV{ID_FS_USAGE}=="filesystem|other|crypto", ENV{UDISKS_FILESYSTEM_SHARED}="1"	
     #  '';
   printing.enable = true;
-  printing.drivers = [ pkgs.splix (( pkgs.callPackage_i686 /home/nwuensche/brotherppd/printer2.nix) { })];
+  printing.drivers = [ pkgs.splix (( pkgs.callPackage_i686 /home/nwuensche/brotherppd/printer2.nix) { }) (( pkgs.callPackage_i686 /home/nwuensche/brotherppd2/printer2.nix) { })];
    };
   services.printing.extraConf = ''LogLevel debug'';
   # The NixOS release to be compatible with for stateful data such as databases.
