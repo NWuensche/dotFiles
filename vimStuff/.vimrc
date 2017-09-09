@@ -55,7 +55,7 @@ Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
 " Automatically delete swap file
-Plugin 'gioele/vim-autoswap'
+"Plugin 'gioele/vim-autoswap'
 " more grep, like Rgrep
 Plugin 'yegappan/grep'
 "	------- PLUGINS END ------- "

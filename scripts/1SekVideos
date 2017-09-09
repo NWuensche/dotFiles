@@ -28,7 +28,7 @@ for i in *.mp4; do
   echo "file $name.ts" >> concat.txt;
 done
 # Alle Videos in ein Video
-ffmpeg -f concat -safe 0 -i concat.txt -c copy output.mp4; # safe 0, da er sich sonst bei umlauten beschwert
+ffmpeg -f concat -safe 0 -i concat.txt -c copy -bsf:a aac_adtstoasc output.mp4; # safe 0, da er sich sonst bei umlauten beschwert
 mv output.mp4 "$MONTH $YEAR.mp4"
 
 #Aufräumen

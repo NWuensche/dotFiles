@@ -28,6 +28,7 @@ alias saveDotFiles='
 	realcp ~/.zshrc ~/.dotFiles/terminalStuff/.zshrc;
 	realcp ~/.zprofile ~/.dotFiles/terminalStuff/.zprofile;
     realcp -r ~/.oh-my-zsh/themes/agnoster.zsh-theme ~/.dotFiles/terminalStuff/agnoster.zsh-theme;
+    realcp ~/.thunderbird/mnle6z31.default/user.js ~/.dotFiles/XStuff/user.js;
 
     realcp ~/.config/terminator/config ~/.dotFiles/configs/config.terminator;
     realcp ~/.config/vifm/vifmrc ~/.dotFiles/configs/vifmrc;
@@ -53,11 +54,13 @@ alias saveDotFiles='
 	git push;
 	cd;
 '
+
 alias -s sh=sh
 alias -s txt=vim
 alias -s tex=vim
 alias -s html=chromium
 alias -s pdf=chromium
+alias -s odt=libreoffice
 alias -s jpg=geeqie
 alias -s jpeg=geeqie
 alias -s png=geeqie

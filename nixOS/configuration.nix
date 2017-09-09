@@ -97,7 +97,7 @@ owner = "nwuensche"; setuid = false; };
 127.0.0.1 www.9gag.com
  127.0.0.1 9gag.com
 127.0.0.1 https://9gag.com
-127.0.0.1 www.youtube.com
+#127.0.0.1 www.youtube.com
 127.0.0.1 www.instagram.com
 127.0.0.1 www.facebook.com
 127.0.0.1 www.twitter.com
@@ -188,8 +188,19 @@ owner = "nwuensche"; setuid = false; };
      mariadb
      libreoffice
      steam
+     calc
      #teamviewer
-     nitrogen
+     #nitrogen
+     (pkgs.nitrogen.overrideAttrs (oldAttrs: {
+        wallpaper = pkgs.fetchurl {
+          url = "https://i.pinimg.com/originals/02/fd/92/02fd92edf03b167382be63790ada0d20.jpg";
+          sha256 = "1xbmqmm0clnfialj5f8w1g85ivdszr1ih40qxpfrj1nn0rkl9pv3";
+        };
+               postInstall = ''
+               cp $wallpaper $out/wallpaper.jpg
+                  '';
+           #       buildInputs = oldAttrs.buildInputs + [ wget ];
+           }))
      xss-lock
      xautolock
      gist
@@ -204,12 +215,12 @@ owner = "nwuensche"; setuid = false; };
      pwgen
      xclip
      dmenu
-     #     thunderbird
-     (pkgs.thunderbird.overrideAttrs (oldAttrs: {
-       postInstall = oldAttrs.postInstall + ''
-echo 'pref("useragent.locale", "de");' > $out/lib/thunderbird-52.2.1/defaults/pref/local-settings.js 
-       '';
-    }))
+          thunderbird
+     #(pkgs.thunderbird.overrideAttrs (oldAttrs: {
+       #  postInstall = oldAttrs.postInstall + ''
+       #echo 'pref("useragent.locale", "de");' > $out/lib/thunderbird-52.2.1/defaults/pref/local-settings.js 
+       #'';
+       #    }))
     #     (pkgs.teamviewer.overrideAttrs (oldAttrs: {
       #   version = "12.0.76279";
       #}))
@@ -346,7 +357,7 @@ echo 'pref("useragent.locale", "de");' > $out/lib/thunderbird-52.2.1/defaults/pr
       windowManager.i3.enable = true;
       synaptics.enable = true;
       multitouch.enable = true;
-      synaptics.maxSpeed = "0.5";
+      synaptics.maxSpeed = "0.3";
       synaptics.minSpeed = "0.1"; 
        displayManager.sessionCommands = ''
                      setxkbmap eu -option caps:escape
