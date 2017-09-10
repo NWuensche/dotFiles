@@ -19,6 +19,7 @@
   boot.loader.grub.device = "/dev/sda";
 
 
+
   networking.nameservers = [
 
     "8.8.8.8"
@@ -97,10 +98,15 @@ owner = "nwuensche"; setuid = false; };
 127.0.0.1 www.9gag.com
  127.0.0.1 9gag.com
 127.0.0.1 https://9gag.com
-#127.0.0.1 www.youtube.com
+127.0.0.1 www.youtube.com
 127.0.0.1 www.instagram.com
 127.0.0.1 www.facebook.com
+127.0.0.1 https://twitter.com
+127.0.0.1 https://twitter.com/
 127.0.0.1 www.twitter.com
+127.0.0.1 twitter.com
+127.0.0.1   apps.facebook.com
+127.0.0.1 m.twitter.com
   ";
 
 # Mount everything in /media
@@ -191,16 +197,17 @@ owner = "nwuensche"; setuid = false; };
      calc
      #teamviewer
      #nitrogen
-     (pkgs.nitrogen.overrideAttrs (oldAttrs: {
-        wallpaper = pkgs.fetchurl {
-          url = "https://i.pinimg.com/originals/02/fd/92/02fd92edf03b167382be63790ada0d20.jpg";
-          sha256 = "1xbmqmm0clnfialj5f8w1g85ivdszr1ih40qxpfrj1nn0rkl9pv3";
-        };
-               postInstall = ''
-               cp $wallpaper $out/wallpaper.jpg
-                  '';
+     feh
+     #(pkgs.nitrogen.overrideAttrs (oldAttrs: {
+       #   wallpaper = pkgs.fetchurl {
+         #   url = "https://i.pinimg.com/originals/02/fd/92/02fd92edf03b167382be63790ada0d20.jpg";
+         # sha256 = "1xbmqmm0clnfialj5f8w1g85ivdszr1ih40qxpfrj1nn0rkl9pv3";
+         #        };
+         #      postInstall = ''
+         #      cp $wallpaper $out/wallpaper.jpg
+         #         '';
            #       buildInputs = oldAttrs.buildInputs + [ wget ];
-           }))
+           #  }))
      xss-lock
      xautolock
      gist
@@ -355,6 +362,18 @@ owner = "nwuensche"; setuid = false; };
        '';
       enable = true;
       windowManager.i3.enable = true;
+      #      windowManager.i3.configFile = let original = builtins.readFile /home/nwuensche/.i3/config; wallpaper = pkgs.fetchurl { 
+        #url = "https://i.pinimg.com/originals/02/fd/92/02fd92edf03b167382be63790ada0d20.jpg";
+             #       sha256 = "1xbmqmm0clnfialj5f8w1g85ivdszr1ih40qxpfrj1nn0rkl9pv3";
+             #      }; fehSnippet = "\nexec_always --no-background-id  ${pkgs.feh}/bin/feh --bg-scale ${wallpaper}"; in pkgs.writeText "config" (original + fehSnippet);
+      #     windowManager.i3.configFile = builtins.readFile /home/nwuensche/.i3/config + ''exec ${pkgs.feh}/bin/feh --bg-scale ${pkgs.fetchurl {
+        #       url = "https://i.pinimg.com/originals/02/fd/92/02fd92edf03b167382be63790ada0d20.jpg";
+        #     sha256 = "1xbmqmm0clnfialj5f8w1g85ivdszr1ih40qxpfrj1nn0rkl9pv3";
+        # }} '';
+        #      windowManager.i3.extraSessionCommands = ''${pkgs.feh}/bin/feh --bg-scale ${pkgs.fetchurl {
+          #     url = "https://i.pinimg.com/originals/02/fd/92/02fd92edf03b167382be63790ada0d20.jpg";
+          #   sha256 = "1xbmqmm0clnfialj5f8w1g85ivdszr1ih40qxpfrj1nn0rkl9pv3";
+          #         }} '';
       synaptics.enable = true;
       multitouch.enable = true;
       synaptics.maxSpeed = "0.3";
@@ -363,7 +382,6 @@ owner = "nwuensche"; setuid = false; };
                      setxkbmap eu -option caps:escape
          xautolock -locker i3lock -time 10& #suspend lock
          xss-lock -- i3lock & #lid close lock
-
         #  ${pkgs.xautolock}/bin/xautolock -detectsleep -time 1 \
         #                -locker "${pkgs.i3lock}/bin/i3lock -c 000070" &
         #  ${pkgs.xss-lock}/bin/xss-lock -- ${pkgs.i3lock}/bin/i3lock -c 000070 &

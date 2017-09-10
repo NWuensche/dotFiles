@@ -1,4 +1,5 @@
 card main {
+	spark card wallpaper
 	spark card nixOS
 	spark card vim
 	spark card git
@@ -6,6 +7,10 @@ card main {
 	spark card configs
 	spark card scripts
     spark card i3
+}
+card nixOS {
+    into ~
+    .background-image
 }
 
 card nixOS {

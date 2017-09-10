@@ -195,4 +195,4 @@ exec --no-startup-id nitrogen --restore # Get Wallpaper with nitrogen
 exec xss-lock -- i3lock-wrapper -n &
 #exec xbacklight -set 30
 exec udiskie &
-
+#exec "feh --bg-scale /home/nwuensche/Bilder/Wallpaper.jpg"
