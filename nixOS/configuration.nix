@@ -197,7 +197,17 @@ owner = "nwuensche"; setuid = false; };
      evince
      gimp
      oh-my-zsh
-     ron
+     pamixer
+     pavucontrol
+     pmutils
+     pulseaudioFull
+     pwgen
+     texlive.combined.scheme-full
+     vimPlugins.latex-live-preview
+     xf86_input_mtrack
+     xorg.xf86inputsynaptics
+     xorg.xf86videointel
+     cron
      calibre
      audacity
      arandr
@@ -210,6 +220,18 @@ owner = "nwuensche"; setuid = false; };
      mariadb
      libreoffice
      steam
+     acpi
+     alsa-firmware
+     binutils
+     dmenu
+     dpkg
+     gcc
+     gnumake
+     help2man
+     jmtpfs
+     lsof
+     mesa
+     ntfs3g
      gnome2.zenity #GUI notifcations
      calc
      #teamviewer
