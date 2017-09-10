@@ -91,6 +91,22 @@ owner = "nwuensche"; setuid = false; };
 ''; 
 owner = "nwuensche"; setuid = false; };
 
+  security.wrappers.lowbattery = { source = pkgs.writeScript "lowbattery" 
+''
+#!/bin/sh
+while true; do
+  Curr=$(/run/current-system/sw/bin/cat /sys/class/power_supply/BAT0/energy_now);
+  Min="2400000";
+  if ((Curr < Min))
+  then
+       /run/current-system/sw/bin/zenity --info --text="Battery to 5%"
+  fi
+  sleep 300 #wait 5 minutes
+  kill $!
+done
+''; 
+owner = "nwuensche"; setuid = false; };
+
   hardware.trackpoint.emulateWheel = true;
 
   boot.loader.timeout = 0;
@@ -127,7 +143,7 @@ owner = "nwuensche"; setuid = false; };
    serviceConfig = {
      Type = "oneshot";
      after = [ "multi-user.target" ];
-     ExecStart = "/run/wrappers/bin/light-intel-abs 400";
+     ExecStart = "/run/wrappers/bin/light-intel-abs 250";
      #ExecStart = "/run/current-system/sw/bin/echo 400 > /sys/class/backlight/intel_backlight/brightness";
    };
    wantedBy = [ "multi-user.target" ];
@@ -181,7 +197,7 @@ owner = "nwuensche"; setuid = false; };
      evince
      gimp
      oh-my-zsh
-     cron
+     ron
      calibre
      audacity
      arandr
@@ -194,6 +210,7 @@ owner = "nwuensche"; setuid = false; };
      mariadb
      libreoffice
      steam
+     gnome2.zenity #GUI notifcations
      calc
      #teamviewer
      #nitrogen
@@ -397,5 +414,6 @@ owner = "nwuensche"; setuid = false; };
   services.printing.extraConf = ''LogLevel debug'';
   # The NixOS release to be compatible with for stateful data such as databases.
   system.stateVersion = "17.03";
+
 
 }
