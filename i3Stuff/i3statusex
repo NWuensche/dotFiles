@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/run/current-system/sw/bin/zsh
 # shell script to prepend i3status with more stuff
 i3status -c ~/.i3/i3bar.config | while :
 do
