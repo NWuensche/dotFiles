@@ -1,0 +1,10 @@
+#!/bin/sh
+# shell script to prepend i3status with more stuff
+i3status -c ~/.i3/i3bar.config | while :
+do
+       BRIGHT=$(cat /sys/class/backlight/intel_backlight/brightness)
+       MAX_BRIGHT=$(cat /sys/class/backlight/intel_backlight/max_brightness)
+       read line
+       echo "☼ $((BRIGHT*100/MAX_BRIGHT))% | $line" || exit 1
+done
+

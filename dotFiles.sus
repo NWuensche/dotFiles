@@ -1,4 +1,5 @@
 card main {
+    spark card i3
 	spark card wallpaper
 	spark card nixOS
 	spark card vim
@@ -6,9 +7,17 @@ card main {
 	spark card terminal
 	spark card configs
 	spark card scripts
-    spark card i3
 }
-card nixOS {
+
+card i3 {
+    into ~/.i3
+    outof i3Stuff
+    config
+    i3bar.config
+    i3statusex
+}
+
+card wallpaper {
     into ~
     .background-image
 }
@@ -64,12 +73,6 @@ card configs {
 		into vifm
 		vifmrc -> vifmrc
 	}
-}
-
-card i3 {
-	into ~/.i3
-	outof configs
-	config.i3 -> config
 }
 
 card rules {
