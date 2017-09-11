@@ -63,12 +63,10 @@ function! AS_HandleSwapfile (filename, swapname)
 		call delete(v:swapname)
 		let v:swapchoice = 'e'
 
-	" My Modification
+	" Otherwise, open file read-only...
 	else
-		call AS_DelayedMsg('Swapfile detected, recovered and deleted')
-		let v:swapchoice = 'r'
-        call feedkeys("\<return>")
-		call delete(v:swapname)
+		call AS_DelayedMsg('Swapfile detected, opening read-only')
+		let v:swapchoice = 'o'
 	endif
 endfunction
 
@@ -82,7 +80,7 @@ function! AS_DelayedMsg (msg)
 		autocmd!
 		" Print the message on finally entering the buffer...
 		autocmd BufWinEnter *  echohl WarningMsg
-  exec 'autocmd BufWinEnter *  echon "\r'.printf("%-60s", a:msg).'"'
+		exec 'autocmd BufWinEnter *  echon "\r'.printf("%-60s", a:msg).'"'
 		autocmd BufWinEnter *  echohl NONE
 
 		" And then remove these autocmds, so it's a "one-shot" deal...
@@ -126,15 +124,21 @@ endfunction
 
 " TMUX: Detection function for tmux, uses tmux
 function! AS_DetectActiveWindow_Tmux (swapname)
-	let pid = systemlist('fuser '.a:swapname.' 2>/dev/null | grep -o "[0-9]*"')
+	let pid = systemlist('fuser '.a:swapname.' 2>/dev/null | grep -E -o "[0-9]+"')
 	if (len(pid) == 0)
 		return ''
 	endif
-	let tty = systemlist('ps h '.pid[0].' 2>/dev/null | sed -rn "s/^ *[0-9]+ +([^ ]+).*/\1/p" 2>/dev/null')
+	let tty = systemlist('ps -o "tt=" '.pid[0].' 2>/dev/null')
 	if (len(tty) == 0)
 		return ''
 	endif
-	let window = systemlist('tmux list-panes -aF "#{pane_tty} #{window_index} #{pane_index}" | grep -F "'.tty[0].'" 2>/dev/null')
+	let tty[0] = substitute(tty[0], '\s\+$', '', '')
+	" The output of `ps -o tt` and `tmux-list panes` varies from
+	" system to system.
+	" * Linux: `pts/1`, `/dev/pts/1`
+	" * FreeBSD: `1`, `/dev/vc/1`
+	" * Darwin/macOS: `s001`, `/dev/ttys001`
+	let window = systemlist('tmux list-panes -aF "#{pane_tty} #{window_index} #{pane_index}" | grep -F "'.tty[0].' " 2>/dev/null')
 	if (len(window) == 0)
 		return ''
 	endif

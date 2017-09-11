@@ -114,7 +114,7 @@ owner = "nwuensche"; setuid = false; };
 127.0.0.1 www.9gag.com
  127.0.0.1 9gag.com
 127.0.0.1 https://9gag.com
-#127.0.0.1 www.youtube.com
+127.0.0.1 www.youtube.com
 127.0.0.1 www.instagram.com
 127.0.0.1 www.facebook.com
 127.0.0.1 https://twitter.com
