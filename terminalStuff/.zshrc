@@ -8,14 +8,8 @@ export MAVEN_OPTS
 
 BROWSER=chromium
 export BROWSER
-#export VIMRUNTIME=$VIMRUNTIME":$HOME/.dotFiles/vimStuff/snippets/"
-
 
 alias saveDotFiles='
-
-    realcp ~/.vim/bundle/vim-autoswap/plugin/autoswap.vim ~/.dotFiles/vimStuff/autoswap.vim
-    realcp ~/.thunderbird/mnle6z31.default/user.js ~/.dotFiles/configs/user.js.thunderbird;
-
     saveStuff;
 
     cd ~/.dotFiles;
