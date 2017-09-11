@@ -18,7 +18,7 @@ alias saveDotFiles='
 
     cd ~/.dotFiles;
 	git add .;
-	git commit -m "(`date +%Y-%m-%d`) change dotFiles";
+	git commit -m "(`date +%d-%m-%Y`) change dotFiles";
 	git push;
 	cd;
 '
