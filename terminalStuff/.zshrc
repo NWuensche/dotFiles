@@ -8,6 +8,8 @@ export MAVEN_OPTS
 
 BROWSER=chromium
 export BROWSER
+#export VIMRUNTIME=$VIMRUNTIME":$HOME/.dotFiles/vimStuff/snippets/"
+
 
 alias saveDotFiles='
 

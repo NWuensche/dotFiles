@@ -5,6 +5,8 @@ set expandtab
 set spell
 syntax enable
 let mapleader = "\<Space>"
+let $SNIPPETSPATH = '/home/nwuensche/.dotFiles/vimStuff'
+set rtp^=$SNIPPETSPATH
 set spelllang=en
 " Show Line Number
 set number

@@ -33,12 +33,11 @@ card nixOS {
 card vim {
 	into ~
 	outof vimStuff
-
 	.vimrc
-	{
-		into .vim
-		snippets -> ~/.vim/snippets
-	}
+    {
+       into .vim/plugin
+       autoswap.vim
+    }
 }
 
 card git {
