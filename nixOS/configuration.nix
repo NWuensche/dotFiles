@@ -77,6 +77,24 @@ owner = "nwuensche"; setuid = false; };
 ''; 
 owner = "nwuensche"; setuid = false; };
 
+  security.wrappers.freespace = { source = pkgs.writeScript "freespace" 
+''
+      #!/run/current-system/sw/bin/bash
+      set -eu
+
+      # Delete everything from this profile that isn't currently needed
+      nix-env --delete-generations old
+
+      # Delete generations older than a week
+      nix-collect-garbage
+      nix-collect-garbage --delete-older-than 7d
+
+      # Optimize
+      nix-store --gc --print-dead
+      nix-store --optimise
+''; 
+owner = "nwuensche"; setuid = false; };
+
   security.wrappers.t = { source = pkgs.writeScript "t" 
 ''
 #!/bin/sh
@@ -220,7 +238,11 @@ owner = "nwuensche"; setuid = false; };
      mariadb
      libreoffice
      steam
+     tightvnc
+     qt4
+     tightvnc
      acpi
+     x11vnc
      alsa-firmware
      binutils
      dmenu
