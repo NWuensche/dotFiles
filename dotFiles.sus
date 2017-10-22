@@ -1,12 +1,12 @@
 card main {
     spark card i3
 	spark card wallpaper
-	spark card nixOS
 	spark card vim
 	spark card git
 	spark card terminal
 	spark card configs
 	spark card scripts
+    spark card X
 }
 
 card i3 {
@@ -95,4 +95,10 @@ card scripts {
 	youtubemp3 -> youtubemp3
 	1SekVideos -> 1SekVideos
 	extract -> extract
+}
+
+card X {
+    into ~
+    outof X
+    .xinitrc
 }

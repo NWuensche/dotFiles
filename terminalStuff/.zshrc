@@ -1,4 +1,8 @@
 # User configuration
+export ZSH=/home/nwuensche/.oh-my-zsh
+
+plugins=(git)
+ZSH_THEME="agnoster"
 EDITOR=vim
 export EDITOR
 ANDROID_HOME=/home/nwuensche/Android/Sdk
@@ -18,6 +22,7 @@ alias saveDotFiles='
 	git push;
 	cd;
 '
+source $ZSH/oh-my-zsh.sh
 
 alias -s sh=sh
 alias -s txt=vim
@@ -32,9 +37,9 @@ alias sudo='sudo ' # important, so that aliases work with sudo
 alias mkcd='f() { mkdir $1; cd $1 }; f'
 alias getIt='f() { source ~/.dontDelete $1 }; f'
 alias rm='echo "rm is disabled, use trash or realrm instead."'
-alias realrm='/run/current-system/sw/bin/rm'
-alias realcp='/run/current-system/sw/bin/cp'
-alias realmv='/run/current-system/sw/bin/mv'
+alias realrm='/bin/rm'
+alias realcp='/bin/cp'
+alias realmv='/bin/mv'
 alias xclip="xclip -selection c"
 alias mv='mv -iv'
 alias cp='cp -iv'

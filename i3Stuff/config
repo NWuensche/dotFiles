@@ -171,16 +171,18 @@ assign [title="Libreoffice"] 1
 assign [title="Tip of the Day"] 1
 assign [title="IntelliJ"] 1
 
-bindsym XF86MonBrightnessUp exec "sudo light-intel 100"
-bindsym XF86MonBrightnessDown exec "sudo light-intel -100"
 
-bindsym XF86AudioRaiseVolume exec "pamixer -i 5"
-bindsym XF86AudioLowerVolume exec "pamixer -d 5"
-bindsym XF86AudioMute exec "pamixer -t"
-bindsym XF86AudioMicMute exec "pamixer --source 1 -t"
+bindsym XF86MonBrightnessUp exec xbacklight -inc 20
+bindsym XF86MonBrightnessDown exec xbacklight -dec 20
+
+bindsym XF86AudioRaiseVolume exec "amixer -D pulse sset Master '5%+'"
+bindsym XF86AudioLowerVolume exec "amixer -D pulse sset Master '5%-'"
+bindsym XF86AudioMute exec "amixer -D pulse set Master toggle"
+bindsym XF86AudioMicMute exec "amixer -D pulse sset Capture toggle"
 
 bindsym Print exec scrot '%d.%m.%Y %H:%M:%S.png' -e 'mv "$f" ~/Bilder/'
-bindsym $mod+backslash exec chromium
+
+bindsym $mod+backslash exec chromium-browser
 bindsym $mod+apostrophe exec terminator -e "vifm ~"
 
 popup_during_fullscreen smart
@@ -189,11 +191,11 @@ workspace_auto_back_and_forth yes
 
 exec redshift -l 55.7:12.6 -t 5700:3600 -g 0.8 -m randr -v &>/dev/null &
 
-exec --no-startup-id nitrogen --restore # Get Wallpaper with nitrogen
+#exec --no-startup-id nitrogen --restore # Get Wallpaper with nitrogen
 
 # Lock when Laptop lid closed
 exec xss-lock -- i3lock-wrapper -n &
 #exec xbacklight -set 30
 exec udiskie &
 #exec "feh --bg-scale /home/nwuensche/Bilder/Wallpaper.jpg"
-exec_always lowbattery &
+exec_always "setxkbmap eu -option caps:escape"
