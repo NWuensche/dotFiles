@@ -199,3 +199,4 @@ exec xss-lock -- i3lock-wrapper -n &
 exec udiskie &
 #exec "feh --bg-scale /home/nwuensche/Bilder/Wallpaper.jpg"
 exec_always "setxkbmap eu -option caps:escape"
+exec feh --bg-scale ~/.background-image
