@@ -9,6 +9,7 @@ ANDROID_HOME=/home/nwuensche/Android/Sdk
 export ANDROID_HOME
 MAVEN_OPTS="-Xmx1024m -Xms512m"
 export MAVEN_OPTS
+export PATH=$PATH:/home/nwuensche/Android/Sdk/tools:/home/nwuensche/Android/Sdk/platform-tools:/home/nwuensche/Android/Sdk/tools/bin
 
 BROWSER=chromium
 export BROWSER

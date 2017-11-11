@@ -4,7 +4,7 @@ echo "First install Android-Studio!"
 echo "Also Add saveFolder"
 sudo apt update
 sudo apt upgrade
-sudo apt install default-jdk android-studio chromium-browser pwgen xclip vim python3 maven redshift steam calibre htop i3 git vlc curl vifm zsh terminator gparted ffmpeg gimp xss-lock xautolock phantomjs virtualbox youtube-dl trash-cli scrot udiskie xbacklight feh
+sudo apt install default-jdk android-studio chromium-browser pwgen xclip vim python3 maven redshift steam calibre htop i3 git vlc curl vifm zsh terminator gparted ffmpeg gimp xss-lock xautolock phantomjs virtualbox youtube-dl trash-cli scrot udiskie xbacklight feh texlive-full mtp-tools mtpfs gmtp
 sudo apt autoremove firefox
 
 mv dotFiles .dotFiles
