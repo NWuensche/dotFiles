@@ -36,7 +36,6 @@ alias -s jpeg=geeqie
 alias -s png=geeqie
 alias sudo='sudo ' # important, so that aliases work with sudo
 alias mkcd='f() { mkdir $1; cd $1 }; f'
-alias getIt='f() { source ~/.dontDelete $1 }; f'
 alias rm='echo "rm is disabled, use trash or realrm instead."'
 alias realrm='/bin/rm'
 alias realcp='/bin/cp'
