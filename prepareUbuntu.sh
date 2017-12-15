@@ -4,11 +4,17 @@ echo "First install Android-Studio!"
 echo "Also Add saveFolder"
 sudo apt update
 sudo apt upgrade
-sudo apt install default-jdk chromium-browser pwgen xclip vim python3 maven redshift steam calibre htop i3 git vlc curl vifm zsh terminator gparted ffmpeg gimp xss-lock xautolock phantomjs virtualbox youtube-dl trash-cli scrot udiskie xbacklight feh texlive-full mtp-tools mtpfs gmtp curl
+sudo apt install default-jdk chromium-browser pwgen xclip vim python3 maven redshift steam calibre htop i3 git vlc curl vifm zsh terminator gparted ffmpeg gimp xss-lock xautolock phantomjs virtualbox youtube-dl trash-cli scrot udiskie feh texlive-full mtp-tools mtpfs gmtp curl
 sudo apt autoremove firefox
 
-mv ~/dotfiles ~/.dotFiles
+git clone https://github.com/haikarainen/light.git
+cd light
+sudo make
+sudo make install
+cd ..
+trash light
 
+mv ~/dotfiles ~/.dotFiles
 
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 

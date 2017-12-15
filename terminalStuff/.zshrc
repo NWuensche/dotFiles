@@ -41,6 +41,7 @@ alias realrm='/bin/rm'
 alias realcp='/bin/cp'
 alias realmv='/bin/mv'
 alias xclip="xclip -selection c"
+#alias cisco="/opt/cisco/anyconnect/bin/vpnui"
 alias mv='mv -iv'
 alias cp='cp -iv'
 alias pdflatex='f() { (pdflatex $1; trash *.aux; trash *.log; trash *.nav; trash *.out; trash *.snm; trash *.toc) }; f'

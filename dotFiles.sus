@@ -5,6 +5,7 @@ card main {
 	spark card git
 	spark card terminal
 	spark card configs
+    spark card vifm
 	spark card scripts
     spark card X
 }
@@ -68,10 +69,12 @@ card configs {
 		config.terminator -> config
 	}
 
-	{
-		into vifm
+}
+
+card vifm {
+		into .vifm
+        outof configs
 		vifmrc -> vifmrc
-	}
 }
 
 card rules {
