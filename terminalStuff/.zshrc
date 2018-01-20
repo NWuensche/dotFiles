@@ -9,7 +9,7 @@ ANDROID_HOME=/home/nwuensche/Android/Sdk
 export ANDROID_HOME
 MAVEN_OPTS="-Xmx1024m -Xms512m"
 export MAVEN_OPTS
-export PATH=$PATH:/home/nwuensche/Android/Sdk/tools:/home/nwuensche/Android/Sdk/platform-tools:/home/nwuensche/Android/Sdk/tools/bin
+export PATH=$PATH:/home/nwuensche/Android/Sdk/tools:/home/nwuensche/Android/Sdk/platform-tools:~/Downloads/phantomjs-2.1.1-linux-x86_64/bin
 
 BROWSER=chromium
 export BROWSER
@@ -34,6 +34,7 @@ alias -s odt=libreoffice
 alias -s jpg=geeqie
 alias -s jpeg=geeqie
 alias -s png=geeqie
+alias cal='ncal -M -b'
 alias sudo='sudo ' # important, so that aliases work with sudo
 alias mkcd='f() { mkdir $1; cd $1 }; f'
 alias rm='echo "rm is disabled, use trash or realrm instead."'
@@ -50,3 +51,4 @@ alias z='(cd ~; vim .zshrc)'
 alias v='vifm .'
 alias downloadPDFsfrom='wget -r -l1 -A.pdf --no-check-certificate'
 alias 2pagesPDF='pdfnup --nup 2x1 --suffix test'
+alias reducePDF='f() { gs -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS="/printer" -sOutputFile=output.pdf $1  }; f'
