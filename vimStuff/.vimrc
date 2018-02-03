@@ -60,6 +60,8 @@ Plugin 'garbas/vim-snipmate'
 "Plugin 'gioele/vim-autoswap'
 " more grep, like Rgrep
 Plugin 'yegappan/grep'
+"CSV Files
+Plugin 'chrisbra/csv.vim'
 "	------- PLUGINS END ------- "
 
 call vundle#end()            " required

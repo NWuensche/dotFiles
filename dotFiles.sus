@@ -8,6 +8,7 @@ card main {
     spark card vifm
 	spark card scripts
     spark card X
+    spark card podcasts
 }
 
 card i3 {
@@ -104,4 +105,11 @@ card X {
     into ~
     outof X
     .xinitrc
+}
+
+card podcasts {
+    into ~/.podget
+    outof podcasts
+    podgetrc
+    serverlist
 }

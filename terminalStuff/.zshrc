@@ -9,6 +9,7 @@ ANDROID_HOME=/home/nwuensche/Android/Sdk
 export ANDROID_HOME
 MAVEN_OPTS="-Xmx1024m -Xms512m"
 export MAVEN_OPTS
+#export PATH="/home/nwuensche/anaconda3/bin:$PATH"
 export PATH=$PATH:/home/nwuensche/Android/Sdk/tools:/home/nwuensche/Android/Sdk/platform-tools:~/Downloads/phantomjs-2.1.1-linux-x86_64/bin
 
 BROWSER=chromium
@@ -35,12 +36,14 @@ alias -s jpg=geeqie
 alias -s jpeg=geeqie
 alias -s png=geeqie
 alias cal='ncal -M -b'
+alias calc=gcalccmd
 alias sudo='sudo ' # important, so that aliases work with sudo
 alias mkcd='f() { mkdir $1; cd $1 }; f'
 alias rm='echo "rm is disabled, use trash or realrm instead."'
 alias realrm='/bin/rm'
 alias realcp='/bin/cp'
 alias realmv='/bin/mv'
+alias scanIPs='sudo arp-scan --interface=wlp4s0 --localnet'
 alias xclip="xclip -selection c"
 #alias cisco="/opt/cisco/anyconnect/bin/vpnui"
 alias mv='mv -iv'
