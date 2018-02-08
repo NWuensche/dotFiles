@@ -32,9 +32,9 @@ alias -s tex=vim
 alias -s html=chromium
 alias -s pdf=chromium
 alias -s odt=libreoffice
-alias -s jpg=geeqie
-alias -s jpeg=geeqie
-alias -s png=geeqie
+alias -s jpg=feh
+alias -s jpeg=feh
+alias -s png=feh
 alias cal='ncal -M -b'
 alias calc=gcalccmd
 alias sudo='sudo ' # important, so that aliases work with sudo
@@ -56,3 +56,4 @@ alias downloadPDFsfrom='wget -r -l1 -A.pdf --no-check-certificate'
 alias 2pagesPDF='pdfnup --nup 2x1 --suffix test'
 alias reducePDF='f() { gs -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS="/printer" -sOutputFile=output.pdf $1  }; f'
 alias FEp='f() {mplayer $(wget https://rss.simplecast.com/podcasts/1684/rss -O- 2>/dev/null| grep "enclosure" | tac | sed -n $1p | cut -f2 -d"\"")}; f'
+alias sendKindle='f() {echo "" | for doc do mutt -s "test" "$(cat ~/saveFolder/kindleAddress.txt)" -a "$doc"; done}; f'
