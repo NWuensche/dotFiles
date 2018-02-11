@@ -11,3 +11,5 @@ zsh
 
 # added by Anaconda3 installer
 export PATH="/home/nwuensche/anaconda3/bin:$PATH"
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

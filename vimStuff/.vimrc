@@ -2,6 +2,7 @@ set relativenumber
 set tabstop=4
 set shiftwidth=4
 set expandtab
+set clipboard=unnamedplus
 set spell
 syntax enable
 let mapleader = "\<Space>"
@@ -13,11 +14,13 @@ set number
 
 " Type <Leader>w to save file
 nnoremap <Leader>w :w<CR>
+inoremap <Leader>p <c-r>+
 
 nnoremap <Up> <nop>
 nnoremap <Down> <nop>
 nnoremap <Left> <nop>
 nnoremap <Right> <nop>
+nnoremap q: :q
 
 " Disable arrow keys in insert mode
 inoremap <Up> <nop>
@@ -53,23 +56,47 @@ Plugin 'tpope/vim-surround'
 " Latex Preview in Okular
 Plugin 'xuhdev/vim-latex-live-preview'
 " Allow Snippets(+Dependecies)
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
+" Plugin 'MarcWeber/vim-addon-mw-utils'
+" Plugin 'tomtom/tlib_vim'
+" Plugin 'garbas/vim-snipmate'
+Plugin 'SirVer/ultisnips'
+"Plugin 'Valloric/YouCompleteMe'
 " Automatically delete swap file
 "Plugin 'gioele/vim-autoswap'
 " more grep, like Rgrep
 Plugin 'yegappan/grep'
 "CSV Files
 Plugin 'chrisbra/csv.vim'
+"Android
+"Plugin 'hsanson/vim-android'
+Plugin 'udalov/kotlin-vim'
 "	------- PLUGINS END ------- "
 
-call vundle#end()            " required
-filetype plugin indent on    " required
+call vundle#end()
+call plug#begin('~/.vim/plugged')
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+call plug#end()
+filetype plugin indent on
 "	------- VUNDLE END ------- "
+"
+filetype plugin indent on
+syntax on
+
+
 
 set background=dark
 colorscheme solarized
+
+"let g:UltiSnipsExpandTrigger="<c-j>"
+let g:ycm_key_list_select_completion=[]
+let g:ycm_key_list_previous_completion=[]
+"let g:UltiSnipsSnippetsDir='~/UltiSnips'
+let g:UltiSnipsSnippetsDir='/home/nwuensche/.dotFiles/vimStuff'
+
+map <Leader>f :FZF <CR>
+"let g:UltiSnipsJumpForwardTrigger="<tab>"
+"let g:UltiSnipsJumpBackwardTrigger="<c-z>""
 
 "Blue after 120 chars
 highlight ColorColumn ctermbg=DarkCyan
@@ -82,5 +109,6 @@ function StartPDF()
     call feedkeys ("\<return>")
 endfunction
 
-let @t='gg/\[*\](E"adiwb"sdi(h"apcs([lxelxGGo["apA: "sp' " for Issue 39
+let g:snipMate = get(g:, 'snipMate', {})
 
+let @t='gg/\[*\](E"adiwb"sdi(h"apcs([lxelxGGo["apA: "sp' " for Issue 39

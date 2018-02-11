@@ -1,0 +1,10 @@
+snippet frame frame environment
+	\\begin{frame}\frametitle{${1:title}}
+	\\end{frame}
+
+snippet theo theo enviroment
+	\theobox{Satz: ${1:theorem}}
+snippet exp exp enviroment
+	\examplebox{Beispiel: ${1:example}}
+snippet def def enviroment
+	\defbox{${1:definition}}

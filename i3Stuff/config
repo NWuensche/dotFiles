@@ -201,3 +201,4 @@ exec udiskie &
 exec_always "setxkbmap eu -option caps:escape"
 exec feh --bg-scale ~/.background-image
 exec light -S 40
+exec terminator -x tmux attach

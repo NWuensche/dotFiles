@@ -53,6 +53,7 @@ card terminal {
 	into ~
 	outof terminalStuff
 
+    .tmux.conf
 	.bashrc
     .bash_profile
 	.zshrc
