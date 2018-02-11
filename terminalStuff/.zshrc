@@ -10,10 +10,12 @@ export ANDROID_HOME
 MAVEN_OPTS="-Xmx1024m -Xms512m"
 export MAVEN_OPTS
 #export PATH="/home/nwuensche/anaconda3/bin:$PATH"
-export PATH=$PATH:/home/nwuensche/Android/Sdk/tools:/home/nwuensche/Android/Sdk/platform-tools:~/Downloads/phantomjs-2.1.1-linux-x86_64/bin
+export PATH=$PATH:/home/nwuensche/Android/Sdk/tools:/home/nwuensche/Android/Sdk/platform-tools:~/Downloads/phantomjs-2.1.1-linux-x86_64/bin:~/.nix-profile/bin
 
-BROWSER=chromium
-export BROWSER
+#No Files found in gitignore in fzf vim
+export FZF_DEFAULT_COMMAND='fd --type f'   
+
+export BROWSER="w3m"
 
 alias saveDotFiles='
     saveStuff;
@@ -56,6 +58,10 @@ alias downloadPDFsfrom='wget -r -l1 -A.pdf --no-check-certificate'
 alias 2pagesPDF='pdfnup --nup 2x1 --suffix test'
 alias reducePDF='f() { gs -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS="/printer" -sOutputFile=output.pdf $1  }; f'
 alias FEp='f() {mplayer $(wget https://rss.simplecast.com/podcasts/1684/rss -O- 2>/dev/null| grep "enclosure" | tac | sed -n $1p | cut -f2 -d"\"")}; f'
-alias sendKindle='f() {echo "" | for doc do mutt -s "test" "$(cat ~/saveFolder/kindleAddress.txt)" -a "$doc"; done}; f'
+alias sendKindle='f() {echo "" | for doc do mutt -s "test" -e "$(cat ~/saveFolder/sendKindleFrom.txt)" "$(cat ~/saveFolder/kindleAddress.txt)" -a "$doc"; done}; f'
 alias histrm='f() { LC_ALL=C sed --in-place "/$1/d" $HISTFILE;};f'
-alias getIt='f() {getIt $1; histrm get; zsh}; f'
+alias getIt='f() {getIt $1; histrm get;clear; zsh}; f'
+alias mountAndroid='sudo mkdir -p /mnt/Android; sudo jmtpfs /mnt/Android; sudo vifm /mnt/Android'
+alias search='googler --count 3'
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
