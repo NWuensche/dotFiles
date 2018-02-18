@@ -114,10 +114,10 @@
 #
 #FEEDS:
 # ------------------------------------------------------------------------------
-https://rss.simplecast.com/podcasts/1684/rss Fragmented
+#https://rss.simplecast.com/podcasts/1684/rss Fragmented
 http://younginthe80s.de/feed/ Young
 http://kaliban.podspot.de/rss Stay
 https://gamestar.libsyn.com/rss Gamestar
-https://feeds.feedburner.com/blogspot/AndroidDevelopersBackstage ADB
+#https://feeds.feedburner.com/blogspot/AndroidDevelopersBackstage ADB
 https://feeds.pacific-content.com/commandlineheroes CLH
 https://fuf.teranas.de/blog/category/podcast/fuf/feed/mp3/ FUF
