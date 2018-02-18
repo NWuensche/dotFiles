@@ -5,10 +5,10 @@ set expandtab
 set clipboard=unnamedplus
 set spell
 syntax enable
-let mapleader = "\<Space>"
+let mapleader = ","
 let $SNIPPETSPATH = '/home/nwuensche/.dotFiles/vimStuff'
 set rtp^=$SNIPPETSPATH
-set spelllang=en
+set spelllang=en,de
 " Show Line Number
 set number
 

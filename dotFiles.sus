@@ -70,6 +70,10 @@ card configs {
 		into terminator
 		config.terminator -> config
 	}
+    {
+        into qutebrowser
+        config.py
+    }
 
 }
 

@@ -4,9 +4,19 @@ echo "First install Android-Studio!"
 echo "Also Add saveFolder"
 sudo apt update
 sudo apt upgrade
-sudo apt install default-jdk chromium-browser pwgen xclip vim python3 maven redshift steam calibre htop i3 git vlc curl vifm zsh terminator gparted ffmpeg gimp xss-lock xautolock phantomjs virtualbox youtube-dl trash-cli scrot udiskie feh texlive-full mtp-tools mtpfs gmtp curl wine-stable unrar arp-scan podget silversearcher-ag jmtpfs googler mps-youtube
+sudo apt install default-jdk pwgen xclip vim python3 maven redshift steam calibre htop i3 git vlc curl vifm zsh terminator gparted ffmpeg gimp xss-lock xautolock phantomjs virtualbox youtube-dl trash-cli scrot udiskie feh texlive-full mtp-tools mtpfs gmtp curl wine-stable unrar arp-scan podget silversearcher-ag jmtpfs googler mps-youtube urlview weechat
 sudo apt install vim-gtk #For better clipboard
 sudo apt autoremove firefox totem rhythmbox
+
+#Vim German Spell Check
+sudo apt-get install vim-scripts
+sudo vim +'set spell spelllang=en,de' +y +1 +q +q
+
+#Qute Browser
+wget https://github.com/qutebrowser/qutebrowser/releases/download/v1.1.1/qutebrowser_1.1.1-1_all.deb
+wget https://qutebrowser.org/python3-pypeg2_2.15.2-1_all.deb
+sudo apt install ./python3-pypeg2_*_all.deb ./qutebrowser_*_all.deb
+rm *.deb
 
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
@@ -53,4 +63,5 @@ ln -s ~/android-studio/bin/studio.sh ~/bin/
 
 /bin/cp ~/.dotFiles/terminalStuff/agnoster.zsh-theme ~/.oh-my-zsh/themes/agnoster.zsh-theme
 
+echo "Install Tmux Plugins with Prefix + I"
 

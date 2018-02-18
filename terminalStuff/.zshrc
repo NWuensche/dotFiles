@@ -32,7 +32,7 @@ alias -s sh=sh
 alias -s txt=vim
 alias -s tex=vim
 alias -s html=chromium
-alias -s pdf=chromium
+alias -s pdf=evince
 alias -s odt=libreoffice
 alias -s jpg=feh
 alias -s jpeg=feh
@@ -63,5 +63,7 @@ alias histrm='f() { LC_ALL=C sed --in-place "/$1/d" $HISTFILE;};f'
 alias getIt='f() {getIt $1; histrm get;clear; zsh}; f'
 alias mountAndroid='sudo mkdir -p /mnt/Android; sudo jmtpfs /mnt/Android; sudo vifm /mnt/Android'
 alias search='googler --count 3'
+alias youtube='mpsyt'
+alias trash-restore='restore-trash'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
