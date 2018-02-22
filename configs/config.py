@@ -729,7 +729,6 @@
 ## Duration (in milliseconds) to wait before removing finished downloads.
 ## If set to -1, downloads are never removed.
 ## Type: Int
-# c.downloads.remove_finished = -1
 
 ## Editor (and arguments) to use for the `open-editor` command. The
 ## following placeholders are defined: * `{file}`: Filename of the file
@@ -1351,7 +1350,6 @@
 # config.bind('/', 'set-cmd-text /')
 # config.bind(':', 'set-cmd-text :')
 # config.bind(';I', 'hint images tab')
-# config.bind(';O', 'hint links fill :open -t -r {hint-url}')
 # config.bind(';R', 'hint --rapid links window')
 # config.bind(';Y', 'hint links yank-primary')
 # config.bind(';b', 'hint all tab-bg')
@@ -1411,12 +1409,10 @@
 # config.bind('G', 'scroll-to-perc')
 # config.bind('H', 'back')
 # config.bind('L', 'forward')
-# config.bind('M', 'bookmark-add')
 # config.bind('N', 'search-prev')
 # config.bind('O', 'set-cmd-text -s :open -t')
 # config.bind('PP', 'open -t -- {primary}')
 # config.bind('Pp', 'open -t -- {clipboard}')
-# config.bind('R', 'reload -f')
 # config.bind('Sb', 'open qute://bookmarks#bookmarks')
 # config.bind('Sh', 'open qute://history')
 # config.bind('Sq', 'open qute://bookmarks')
@@ -1555,7 +1551,6 @@
 ## Bindings for hint mode
 # config.bind('<Ctrl-B>', 'hint all tab-bg', mode='hint')
 # config.bind('<Ctrl-F>', 'hint links', mode='hint')
-# config.bind('<Ctrl-R>', 'hint --rapid links tab-bg', mode='hint')
 # config.bind('<Escape>', 'leave-mode', mode='hint')
 # config.bind('<Return>', 'follow-hint', mode='hint')
 
@@ -1592,6 +1587,7 @@
 # config.bind('n', 'prompt-accept no', mode='prompt')
 config.bind('z', 'set-cmd-text -s :bookmark-del')
 config.bind('o', 'set-cmd-text -s :bookmark-load')
+config.bind('O', 'set-cmd-text -s :bookmark-load -t')
 config.bind('=', 'zoom-in')
 c.url.default_page = 'https://www.startpage.com/'
 c.url.searchengines = {'DEFAULT': 'https://www.startpage.com/do/dsearch?query={}'}
@@ -1600,8 +1596,14 @@ config.bind('ZZ', 'quit')
 config.bind('q', 'Z')
 config.bind('K', 'tab-next')
 config.bind('J', 'tab-prev')
+#config.bind(';M', 'hint links fill spawn bookmark-add {hint-url}')
+config.bind('D', 'bookmark-del')
+config.bind('<Ctrl-r>', 'reload -f')
+config.bind('R', 'spawn --userscript readability')
 
-#c.content.pdfjs = True
+c.downloads.remove_finished = 5000 #ms
+
+#c.content.pdfjs = True Works from mid-2018 on
 
 
 ## Bindings for register mode

@@ -16,6 +16,7 @@ sudo vim +'set spell spelllang=en,de' +y +1 +q +q
 wget https://github.com/qutebrowser/qutebrowser/releases/download/v1.1.1/qutebrowser_1.1.1-1_all.deb
 wget https://qutebrowser.org/python3-pypeg2_2.15.2-1_all.deb
 sudo apt install ./python3-pypeg2_*_all.deb ./qutebrowser_*_all.deb
+pip3 install readability-lxml
 rm *.deb
 
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm

@@ -14,6 +14,7 @@ export PATH=$PATH:/home/nwuensche/Android/Sdk/tools:/home/nwuensche/Android/Sdk/
 
 #No Files found in gitignore in fzf vim
 export FZF_DEFAULT_COMMAND='fd --type f'   
+export tm='{"isarrival": false,"limit": 30,"mentzonly": false,"mot": ["Tram","CityBus","IntercityBus",        "SuburbanRailway",        "Train",        "Cableway",        "Ferry",        "HailedSharedTaxi"],    "shorttermchanges": true,    "stopid": "33000658",    "time": "2018-02-20T19:54:00.000Z"}'
 
 export BROWSER="w3m"
 
@@ -65,5 +66,7 @@ alias mountAndroid='sudo mkdir -p /mnt/Android; sudo jmtpfs /mnt/Android; sudo v
 alias search='googler --count 3'
 alias youtube='mpsyt'
 alias trash-restore='restore-trash'
+alias t='tmux attach'
+alias clong='curl -X POST -d $tm https://webapi.vvo-online.de/dm\?format\=json --header "Content-Type:application/json"'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
