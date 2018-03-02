@@ -68,5 +68,6 @@ alias youtube='mpsyt'
 alias trash-restore='restore-trash'
 alias t='tmux attach'
 alias clong='curl -X POST -d $tm https://webapi.vvo-online.de/dm\?format\=json --header "Content-Type:application/json"'
+alias readSite='f() {python3 ~/.dotFiles/scripts/read.py $1 | w3m -T 'text/html'}; f'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
