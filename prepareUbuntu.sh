@@ -3,10 +3,16 @@
 echo "First install Android-Studio!"
 echo "Also Add saveFolder"
 sudo apt update
-sudo apt upgrade
-sudo apt install default-jdk pwgen xclip vim python3 maven redshift steam calibre htop i3 git vlc curl vifm zsh terminator gparted ffmpeg gimp xss-lock xautolock phantomjs virtualbox youtube-dl trash-cli scrot udiskie feh texlive-full mtp-tools mtpfs gmtp curl wine-stable unrar arp-scan podget silversearcher-ag jmtpfs googler mps-youtube urlview weechat
-sudo apt install vim-gtk #For better clipboard
-sudo apt autoremove firefox totem rhythmbox
+sudo apt upgrade -y
+sudo apt install default-jdk pwgen xclip vim python3 maven redshift steam calibre htop i3 git vlc curl vifm zsh terminator gparted ffmpeg gimp xss-lock xautolock phantomjs virtualbox youtube-dl trash-cli scrot udiskie feh texlive-full mtp-tools mtpfs gmtp curl wine-stable unrar arp-scan podget silversearcher-ag jmtpfs googler mps-youtube urlview weechat -y
+sudo apt install vim-gtk -y #For better clipboard
+sudo apt autoremove firefox totem rhythmbox -y
+
+#VSCode
+wget https://go.microsoft.com/fwlink/\?LinkID\=760868 -o code.deb
+sudo dpkg -i code.deb
+sudo apt install -f
+rm code.deb
 
 #Vim German Spell Check
 sudo apt-get install vim-scripts

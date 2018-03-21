@@ -1,0 +1,4 @@
+// Platzieren Sie Ihre Tastenzuordnungen in dieser Datei, um die Standardwerte zu überschreiben.
+    [ {"key": "capslock", "command": "extension.vim_escape",
+        "when": "editorTextFocus && vim.active && !inDebugRepl" }
+        ]
