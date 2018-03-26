@@ -1,7 +1,13 @@
-#!/bin/sh
+#!/bin/bash
 
-echo "First install Android-Studio!"
-echo "Also Add saveFolder"
+set -e #Exit after first non zero error code
+
+if [ ! -d ~/saveFolder ]
+then
+    echo "Copy SaveFolder first"
+    exit 1
+fi
+
 sudo apt update
 sudo apt upgrade -y
 sudo apt install default-jdk pwgen xclip vim python3 maven redshift steam calibre htop i3 git vlc curl vifm zsh terminator gparted ffmpeg gimp xss-lock xautolock phantomjs virtualbox youtube-dl trash-cli scrot udiskie feh texlive-full mtp-tools mtpfs gmtp curl wine-stable unrar arp-scan podget silversearcher-ag jmtpfs googler mps-youtube urlview weechat arandr imapfilter -y
@@ -65,11 +71,20 @@ cd fonts
 cd ..
 rm -rf fonts
 
-ln -s ~/android-studio/bin/studio.sh ~/bin/
-
 gpg --import ~/saveFolder/gpg_key.asc
 
 /bin/cp ~/.dotFiles/terminalStuff/agnoster.zsh-theme ~/.oh-my-zsh/themes/agnoster.zsh-theme
 
-echo "Install Tmux Plugins with Prefix + I"
+#Android Studio
+wget https://dl.google.com/dl/android/studio/ide-zips/3.0.1.0/android-studio-ide-171.4443003-linux.zip as.zip
+#Depencies
+sudo apt-get install libc6:i386 libncurses5:i386 libstdc++6:i386 lib32z1 libbz2-1.0:i386 -y
+sudo unzip as.zip -d /opt/
+sudo chmod -R 0777 /opt/android-studio
+/bin/rm as.zip
+/opt/android-studio/bin/studio.sh
+ln -s ~/android-studio/bin/studio.sh ~/bin/
 
+
+clear
+echo "Install Tmux Plugins with Prefix + I"
