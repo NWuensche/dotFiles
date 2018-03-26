@@ -50,6 +50,7 @@ alias scanIPs='sudo arp-scan --interface=wlp4s0 --localnet'
 alias xclip="xclip -selection c"
 #alias cisco="/opt/cisco/anyconnect/bin/vpnui"
 alias mv='mv -iv'
+alias mutt='imapfilter && mutt'
 alias cp='cp -iv'
 alias pdflatex='f() { (pdflatex $1; trash *.aux; trash *.log; trash *.nav; trash *.out; trash *.snm; trash *.toc) }; f'
 alias downloadFolder='wget -r --no-parent'
