@@ -14,6 +14,7 @@
 	ustash = stash --include-untracked
 	deleteCommit = "! f() { git rebase -p --onto \"$1^\" \"$1\" -m --strategy-option=theirs;}; f"
 	deleteOldBranches = "! f() { git branch --merged | egrep -v \"(^\\\\*|master|develop)\" | xargs git branch -d; }; f"
+	start = !git init && git commit --allow-empty -m \"Initial commit\"
 
 [pull]
 	rebase = true

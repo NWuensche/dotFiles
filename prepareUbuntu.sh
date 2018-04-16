@@ -10,9 +10,11 @@ fi
 
 sudo apt update
 sudo apt upgrade -y
-sudo apt install default-jdk pwgen xclip vim python3 maven redshift steam calibre htop i3 git vlc curl vifm zsh terminator gparted ffmpeg gimp xss-lock xautolock phantomjs virtualbox youtube-dl trash-cli scrot udiskie feh texlive-full mtp-tools mtpfs gmtp curl wine-stable unrar arp-scan podget silversearcher-ag jmtpfs googler mps-youtube urlview weechat arandr imapfilter -y
+sudo apt install default-jdk pwgen xclip vim python3 maven redshift steam calibre htop i3 git vlc curl vifm zsh terminator gparted ffmpeg gimp xss-lock xautolock phantomjs virtualbox youtube-dl trash-cli scrot udiskie feh texlive-full mtp-tools mtpfs gmtp curl wine-stable unrar arp-scan podget silversearcher-ag jmtpfs googler mps-youtube urlview weechat arandr imapfilter pdfgrep -y
 sudo apt install vim-gtk -y #For better clipboard
 sudo apt autoremove firefox totem rhythmbox -y
+
+
 
 #VSCode
 wget https://go.microsoft.com/fwlink/\?LinkID\=760868 -o code.deb
@@ -63,7 +65,16 @@ sudo apt-get install build-essential cmake
 cd ~/.vim/bundle/YouCompleteMe
 ./install.py --clang-completer
 
-cp ~/saveFolder/.thunderbird ~ -r
+#Hard Link for every Script to be part of dmenu
+for fullfile in ~/.dotFiles/scripts/*; do
+        filename=$(basename -- "$fullfile")
+        ln $fullfile "/home/nwuensche/bin/$filename"
+done
+for fullfile in ~/saveFolder/privateScripts/*; do
+        filename=$(basename -- "$fullfile")
+        ln $fullfile "/home/nwuensche/bin/$filename"
+done
+
 
 git clone https://github.com/powerline/fonts.git --depth=1
 cd fonts
@@ -83,7 +94,7 @@ sudo unzip as.zip -d /opt/
 sudo chmod -R 0777 /opt/android-studio
 /bin/rm as.zip
 /opt/android-studio/bin/studio.sh
-ln -s ~/android-studio/bin/studio.sh ~/bin/
+ln -s ~/android-studio/bin/studio.sh ~/bin/a
 
 
 clear
