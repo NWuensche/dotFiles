@@ -99,7 +99,7 @@ filextype *.flac,*.m4a,*.ape,*.ac3,*.og[agx],*.spx,*.opus,*.avi,*.mp4,*.wmv,*.da
          \*.fl[icv],*.m2v,*.mov,*.webm,*.ts,*.mts,*.m4v,*.r[am],*.qt,*.divx,
          \*.as[fx]
         \ mplayer %f &>/dev/null &
-filextype *.wav,*.mp3,*.wma terminator -e "mplayer %f" 2>/dev/null
+filextype *.wav,*.mp3,*.aac,*.wma terminator -e "mplayer %f" 2>/dev/null
 
 filextype *.odt,*.ods,*.doc,*.docx,*.xls,*.xlsx,*.odp,*.pptx libreoffice %f &>/dev/null &
 
@@ -163,7 +163,7 @@ nmap `h :cd ~ <CR>
 nmap `d :cd ~/Downloads <CR>
 nmap `r :cd ~/Dokumente/Studium/4.Semester/RN <CR>
 nmap `s :cd ~/Dokumente/Studium/4.Semester <CR>
-nmap `m :cd /media <CR>
+nmap `m :cd /media/nwuensche <CR>
 
 nmap q :q<CR>
 nmap DD :!trash %f<CR>
