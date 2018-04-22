@@ -17,21 +17,21 @@ sudo apt autoremove firefox totem rhythmbox -y
 
 
 #VSCode
-wget https://go.microsoft.com/fwlink/\?LinkID\=760868 -o code.deb
-sudo dpkg -i code.deb
-sudo apt install -f
-rm code.deb
+#wget https://go.microsoft.com/fwlink/\?LinkID\=760868 -o code.deb
+#sudo dpkg -i code.deb
+#sudo apt install -f
+#rm code.deb
 
 #Vim German Spell Check
 sudo apt-get install vim-scripts
 sudo vim +'set spell spelllang=en,de' +y +1 +q +q
 
 #Qute Browser
-wget https://github.com/qutebrowser/qutebrowser/releases/download/v1.1.1/qutebrowser_1.1.1-1_all.deb
-wget https://qutebrowser.org/python3-pypeg2_2.15.2-1_all.deb
-sudo apt install ./python3-pypeg2_*_all.deb ./qutebrowser_*_all.deb
-pip3 install readability-lxml
-rm *.deb
+#wget https://github.com/qutebrowser/qutebrowser/releases/download/v1.1.1/qutebrowser_1.1.1-1_all.deb
+#wget https://qutebrowser.org/python3-pypeg2_2.15.2-1_all.deb
+#sudo apt install ./python3-pypeg2_*_all.deb ./qutebrowser_*_all.deb
+#pip3 install readability-lxml
+#rm *.deb
 
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
@@ -43,6 +43,7 @@ cd ..
 trash light
 
 mv ~/dotfiles ~/.dotFiles
+cp ~/saveFolder/ssh ~/.ssh -r # Must do this before spark, because config will be overwritten otherwise
 
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -95,7 +96,6 @@ sudo chmod -R 0777 /opt/android-studio
 /bin/rm as.zip
 /opt/android-studio/bin/studio.sh
 ln -s ~/android-studio/bin/studio.sh ~/bin/a
-
 
 clear
 echo "Install Tmux Plugins with Prefix + I"
