@@ -194,4 +194,4 @@ exec_always "setxkbmap eu -option caps:escape"
 exec feh --bg-scale ~/.background-image
 exec light -S 40
 exec terminator -x tmux attach
-exec xinput -set-prop 12 141 0
+exec xinput -set-prop 12 141 1
