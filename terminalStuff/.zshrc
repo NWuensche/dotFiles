@@ -16,7 +16,7 @@ export PATH=$PATH:/home/nwuensche/Android/Sdk/tools:/home/nwuensche/Android/Sdk/
 export FZF_DEFAULT_COMMAND='fd --type f'   
 export tm='{"isarrival": false,"limit": 30,"mentzonly": false,"mot": ["Tram","CityBus","IntercityBus",        "SuburbanRailway",        "Train",        "Cableway",        "Ferry",        "HailedSharedTaxi"],    "shorttermchanges": true,    "stopid": "33000658",    "time": "2018-02-20T19:54:00.000Z"}'
 
-export BROWSER="w3m"
+export BROWSER="chromium-browser"
 
 alias saveDotFiles='
     saveStuff;
@@ -70,5 +70,6 @@ alias trash-restore='restore-trash'
 alias t='tmux attach'
 alias clong='curl -X POST -d $tm https://webapi.vvo-online.de/dm\?format\=json --header "Content-Type:application/json"'
 alias readSite='f() {python3 ~/.dotFiles/scripts/read.py $1 | w3m -T 'text/html'}; f'
+alias vimBA="vim -c 'startinsert' -c 'set tw=70 et' -c 'set wrap' '+/^$'"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

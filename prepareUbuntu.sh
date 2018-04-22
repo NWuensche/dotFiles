@@ -15,6 +15,10 @@ sudo apt install vim-gtk -y #For better clipboard
 sudo apt autoremove firefox totem rhythmbox -y
 
 
+#TU Latex Stuff
+sudo tlmgr install opensans
+sudo tlmgr install tudsc
+updmap -sys
 
 #VSCode
 #wget https://go.microsoft.com/fwlink/\?LinkID\=760868 -o code.deb
