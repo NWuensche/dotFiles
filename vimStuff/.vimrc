@@ -115,3 +115,10 @@ endfunction
 let g:snipMate = get(g:, 'snipMate', {})
 
 let @t='gg/\[*\](E"adiwb"sdi(h"apcs([lxelxGGo["apA: "sp' " for Issue 39
+
+" Capitalize Word
+nmap gcw guw~h
+" Decapitalize Word
+nmap gcc guu~h
+
+
