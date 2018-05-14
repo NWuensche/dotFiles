@@ -161,8 +161,9 @@ filetype *.tgz,*.zip,*.gz,*.bz2,*.xz extract %f
 
 nmap `h :cd ~ <CR>
 nmap `d :cd ~/Downloads <CR>
-nmap `r :cd ~/Dokumente/Studium/4.Semester/RN <CR>
-nmap `s :cd ~/Dokumente/Studium/4.Semester <CR>
+nmap `q :cd ~/Dokumente/6.Semester/Bachelorarbeit/BA-Cloud <CR>
+nmap `w :cd /home/nwuensche/Dokumente/6.Semester/VNS/Vanda/library/Vanda/Grammar/XRS/LCFRS <CR>
+nmap `t :cd /home/nwuensche/Dokumente/6.Semester/VNS/Vanda/tests/Vanda/Grammar/LCFRS <CR>
 nmap `m :cd /media/nwuensche <CR>
 
 nmap q :q<CR>

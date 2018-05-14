@@ -10,7 +10,7 @@ export ANDROID_HOME
 MAVEN_OPTS="-Xmx1024m -Xms512m"
 export MAVEN_OPTS
 #export PATH="/home/nwuensche/anaconda3/bin:$PATH"
-export PATH=$PATH:/home/nwuensche/Android/Sdk/tools:/home/nwuensche/Android/Sdk/platform-tools:~/Downloads/phantomjs-2.1.1-linux-x86_64/bin:~/.nix-profile/bin:~/.local/bin
+export PATH=$PATH:/home/nwuensche/Android/Sdk/tools:/home/nwuensche/Android/Sdk/platform-tools:~/Downloads/phantomjs-2.1.1-linux-x86_64/bin:~/.nix-profile/bin:~/.local/bin:~/.cabal/bin
 
 #No Files found in gitignore in fzf vim
 export FZF_DEFAULT_COMMAND='fd --type f'   
@@ -41,6 +41,8 @@ alias -s png=feh
 alias cal='ncal -M -b'
 alias calc=gcalccmd
 alias sudo='sudo ' # important, so that aliases work with sudo
+alias sudoedit='cat ' # important, so that aliases work with sudo
+alias mpv='cat '
 alias mkcd='f() { mkdir $1; cd $1 }; f'
 alias rm='echo "rm is disabled, use trash or realrm instead."'
 alias realrm='/bin/rm'
@@ -50,7 +52,7 @@ alias scanIPs='sudo arp-scan --interface=wlp4s0 --localnet'
 alias xclip="xclip -selection c"
 #alias cisco="/opt/cisco/anyconnect/bin/vpnui"
 alias mv='mv -iv'
-alias mutt='imapfilter && mutt'
+alias mutt='(imapfilter &> /dev/null) && mutt'
 alias cp='cp -iv'
 alias pdflatex='f() { (pdflatex $1; trash *.aux; trash *.log; trash *.nav; trash *.out; trash *.snm; trash *.toc) }; f'
 alias downloadFolder='wget -r --no-parent'
@@ -68,8 +70,11 @@ alias search='googler --count 3'
 alias youtube='mpsyt'
 alias trash-restore='restore-trash'
 alias t='tmux attach'
-alias clong='curl -X POST -d $tm https://webapi.vvo-online.de/dm\?format\=json --header "Content-Type:application/json"'
 alias readSite='f() {python3 ~/.dotFiles/scripts/read.py $1 | w3m -T 'text/html'}; f'
 alias vimBA="vim -c 'startinsert' -c 'set tw=70 et' -c 'set wrap' '+/^$'"
+
+#VNS Stuff
+alias ctest="(cd /home/nwuensche/Dokumente/6.Semester/VNS/Vanda; cabal configure --enable-tests && cabal test)"
+alias cbuild="(cd /home/nwuensche/Dokumente/6.Semester/VNS/Vanda; cabal build)"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
