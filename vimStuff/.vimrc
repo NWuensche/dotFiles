@@ -43,6 +43,10 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 " Close Brackets automaticaly
 Plugin 'Raimondi/delimitMate'
+"Tmux Vim Windows Seamless
+Plugin 'christoomey/vim-tmux-navigator'
+"Fuzzy Filenames
+Plugin 'ctrlpvim/ctrlp.vim'
 
 "Nix Syntax
 Plugin 'LnL7/vim-nix'
@@ -105,12 +109,13 @@ map <Leader>f :FZF <CR>
 highlight ColorColumn ctermbg=DarkCyan
 call matchadd('ColorColumn', '\%121v', 100)
 
-" Automatically load PDF preview on tex Files
-autocmd Filetype tex call StartPDF()
-function StartPDF()
-    LLPStartPreview
-    call feedkeys ("\<return>")
-endfunction
+" Automatically load PDF preview on tex Files - Take out because Bibliography
+" doesn't work
+"autocmd Filetype tex call StartPDF()
+"function StartPDF()
+"    LLPStartPreview
+"    call feedkeys ("\<return>")
+"endfunction
 
 let g:snipMate = get(g:, 'snipMate', {})
 

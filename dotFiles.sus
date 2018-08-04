@@ -40,6 +40,10 @@ card vim {
        into .vim/plugin
        autoswap.vim
     }
+    {
+       into .vim/spell
+       en.utf-8.add
+    }
 }
 
 card git {

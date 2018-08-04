@@ -152,6 +152,9 @@ nnoremap <f9> :!vim<space>
 
 filetype *.pdf evince %f &>/dev/null &
 filetype *.png,*.jpg,*.gif,*.jpeg = feh -F %f &
+filetype *.eps = xdg-open %f &
+fileviewer *.eps = xdg-open %f &
+filextype *.eps = xdg-open %f &
 fileviewer *.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,
           \*.fl[icv],*.m2v,*.mov,*.webm,*.ts,*.mts,*.m4v,*.r[am],*.qt,*.divx,
           \*.as[fx]
@@ -161,10 +164,9 @@ filetype *.tgz,*.zip,*.gz,*.bz2,*.xz extract %f
 
 nmap `h :cd ~ <CR>
 nmap `d :cd ~/Downloads <CR>
-nmap `q :cd ~/Dokumente/6.Semester/Bachelorarbeit/BA-Cloud <CR>
-nmap `w :cd /home/nwuensche/Dokumente/6.Semester/VNS/Vanda/library/Vanda/Grammar/XRS/LCFRS <CR>
-nmap `t :cd /home/nwuensche/Dokumente/6.Semester/VNS/Vanda/tests/Vanda/Grammar/LCFRS <CR>
 nmap `m :cd /media/nwuensche <CR>
+nmap `q :cd /home/nwuensche/Dokumente/6.Semester/Bachelorarbeit/BA-Cloud <CR>
+nmap `r :cd /home/nwuensche/Dokumente/6.Semester/VNS/Paper/Negra/vanda-Spielwiese-BA <CR>
 
 nmap q :q<CR>
 nmap DD :!trash %f<CR>
@@ -182,3 +184,5 @@ fileviewer *.pdf
 
 "Make mkdir work with spaces in name
 command mkdirspace mkdir "%a"
+"One Window
+"Show hidden files

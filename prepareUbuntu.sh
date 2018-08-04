@@ -11,7 +11,7 @@ fi
 sudo apt update
 sudo apt upgrade -y
 sudo apt install default-jdk pwgen xclip vim python3 maven redshift steam calibre htop i3 git vlc curl vifm zsh terminator gparted ffmpeg gimp xss-lock xautolock phantomjs virtualbox youtube-dl trash-cli scrot udiskie feh texlive-full mtp-tools mtpfs gmtp curl wine-stable unrar arp-scan podget silversearcher-ag jmtpfs googler mps-youtube urlview weechat arandr imapfilter pdfgrep -y
-sudo apt install vim-gtk -y #For better clipboard
+sudo apt install vim-gtk kdenlive -y #For better clipboard
 sudo apt autoremove firefox totem rhythmbox -y
 
 
