@@ -186,7 +186,7 @@ exec redshift -l 55.7:12.6 -t 5700:3600 -g 0.8 -m randr -v &>/dev/null &
 #exec --no-startup-id nitrogen --restore # Get Wallpaper with nitrogen
 
 # Lock when Laptop lid closed
-exec xss-lock -- i3lock-wrapper -n &
+#exec xss-lock -- i3lock-wrapper -n &
 #exec xbacklight -set 30
 exec udiskie &
 #exec "feh --bg-scale /home/nwuensche/Bilder/Wallpaper.jpg"
@@ -195,3 +195,9 @@ exec feh --bg-scale ~/.background-image
 exec light -S 40
 exec terminator -x tmux attach
 exec xinput -set-prop 12 141 1
+
+# Since Ubuntu 18.04, Trackpoint lags. This helps
+exec xinput --set-prop 'TPPS/2 IBM TrackPoint' 'libinput Accel Profile Enabled' 0, 1
+exec xinput --set-prop 'TPPS/2 IBM TrackPoint' 'libinput Accel Speed' 1
+
+

@@ -15,6 +15,9 @@
 	deleteCommit = "! f() { git rebase -p --onto \"$1^\" \"$1\" -m --strategy-option=theirs;}; f"
 	deleteOldBranches = "! f() { git branch --merged | egrep -v \"(^\\\\*|master|develop)\" | xargs git branch -d; }; f"
 	start = !git init && git commit --allow-empty -m \"Initial commit\"
+	setup = "!git push --set-upstream origin $((git branch | grep \\* | cut -d "
+	setup = "!git push --set-upstream origin $(eval \"git branch | grep \\* | cut -d "
+	setup = "!git push --set-upstream origin $(eval \"git branch | grep \\* | cut -d "
 
 [pull]
 	rebase = true
