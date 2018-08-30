@@ -76,7 +76,11 @@ alias youtube='mpsyt'
 alias trash-restore='restore-trash'
 alias t='tmux attach'
 alias readSite='f() {python3 ~/.dotFiles/scripts/read.py $1 | w3m -T 'text/html'}; f'
+alias decompileJAR='f() {java -cp "/opt/IntelliJ/plugins/java-decompiler/lib/java-decompiler.jar" org.jetbrains.java.decompiler.main.decompiler.ConsoleDecompiler $0}; f'
 alias vimBA="vim -c 'startinsert' -c 'set tw=70 et' -c 'set wrap' '+/^$'"
+alias x2="xrandr --output DP-2 --auto --output HDMI-1 --auto --right-of DP-2 --output eDP-1 --off"
+alias x1="xrandr --output eDP-1 --auto --output HDMI-1 --off --output DP-2 --off"
+alias calcurse="/usr/local/bin/calcurse"
 
 #VNS Stuff
 alias ctest="(cd /home/nwuensche/Dokumente/6.Semester/VNS/Vanda; cabal configure --enable-tests && cabal test)"
