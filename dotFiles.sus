@@ -113,6 +113,7 @@ card scripts {
 	youtubemp3 -> youtubemp3
 	1SekVideos -> 1SekVideos
 	extract -> extract
+	setupMonitor -> setupMonitor
 }
 
 card X {

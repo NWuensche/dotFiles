@@ -101,5 +101,20 @@ sudo chmod -R 0777 /opt/android-studio
 /opt/android-studio/bin/studio.sh
 ln -s ~/android-studio/bin/studio.sh ~/bin/a
 
+#Calcurse 4.3 to move entries
+sudo apt install asciidoc -y
+wget https://github.com/lfos/calcurse/archive/v4.3.0.tar.gz
+tar -xzvf v4.3.0.tar.gz
+cd calcurse-4.3.0/
+./autogen.sh
+./configure
+make
+sudo make install
+cd ..
+rm -r calcurse-4.3.0/
+rm v4.3.0.tar.gz
+
 clear
 echo "Install Tmux Plugins with Prefix + I"
+echo "Add Express VPN"
+echo "Add Printer, set default paper size to A4"

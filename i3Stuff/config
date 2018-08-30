@@ -96,7 +96,7 @@ bindsym $mod+a focus parent
 bindsym $mod+1 workspace 1
 bindsym $mod+2 workspace 2
 bindsym $mod+3 workspace 3
-#bindsym $mod+4 workspace 4
+bindsym $mod+4 workspace 4
 #bindsym $mod+5 workspace 5
 #bindsym $mod+6 workspace 6
 #bindsym $mod+7 workspace 7
@@ -199,5 +199,7 @@ exec xinput -set-prop 12 141 1
 # Since Ubuntu 18.04, Trackpoint lags. This helps
 exec xinput --set-prop 'TPPS/2 IBM TrackPoint' 'libinput Accel Profile Enabled' 0, 1
 exec xinput --set-prop 'TPPS/2 IBM TrackPoint' 'libinput Accel Speed' 1
+
+exec_always setupMonitor
 
 
