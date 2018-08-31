@@ -2,11 +2,18 @@
 
 set -e #Exit after first non zero error code
 
-if [ ! -d ~/saveFolder ]
+
+if [ ! -d /media/nwuensche/TOSHIBA\ EXT ]
 then
-    echo "Copy SaveFolder first"
+    echo "Mount external drive"
     exit 1
 fi
+
+/bin/cp /media/nwuensche/TOSHIBA\ EXT/AufPC/* ~/ -r
+/bin/cp /media/nwuensche/TOSHIBA\ EXT/Bilder/Wallpaper.jpg ~/Bilder/
+/bin/cp /media/nwuensche/TOSHIBA\ EXT/Dokumente/Master_Berlin ~/Dokumente/ -r
+/bin/cp /media/nwuensche/TOSHIBA\ EXT/Dokumente/tud-cacert.pem ~/Dokumente/
+/bin/cp /media/nwuensche/TOSHIBA\ EXT/saveFolder ~ -r
 
 sudo apt update
 sudo apt upgrade -y
@@ -47,7 +54,13 @@ cd ..
 trash light
 
 mv ~/dotfiles ~/.dotFiles
+#Savefolder Files
 cp ~/saveFolder/ssh ~/.ssh -r # Must do this before spark, because config will be overwritten otherwise
+/bin/cp -r ~/saveFolder/.jarsNotToSave ~
+cp -r ~/saveFolder/ssh ~/.ssh
+crontab ~/saveFolder/listCrontab;
+sudo /bin/cp  ~/saveFolder/hosts /etc/hosts;
+sudo /bin/cp -r  ~/.saveFolder/system-connections /etc/NetworkManager
 
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -66,9 +79,9 @@ nix-env --install fd
 vim +PluginInstall +q +q
 vim +PlugInstall +q +q
 #For YouCompleteMe
-sudo apt-get install build-essential cmake
-cd ~/.vim/bundle/YouCompleteMe
-./install.py --clang-completer
+#sudo apt-get install build-essential cmake
+#cd ~/.vim/bundle/YouCompleteMe
+#./install.py --clang-completer
 
 #Hard Link for every Script to be part of dmenu
 for fullfile in ~/.dotFiles/scripts/*; do
@@ -114,7 +127,12 @@ cd ..
 rm -r calcurse-4.3.0/
 rm v4.3.0.tar.gz
 
+git clone https://github.com/NWuensche/android-app ~/wallabag
+
 clear
 echo "Install Tmux Plugins with Prefix + I"
-echo "Add Express VPN"
+echo "Add Wallpaper as Wallpaper.jpg in Bilder folder"
+echo "Add VPN"
+echo "Import Android Studio Settings"
 echo "Add Printer, set default paper size to A4"
+echo "Change DNS Server"

@@ -1,0 +1,13 @@
+#!/bin/sh
+
+#Set the filename on the line below:
+DESTINATION="firstpages.pdf"
+
+#Here is the temporary directory:
+tempdir="/tmp/pdfpage1"
+mkdir $tempdir
+for name in *.pdf ; do
+            pdftk "A=$name" cat A1 output "$tempdir/$name"
+done
+pdftk $tempdir/*.pdf cat output "$DESTINATION"
+rm -r $tempdir

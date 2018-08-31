@@ -6,7 +6,6 @@ card main {
 	spark card terminal
 	spark card configs
     spark card vifm
-	spark card scripts
     spark card X
     spark card podcasts
 }
@@ -104,16 +103,6 @@ card systemd {
 	outof services
 
 	rfkill-own.service -> rfkill-own.service	
-}
-
-card scripts {
-	into ~/bin
-	outof scripts
-	
-	youtubemp3 -> youtubemp3
-	1SekVideos -> 1SekVideos
-	extract -> extract
-	setupMonitor -> setupMonitor
 }
 
 card X {
