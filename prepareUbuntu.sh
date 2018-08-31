@@ -2,30 +2,38 @@
 
 set -e #Exit after first non zero error code
 
-
-if [ ! -d /media/nwuensche/TOSHIBA\ EXT ]
+if [ ! -d /run/media/nwuensche/TOSHIBA\ EXT ]
 then
     echo "Mount external drive"
     exit 1
 fi
 
-/bin/cp /media/nwuensche/TOSHIBA\ EXT/AufPC/* ~/ -r
-/bin/cp /media/nwuensche/TOSHIBA\ EXT/Bilder/Wallpaper.jpg ~/Bilder/
-/bin/cp /media/nwuensche/TOSHIBA\ EXT/Dokumente/Master_Berlin ~/Dokumente/ -r
-/bin/cp /media/nwuensche/TOSHIBA\ EXT/Dokumente/tud-cacert.pem ~/Dokumente/
-/bin/cp /media/nwuensche/TOSHIBA\ EXT/saveFolder ~ -r
+mkdir -p ~/Bilder
+mkdir -p ~/Dokumente
+mkdir -p ~/Downloads
 
-sudo apt update
-sudo apt upgrade -y
-sudo apt install default-jdk pwgen xclip vim python3 maven redshift steam calibre htop i3 git vlc curl vifm zsh terminator gparted ffmpeg gimp xss-lock xautolock phantomjs virtualbox youtube-dl trash-cli scrot udiskie feh texlive-full mtp-tools mtpfs gmtp curl wine-stable unrar arp-scan podget silversearcher-ag jmtpfs googler mps-youtube urlview weechat arandr imapfilter pdfgrep -y
-sudo apt install vim-gtk kdenlive -y #For better clipboard
-sudo apt autoremove firefox totem rhythmbox -y
+#/bin/cp /run/media/nwuensche/TOSHIBA\ EXT/AufPC/* ~/ -r
+/bin/cp /run/media/nwuensche/TOSHIBA\ EXT/Bilder/Wallpaper.jpg ~/Bilder/
+/bin/cp /run/media/nwuensche/TOSHIBA\ EXT/Dokumente/Master_Berlin ~/Dokumente/ -r
+/bin/cp /run/media/nwuensche/TOSHIBA\ EXT/Dokumente/tud-cacert.pem ~/Dokumente/
+/bin/cp /run/media/nwuensche/TOSHIBA\ EXT/saveFolder ~ -r
 
+sudo pacman -Syu
+#sudo pacman -S xorg xf86-video-intel lightdm lightdm-gtk-greeter i3-wm --noconfirm
+#sudo sh -c 'echo "greeter-session=lightdm-gtk-greeter" >> /etc/lightdm/lightdm.conf'
+#sudo systemctl enable lightdm.service
+#TODO phantomjs
+# Remove vim to install gvim for better clipboard support
+#sudo pacman -R vim --noconfirm
+#sudo pacman -S jdk10-openjdk  pwgen xclip gvim python3 maven redshift steam calibre htop git vlc curl vifm zsh terminator gparted ffmpeg gimp xss-lock xautolock virtualbox youtube-dl trash-cli scrot udiskie ntfs-3g feh chromium texlive-most biber android-file-transfer wine unrar mps-youtube weechat arandr pdfgrep kdenlive vim-spell-de vim-spell-en cronie calcurse --noconfirm
+#trizen (Better yaourt)
+git clone https://aur.archlinux.org/trizen.git && cd trizen && makepkg -si  --noconfirm
 
+trizen -S android-studio imapfilter --noconfirm
 #TU Latex Stuff
-sudo tlmgr install opensans
-sudo tlmgr install tudsc
-updmap -sys
+#sudo tlmgr install opensans
+#sudo tlmgr install tudsc
+#updmap -sys
 
 #VSCode
 #wget https://go.microsoft.com/fwlink/\?LinkID\=760868 -o code.deb
@@ -34,7 +42,6 @@ updmap -sys
 #rm code.deb
 
 #Vim German Spell Check
-sudo apt-get install vim-scripts
 sudo vim +'set spell spelllang=en,de' +y +1 +q +q
 
 #Qute Browser
@@ -114,24 +121,10 @@ sudo chmod -R 0777 /opt/android-studio
 /opt/android-studio/bin/studio.sh
 ln -s ~/android-studio/bin/studio.sh ~/bin/a
 
-#Calcurse 4.3 to move entries
-sudo apt install asciidoc -y
-wget https://github.com/lfos/calcurse/archive/v4.3.0.tar.gz
-tar -xzvf v4.3.0.tar.gz
-cd calcurse-4.3.0/
-./autogen.sh
-./configure
-make
-sudo make install
-cd ..
-rm -r calcurse-4.3.0/
-rm v4.3.0.tar.gz
-
 git clone https://github.com/NWuensche/android-app ~/wallabag
 
 clear
 echo "Install Tmux Plugins with Prefix + I"
-echo "Add Wallpaper as Wallpaper.jpg in Bilder folder"
 echo "Add VPN"
 echo "Import Android Studio Settings"
 echo "Add Printer, set default paper size to A4"
