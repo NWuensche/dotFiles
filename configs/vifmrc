@@ -164,7 +164,7 @@ filetype *.tgz,*.zip,*.gz,*.bz2,*.xz extract %f
 
 nmap `h :cd ~ <CR>
 nmap `d :cd ~/Downloads <CR>
-nmap `m :cd /media/nwuensche <CR>
+nmap `m :cd /run/media/nwuensche <CR>
 nmap `q :cd /home/nwuensche/Dokumente/6.Semester/Bachelorarbeit/BA-Cloud <CR>
 nmap `r :cd /home/nwuensche/Dokumente/6.Semester/VNS/Paper/Negra/vanda-Spielwiese-BA <CR>
 

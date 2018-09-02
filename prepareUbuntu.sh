@@ -12,24 +12,23 @@ mkdir -p ~/Bilder
 mkdir -p ~/Dokumente
 mkdir -p ~/Downloads
 
-#/bin/cp /run/media/nwuensche/TOSHIBA\ EXT/AufPC/* ~/ -r
+/bin/cp /run/media/nwuensche/TOSHIBA\ EXT/AufPC/* ~/ -r
 /bin/cp /run/media/nwuensche/TOSHIBA\ EXT/Bilder/Wallpaper.jpg ~/Bilder/
 /bin/cp /run/media/nwuensche/TOSHIBA\ EXT/Dokumente/Master_Berlin ~/Dokumente/ -r
 /bin/cp /run/media/nwuensche/TOSHIBA\ EXT/Dokumente/tud-cacert.pem ~/Dokumente/
 /bin/cp /run/media/nwuensche/TOSHIBA\ EXT/saveFolder ~ -r
 
-sudo pacman -Syu
-#sudo pacman -S xorg xf86-video-intel lightdm lightdm-gtk-greeter i3-wm dmenu i3status--noconfirm
-#sudo sh -c 'echo "greeter-session=lightdm-gtk-greeter" >> /etc/lightdm/lightdm.conf'
-#sudo systemctl enable lightdm.service
-#TODO phantomjs
+sudo pacman -Syu --noconfirm
+sudo pacman -S xorg xf86-video-intel lightdm lightdm-gtk-greeter i3-wm dmenu i3status--noconfirm
+sudo sh -c 'echo "greeter-session=lightdm-gtk-greeter" >> /etc/lightdm/lightdm.conf'
+sudo systemctl enable lightdm.service
 # Remove vim to install gvim for better clipboard support
-#sudo pacman -R vim --noconfirm
-#sudo pacman -S jdk10-openjdk  tmux pwgen xclip gvim python3 maven redshift steam calibre htop git vlc curl wget vifm zsh terminator gparted ffmpeg gimp xss-lock xautolock virtualbox youtube-dl trash-cli scrot udiskie ntfs-3g feh chromium texlive-most biber android-file-transfer wine unrar mps-youtube weechat arandr pdfgrep kdenlive vim-spell-de vim-spell-en cronie calcurse --noconfirm
+sudo pacman -R vim --noconfirm
+sudo pacman -S jdk10-openjdk  tmux pwgen xclip gvim python3 maven redshift steam calibre htop git vlc curl neomutt wget vifm zsh terminator gparted ffmpeg gimp xss-lock xautolock virtualbox youtube-dl trash-cli scrot udiskie ntfs-3g feh chromium texlive-most biber android-file-transfer wine unrar mps-youtube weechat arandr pdfgrep kdenlive vim-spell-de vim-spell-en cronie calcurse lynx w3m --noconfirm
 #trizen (Better yaourt)
-#git clone https://aur.archlinux.org/trizen.git && cd trizen && makepkg -si  --noconfirm
+git clone https://aur.archlinux.org/trizen.git && cd trizen && makepkg -si  --noconfirm
 
-#trizen -S imapfilter --noconfirm
+trizen -S imapfilter urlview --noconfirm
 #TU Latex Stuff
 #sudo tlmgr install opensans
 #sudo tlmgr install tudsc
@@ -42,7 +41,7 @@ sudo pacman -Syu
 #rm code.deb
 
 #Vim German Spell Check
-#sudo vim +'set spell spelllang=en,de' +y +1 +q +q
+sudo vim +'set spell spelllang=en,de' +y +1 +q +q
 
 #Qute Browser
 #wget https://github.com/qutebrowser/qutebrowser/releases/download/v1.1.1/qutebrowser_1.1.1-1_all.deb
@@ -51,42 +50,42 @@ sudo pacman -Syu
 #pip3 install readability-lxml
 #rm *.deb
 
-#git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
-#git clone https://github.com/haikarainen/light.git
-#cd light
-#sh autogen.sh
-#./configure
-#sudo make
-#sudo make install
-#cd ..
-#trash light
+git clone https://github.com/haikarainen/light.git
+cd light
+sh autogen.sh
+./configure
+sudo make
+sudo make install
+cd ..
+trash light
 
-#mv ~/dotFiles ~/.dotFiles
+mv ~/dotFiles ~/.dotFiles
 #Savefolder Files
-#cp ~/saveFolder/ssh ~/.ssh -r # Must do this before spark, because config will be overwritten otherwise
-#/bin/cp -r ~/saveFolder/.jarsNotToSave ~
-#cp -r ~/saveFolder/ssh ~/.ssh
-#crontab ~/saveFolder/listCrontab;
-#sudo /bin/cp  ~/saveFolder/hosts /etc/hosts;
+cp ~/saveFolder/ssh ~/.ssh -r # Must do this before spark, because config will be overwritten otherwise
+/bin/cp -r ~/saveFolder/.jarsNotToSave ~
+cp -r ~/saveFolder/ssh ~/.ssh
+crontab ~/saveFolder/listCrontab;
+sudo /bin/cp  ~/saveFolder/hosts /etc/hosts;
 #sudo /bin/cp -r  ~/saveFolder/system-connections /etc/NetworkManager
 
 #curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 #        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 #git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
-#wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
-#chsh -s `which zsh` #TODO Funktioniert nicht
+wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
+#chsh -s `which zsh` #Nun in install2-script
 #Just for super-user-spark
-#curl https://nixos.org/nix/install | sh
-#. /home/nwuensche/.nix-profile/etc/profile.d/nix.sh
-#nix-env --install super-user-spark
+curl https://nixos.org/nix/install | sh
+. /home/nwuensche/.nix-profile/etc/profile.d/nix.sh
+nix-env --install super-user-spark
 # For fzf in Vim
-#nix-env --install fd
+nix-env --install fd
 ~/.nix-profile/bin/spark -r deploy ~/.dotFiles/dotFiles.sus
 ~/.nix-profile/bin/spark -r deploy ~/saveFolder/saveFolder.sus
-#vim +PluginInstall +q +q
-#vim +PlugInstall +q +q
+vim +PluginInstall +q +q
+vim +PlugInstall +q +q
 #For YouCompleteMe
 #sudo apt-get install build-essential cmake
 #cd ~/.vim/bundle/YouCompleteMe
@@ -126,7 +125,7 @@ gpg --import ~/saveFolder/gpg_key.asc
 git clone https://github.com/NWuensche/android-app ~/wallabag
 
 clear
-echo "Install Tmux Plugins with Prefix + I"
+echo "Install Tmux Plugins with Prefix + i"
 echo "Add VPN"
 echo "Import Android Studio Settings"
 echo "Add Printer, set default paper size to A4"
