@@ -28,7 +28,7 @@ sudo pacman -S jdk10-openjdk  tmux pwgen xclip gvim python3 maven redshift steam
 #trizen (Better yaourt)
 git clone https://aur.archlinux.org/trizen.git && cd trizen && makepkg -si  --noconfirm
 
-trizen -S imapfilter urlview --noconfirm
+trizen -S imapfilter urlview android-studio --noconfirm
 #TU Latex Stuff
 #sudo tlmgr install opensans
 #sudo tlmgr install tudsc
@@ -68,18 +68,21 @@ cp ~/saveFolder/ssh ~/.ssh -r # Must do this before spark, because config will b
 cp -r ~/saveFolder/ssh ~/.ssh
 crontab ~/saveFolder/listCrontab;
 sudo /bin/cp  ~/saveFolder/hosts /etc/hosts;
-#sudo /bin/cp -r  ~/saveFolder/system-connections /etc/NetworkManager
 
-#curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-#        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-#git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
-#chsh -s `which zsh` #Nun in install2-script
+echo "auth       sufficient   pam_wheel.so trust group=chsh" | cat - /etc/pam.d/chsh > /tmp/chsh # People in chsh group can change their shell without password -> automize better
+sudo cp /tmp/chsh /etc/pam.d/chsh
+sudo groupadd chsh
+sudo usermod -a -G chsh nwuensche
+chsh -s `which zsh`
 #Just for super-user-spark
 curl https://nixos.org/nix/install | sh
 . /home/nwuensche/.nix-profile/etc/profile.d/nix.sh
-nix-env --install super-user-spark
+nix-env --install super-user-spark #TODO Evnt selber bauen, um nix zu vermeiden
 # For fzf in Vim
 nix-env --install fd
 ~/.nix-profile/bin/spark -r deploy ~/.dotFiles/dotFiles.sus
@@ -112,17 +115,9 @@ gpg --import ~/saveFolder/gpg_key.asc
 
 /bin/cp ~/.dotFiles/terminalStuff/agnoster.zsh-theme ~/.oh-my-zsh/themes/agnoster.zsh-theme
 
-#Android Studio
-#wget https://dl.google.com/dl/android/studio/ide-zips/3.0.1.0/android-studio-ide-171.4443003-linux.zip as.zip
-#Depencies
-#sudo apt-get install libc6:i386 libncurses5:i386 libstdc++6:i386 lib32z1 libbz2-1.0:i386 -y
-#sudo unzip as.zip -d /opt/
-#sudo chmod -R 0777 /opt/android-studio
-#/bin/rm as.zip
-#/opt/android-studio/bin/studio.sh
-#ln -s ~/android-studio/bin/studio.sh ~/bin/a
 
 git clone https://github.com/NWuensche/android-app ~/wallabag
+android-studio #Download Android Stuff
 
 clear
 echo "Install Tmux Plugins with Prefix + i"

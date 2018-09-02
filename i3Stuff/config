@@ -19,7 +19,7 @@ set $mod Mod4
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8
 #font pango:Inconsolata 8
-#font pango:DejaVu Sans Mono 10
+font pango:Meslo LG S DZ for Powerline Regular 8
 
 
 
@@ -161,7 +161,7 @@ bar {
         mode hide
         position top
         workspace_buttons yes
-      font pango:DejaVu Sans Mono, Icons 8
+      #font pango:DejaVu Sans Mono, Icons 8
 
 }
 
@@ -196,12 +196,14 @@ exec redshift -l 55.7:12.6 -t 5700:3600 -g 0.8 -m randr -v &>/dev/null &
 #exec xss-lock -- i3lock-wrapper -n &
 #exec xbacklight -set 30
 exec udiskie &
+exec /usr/lib/notification-daemon-1.0/notification-daemon & #Daemon for notifications
 #exec "feh --bg-scale /home/nwuensche/Bilder/Wallpaper.jpg"
 exec_always "setxkbmap eu -option caps:escape"
 exec feh --bg-scale ~/.background-image
 exec light -S 40
 exec terminator -x tmux attach
 exec xinput -set-prop 12 141 1
+
 
 # Since Ubuntu 18.04, Trackpoint lags. This helps
 exec xinput --set-prop 'TPPS/2 IBM TrackPoint' 'libinput Accel Profile Enabled' 0, 1
