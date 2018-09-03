@@ -5,6 +5,7 @@ card main {
 	spark card git
 	spark card terminal
 	spark card configs
+	spark card urlview
     spark card vifm
     spark card X
     spark card podcasts
@@ -62,6 +63,12 @@ card terminal {
 	.zshrc
 	.zprofile
 
+}
+
+card urlview {
+	into ~
+	outof configs
+    .urlview
 }
 
 card configs {

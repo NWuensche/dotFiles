@@ -4,16 +4,16 @@
 #1 ex. Monitor -> Mirror Laptop
 #0 ex. Monitors -> Just show Laptop
 
-HDMI=$( xrandr | grep "HDMI-1" | grep -v "disconnected" )
-VGA=$( xrandr | grep "DP-2" | grep -v "disconnected" )
+HDMI=$( xrandr | grep "HDMI1" | grep -v "disconnected" )
+VGA=$( xrandr | grep "DP2" | grep -v "disconnected" )
 
 #2 ex. Monitors
 if [[ "$VGA" != "" && "$HDMI" != "" ]]; then
-    xrandr --output DP-2 --auto --output HDMI-1 --auto --right-of DP-2 --output eDP-1 --off
+    xrandr --output DP2 --auto --output HDMI1 --auto --right-of DP2 --output eDP1 --off
 elif [[ "$VGA" != "" ]]; then
-    xrandr --output eDP-1 --auto --output DP-2 --auto --same-as eDP-1 --output HDMI-1 --off
+    xrandr --output eDP1 --auto --output DP2 --auto --same-as eDP1 --output HDMI1 --off
 elif [[ "$HDMI" != "" ]]; then
-    xrandr --output eDP-1 --auto --output HDMI-1 --auto --same-as eDP-1 --output DP-2 --off
+    xrandr --output eDP1 --auto --output HDMI1 --auto --same-as eDP1 --output DP2 --off
 else
-    xrandr --output eDP-1 --auto --output HDMI-1 --off --output DP-2 --off
+    xrandr --output eDP1 --auto --output HDMI1 --off --output DP2 --off
 fi
