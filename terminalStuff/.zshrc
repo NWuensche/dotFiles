@@ -10,7 +10,7 @@ export ANDROID_HOME
 MAVEN_OPTS="-Xmx1024m -Xms512m"
 export MAVEN_OPTS
 #export PATH="/home/nwuensche/anaconda3/bin:$PATH"
-export PATH=$PATH:/snap/bin:/opt/ghc/8.0.2/bin:/home/nwuensche/Android/Sdk/tools:/home/nwuensche/Android/Sdk/platform-tools:~/Downloads/phantomjs-2.1.1-linux-x86_64/bin:~/.nix-profile/bin:~/.local/bin:~/.cabal/bin
+export PATH=$PATH:/snap/bin:/opt/ghc/8.0.2/bin:/home/nwuensche/Android/Sdk/tools:/home/nwuensche/Android/Sdk/platform-tools:~/Downloads/phantomjs-2.1.1-linux-x86_64/bin:~/.nix-profile/bin:~/.local/bin:~/.cabal/bin:~/bin
 
 #No Files found in gitignore in fzf vim
 export FZF_DEFAULT_COMMAND='fd --type f'   
@@ -69,7 +69,6 @@ alias FEp='f() {mplayer $(wget https://rss.simplecast.com/podcasts/1684/rss -O- 
 alias sendKindle='f() {echo "" | for doc do mutt -s "test" -e "$(cat ~/saveFolder/sendKindleFrom.txt)" "$(cat ~/saveFolder/kindleAddress.txt)" -a "$doc"; done}; f'
 alias histrm='f() { LC_ALL=C sed --in-place "/$1/d" $HISTFILE;};f'
 alias getIt='f() {getIt $1; histrm get;clear; zsh}; f'
-alias mountAndroid='sudo mkdir -p /mnt/Android; sudo jmtpfs /mnt/Android; sudo vifm /mnt/Android'
 alias search='googler --count 3'
 alias youtube='mpsyt'
 #alias trash-restore='restore-trash'
@@ -78,8 +77,8 @@ alias readSite='f() {python3 ~/.dotFiles/scripts/read.py $1 | w3m -T 'text/html'
 alias recover='f() {sudo grep -a -B100 -A100 "$0" /dev/sda3 > recover.txt; echo "recover can be found in ~/recover.txt"}; f'
 alias decompileJAR='f() {java -cp "/opt/IntelliJ/plugins/java-decompiler/lib/java-decompiler.jar" org.jetbrains.java.decompiler.main.decompiler.ConsoleDecompiler $0}; f'
 alias vimBA="vim -c 'startinsert' -c 'set tw=70 et' -c 'set wrap' '+/^$'"
-alias x2="xrandr --output DP-2 --auto --output HDMI-1 --auto --right-of DP-2 --output eDP-1 --off"
-alias x1="xrandr --output eDP-1 --auto --output HDMI-1 --off --output DP-2 --off"
+alias x2="xrandr --output DP2 --auto --output HDMI1 --auto --right-of DP2 --output eDP1 --off"
+alias x1="xrandr --output eDP1 --auto --output HDMI1 --off --output DP2 --off"
 #alias calcurse="/usr/local/bin/calcurse"
 alias pacman="trizen"
 

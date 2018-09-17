@@ -1,30 +1,30 @@
 #!/bin/sh
 
-cd ~;
-mkdir MusikDownloads;
-cd MusikDownloads;
-youtube-dl -f m4a $1;
+set -e
+TMP=$(mktemp -d)
+cd $TMP
+youtube-dl -f m4a $@;
 
-read -p "Interpret: " INTERPRET
-read -p "Title: " TITLE
-
-#Should be just one file
 for i in *.m4a; do
-    # replace all blanks
+    echo "$i"
+    read -p "Interpret: " INTERPRET
+    read -p "Title: " TITLE
     mv "$i" "${INTERPRET// /_}_-_${TITLE// /_}.m4a"
 done
 
-#So oft, weil jedes Rename nur 1x in einem Namen wirkt
-for i in `seq 1 10`; do
-    rename " " "_" *;
-done
+mkdir -p name
+for f in *.m4a; do mv -- "$f" "name/${f//\ /_}"; done
 
+cd name
 for i in *.m4a; do
     POSTFIXFREE=`echo $i | cut -d'.' -f1`;
+    INTERPRET=$(echo $i  | awk -F"_-" '{print $1}' | sed 's/_/\ /g')
+    TITLE=$(echo -n $i | awk -F"-" '{print $2}' | cut -c 2- | awk -F"." '{print $1}' | sed 's/_/\ /g')
+    
     ffmpeg -i "$i" -metadata artist="$INTERPRET" -metadata title="$TITLE" $POSTFIXFREE.mp3;
     trash "$i";
 done
 
-for i in `seq 1 10`; do
-    rename "_" " " *;
-done
+for f in *.mp3; do mv -- "$f" "${f//_/ }"; done
+mkdir -p ~/MusikDownloads;
+mv *.mp3 ~/MusikDownloads;

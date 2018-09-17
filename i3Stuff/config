@@ -204,12 +204,15 @@ exec feh --bg-scale ~/.background-image
 exec light -S 40
 exec terminator -x tmux attach
 exec xinput -set-prop 12 141 1
+exec xautolock -locker i3lock -time 10& #suspend lock
+exec xss-lock -- i3lock & #lid close lock
+
 
 
 # Since Ubuntu 18.04, Trackpoint lags. This helps
 exec xinput --set-prop 'TPPS/2 IBM TrackPoint' 'libinput Accel Profile Enabled' 0, 1
 exec xinput --set-prop 'TPPS/2 IBM TrackPoint' 'libinput Accel Speed' 1
 
-exec_always setupMonitor
+exec_always /home/nwuensche/bin/setupMonitor
 
 

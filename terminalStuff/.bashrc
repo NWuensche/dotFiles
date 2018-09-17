@@ -9,7 +9,5 @@ alias ls='ls --color=auto'
 PS1='[\u@\h \W]\$ '
 zsh
 
-# added by Anaconda3 installer
-export PATH="/home/nwuensche/anaconda3/bin:$PATH"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash

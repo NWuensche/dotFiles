@@ -23,7 +23,7 @@ sudo pacman -Syu --noconfirm
 #trizen (Better yaourt)
 git clone https://aur.archlinux.org/trizen.git && cd trizen && makepkg -si  --noconfirm
 
-sudo trizen -S xorg xf86-video-intel lightdm lightdm-gtk-greeter i3-wm dmenu i3status--noconfirm
+sudo trizen -S xorg xf86-video-intel lightdm lightdm-gtk-greeter i3-wm dmenu i3status i3lock --noconfirm
 sudo sh -c 'echo "greeter-session=lightdm-gtk-greeter" >> /etc/lightdm/lightdm.conf'
 sudo systemctl enable lightdm.service
 
@@ -141,8 +141,9 @@ find . -type f -exec sed -i 's/printcap\.local/printcap/g' {} +
 find . -type f -exec sed -i 's/\/bin\/csh/\/run\/current-system\/sw\/bin\/tcsh/g' {} +
 find . -type f -exec sed -i 's/\/etc\/init.d\//\/etc\/rc.d\//g' {} +
 find . -type f -exec sed -i 's/\/run\/current-system\/sw\/bin\/tcsh/\/usr\/bin\/tcsh/g' {} +
+find . -type f -exec sed -i 's/DefaultPageSize: BrLetter/DefaultPageSize: BrA4/g' {} +
 
-sudo systemctl disable cups.service #Schlägt evnt fehl, da cups noch nicht init wurde. Dann einfach mit den nächsten Kommandos weiter machen
+#sudo systemctl disable cups.service #Schlägt evnt fehl, da cups noch nicht init wurde. Dann einfach mit den nächsten Kommandos weiter machen
 sudo systemctl enable org.cups.cupsd.service
 sudo systemctl daemon-reload
 sudo systemctl start org.cups.cupsd.service
@@ -155,4 +156,4 @@ sudo tcsh /usr/local/Brother/cupswrapper/cupswrapperMFC5440CN-1.0.2
 clear
 echo "Install Tmux Plugins with Prefix + I"
 echo "Import Android Studio Settings"
-echo "Change Paper Size to A4"
+echo "Change Paper Size to A4" #Maybe already fixed
