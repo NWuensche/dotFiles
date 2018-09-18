@@ -30,7 +30,7 @@ sudo systemctl enable lightdm.service
 
 # Remove vim to install gvim for better clipboard support
 sudo trizen -R vim --noconfirm
-sudo trizen -S jdk10-openjdk  tmux pwgen xclip gvim python3 maven redshift steam calibre htop git vlc curl neomutt wget vifm zsh terminator gparted ffmpeg gimp xss-lock xautolock virtualbox youtube-dl trash-cli scrot udiskie ntfs-3g feh chromium texlive-most biber android-file-transfer wine unrar mps-youtube arandr pdfgrep kdenlive vim-spell-de vim-spell-en cronie calcurse lynx w3m alsa-utils pulseaudio virtualbox virtualbox-host-modules-arch virtualbox-guest-iso libreoffice-fresh libreoffice-fresh-de  ttf-liberation  openssh pango evince notification-daemon truecrypt imapfilter urlview android-studio intellij-idea-ultimate-edition intellij-idea-ultimate-edition-jre bc texlive-localmanager-git mplayer irssi tcsh cups --noconfirm
+sudo trizen -S jdk10-openjdk  tmux pwgen xclip gvim python3 maven redshift steam calibre htop git vlc curl neomutt wget vifm zsh terminator gparted ffmpeg gimp xss-lock xautolock virtualbox youtube-dl trash-cli scrot udiskie ntfs-3g feh chromium texlive-most biber android-file-transfer wine unrar mps-youtube arandr pdfgrep kdenlive vim-spell-de vim-spell-en cronie calcurse lynx w3m alsa-utils pulseaudio virtualbox virtualbox-host-modules-arch virtualbox-guest-iso libreoffice-fresh libreoffice-fresh-de  ttf-liberation  openssh pango evince notification-daemon imapfilter urlview android-studio intellij-idea-ultimate-edition intellij-idea-ultimate-edition-jre bc texlive-localmanager-git mplayer irssi tcsh cups expect --noconfirm
 
 #User is allowed to change audio
 sudo usermod -aG audio nwuensche
@@ -107,6 +107,7 @@ cd ..
 rm -rf fonts
 
 gpg --import ~/saveFolder/gpg_key.asc
+expect saveFolder/trustGPG Wuensche-N
 
 /bin/cp ~/.dotFiles/terminalStuff/agnoster.zsh-theme ~/.oh-my-zsh/themes/agnoster.zsh-theme
 
