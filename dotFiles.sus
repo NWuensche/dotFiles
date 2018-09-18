@@ -5,7 +5,7 @@ card main {
 	spark card git
 	spark card terminal
 	spark card configs
-	spark card urlview
+	spark card homeConfigs
     spark card vifm
     spark card X
     spark card podcasts
@@ -65,10 +65,11 @@ card terminal {
 
 }
 
-card urlview {
+card homeConfigs {
 	into ~
 	outof configs
     .urlview
+    .lynxrc 
 }
 
 card configs {
