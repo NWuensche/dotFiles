@@ -116,6 +116,15 @@ cat /etc/default/grub | sed 's/GRUB_TIMEOUT=5/GRUB_TIMEOUT=1/g' > /tmp/grub #Fil
 sudo cp /tmp/grub /etc/default/grub
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 
+#Sync Time
+trizen -S ntp --noconfirm
+sudo systemctl enable ntpd
+cat /etc/ntp.conf | sed 's/arch.pool/de.pool/g' > /tmp/tmpntp
+sudo cp /tmp/tmpntp /etc/ntp.conf
+sudo systemctl start ntpd
+
+
+
 git clone https://github.com/NWuensche/android-app ~/wallabag
 android-studio ~/wallabag #Download Android Stuff
 steam #Download Updates
