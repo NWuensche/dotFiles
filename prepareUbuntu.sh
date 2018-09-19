@@ -23,14 +23,28 @@ sudo pacman -Syu --noconfirm
 #trizen (Better yaourt)
 git clone https://aur.archlinux.org/trizen.git && cd trizen && makepkg -si  --noconfirm
 
-sudo trizen -S xorg xf86-video-intel lightdm lightdm-gtk-greeter i3-wm dmenu i3status i3lock --noconfirm
-sudo sh -c 'echo "greeter-session=lightdm-gtk-greeter" >> /etc/lightdm/lightdm.conf'
+trizen -S xorg xf86-video-intel lightdm lightdm-gtk-greeter i3-wm dmenu i3status i3lock --noconfirm
+sudo sh -c 'echo "greeter-session=lightdm-gtk-greeter" >> /etc/lightdm/lightdm.conf' #Configure Display (Login) Manager
 sudo systemctl enable lightdm.service
 
 
 # Remove vim to install gvim for better clipboard support
-sudo trizen -R vim --noconfirm
-sudo trizen -S jdk10-openjdk  tmux pwgen xclip gvim python3 maven redshift steam calibre htop git vlc curl neomutt wget vifm zsh terminator gparted ffmpeg gimp xss-lock xautolock virtualbox youtube-dl trash-cli scrot udiskie ntfs-3g feh chromium texlive-most biber android-file-transfer wine unrar mps-youtube arandr pdfgrep kdenlive vim-spell-de vim-spell-en cronie calcurse lynx w3m alsa-utils pulseaudio virtualbox virtualbox-host-modules-arch virtualbox-guest-iso libreoffice-fresh libreoffice-fresh-de  ttf-liberation  openssh pango evince notification-daemon imapfilter urlview android-studio intellij-idea-ultimate-edition intellij-idea-ultimate-edition-jre bc texlive-localmanager-git mplayer irssi tcsh cups xdotool expect --noconfirm
+trizen -R vim --noconfirm
+trizen -S jdk10-openjdk maven python3 git android-studio intellij-idea-ultimate-edition intellij-idea-ultimate-edition-jre `#Programming`\
+    gvim vim-spell-de vim-spell-en `#Vim`\
+    xdotool expect `# Automation Tools`\
+    tmux terminator zsh `#Terminator Environment`\
+    curl wget htop neomutt vifm feh mps-youtube pdfgrep calcurse w3m bc mplayer irssi `#Terminal Tools`\
+    pwgen xclip ffmpeg xss-lock xautolock youtube-dl trash-cli scrot udiskie ntfs-3g unrar cronie lynx ttf-liberation openssh imapfilter urlview `#Terminal Support Tools`\
+    tcsh cups `#Printer Tools`\
+    xf86-input-synaptic xf86-input-mtrack `#Touchpad Tools`\
+    ttf-liberation pango `#Fonts and Font Tools`\
+    alsa-utils pulseaudio `#Audio`\
+    steam calibre vlc gimp chromium kdenlive libreoffice-fresh-de  evince `#X Tools`\
+    redshift gparted  arandr wine android-file-transfer notification-daemon `# X Support Tools`\
+    virtualbox virtualbox-host-modules-arch virtualbox-guest-iso `#Virtualbox`\
+    texlive-most biber texlive-localmanager-git `#Latex`\
+    --noconfirm 
 
 #User is allowed to change audio
 sudo usermod -aG audio nwuensche
@@ -40,8 +54,13 @@ sudo usermod -aG audio nwuensche
 #echo Y | tllocalmgr update chngcntr
 #sudo texhash
 
+#Fix Touch to Click Touchpad
+cat /etc/X11/xorg.conf.d/10-mtrack.conf | sed 's/Dr.*/&\n    Option      "Sensitivity"   "0.35"/g' > /tmp/mtracktmp
+sudo cp /tmp/mtracktmp /etc/X11/xorg.conf.d/10-mtrack.conf
+sudo cp ~/.dotFiles/X/touchpad.conf /etc/X11/xorg.conf.d/70-synaptics.conf
+
 #Auto-Start VPN
-pacman -S openvpn
+trizen -S openvpn --noconfirm
 sudo cp ~/saveFolder/expressVPN.conf /etc/openvpn/client/express.conf
 sudo cp saveFolder/ExVPN.pass /etc/openvpn/client/
 sudo systemctl enable openvpn-client@express.service
