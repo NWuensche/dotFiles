@@ -2,6 +2,7 @@
 
 #If fullscreen, set cursor to corner to stop xautolock from activating
 while true; do
+    sleep 580
     WINDOW=$(echo $(xwininfo -id $(xdotool getactivewindow) -stats | \
                     egrep '(Width|Height):' | \
                     awk '{print $NF}') | \
@@ -10,5 +11,4 @@ while true; do
     if [ "$WINDOW" = "$SCREEN" ]; then
         xdotool mousemove 0 0
     fi
-    sleep 580
 done
