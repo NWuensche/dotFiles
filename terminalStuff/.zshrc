@@ -44,7 +44,6 @@ alias -s jpeg=feh
 alias -s png=feh
 alias calc=bc
 alias sudo='sudo ' # important, so that aliases work with sudo
-alias sudoedit='cat ' # important, so that aliases work with sudo
 alias mpv='cat '
 alias mkcd='f() { mkdir $1; cd $1 }; f'
 alias rm='echo "rm is disabled, use trash or realrm instead."'
