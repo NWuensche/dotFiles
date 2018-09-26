@@ -2,7 +2,7 @@
 
 #If fullscreen, set cursor to corner to stop xautolock from activating
 while true; do
-    sleep 5
+    sleep 580
     #Just do this for Chromium
     NAMEWINDOW=$(echo $(xwininfo -id $(xdotool getactivewindow)) | sed -n -r '/(youtube|ted).*Chromium/Ip')
     WINDOW=$(echo $(xwininfo -id $(xdotool getactivewindow) -stats | \

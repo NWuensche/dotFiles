@@ -205,6 +205,7 @@ exec terminator -x tmux attach
 exec xinput -set-prop 12 141 1
 exec xautolock -locker i3lock -time 10 -corners ---- & #suspend lock, don't suspend when in one of the corners
 exec /home/nwuensche/bin/fullscreenLock &
+exec /home/nwuensche/bin/checkVPN &
 exec xss-lock -- i3lock & #lid close lock
 
 
