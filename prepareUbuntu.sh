@@ -36,7 +36,7 @@ trizen -S jdk10-openjdk maven python3 git android-studio intellij-idea-ultimate-
     tmux terminator zsh `#Terminator Environment`\
     curl wget htop neomutt vifm feh mps-youtube pdfgrep calcurse w3m bc mplayer irssi `#Terminal Tools`\
     pwgen xclip ffmpeg xss-lock xautolock youtube-dl trash-cli scrot udiskie ntfs-3g unrar cronie lynx ttf-liberation openssh imapfilter urlview `#Terminal Support Tools`\
-    tcsh cups `#Printer Tools`\
+    tcsh cups sane brscan2 brscan3`#Printer Tools`\
     xf86-input-synaptic xf86-input-mtrack `#Touchpad Tools`\
     ttf-liberation pango `#Fonts and Font Tools`\
     alsa-utils pulseaudio `#Audio`\
@@ -180,6 +180,32 @@ sudo cp -rv usr /
 
 sudo tcsh /usr/local/Brother/cupswrapper/cupswrapperMFC5440CN-1.0.2
 
+mkdir /tmp/DCPInstall
+wget http://download.brother.com/welcome/dlf005445/dcp145ccupswrapper-1.1.2-2.i386.deb -O /tmp/DCPInstall/cupsDCP.deb
+wget http://download.brother.com/welcome/dlf005443/dcp145clpr-1.1.2-2.i386.deb -O /tmp/DCPInstall/lprDCP.deb
+
+cd /tmp/DCPInstall
+
+ar x cupsDCP.deb
+tar -xzvf control.tar.gz
+tar -xzvf data.tar.gz
+
+ar x lprDCP.deb
+tar -xzvf control.tar.gz
+tar -xzvf data.tar.gz
+
+find . -type f -exec sed -i 's/printcap\.local/printcap/g' {} +
+find . -type f -exec sed -i 's/\/bin\/csh/\/run\/current-system\/sw\/bin\/tcsh/g' {} +
+find . -type f -exec sed -i 's/\/etc\/init.d\//\/etc\/rc.d\//g' {} +
+find . -type f -exec sed -i 's/\/run\/current-system\/sw\/bin\/tcsh/\/usr\/bin\/tcsh/g' {} +
+find . -type f -exec sed -i 's/DefaultPageSize: Letter/DefaultPageSize: A4/g' {} +
+
+sudo systemctl enable org.cups.cupsd.service
+sudo systemctl daemon-reload
+sudo systemctl start org.cups.cupsd.service
+sudo cp -rv usr /
+
+sudo sh /tmp/DCPInstall/usr/local/Brother/Printer/dcp145c/cupswrapper/cupswrapperdcp145c
 
 
 clear
