@@ -151,7 +151,7 @@ function moveConfigs {
     #Just for super-user-spark
     curl https://nixos.org/nix/install | sh
     . /home/nwuensche/.nix-profile/etc/profile.d/nix.sh
-    nix-env --install super-user-spark #TODO Evnt selber bauen, um nix zu vermeiden
+    nix-env --install super-user-spark
     ~/.nix-profile/bin/spark -r deploy ~/.dotFiles/dotFiles.sus
     ~/.nix-profile/bin/spark -r deploy ~/saveFolder/saveFolder.sus
 
@@ -286,8 +286,6 @@ function endMessages {
     echo "Import Android Studio Settings"
 }
 
-#TODO Autostart WiFi Ding drin
-#TODO install_arch_3
 function main {
     setUpHome
     installPrograms
