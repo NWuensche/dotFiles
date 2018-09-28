@@ -33,7 +33,7 @@ function trizenPackages {
     git clone https://aur.archlinux.org/trizen.git && cd trizen && makepkg -si  --noconfirm #Install trizen
     # Remove vim to install gvim for better clipboard support
     trizen -R vim --noconfirm
-    trizen -S jdk10-openjdk maven python3 git android-studio intellij-idea-ultimate-edition intellij-idea-ultimate-edition-jre `#Programming` \
+    trizen -S jdk10-openjdk maven python3 python-pip git android-studio intellij-idea-ultimate-edition intellij-idea-ultimate-edition-jre `#Programming` \
         xorg xf86-video-intel lightdm lightdm-gtk-greeter i3-wm dmenu i3status i3lock `#UI` \ 
         gvim vim-spell-de vim-spell-en `#Vim`\
         xdotool expect `# Automation Tools`\
@@ -44,7 +44,7 @@ function trizenPackages {
         xf86-input-synaptic xf86-input-mtrack `#Touchpad Tools`\
         ttf-liberation pango `#Fonts and Font Tools`\
         alsa-utils pulseaudio `#Audio`\
-        steam calibre vlc gimp chromium kdenlive libreoffice-fresh-de  evince `#X Tools`\
+        steam calibre vlc gimp chromium kdenlive libreoffice-fresh-de  evince xournal spotify `#X Tools`\
         redshift gparted  arandr wine android-file-transfer notification-daemon `# X Support Tools`\
         virtualbox virtualbox-host-modules-arch virtualbox-guest-iso `#Virtualbox`\
         texlive-most biber texlive-localmanager-git `#Latex`\
@@ -103,6 +103,14 @@ function installFonts {
     rm -rf fonts
 }
 
+function loadWallabag {
+    git clone https://github.com/NWuensche/android-app ~/wallabag
+    cd wallabag
+    git remote set-url origin https://github.com/wallabag/android-app
+    git remote set-url upstream https://github.com/wallabag/android-app
+    cd ~
+}
+
 function installPrograms {
     trizenPackages
     syncTime
@@ -111,6 +119,7 @@ function installPrograms {
     #installLatexTUDresden
     autoStartVPN
     installFonts
+    loadWallabag
 }
 
 function fixDisplayManager {
@@ -275,7 +284,6 @@ function setUpPrinter {
 }
 
 function setUpManually {
-    git clone https://github.com/NWuensche/android-app ~/wallabag
     android-studio ~/wallabag #Download Android Stuff
     steam #Download Updates
 }
@@ -295,3 +303,4 @@ function main {
     endMessages
 }
 main
+
