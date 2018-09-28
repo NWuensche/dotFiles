@@ -1,0 +1,14 @@
+#!/bin/bash
+
+DISPLAY=:19
+xdotool keydown control
+xdotool keydown L
+sleep 0.5
+xdotool keyup L
+xdotool keyup control
+sleep 0.5
+xdotool type "$1"
+
+xdotool mousemove 265 245
+sleep 1
+xdotool click 1

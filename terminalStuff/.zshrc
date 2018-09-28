@@ -20,6 +20,7 @@ export tm='{"isarrival": false,"limit": 30,"mentzonly": false,"mot": ["Tram","Ci
 export BROWSER="chromium-browser"
 
 alias gf='/usr/bin/gf'
+alias screenshotXVFB="DISPLAY=:19 import -window root /tmp/screenshot.png; feh /tmp/screenshot.png"
 alias ng='trash ../parsing-lcfrs; make; bash postprod.sh'
 alias rp='java -jar ~/Dokumente/6.Semester/VNS/Paper/Negra/rparse/rparse.jar'
 alias saveDotFiles='
