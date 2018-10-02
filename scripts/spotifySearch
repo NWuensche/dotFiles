@@ -1,6 +1,10 @@
 #!/bin/bash
 
 DISPLAY=:19
+xdotool mousemove 0 0
+xdotool click 1 #Get Full screen ad away
+sleep 1
+
 xdotool keydown control
 xdotool keydown L
 sleep 0.5
@@ -9,6 +13,21 @@ xdotool keyup control
 sleep 0.5
 xdotool type "$1"
 
-xdotool mousemove 265 245
+#xdotool mousemove 280 240
+#sleep 1
+#xdotool click 1
+
 sleep 1
-xdotool click 1
+xdotool key Tab
+sleep 0.1
+xdotool key Tab
+sleep 0.1
+xdotool key Tab
+sleep 0.1
+xdotool key Tab
+sleep 0.1
+xdotool key KP_Enter
+sleep 1
+xdotool key KP_Enter
+sleep 0.1
+xdotool key KP_Enter
