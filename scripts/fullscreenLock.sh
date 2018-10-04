@@ -14,7 +14,7 @@ while true; do
         if [ "$NAMEWINDOW" != "" ]; then
             X=$( xdotool getmouselocation | sed -n 's/.*x:\([[:alnum:]]*\).*/\1/p' )
             Y=$( xdotool getmouselocation | sed -n 's/.*y:\([[:alnum:]]*\).*/\1/p' )
-            xdotool mousemove 0 0
+            xdotool mousemove `echo $((X+1))` `echo $((Y+1))`
             xdotool mousemove `echo $X` `echo $Y`
         fi
     fi
