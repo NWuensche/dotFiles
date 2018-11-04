@@ -1,0 +1,19 @@
+#!/bin/bash
+sudo systemctl start bluetooth.service
+pulseaudio -k
+(
+    echo default-agent
+) | sudo bluetoothctl
+sleep 2
+(
+    echo power on
+) | sudo bluetoothctl
+sleep 2
+(
+    echo scan on
+) | sudo bluetoothctl
+sleep 5
+(
+    echo 'connect 30:22:00:22:98:8E'
+) | sudo bluetoothctl
+

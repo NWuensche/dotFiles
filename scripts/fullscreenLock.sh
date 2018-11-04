@@ -4,7 +4,7 @@
 while true; do
     sleep 580
     #Just do this for Chromium
-    NAMEWINDOW=$(echo $(xwininfo -id $(xdotool getactivewindow)) | sed -n -r '/(youtube|ted).*Chromium/Ip')
+    NAMEWINDOW=$(echo $(xwininfo -id $(xdotool getactivewindow)) | sed -n -r '/(youtube|ted|kyoto university opencourseware).*Chromium/Ip')
     WINDOW=$(echo $(xwininfo -id $(xdotool getactivewindow) -stats | \
                     egrep '(Width|Height):' | \
                     awk '{print $NF}') | \

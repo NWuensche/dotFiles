@@ -36,6 +36,7 @@ function trizenPackages {
     trizen -S jdk10-openjdk maven python3 python-pip git android-studio intellij-idea-ultimate-edition intellij-idea-ultimate-edition-jre `#Programming` \
         xorg xf86-video-intel lightdm lightdm-gtk-greeter i3-wm dmenu i3status i3lock `#UI` \ 
         gvim vim-spell-de vim-spell-en `#Vim`\
+        pulseaudio-bluetooth blues-utils bluez `#Bluetooth`\
         xdotool expect `# Automation Tools`\
         tmux terminator zsh `#Terminator Environment`\
         curl wget htop neomutt vifm feh mps-youtube pdfgrep calcurse w3m bc mplayer irssi `#Terminal Tools`\
@@ -163,6 +164,7 @@ function moveConfigs {
     nix-env --install super-user-spark
     ~/.nix-profile/bin/spark -r deploy ~/.dotFiles/dotFiles.sus
     ~/.nix-profile/bin/spark -r deploy ~/saveFolder/saveFolder.sus
+    trash .cache/dmenu_run # Neceassary for dmenu finding ~/bin
 
     #Hard Link for every Script to be part of dmenu
     for fullfile in ~/.dotFiles/scripts/*; do
@@ -302,5 +304,6 @@ function main {
     setUpManually
     endMessages
 }
-main
+#main
+setUpDCP
 

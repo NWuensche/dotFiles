@@ -224,5 +224,4 @@ exec xinput --set-prop 'TPPS/2 IBM TrackPoint' 'libinput Accel Profile Enabled' 
 exec xinput --set-prop 'TPPS/2 IBM TrackPoint' 'libinput Accel Speed' 1
 
 exec_always /home/nwuensche/bin/setupMonitor
-
-
+exec amixer -D pulse sset Capture nocap

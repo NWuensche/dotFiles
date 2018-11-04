@@ -12,11 +12,18 @@ card main {
 }
 
 card i3 {
+    {
     into ~/.i3
     outof i3Stuff
     config
     i3bar.config
     i3statusex
+    }
+    {
+    into ~
+    outof i3Stuff
+    .profile #important for dmenu finding bin folder
+    }
 }
 
 card wallpaper {
