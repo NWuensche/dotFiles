@@ -13,7 +13,7 @@ card main {
 
 card i3 {
     {
-    into ~/.i3
+    into ~/.config/i3
     outof i3Stuff
     config
     i3bar.config
