@@ -176,6 +176,8 @@ function moveConfigs {
             ln -f $fullfile "/home/nwuensche/bin/$filename"
     done
 
+    ln -sf ~/saveFolder/Anki21Config ~/.local/share/Anki2
+
     gpg --import ~/saveFolder/gpg_key.asc
     expect saveFolder/trustGPG Wuensche-N
 
