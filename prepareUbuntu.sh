@@ -298,6 +298,12 @@ function endMessages {
     echo "Import Android Studio Settings"
 }
 
+function fixWifi {
+    sudo cp ~/saveFolder/services/fixwifi.service /etc/systemd/system/
+    sudo systemctl daemon-reload
+    sudo systemctl enable fixwifi.service
+}
+
 function main {
     setUpHome
     installPrograms
@@ -305,7 +311,7 @@ function main {
     setUpPrinter
     setUpManually
     endMessages
+    fixWifi
 }
-#main
-setUpDCP
+main
 
