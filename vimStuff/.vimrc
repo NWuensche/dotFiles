@@ -1,6 +1,6 @@
 set relativenumber
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 set expandtab
 set clipboard=unnamedplus
 set spell
@@ -126,4 +126,5 @@ nmap gcw guw~h
 " Decapitalize Word
 nmap gcc guu~h
 
+map <F2> :! npm run build <CR>
 

@@ -50,6 +50,8 @@ function trizenPackages {
         virtualbox virtualbox-host-modules-arch virtualbox-guest-iso `#Virtualbox`\
         texlive-most biber texlive-localmanager-git `#Latex`\
         --noconfirm
+
+    sudo pip install mitmproxy
 }
 
 function setUpBackgroundLight {
