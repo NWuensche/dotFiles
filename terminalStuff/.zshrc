@@ -56,7 +56,6 @@ alias scanIPs='sudo arp-scan --interface=wlp4s0 --localnet'
 alias xclip="xclip -selection c"
 #alias cisco="/opt/cisco/anyconnect/bin/vpnui"
 alias mv='mv -iv'
-alias mutt='(imapfilter &> /dev/null) && neomutt'
 alias cp='cp -iv'
 alias pdflatex='f() { (pdflatex $1; trash *.aux; trash *.log; trash *.nav; trash *.out; trash *.snm; trash *.toc) }; f'
 alias downloadFolder='wget -r --no-parent'
@@ -89,7 +88,10 @@ alias pacman="trizen"
 alias ctest="(cd /home/nwuensche/Dokumente/6.Semester/VNS/Vanda; cabal configure --enable-tests && cabal test)"
 alias fixAndroid="sudo  ~/Android/Sdk/platform-tools/adb kill-server; sudo  ~/Android/Sdk/platform-tools/adb start-server"
 alias cbuild="(cd /home/nwuensche/Dokumente/6.Semester/VNS/Vanda; cabal build)"
-alias sv="source ~/bundesrat-scraper/venv/bin/activate"
+alias sv="source /opt/anaconda/bin/activate root; conda activate py36"
+
+#Android Stuff
+alias aShell="~/Android/Sdk/emulator/emulator @Nexus_4_API_28 &; sleep 2; adb shell"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 

@@ -128,3 +128,4 @@ nmap gcc guu~h
 
 map <F2> :! npm run build <CR>
 
+autocmd Filetype json :%!python -m json.tool
