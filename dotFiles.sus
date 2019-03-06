@@ -3,6 +3,7 @@ card main {
 	spark card wallpaper
 	spark card vim
 	spark card git
+	spark card gpg
 	spark card terminal
 	spark card configs
 	spark card homeConfigs
@@ -70,6 +71,12 @@ card terminal {
 	.zshrc
 	.zprofile
 
+}
+
+card gpg {
+  into ~/.gnupg
+  outof configs
+  config.gpgagent -> gpg-agent.conf
 }
 
 card homeConfigs {

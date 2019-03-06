@@ -82,7 +82,7 @@ alias vimBA="vim -c 'startinsert' -c 'set tw=70 et' -c 'set wrap' '+/^$'"
 alias x2="xrandr --output DP2 --auto --output HDMI1 --auto --right-of DP2 --output eDP1 --off"
 alias x1="xrandr --output eDP1 --auto --output HDMI1 --off --output DP2 --off"
 #alias calcurse="/usr/local/bin/calcurse"
-alias pacman="trizen"
+alias pacman="yay"
 
 #VNS Stuff
 alias ctest="(cd /home/nwuensche/Dokumente/6.Semester/VNS/Vanda; cabal configure --enable-tests && cabal test)"

@@ -28,12 +28,12 @@ function setUpHome {
     importFiles
 }
 
-function trizenPackages {
+function yayPackages {
     sudo pacman -Syu --noconfirm
-    git clone https://aur.archlinux.org/trizen.git && cd trizen && makepkg -si  --noconfirm #Install trizen
+    git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si  --noconfirm #Install yay
     # Remove vim to install gvim for better clipboard support
-    trizen -R vim --noconfirm
-    trizen -S jdk10-openjdk maven python3 python-pip git android-studio intellij-idea-ultimate-edition intellij-idea-ultimate-edition-jre `#Programming` \
+    yay -R vim --noconfirm
+    yay -S jdk10-openjdk maven python3 python-pip git android-studio intellij-idea-ultimate-edition intellij-idea-ultimate-edition-jre `#Programming` \
         xorg xf86-video-intel lightdm lightdm-gtk-greeter i3-wm dmenu i3status i3lock `#UI` \ 
         gvim vim-spell-de vim-spell-en `#Vim`\
         pulseaudio-bluetooth blues-utils bluez `#Bluetooth`\
@@ -77,7 +77,7 @@ function installZSH {
 }
 
 function syncTime {
-    trizen -S ntp --noconfirm
+    yay -S ntp --noconfirm
     sudo systemctl enable ntpd
     cat /etc/ntp.conf | sed 's/arch.pool/de.pool/g' > /tmp/tmpntp
     sudo cp /tmp/tmpntp /etc/ntp.conf
@@ -92,10 +92,14 @@ function installLatexTUDresden {
 }
 
 function autoStartVPN {
-    trizen -S openvpn --noconfirm
-    sudo cp ~/saveFolder/expressVPN.conf /etc/openvpn/client/express.conf
-    sudo cp saveFolder/ExVPN.pass /etc/openvpn/client/
-    sudo systemctl enable openvpn-client@express.service
+    yay -S nordvpn-bin --noconfirm
+
+    sudo systemctl enable nordvpnd.service
+    sudo systemctl start nordvpnd.service
+
+    expect ~/saveFolder/loginVPN
+
+    nordvpn set autoconnect enabled Germany Frankfurt
 }
 
 function installFonts {
@@ -115,7 +119,7 @@ function loadWallabag {
 }
 
 function installPrograms {
-    trizenPackages
+    yayPackages
     syncTime
     installZSH
     setUpBackgroundLight

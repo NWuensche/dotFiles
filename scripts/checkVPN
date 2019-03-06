@@ -1,10 +1,9 @@
 #!/bin/bash
 while true; do
     sleep 300;
-    SAFE=$(curl -s https://www.expressvpn.com/de/what-is-my-ip | tr "\n" ' ' | sed -n '/IP-Adresse sicher/p')
-    if [ "$SAFE" == "" ]; then
+    SAFE=$(curl -s https://nordvpn.com/wp-admin/admin-ajax.php\?action\=get_user_info_data | jq '.status')
+    if [ "$SAFE" == "false" ]; then
         notify-send "VPN aus"
     fi
 done
-
 
