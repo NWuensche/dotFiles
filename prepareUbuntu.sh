@@ -39,7 +39,7 @@ function yayPackages {
         pulseaudio-bluetooth blues-utils bluez `#Bluetooth`\
         xdotool expect `# Automation Tools`\
         tmux terminator zsh `#Terminator Environment`\
-        curl wget htop neomutt vifm feh mps-youtube pdfgrep calcurse w3m bc mplayer irssi `#Terminal Tools`\
+        curl wget htop neomutt vifm feh mps-youtube pdfgrep calcurse w3m bc mplayer irssi docker `#Terminal Tools`\
         pwgen xclip ffmpeg xss-lock xautolock youtube-dl trash-cli scrot udiskie ntfs-3g unrar cronie lynx ttf-liberation openssh imapfilter urlview pandoc `#Terminal Support Tools`\
         tcsh cups sane brscan2 brscan3`#Printer Tools`\
         xf86-input-synaptic xf86-input-mtrack `#Touchpad Tools`\
