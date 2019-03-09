@@ -1,0 +1,11 @@
+#!/bin/sh
+
+set -e
+
+saveStuff;
+
+cd ~/.dotFiles;
+git add .;
+git commit -m "(`date +%d-%m-%Y`) change dotFiles";
+git push;
+cd;

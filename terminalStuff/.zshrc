@@ -23,15 +23,6 @@ alias feh='feh --auto-rotate'
 alias screenshotXVFB="DISPLAY=:19 import -window root /tmp/screenshot.png; feh /tmp/screenshot.png"
 alias ng='trash ../parsing-lcfrs; make; bash postprod.sh'
 alias rp='java -jar ~/Dokumente/6.Semester/VNS/Paper/Negra/rparse/rparse.jar'
-alias saveDotFiles='
-    saveStuff;
-
-    cd ~/.dotFiles;
-	git add .;
-	git commit -m "(`date +%d-%m-%Y`) change dotFiles";
-	git push;
-	cd;
-'
 source $ZSH/oh-my-zsh.sh
 
 alias -s sh=sh
