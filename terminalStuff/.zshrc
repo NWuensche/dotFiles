@@ -15,7 +15,6 @@ export LYNX_CFG=~/.lynxrc
 
 #No Files found in gitignore in fzf vim
 export FZF_DEFAULT_COMMAND='fd --type f'   
-export tm='{"isarrival": false,"limit": 30,"mentzonly": false,"mot": ["Tram","CityBus","IntercityBus",        "SuburbanRailway",        "Train",        "Cableway",        "Ferry",        "HailedSharedTaxi"],    "shorttermchanges": true,    "stopid": "33000658",    "time": "2018-02-20T19:54:00.000Z"}'
 
 export BROWSER="chromium-browser"
 
