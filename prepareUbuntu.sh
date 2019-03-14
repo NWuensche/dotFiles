@@ -17,7 +17,7 @@ function importFiles {
     cp /run/media/nwuensche/TOSHIBA\ EXT/AufPC/* ~/ -r
     cp /run/media/nwuensche/TOSHIBA\ EXT/Bilder/Wallpaper.jpg ~/Bilder/
     cp /run/media/nwuensche/TOSHIBA\ EXT/Dokumente/Master_Berlin ~/Dokumente/ -r
-    cp /run/media/nwuensche/TOSHIBA\ EXT/Dokumente/tud-cacert.pem ~/Dokumente/
+    cp /run/media/nwuensche/TOSHIBA\ EXT/Dokumente/tub-cacert.pem ~/Dokumente/
     cp /run/media/nwuensche/TOSHIBA\ EXT/saveFolder ~ -r
 
     mv ~/dotFiles ~/.dotFiles
@@ -110,6 +110,11 @@ function installFonts {
     rm -rf fonts
 }
 
+function loadBR {
+  git clone https://github.com/stefanw/pdfcutter
+  git clone https://github.com/okfde/bundesrat-scraper
+}
+
 function loadWallabag {
     git clone https://github.com/NWuensche/android-app ~/wallabag
     cd wallabag
@@ -127,6 +132,7 @@ function installPrograms {
     autoStartVPN
     installFonts
     loadWallabag
+    loadBR
 }
 
 function fixDisplayManager {
