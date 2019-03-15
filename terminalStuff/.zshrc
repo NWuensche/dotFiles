@@ -21,8 +21,6 @@ export BROWSER="chromium-browser"
 alias gf='/usr/bin/gf'
 alias feh='feh --auto-rotate'
 alias screenshotXVFB="DISPLAY=:19 import -window root /tmp/screenshot.png; feh /tmp/screenshot.png"
-alias ng='trash ../parsing-lcfrs; make; bash postprod.sh'
-alias rp='java -jar ~/Dokumente/6.Semester/VNS/Paper/Negra/rparse/rparse.jar'
 source $ZSH/oh-my-zsh.sh
 
 alias -s sh=sh
@@ -78,7 +76,7 @@ alias pacman="yay"
 alias ctest="(cd /home/nwuensche/Dokumente/6.Semester/VNS/Vanda; cabal configure --enable-tests && cabal test)"
 alias fixAndroid="sudo  ~/Android/Sdk/platform-tools/adb kill-server; sudo  ~/Android/Sdk/platform-tools/adb start-server"
 alias cbuild="(cd /home/nwuensche/Dokumente/6.Semester/VNS/Vanda; cabal build)"
-alias sv="source /opt/anaconda/bin/activate root; conda activate py36"
+alias sv="source /opt/anaconda/bin/activate root; conda activate py368"
 
 #Android Stuff
 alias aShell="Xvfb :20 -screen 0 1024x768x16 &;export DISPLAY=:20;~/Android/Sdk/emulator/emulator @Nexus_4_API_28 &; sleep 5; adb shell"
@@ -86,5 +84,5 @@ alias aShell="Xvfb :20 -screen 0 1024x768x16 &;export DISPLAY=:20;~/Android/Sdk/
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/home/nwuensche/.sdkman"
-[[ -s "/home/nwuensche/.sdkman/bin/sdkman-init.sh" ]] && source "/home/nwuensche/.sdkman/bin/sdkman-init.sh"
+#export SDKMAN_DIR="/home/nwuensche/.sdkman"
+#[[ -s "/home/nwuensche/.sdkman/bin/sdkman-init.sh" ]] && source "/home/nwuensche/.sdkman/bin/sdkman-init.sh"

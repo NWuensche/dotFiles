@@ -3,6 +3,7 @@
 set -e
 
 saveStuff;
+cp ~/.oh-my-zsh/themes/agnoster.zsh-theme ~/.dotFiles/terminalStuff/agnoster.zsh-theme
 
 cd ~/.dotFiles;
 git add .;

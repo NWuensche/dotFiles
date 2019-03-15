@@ -5,7 +5,7 @@ set -e #Exit after first non zero error code
 function checkHDD {
     if [ ! -d /run/media/nwuensche/TOSHIBA\ EXT ]
     then
-        echo "Mount external drive"
+        echo "udiskie-mount external drive"
         exit 1
     fi
 }
@@ -30,26 +30,24 @@ function setUpHome {
 
 function yayPackages {
     sudo pacman -Syu --noconfirm
-    git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si  --noconfirm #Install yay
-    # Remove vim to install gvim for better clipboard support
-    yay -R vim --noconfirm
-    yay -S jdk10-openjdk maven python3 python-pip git android-studio intellij-idea-ultimate-edition intellij-idea-ultimate-edition-jre `#Programming` \
-        xorg xf86-video-intel lightdm lightdm-gtk-greeter i3-wm dmenu i3status i3lock `#UI` \ 
-        gvim vim-spell-de vim-spell-en `#Vim`\
-        pulseaudio-bluetooth blues-utils bluez `#Bluetooth`\
-        xdotool expect `# Automation Tools`\
-        tmux terminator zsh `#Terminator Environment`\
-        curl wget htop neomutt vifm feh mps-youtube pdfgrep calcurse w3m bc mplayer irssi docker `#Terminal Tools`\
-        pwgen xclip ffmpeg xss-lock xautolock youtube-dl trash-cli scrot udiskie ntfs-3g unrar cronie lynx ttf-liberation openssh imapfilter urlview pandoc `#Terminal Support Tools`\
-        tcsh cups sane brscan2 brscan3`#Printer Tools`\
-        xf86-input-synaptic xf86-input-mtrack `#Touchpad Tools`\
-        ttf-liberation pango `#Fonts and Font Tools`\
-        alsa-utils pulseaudio `#Audio`\
-        steam calibre vlc gimp chromium kdenlive libreoffice-fresh-de  evince xournal spotify `#X Tools`\
-        redshift gparted  arandr wine android-file-transfer notification-daemon `# X Support Tools`\
-        virtualbox virtualbox-host-modules-arch virtualbox-guest-iso `#Virtualbox`\
-        texlive-most biber texlive-localmanager-git `#Latex`\
-        --noconfirm
+    git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si  --noconfirm && rm -r yay #Install yay
+    sudo yay -Syu --noconfirm
+    yay -S jdk10-openjdk maven python3 python-pip git android-studio intellij-idea-ultimate-edition intellij-idea-ultimate-edition-jre --noconfirm #Programming
+    yay -S xorg xf86-video-intel lightdm lightdm-gtk-greeter i3-wm dmenu i3status i3lock --noconfirm #UI
+    yay -S gvim vim-spell-de vim-spell-en --noconfirm #Vim 
+    yay -S pulseaudio-bluetooth bluez-utils bluez --noconfirm #Bluetooth
+    yay -S xdotool expect --noconfirm # Automation Tools
+    yay -S tmux terminator zsh  --noconfirm #Terminator Environment 
+    yay -S curl wget htop neomutt vifm feh mps-youtube pdfgrep calcurse w3m bc mplayer irssi docker  --noconfirm #Terminal Tools 
+    yay -S pwgen xclip ffmpeg xss-lock xautolock youtube-dl trash-cli scrot udiskie ntfs-3g unrar cronie lynx ttf-liberation openssh imapfilter urlview pandoc  --noconfirm #Terminal Support Tools 
+    yay -S tcsh cups sane brscan2 brscan3 --noconfirm #Printer Tools 
+    yay -S xf86-input-synaptics xf86-input-mtrack  --noconfirm #Touchpad Tools 
+    yay -S ttf-liberation pango  --noconfirm #Fonts and Font Tools 
+    yay -S alsa-utils pulseaudio  --noconfirm #Audio 
+    yay -S steam calibre vlc gimp chromium kdenlive libreoffice-fresh-de  evince xournal spotify  --noconfirm #X Tools 
+    yay -S redshift gparted  arandr wine android-file-transfer notification-daemon  --noconfirm # X Support Tools 
+    yay -S virtualbox virtualbox-host-modules-arch virtualbox-guest-iso  --noconfirm #Virtualbox 
+    yay -S texlive-most biber texlive-localmanager-git  --noconfirm #Latex 
 
     sudo pip install mitmproxy
 }
@@ -64,7 +62,6 @@ function setUpBackgroundLight {
     cd ..
     trash light
 }
-
 function installZSH {
     wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
     echo "auth       sufficient   pam_wheel.so trust group=chsh" | cat - /etc/pam.d/chsh > /tmp/chsh # People in chsh group can change their shell without password -> automize better
@@ -113,13 +110,23 @@ function installFonts {
 function loadBR {
   git clone https://github.com/stefanw/pdfcutter
   git clone https://github.com/okfde/bundesrat-scraper
+
+  sudo pip install jupyter
+  yay -S anaconda --noconfirm
+  source /opt/anaconda/bin/activate root
+  conda create -n py368 python=3.6 ipykernel
+  sudo conda install nb_conda_kernels
+  conda activate py368
+  sudo conda install lxml
+  sudo pip install pdfcutter requests lxml
+
 }
 
 function loadWallabag {
     git clone https://github.com/NWuensche/android-app ~/wallabag
     cd wallabag
     git remote set-url origin https://github.com/wallabag/android-app
-    git remote set-url upstream https://github.com/wallabag/android-app
+    git remote add upstream https://github.com/nwuensche/android-app
     cd ~
 }
 
@@ -128,8 +135,7 @@ function installPrograms {
     syncTime
     installZSH
     setUpBackgroundLight
-    #installLatexTUDresden
-    autoStartVPN
+    installLatexTUDresden
     installFonts
     loadWallabag
     loadBR
@@ -171,12 +177,16 @@ function moveConfigs {
     sudo /bin/cp  ~/saveFolder/hosts /etc/hosts;
 
     #Just for super-user-spark
+    sudo sysctl kernel.unprivileged_userns_clone=1 #Otherwise nix install will fail
     curl https://nixos.org/nix/install | sh
     . /home/nwuensche/.nix-profile/etc/profile.d/nix.sh
     nix-env --install super-user-spark
     ~/.nix-profile/bin/spark -r deploy ~/.dotFiles/dotFiles.sus
     ~/.nix-profile/bin/spark -r deploy ~/saveFolder/saveFolder.sus
-    trash .cache/dmenu_run # Neceassary for dmenu finding ~/bin
+    if [ -e /home/nwuensche/.cache/dmenu_run ]
+    then
+        rm .cache/dmenu_run # Neceassary for dmenu finding ~/bin
+    fi
 
     #Hard Link for every Script to be part of dmenu
     for fullfile in ~/.dotFiles/scripts/*; do
@@ -189,10 +199,9 @@ function moveConfigs {
     done
 
     ln -sf ~/saveFolder/Anki21Config ~/.local/share/Anki2
-
+    gpg --import ~/saveFolder/gpg_key_pub.asc
     gpg --import ~/saveFolder/gpg_key.asc
-    expect saveFolder/trustGPG Wuensche-N
-
+    expect ~/saveFolder/trustGPG Wuensche-N
 }
 
 function setUpVimPlugins {
@@ -300,15 +309,14 @@ function setUpPrinter {
 }
 
 function setUpManually {
-    android-studio ~/wallabag #Download Android Stuff
-    steam #Download Updates
-}
-
-function endMessages {
-    clear
+    echo Execute setUpManually Commands after reboot
+    #android-studio ~/wallabag #Download Android Stuff
+    #steam #Download Updates
+    #chromium # Sync
     echo "Install Tmux Plugins with Prefix + I"
     echo "Import Android Studio Settings"
 }
+
 
 function fixWifi {
     sudo cp ~/saveFolder/services/fixwifi.service /etc/systemd/system/
@@ -320,10 +328,8 @@ function main {
     setUpHome
     installPrograms
     addConfigs
-    setUpPrinter
-    setUpManually
-    endMessages
     fixWifi
+    setUpManually
+    setUpPrinter
 }
 main
-
