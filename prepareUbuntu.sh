@@ -50,6 +50,7 @@ function yayPackages {
     yay -S texlive-most biber texlive-localmanager-git  --noconfirm #Latex 
 
     sudo pip install mitmproxy
+    sudo systemctl enable cronie.service #Enable Cron
 }
 
 function setUpBackgroundLight {
