@@ -39,7 +39,7 @@ function yayPackages {
     yay -S xdotool expect --noconfirm # Automation Tools
     yay -S tmux terminator zsh  --noconfirm #Terminator Environment 
     yay -S curl wget htop neomutt vifm feh mps-youtube pdfgrep calcurse w3m bc mplayer irssi docker  --noconfirm #Terminal Tools 
-    yay -S pwgen xclip ffmpeg xss-lock xautolock youtube-dl trash-cli scrot udiskie ntfs-3g unrar cronie lynx ttf-liberation openssh imapfilter urlview pandoc  --noconfirm #Terminal Support Tools 
+    yay -S rsync pwgen xclip ffmpeg xss-lock xautolock youtube-dl trash-cli scrot udiskie ntfs-3g unrar cronie lynx ttf-liberation openssh imapfilter urlview pandoc  --noconfirm #Terminal Support Tools 
     yay -S tcsh cups sane brscan2 brscan3 --noconfirm #Printer Tools 
     yay -S xf86-input-synaptics xf86-input-mtrack  --noconfirm #Touchpad Tools 
     yay -S ttf-liberation pango  --noconfirm #Fonts and Font Tools 
