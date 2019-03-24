@@ -48,6 +48,7 @@ function yayPackages {
     yay -S redshift gparted  arandr wine android-file-transfer notification-daemon  --noconfirm # X Support Tools 
     yay -S virtualbox virtualbox-host-modules-arch virtualbox-guest-iso  --noconfirm #Virtualbox 
     yay -S texlive-most biber texlive-localmanager-git  --noconfirm #Latex 
+    yay -S slack-desktop --noconfirm #Other Stuff 
 
     sudo pip install mitmproxy
     sudo systemctl enable cronie.service #Enable Cron
@@ -121,6 +122,7 @@ function loadBR {
   sudo conda install lxml
   sudo pip install pdfcutter requests lxml
 
+  sudo ipython3 kernel install #Otherwise jupyter cant find kernel
 }
 
 function loadWallabag {
