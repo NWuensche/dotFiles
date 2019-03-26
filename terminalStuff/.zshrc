@@ -80,6 +80,7 @@ alias sv="source /opt/anaconda/bin/activate root; conda activate py368"
 
 #Android Stuff
 alias aShell="Xvfb :20 -screen 0 1024x768x16 &;export DISPLAY=:20;~/Android/Sdk/emulator/emulator @Nexus_4_API_28 &; sleep 5; adb shell"
+alias mitmproxy="~/bin/mitmproxy" #Do preprocessing before
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 

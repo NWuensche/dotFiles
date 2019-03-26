@@ -213,8 +213,6 @@ exec light -S 40
 exec terminator -x tmux attach
 exec xinput -set-prop 12 141 1
 exec xautolock -locker i3lock -time 10 -corners ---- & #suspend lock, don't suspend when in one of the corners
-exec /home/nwuensche/bin/fullscreenLock &
-exec /home/nwuensche/bin/checkVPN &
 exec xss-lock -- i3lock & #lid close lock
 
 
@@ -225,4 +223,4 @@ exec xinput --set-prop 'TPPS/2 IBM TrackPoint' 'libinput Accel Profile Enabled' 
 exec xinput --set-prop 'TPPS/2 IBM TrackPoint' 'libinput Accel Speed' 1
 
 exec_always /home/nwuensche/bin/setupMonitor
-exec amixer -D pulse sset Capture nocap
+exec amixer -D pulse sset Capture nocap #Micro off

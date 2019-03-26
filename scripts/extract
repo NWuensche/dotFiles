@@ -16,7 +16,7 @@ ARC="$(readlink -f "$ARC")"
 read -p "Extract to [default: $DEFAULT_TARGET]: " TARGET
 [[ -z $TARGET ]] &&\
     TARGET="$DEFAULT_TARGET"
-[[ -d $TARGET ]] || mkdir $TARGET
+[[ -d $TARGET ]] || mkdir "$TARGET"
 [[ -w $TARGET ]] || err $"Permission denied: '$TARGET' is not writable"
 
 cd "$TARGET"

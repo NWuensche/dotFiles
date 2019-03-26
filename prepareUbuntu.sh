@@ -15,7 +15,6 @@ function importFiles {
     mkdir -p ~/Dokumente
     mkdir -p ~/Downloads
     cp /run/media/nwuensche/TOSHIBA\ EXT/AufPC/* ~/ -r
-    cp /run/media/nwuensche/TOSHIBA\ EXT/Bilder/Wallpaper.jpg ~/Bilder/
     cp /run/media/nwuensche/TOSHIBA\ EXT/Dokumente/Master_Berlin ~/Dokumente/ -r
     cp /run/media/nwuensche/TOSHIBA\ EXT/Dokumente/tub-cacert.pem ~/Dokumente/
     cp /run/media/nwuensche/TOSHIBA\ EXT/saveFolder ~ -r
@@ -39,7 +38,7 @@ function yayPackages {
     yay -S xdotool expect --noconfirm # Automation Tools
     yay -S tmux terminator zsh  --noconfirm #Terminator Environment 
     yay -S curl wget htop neomutt vifm feh mps-youtube pdfgrep calcurse w3m bc mplayer irssi docker  --noconfirm #Terminal Tools 
-    yay -S rsync pwgen xclip ffmpeg xss-lock xautolock youtube-dl trash-cli scrot udiskie ntfs-3g unrar cronie lynx ttf-liberation openssh imapfilter urlview pandoc  --noconfirm #Terminal Support Tools 
+    yay -S jq rsync pwgen xclip ffmpeg xss-lock xautolock youtube-dl trash-cli scrot udiskie ntfs-3g unrar cronie lynx ttf-liberation openssh imapfilter urlview pandoc  --noconfirm #Terminal Support Tools 
     yay -S tcsh cups sane brscan2 brscan3 --noconfirm #Printer Tools 
     yay -S xf86-input-synaptics xf86-input-mtrack  --noconfirm #Touchpad Tools 
     yay -S ttf-liberation pango  --noconfirm #Fonts and Font Tools 
@@ -327,11 +326,17 @@ function fixWifi {
     sudo systemctl enable fixwifi.service
 }
 
+function fixAudio {
+    #Default is that HDMI Out is default speaker. This makes normal speaker default
+    sudo sh -c "echo -e \"pcm.\!default {\n        type hw\n        card 1\n}\" > /etc/asound.conf"
+}
+
 function main {
     setUpHome
     installPrograms
     addConfigs
     fixWifi
+    fixAudio
     setUpManually
     setUpPrinter
 }

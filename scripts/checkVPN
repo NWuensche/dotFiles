@@ -1,9 +1,6 @@
 #!/bin/bash
-while true; do
-    sleep 300;
-    SAFE=$(curl -s https://nordvpn.com/wp-admin/admin-ajax.php\?action\=get_user_info_data | jq '.status')
-    if [ "$SAFE" == "false" ]; then
-        notify-send "VPN aus"
-    fi
-done
+SAFE=$(curl -s https://nordvpn.com/wp-admin/admin-ajax.php\?action\=get_user_info_data | jq '.status')
+if [ "$SAFE" == "false" ]; then
+    notify-send "VPN aus"
+fi
 
