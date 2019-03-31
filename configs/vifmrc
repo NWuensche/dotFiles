@@ -46,7 +46,7 @@ set norunexec
 set noiec
 
 " Selected color scheme
-colorscheme Default
+colorscheme Solarized
 
 " Format for displaying time in file list. For example:
 set timefmt=%d/%m\ %H:%M
@@ -116,8 +116,11 @@ set vifminfo=dhistory,savedirs,chistory,state,tui,shistory,
 
 " Sample mappings
 
-" Start shell in current directory
-nnoremap s :shell<cr>
+" Start shell in current directory, cd in vifm to ~ to unmount ext. drives
+nnoremap s : let $PREVPWD = system('pwd')
+          \| cd
+          \| !cd $PREVPWD && exec zsh<cr>
+
 
 " Display sorting dialog
 nnoremap S :sort<cr>

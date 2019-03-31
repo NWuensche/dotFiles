@@ -51,6 +51,9 @@ function yayPackages {
 
     sudo pip install mitmproxy
     sudo systemctl enable cronie.service #Enable Cron
+
+    sudo systemctl enable org.cups.cupsd.service
+    sudo systemctl start org.cups.cupsd.service
 }
 
 function setUpBackgroundLight {
@@ -90,14 +93,7 @@ function installLatexTUDresden {
 }
 
 function autoStartVPN {
-    yay -S nordvpn-bin --noconfirm
-
-    sudo systemctl enable nordvpnd.service
-    sudo systemctl start nordvpnd.service
-
-    expect ~/saveFolder/loginVPN
-
-    nordvpn set autoconnect enabled Germany Frankfurt
+    sh ~/saveFolder/setupVPN.sh
 }
 
 function installFonts {
@@ -340,4 +336,5 @@ function main {
     setUpManually
     setUpPrinter
 }
-main
+#main
+setUpMFC 

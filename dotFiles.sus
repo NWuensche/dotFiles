@@ -7,9 +7,9 @@ card main {
 	spark card terminal
 	spark card configs
 	spark card homeConfigs
-    spark card vifm
-    spark card X
-    spark card podcasts
+  spark card vifm
+  spark card X
+  spark card podcasts
 }
 
 card i3 {
@@ -108,9 +108,16 @@ card configs {
 }
 
 card vifm {
-		into .vifm
-        outof configs
-		vifmrc -> vifmrc
+    {
+      into .vifm
+      outof configs
+      vifmrc -> vifmrc
+    }
+    {
+      into .vifm/colors
+      outof configs
+      Solarized.vifm
+    }
 }
 
 card rules {

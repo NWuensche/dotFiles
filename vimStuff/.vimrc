@@ -94,6 +94,7 @@ syntax on
 
 set background=dark
 colorscheme solarized
+set t_Co=256 "Fix color solarized
 
 "let g:UltiSnipsExpandTrigger="<c-j>"
 let g:ycm_key_list_select_completion=[]
