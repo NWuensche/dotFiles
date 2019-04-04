@@ -126,8 +126,8 @@ nnoremap s : let $PREVPWD = system('pwd')
 nnoremap S :sort<cr>
 
 " Toggle visibility of preview window
-nnoremap w :view<cr>
-vnoremap w :view<cr>gv
+" nnoremap w :view<cr>
+" vnoremap w :view<cr>gv
 
 " Yank current directory path into the clipboard
 nnoremap yd :!echo %d | xclip %i<cr>
