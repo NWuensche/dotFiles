@@ -168,8 +168,7 @@ filetype *.tgz,*.zip,*.rar,*.gz,*.bz2,*.xz extract %f
 nmap `h :cd ~ <CR>
 nmap `d :cd ~/Downloads <CR>
 nmap `m :cd /run/media/nwuensche <CR>
-nmap `q :cd /srv/http/web/app/plugins/mpat-plugins/react_src/ <CR>
-nmap `w :cd /srv/http/web/app/themes/mpat-theme/ <CR>
+nmap `q :cd ~/Dokumente/Master_Berlin/2.Semester/ <CR>
 
 
 nmap q :q<CR>
