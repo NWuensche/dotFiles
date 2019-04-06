@@ -1,20 +1,26 @@
 #!/bin/sh
 #Each Rect has Size 10% of Image (Overflow possible)
-#A = (RH2-RH1) * abs ( RW2 -RW1 )
-# RW2 = (A/(RH2-RH1)) + RW1
+#Split image in 10 rectangles, randomly color x of them
 IMAGE=$1
-IMAGEWIDTH=$(file $IMAGE | sed -n 's/.*x\(\S*\),.*/\1/p')
-IMAGEHEIGHT=$(file $IMAGE | sed -n 's/.* \(\S*\)x.*/\1/p')
-SPACE10=$(( ($IMAGEWIDTH * $IMAGEHEIGHT) /10 ))
+IMAGEHEIGHT=$(file $IMAGE | sed -n 's/.*x\(\S*\),.*/\1/p')
+IMAGEWIDTH=$(file $IMAGE | sed -n 's/.* \(\S*\)x.*/\1/p')
+SPACE10=$(( $IMAGEWIDTH  / 10 ))
 DRAW=""
+USED_INDICES=""
 
 for i in `seq 1 3`; do
-  RANDHEIGHT1=$(shuf -i 1-$IMAGEHEIGHT -n 1)
-  RANDHEIGHT2=$(shuf -i $((RANDHEIGHT1 + 1))-$IMAGEHEIGHT -n 1)
-  RANDWIDTH1=$(shuf -i 1-$IMAGEWIDTH -n 1)
-  RANDWIDTH2=$(( ($SPACE10 / ($RANDHEIGHT2 - $RANDHEIGHT1)) + RANDWIDTH1 ))
-  DRAW+="-draw \" rectangle $RANDHEIGHT1,$RANDWIDTH1 $RANDHEIGHT2,$RANDWIDTH2 \" "
+  while true; do
+    INDEX=$(shuf -i 0-9 -n 1)
+    if [[ $USED_INDICES != *"$INDEX"* ]]; then #Not used this index
+      break
+    fi
+  done
+  USED_INDICES+=" $INDEX"
+  STARTWIDTH=$(( $SPACE10 * $INDEX  ))
+  ENDWIDTH=$(( $SPACE10 * ($INDEX + 1)  ))
+  DRAW+="-draw \" rectangle $STARTWIDTH,0 $ENDWIDTH,$IMAGEHEIGHT \" "
 done
 
+set -x
 eval "convert $IMAGE -stroke black -strokewidth 3 $DRAW rect_$IMAGE" #Need eval to fix escaped quotes from $DRAW
 feh rect_$IMAGE
