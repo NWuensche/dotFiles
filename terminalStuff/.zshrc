@@ -11,7 +11,6 @@ MAVEN_OPTS="-Xmx1024m -Xms512m"
 export MAVEN_OPTS
 #export PATH="/home/nwuensche/anaconda3/bin:$PATH"
 export PATH=$PATH:/snap/bin:/opt/ghc/8.0.2/bin:/home/nwuensche/Android/Sdk/tools:/home/nwuensche/Android/Sdk/platform-tools:~/Downloads/phantomjs-2.1.1-linux-x86_64/bin:~/.nix-profile/bin:~/.local/bin:~/.cabal/bin:~/bin
-export LYNX_CFG=~/.lynxrc
 
 export MESA_GLSL_CACHE_DISABLE=true #Fix Bug Chrome
 

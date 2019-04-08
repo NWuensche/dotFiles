@@ -83,7 +83,6 @@ card homeConfigs {
 	into ~
 	outof configs
     .urlview
-    .lynxrc 
 }
 
 card configs {
