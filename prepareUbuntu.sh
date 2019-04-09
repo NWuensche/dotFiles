@@ -47,7 +47,7 @@ function yayPackages {
     yay -S redshift gparted  arandr wine android-file-transfer notification-daemon  --noconfirm # X Support Tools 
     yay -S virtualbox virtualbox-host-modules-arch virtualbox-guest-iso  --noconfirm #Virtualbox 
     yay -S texlive-most biber texlive-localmanager-git  --noconfirm #Latex 
-    yay -S slack-desktop --noconfirm #Other Stuff 
+    yay -S slack-desktop openconnect --noconfirm #Other Stuff 
 
     sudo pip install mitmproxy pytube
     sudo systemctl enable cronie.service #Enable Cron
