@@ -49,7 +49,7 @@ function yayPackages {
     yay -S texlive-most biber texlive-localmanager-git  --noconfirm #Latex 
     yay -S slack-desktop openconnect --noconfirm #Other Stuff 
 
-    sudo pip install mitmproxy pytube
+    sudo pip install mitmproxy pytube selenium
     sudo systemctl enable cronie.service #Enable Cron
 
     sudo systemctl enable org.cups.cupsd.service
