@@ -29,9 +29,9 @@ function setUpHome {
 
 function yayPackages {
     sudo pacman -Syu --noconfirm
-    git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si  --noconfirm && rm -r yay #Install yay
+    git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si  --noconfirm && cd ~ && rm -rf yay #Install yay
     sudo yay -Syu --noconfirm
-    yay -S jdk10-openjdk maven python3 python-pip git android-studio intellij-idea-ultimate-edition intellij-idea-ultimate-edition-jre --noconfirm #Programming
+    yay -S jdk10-openjdk maven python3 python-pip git intellij-idea-ultimate-edition intellij-idea-ultimate-edition-jre --noconfirm #Programming TODO android-studio
     yay -S xorg xf86-video-intel lightdm lightdm-gtk-greeter i3-wm dmenu i3status i3lock --noconfirm #UI
     yay -S gvim vim-spell-de vim-spell-en --noconfirm #Vim 
     yay -S pulseaudio-bluetooth bluez-utils bluez --noconfirm #Bluetooth
@@ -48,12 +48,16 @@ function yayPackages {
     yay -S virtualbox virtualbox-host-modules-arch virtualbox-guest-iso  --noconfirm #Virtualbox 
     yay -S texlive-most biber texlive-localmanager-git  --noconfirm #Latex 
     yay -S slack-desktop openconnect --noconfirm #Other Stuff 
+    yay -S wpa_actiond --noconfirm # For auto search WiFi
 
     sudo pip install mitmproxy pytube selenium
     sudo systemctl enable cronie.service #Enable Cron
 
     sudo systemctl enable org.cups.cupsd.service
     sudo systemctl start org.cups.cupsd.service
+
+    sudo systemctl enable netctl-auto@wlp4s0.service
+
 }
 
 function setUpBackgroundLight {
@@ -72,7 +76,7 @@ function installZSH {
     sudo cp /tmp/chsh /etc/pam.d/chsh
     sudo groupadd chsh
     sudo usermod -a -G chsh nwuensche
-    chsh -s `which zsh`
+    expect ~/saveFolder/setchsh `which zsh`
 
     /bin/cp ~/.dotFiles/terminalStuff/agnoster.zsh-theme ~/.oh-my-zsh/themes/agnoster.zsh-theme
 }
@@ -112,9 +116,9 @@ function loadBR {
   yay -S anaconda --noconfirm
   source /opt/anaconda/bin/activate root
   conda create -n py368 python=3.6 ipykernel
-  sudo conda install nb_conda_kernels
+  sudo conda install -y nb_conda_kernels
   conda activate py368
-  sudo conda install lxml
+  sudo conda install -y lxml
   sudo pip install pdfcutter requests lxml
 
   sudo ipython3 kernel install #Otherwise jupyter cant find kernel
@@ -128,15 +132,30 @@ function loadWallabag {
     cd ~
 }
 
+function installAnki {
+  SITE=$(curl -s https://apps.ankiweb.net/ )
+  URL="https://apps.ankiweb.net"
+  URL+=$(echo "$SITE" | sed -n 's|.*href="\(.*amd64.*bz2\).*|\1|p' | head -n 1)
+  curl -s "$URL" --output - > /tmp/anki.tar.bz2
+  cd /tmp
+  tar xjf /tmp/anki.tar.bz2
+  cd anki-*
+  make
+  sudo mv anki-* /opt/anki
+  cd ~
+  
+}
+
 function installPrograms {
     yayPackages
     syncTime
     installZSH
     setUpBackgroundLight
-    installLatexTUDresden
+    #installLatexTUDresden
     installFonts
     loadWallabag
     loadBR
+    installAnki #Need to do this manually because pacman anki conflicts with python pacakges
 }
 
 function fixDisplayManager {
@@ -329,12 +348,13 @@ function fixAudio {
 }
 
 function main {
-    setUpHome
+    #setUpHome
     installPrograms
     addConfigs
     fixWifi
-    fixAudio
+    #fixAudio
     setUpManually
     setUpPrinter
 }
-main
+#main
+setUpDCP
