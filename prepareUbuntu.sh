@@ -356,5 +356,4 @@ function main {
     setUpManually
     setUpPrinter
 }
-#main
-setUpDCP
+main
