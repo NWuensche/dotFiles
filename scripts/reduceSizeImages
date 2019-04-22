@@ -1,0 +1,11 @@
+#!/bin/sh
+
+set -e
+
+TMP=$(mktemp)
+for i in "$@"; do
+  jpegoptim -q "$i"
+  convert -quality 25 "$i" $TMP
+  mv $TMP "$i"
+done
+

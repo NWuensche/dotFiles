@@ -38,7 +38,7 @@ function yayPackages {
     yay -S xdotool expect --noconfirm # Automation Tools
     yay -S tmux terminator zsh  --noconfirm #Terminator Environment 
     yay -S curl wget htop neomutt vifm feh mps-youtube pdfgrep calcurse w3m bc mplayer irssi docker  --noconfirm #Terminal Tools 
-    yay -S jq rsync pwgen xclip ffmpeg xss-lock xautolock youtube-dl trash-cli scrot udiskie ntfs-3g unrar cronie ttf-liberation openssh imapfilter urlview pandoc  --noconfirm #Terminal Support Tools 
+    yay -S jq rsync pwgen xclip ffmpeg xss-lock xautolock youtube-dl trash-cli scrot udiskie ntfs-3g unrar cronie ttf-liberation openssh imapfilter urlview pandoc jpegoptim --noconfirm #Terminal Support Tools 
     yay -S tcsh cups sane brscan2 brscan3 --noconfirm #Printer Tools 
     yay -S xf86-input-synaptics xf86-input-mtrack  --noconfirm #Touchpad Tools 
     yay -S ttf-liberation pango  --noconfirm #Fonts and Font Tools 
@@ -47,7 +47,7 @@ function yayPackages {
     yay -S redshift gparted  arandr wine android-file-transfer notification-daemon  --noconfirm # X Support Tools 
     yay -S virtualbox virtualbox-host-modules-arch virtualbox-guest-iso  --noconfirm #Virtualbox 
     yay -S texlive-most biber texlive-localmanager-git  --noconfirm #Latex 
-    yay -S slack-desktop openconnect telegram-desktop --noconfirm #Other Stuff 
+    yay -S slack-desktop openconnect telegram-desktop macchanger --noconfirm #Other Stuff 
     yay -S wpa_actiond --noconfirm # For auto search WiFi
 
     sudo pip install mitmproxy pytube selenium
@@ -205,15 +205,15 @@ function moveConfigs {
         rm .cache/dmenu_run # Neceassary for dmenu finding ~/bin
     fi
 
-    #Hard Link for every Script to be part of dmenu
-    for fullfile in ~/.dotFiles/scripts/*; do
-            filename=$(basename -- "$fullfile")
-            ln -f $fullfile "/home/nwuensche/bin/$filename"
-    done
-    for fullfile in ~/saveFolder/privateScripts/*; do
-            filename=$(basename -- "$fullfile")
-            ln -f $fullfile "/home/nwuensche/bin/$filename"
-    done
+    #Not necessary anymore  - Hard Link for every Script to be part of dmenu
+    #for fullfile in ~/.dotFiles/scripts/*; do
+    #        filename=$(basename -- "$fullfile")
+    #        ln -f $fullfile "/home/nwuensche/bin/$filename"
+    #done
+    #for fullfile in ~/saveFolder/privateScripts/*; do
+    #        filename=$(basename -- "$fullfile")
+    #        ln -f $fullfile "/home/nwuensche/bin/$filename"
+    #done
 
     ln -sf ~/saveFolder/Anki21Config ~/.local/share/Anki2
     gpg --import ~/saveFolder/gpg_key_pub.asc
