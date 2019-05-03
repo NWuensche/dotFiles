@@ -10,7 +10,7 @@ export ANDROID_HOME
 MAVEN_OPTS="-Xmx1024m -Xms512m"
 export MAVEN_OPTS
 #export PATH="/home/nwuensche/anaconda3/bin:$PATH"
-export PATH=$PATH:/snap/bin:/opt/ghc/8.0.2/bin:/home/nwuensche/Android/Sdk/tools:/home/nwuensche/Android/Sdk/platform-tools:~/Downloads/phantomjs-2.1.1-linux-x86_64/bin:~/.nix-profile/bin:~/.local/bin:~/.cabal/bin:~/bin:~/saveFolder/privateScripts:~/.dotFiles/scripts
+export PATH=$PATH:/home/nwuensche/Android/Sdk/tools:/home/nwuensche/Android/Sdk/platform-tools:~/.nix-profile/bin:~/.local/bin:~/.cabal/bin:~/saveFolder/privateScripts:~/.dotFiles/scripts
 
 export MESA_GLSL_CACHE_DISABLE=true #Fix Bug Chrome
 
@@ -22,6 +22,7 @@ export BROWSER="chromium-browser"
 alias gf='/usr/bin/gf'
 alias feh='feh --auto-rotate'
 alias screenshotXVFB="DISPLAY=:19 import -window root /tmp/screenshot.png; feh /tmp/screenshot.png"
+alias android-file-transfer="aft-mtp-cli"
 source $ZSH/oh-my-zsh.sh
 
 alias -s sh=sh
@@ -82,7 +83,6 @@ alias sv="source /opt/anaconda/bin/activate root; conda activate py368"
 
 #Android Stuff
 alias aShell="Xvfb :20 -screen 0 1024x768x16 &;export DISPLAY=:20;~/Android/Sdk/emulator/emulator @Nexus_4_API_28 &; sleep 5; adb shell"
-alias mitmproxy="~/bin/mitmproxy" #Do preprocessing before
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 

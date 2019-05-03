@@ -1,0 +1,11 @@
+#/bin/sh
+
+#Takes 1 regex and a list of files to rename
+#e.g. find . -type f | renameFiles "s/-\(.\)\.mp3/-0\1.mp3/g"
+set -e
+REGEX=$(echo "$1")
+while IFS= read FILE; do
+  NEW_FILE=$(echo "$FILE" | sed "$REGEX" )
+  mv "$FILE" "$NEW_FILE" 2>/dev/null  || true #Don't get message when same file, ignore error then
+done
+
