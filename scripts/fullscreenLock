@@ -13,10 +13,13 @@ while true; do
   SCREEN=$(xdpyinfo | grep -m1 dimensions | awk '{print $2}')
   if [ "$WINDOW" = "$SCREEN" ] || [ "$WINDOW" = "1916x1058" ]; then #Fullscreen or single window i3
       if [ "$NAMEWINDOW" != "" ]; then
-          X=$( xdotool getmouselocation | sed -n 's/.*x:\([[:alnum:]]*\).*/\1/p' )
-          Y=$( xdotool getmouselocation | sed -n 's/.*y:\([[:alnum:]]*\).*/\1/p' )
-          xdotool mousemove `echo $((X+1))` `echo $((Y+1))`
-          xdotool mousemove `echo $X` `echo $Y`
+#          X=$( xdotool getmouselocation | sed -n 's/.*x:\([[:alnum:]]*\).*/\1/p' )
+#          Y=$( xdotool getmouselocation | sed -n 's/.*y:\([[:alnum:]]*\).*/\1/p' )
+#          xdotool mousemove `echo $((X+1))` `echo $((Y+1))`
+#          xdotool mousemove `echo $X` `echo $Y`
+          xautolock -disable
+          xautolock -enable
+          #TODO Sonst evnt xautolock -restart
       fi
   fi
 done

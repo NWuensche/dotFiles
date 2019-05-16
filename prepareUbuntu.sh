@@ -97,7 +97,10 @@ function installLatexTUDresden {
 }
 
 function autoStartVPN {
+    sudo systemctl enable --now nordvpnsd
+    systemctl --user enable --now nordvpnud
     sh ~/saveFolder/setupVPN.sh
+    
 }
 
 function installFonts {
