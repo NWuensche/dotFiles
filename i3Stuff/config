@@ -175,10 +175,11 @@ no_focus [window_role="pop-up"]
 bindsym XF86MonBrightnessUp exec light -A 20
 bindsym XF86MonBrightnessDown exec light -U 20
 
-bindsym XF86AudioRaiseVolume exec "amixer -D pulse sset Master '5%+'"
-bindsym XF86AudioLowerVolume exec "amixer -D pulse sset Master '5%-'"
-bindsym XF86AudioMute exec "amixer -D pulse set Master toggle"
-bindsym XF86AudioMicMute exec "amixer -D pulse sset Capture toggle"
+bindsym XF86AudioRaiseVolume exec "amixer -q -D pulse sset Master '5%+'"
+#bindsym XF86AudioRaiseVolume exec "volUpOrButton"
+bindsym XF86AudioLowerVolume exec "amixer -q -D pulse sset Master '5%-'"
+bindsym XF86AudioMute exec "amixer -q -D pulse set Master toggle"
+bindsym XF86AudioMicMute exec "amixer -q -D pulse sset Capture toggle"
 #bindsym XF86Display exec "notify-send 'XF86Display'" #F7
 #bindsym XF86WLAN exec notify-send 'XF86WLAN' #F8, but throws i3 error
 bindsym XF86Tools exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause #F9
@@ -187,6 +188,7 @@ bindsym XF86LaunchA exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.s
 bindsym XF86Explorer exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next #F12
 
 
+#bindcode 123 exec "~/works"
 
 #Colons break rsync for backing up
 bindsym Print exec scrot '%d.%m.%Y %H-%M-%S.png' -e 'mv "$f" ~/Bilder/'

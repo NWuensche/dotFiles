@@ -107,8 +107,8 @@ map <Leader>f :FZF <CR>
 "let g:UltiSnipsJumpBackwardTrigger="<c-z>""
 
 "Blue after 120 chars
-highlight ColorColumn ctermbg=DarkCyan
-call matchadd('ColorColumn', '\%121v', 100)
+"highlight ColorColumn ctermbg=DarkCyan
+"call matchadd('ColorColumn', '\%121v', 100)
 
 " Automatically load PDF preview on tex Files - Take out because Bibliography
 " doesn't work
@@ -127,6 +127,6 @@ nmap gcw guw~h
 " Decapitalize Word
 nmap gcc guu~h
 
-map <F2> :! npm run build <CR>
+map <F2> :! latexmk -pdf new.tex <CR>
 
 autocmd Filetype json :%!python -m json.tool

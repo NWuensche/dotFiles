@@ -1,0 +1,40 @@
+#!/bin/bash
+
+BID="FF:FF:34:C4:D2:91"
+
+close() {
+  (
+      echo "disconnect $BID"
+  ) | sudo bluetoothctl
+}
+
+trap 'close' SIGINT
+
+sudo systemctl start bluetooth.service
+(
+    echo default-agent
+) | sudo bluetoothctl > /dev/null
+sleep 2
+(
+    echo power on
+) | sudo bluetoothctl > /dev/null
+sleep 2
+(
+    echo scan on
+) | sudo bluetoothctl > /dev/null
+sleep 5
+(
+    echo "connect $BID"
+) | sudo bluetoothctl > /dev/null
+
+#Do this so Button won't go to sleep
+while true; do
+  sleep 120
+  (
+      echo "disconnect $BID"
+  ) | sudo bluetoothctl > /dev/null
+  sleep 5
+  (
+      echo "connect $BID"
+  ) | sudo bluetoothctl > /dev/null
+done

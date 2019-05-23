@@ -1,0 +1,20 @@
+#!/bin/sh
+AUDIOUP="amixer -q -D pulse sset Master '5%+'"
+BID="FF:FF:34:C4:D2:91"
+BDEAD=$(systemctl status bluetooth | sed -n 's/inactive/inactive/p')
+
+if [[ "$BDEAD" != "" ]]; then
+  eval $AUDIOUP
+  exit 0
+fi
+
+BUTTONNOTPAIRED=$( (
+    echo "info $BID"
+    ) | bluetoothctl | sed -n '/Connected: no/p'
+)
+if [[ "$BUTTONNOTPAIRED" != "" ]]; then
+  eval $AUDIOUP
+  exit 0
+fi
+
+xdotool key XF86Explorer #Skip Spotify, dbus doesn't work
