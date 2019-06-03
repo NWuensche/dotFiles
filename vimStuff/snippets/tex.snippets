@@ -17,6 +17,18 @@ snippet block enumerate environment
 		${2:Text}
 	\\end{block}
 
+snippet split enumerate environment
+	\\begin{columns}[T] % align columns
+		\\begin{column}{.48\textwidth}
+			${1:Left}
+		\\end{column}%
+		\\hfill%
+
+		\\begin{column}{.48\textwidth}
+			${2:Right}
+		\\end{column}%
+	\\end{columns}
+
 snippet theo theo enviroment
 	\theobox{Satz: ${1:theorem}}
 snippet exp exp enviroment
