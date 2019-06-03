@@ -27,6 +27,7 @@ sleep 5
     echo "connect $BID"
 ) | sudo bluetoothctl > /dev/null
 
+sudo -E bluebutton -d="Deka-Foto" -c /home/nwuensche/.config/bluebutton >/dev/null &
 #Do this so Button won't go to sleep
 while true; do
   sleep 120

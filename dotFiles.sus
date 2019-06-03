@@ -89,6 +89,7 @@ card configs {
 	into ~/.config
 	outof configs
 
+  bluebutton.config -> bluebutton
 
 	{
 		into terminator
