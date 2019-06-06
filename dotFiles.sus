@@ -95,15 +95,19 @@ card configs {
 		into terminator
 		config.terminator -> config
 	}
-    {
-        into qutebrowser
-        config.py
-    }
-    {
-        into Code/User
-        keybindings.json
-        settings.json
-    }
+	{
+		into htop
+    htoprc
+	}
+  {
+      into qutebrowser
+      config.py
+  }
+  {
+      into Code/User
+      keybindings.json
+      settings.json
+  }
 
 }
 
