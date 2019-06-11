@@ -1,0 +1,62 @@
+#!/bin/sh
+IN=$(cat $1)
+FLAG=$2
+OFFSET=$3
+IFS='' #Otherwise spaces at beginning are getting deleted
+
+up(){
+  while read -r LINE; do #-r does that \ not deleted
+    lastNum=$(echo "$LINE" | sed -n 's/.*(\s*\(.*\)\s*,.*).*/\1/p') #INFO last because .* beginning greedy
+    if [[ "$lastNum" == "" ]]; then 
+      echo "$LINE"
+      continue
+    fi
+
+    #INFO Bash cant do floating point
+    newSecoundNum=$(echo "$lastNum + $OFFSET" | bc )
+    replaceSecoundNum=$(echo "$LINE" | sed -n "s/\(.*(\s*\)\(.*\)\(,.*).*\)/\1$newSecoundNum\3/p")
+
+    
+    #Does not exist for nodes for text
+    firstNum=$(echo "$LINE" | sed -n 's/.*(\s*\(.*\)\s*,.*).*(.*).*/\1/p') #INFO last because .* beginning greedy
+    if [[ "$firstNum" == "" ]]; then 
+      echo "$replaceSecoundNum"
+      continue
+    fi
+    newFirstNum=$(echo "$firstNum + $OFFSET" | bc )
+
+    replaceBothNum=$(echo "$replaceSecoundNum" | sed -n "s/\(.*(\s*\)\(.*\)\(\s*,.*).*(.*).*\)/\1$newFirstNum\3/p" )
+    echo "$replaceBothNum"
+  done <<< "$IN"
+}
+
+right() {
+  while read -r LINE; do #-r does that \ not deleted
+    lastNum=$(echo "$LINE" | sed -n 's/.*(.*,\s*\(.*\)\s*).*/\1/p') #INFO last because .* beginning greedy
+    if [[ "$lastNum" == "" ]]; then 
+      echo "$LINE"
+      continue
+    fi
+    #INFO Bash cant do floating point
+    newSecoundNum=$(echo "$lastNum + $OFFSET" | bc )
+    replaceSecoundNum=$(echo "$LINE" | sed -n "s/\(.*(.*,\s*\)\(.*\)\(\s*).*\)/\1$newSecoundNum\3/p")
+
+    
+    #Does not exist for nodes like text
+    firstNum=$(echo "$LINE" | sed -n 's/.*(.*,\s*\(.*\)\s*).*(.*).*/\1/p') #INFO last because .* beginning greedy
+    if [[ "$firstNum" == "" ]]; then 
+      echo "$replaceSecoundNum"
+      continue
+    fi
+    newFirstNum=$(echo "$firstNum + $OFFSET" | bc )
+
+    replaceBothNum=$(echo "$replaceSecoundNum" | sed -n "s/\(.*(.*,\s*\)\(.*\)\(\s*).*(.*).*\)/\1$newFirstNum\3/p" )
+    echo "$replaceBothNum"
+  done <<< "$IN"
+}
+
+case $FLAG in
+  -r ) right; break;;
+  -u ) up; break;;
+  * ) echo "Input Format: FILE -r NUM | FILE -u NUM"
+esac

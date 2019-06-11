@@ -130,3 +130,5 @@ nmap gcc guu~h
 map <F2> :! latexmk -pdf new.tex <CR>
 
 autocmd Filetype json :%!python -m json.tool
+" Used for moving stuff inside tikz
+xnoremap <leader>a <esc>:'<,'>!moveTikz -r 
