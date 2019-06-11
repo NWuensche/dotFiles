@@ -1,7 +1,7 @@
 #!/bin/sh
-IN=$(cat $1)
-FLAG=$2
-OFFSET=$3
+IN=$(less <&0) #Read STDIN for vim
+FLAG=$1
+OFFSET=$2
 IFS='' #Otherwise spaces at beginning are getting deleted
 
 up(){
