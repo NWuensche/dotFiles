@@ -132,4 +132,4 @@ map <F2> :! latexmk -pdf %:p <CR>
 autocmd Filetype json :%!python -m json.tool
 " Used for moving stuff inside tikz
 xnoremap <leader>m <esc>:'<,'>!moveTikz -r 
-xnoremap <leader>n <esc>:'<,'>!scaleTikz -r 
+xnoremap <leader>n <esc>:'<,'>!scaleTikz -u -

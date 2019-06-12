@@ -44,7 +44,6 @@ up() {
     #INFO Bash cant do floating point
     newSecoundNum=$(echo "$lastNum + $OFFSET" | bc )
     replaceSecoundNum=$(echo "$LINE" | sed -n "s/\(.*(.*,\s*\)\(.*\)\(\s*).*\)/\1$newSecoundNum\3/p")
-    #TODO Right geht nicht
     echo "$replaceSecoundNum"
   done <<< "$IN"
 }
