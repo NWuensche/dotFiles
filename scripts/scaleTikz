@@ -7,51 +7,45 @@ IFS='' #Otherwise spaces at beginning are getting deleted
 right(){
   while read -r LINE; do #-r does that \ not deleted
     lastNum=$(echo "$LINE" | sed -n 's/.*(\s*\(.*\)\s*,.*).*/\1/p') #INFO last because .* beginning greedy
+    firstNum=$(echo "$LINE" | sed -n 's/.*(\s*\(.*\)\s*,.*).*(.*).*/\1/p') #INFO last because .* beginning greedy
     if [[ "$lastNum" == "" ]]; then 
+      echo "$LINE"
+      continue
+    fi
+    #Does not exist for nodes like text -> Skip them
+    if [[ "$firstNum" == "" ]]; then 
       echo "$LINE"
       continue
     fi
 
     #INFO Bash cant do floating point
+    #Only Change 2nd number to change size
     newSecoundNum=$(echo "$lastNum + $OFFSET" | bc )
     replaceSecoundNum=$(echo "$LINE" | sed -n "s/\(.*(\s*\)\(.*\)\(,.*).*\)/\1$newSecoundNum\3/p")
 
-    
-    #Does not exist for nodes for text
-    firstNum=$(echo "$LINE" | sed -n 's/.*(\s*\(.*\)\s*,.*).*(.*).*/\1/p') #INFO last because .* beginning greedy
-    if [[ "$firstNum" == "" ]]; then 
-      echo "$replaceSecoundNum"
-      continue
-    fi
-    newFirstNum=$(echo "$firstNum + $OFFSET" | bc )
-
-    replaceBothNum=$(echo "$replaceSecoundNum" | sed -n "s/\(.*(\s*\)\(.*\)\(\s*,.*).*(.*).*\)/\1$newFirstNum\3/p" )
-    echo "$replaceBothNum"
+    echo "$replaceSecoundNum"
   done <<< "$IN"
 }
 
 up() {
   while read -r LINE; do #-r does that \ not deleted
     lastNum=$(echo "$LINE" | sed -n 's/.*(.*,\s*\(.*\)\s*).*/\1/p') #INFO last because .* beginning greedy
+    firstNum=$(echo "$LINE" | sed -n 's/.*(.*,\s*\(.*\)\s*).*(.*).*/\1/p') #INFO last because .* beginning greedy
     if [[ "$lastNum" == "" ]]; then 
+      echo "$LINE"
+      continue
+    fi
+
+    #Does not exist for nodes like text
+    if [[ "$firstNum" == "" ]]; then 
       echo "$LINE"
       continue
     fi
     #INFO Bash cant do floating point
     newSecoundNum=$(echo "$lastNum + $OFFSET" | bc )
     replaceSecoundNum=$(echo "$LINE" | sed -n "s/\(.*(.*,\s*\)\(.*\)\(\s*).*\)/\1$newSecoundNum\3/p")
-
-    
-    #Does not exist for nodes like text
-    firstNum=$(echo "$LINE" | sed -n 's/.*(.*,\s*\(.*\)\s*).*(.*).*/\1/p') #INFO last because .* beginning greedy
-    if [[ "$firstNum" == "" ]]; then 
-      echo "$replaceSecoundNum"
-      continue
-    fi
-    newFirstNum=$(echo "$firstNum + $OFFSET" | bc )
-
-    replaceBothNum=$(echo "$replaceSecoundNum" | sed -n "s/\(.*(.*,\s*\)\(.*\)\(\s*).*(.*).*\)/\1$newFirstNum\3/p" )
-    echo "$replaceBothNum"
+    #TODO Right geht nicht
+    echo "$replaceSecoundNum"
   done <<< "$IN"
 }
 

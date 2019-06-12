@@ -126,9 +126,10 @@ let @t='gg/\[*\](E"adiwb"sdi(h"apcs([lxelxGGo["apA: "sp' " for Issue 39
 nmap gcw guw~h
 " Decapitalize Word
 nmap gcc guu~h
-
-map <F2> :! latexmk -pdf new.tex <CR>
+"Compile current file (Full Path)
+map <F2> :! latexmk -pdf %:p <CR>
 
 autocmd Filetype json :%!python -m json.tool
 " Used for moving stuff inside tikz
-xnoremap <leader>a <esc>:'<,'>!moveTikz -r 
+xnoremap <leader>m <esc>:'<,'>!moveTikz -r 
+xnoremap <leader>n <esc>:'<,'>!scaleTikz -r 

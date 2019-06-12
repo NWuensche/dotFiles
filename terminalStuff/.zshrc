@@ -1,6 +1,7 @@
 # User configuration
 export ZSH=/home/nwuensche/.oh-my-zsh
 
+
 plugins=(git)
 ZSH_THEME="agnoster"
 EDITOR=vim
@@ -86,6 +87,7 @@ alias sv="source /opt/anaconda/bin/activate root; conda activate py368"
 alias aShell="Xvfb :20 -screen 0 1024x768x16 &;export DISPLAY=:20;~/Android/Sdk/emulator/emulator @Nexus_4_API_28 &; sleep 5; adb shell"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 #export SDKMAN_DIR="/home/nwuensche/.sdkman"
