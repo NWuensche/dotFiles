@@ -214,8 +214,16 @@ exec feh --bg-scale ~/.background-image
 exec light -S 40
 exec terminator -x tmux attach
 exec xinput -set-prop 12 141 1
-exec xautolock -locker i3lock -time 10 -corners ---- & #suspend lock, don't suspend when in one of the corners
-exec xss-lock -- i3lock & #lid close lock
+exec xautolock -locker myi3lock -time 10 & #suspend lock, don't suspend when in one of the corners
+#exec xss-lock -- true & #Disable default screensaver which darkens screen every 10 minutes
+#Disable black screen after 10 minutes
+exec xset s 0 0 #TODO Can evnt. raus
+
+#Disable showing screen short before showing lock screen
+exec xset s noexpose
+
+exec xset dpms 0 0 0
+
 
 
 
@@ -227,4 +235,4 @@ exec xinput --set-prop 'TPPS/2 IBM TrackPoint' 'libinput Accel Speed' 1
 #exec_always /home/nwuensche/.dotFiles/scripts/setupMonitor
 exec amixer -D pulse sset Capture nocap #Micro off
 
-exec /home/nwuensche/.dotFiles/scripts/fullscreenLock & #Can't do this in crontab because Environment variables are wrong
+#exec /home/nwuensche/.dotFiles/scripts/fullscreenLock & #Can't do this in crontab because Environment variables are wrong

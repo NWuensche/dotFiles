@@ -17,8 +17,12 @@ while true; do
 #          Y=$( xdotool getmouselocation | sed -n 's/.*y:\([[:alnum:]]*\).*/\1/p' )
 #          xdotool mousemove `echo $((X+1))` `echo $((Y+1))`
 #          xdotool mousemove `echo $X` `echo $Y`
-          xautolock -disable
-          xautolock -enable
+#          xautolock -disable
+          xautolock -exit
+          sleep 1
+          xautolock -locker i3lock -time 10 & #suspend lock, don't suspend when in one of the corners
+          #Disable doesn't reset timer
+#         xautolock -enable
           #TODO Sonst evnt xautolock -restart
       fi
   fi
