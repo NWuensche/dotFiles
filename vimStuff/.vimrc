@@ -4,6 +4,8 @@ set shiftwidth=2
 set expandtab
 set clipboard=unnamedplus
 set spell
+" New split always below current window
+set splitbelow 
 syntax enable
 let mapleader = ","
 let $SNIPPETSPATH = '/home/nwuensche/.dotFiles/vimStuff'
@@ -41,6 +43,8 @@ call vundle#begin()
 " 	------- PLUGINS BEGIN ------- "
 " Let Vundle manage Vundle
 Plugin 'VundleVim/Vundle.vim'
+" Git Plugin
+Plugin 'tpope/vim-fugitive'
 " Close Brackets automaticaly
 Plugin 'Raimondi/delimitMate'
 "Tmux Vim Windows Seamless
@@ -132,4 +136,8 @@ map <F2> :! latexmk -pdf %:p <CR>
 autocmd Filetype json :%!python -m json.tool
 " Used for moving stuff inside tikz
 xnoremap <leader>m <esc>:'<,'>!moveTikz -r 
-xnoremap <leader>n <esc>:'<,'>!scaleTikz -u -
+map <leader>n :sp %:p:h/macros.tex <CR>
+"xnoremap <leader>n <esc>:'<,'>!scaleTikz -u -
+"Swap Word Right/Left
+nnoremap <silent> gw "_yiw:s/\(\%#\w\+\)\(\W\+\)\(\w\+\)/\3\2\1/<CR><c-o><c-l>:nohlsearch<CR>
+nnoremap <silent> gl "_yiw?\w\+\_W\+\%#<CR>:s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR><c-o><c-l>:nohlsearch<CR>w

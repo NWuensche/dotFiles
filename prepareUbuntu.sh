@@ -38,7 +38,7 @@ function yayPackages {
     yay -S xdotool expect --noconfirm # Automation Tools
     yay -S tmux terminator zsh  --noconfirm #Terminator Environment 
     yay -S curl wget htop neomutt vifm feh mps-youtube pdfgrep calcurse w3m bc mplayer irssi docker  --noconfirm #Terminal Tools 
-    yay -S jq rsync pwgen xclip ffmpeg xss-lock xautolock youtube-dl trash-cli scrot udiskie ntfs-3g unrar cronie ttf-liberation openssh imapfilter urlview pandoc jpegoptim --noconfirm #Terminal Support Tools 
+    yay -S powertop jq rsync pwgen xclip ffmpeg xss-lock xautolock youtube-dl trash-cli scrot udiskie ntfs-3g unrar cronie ttf-liberation openssh imapfilter urlview pandoc jpegoptim --noconfirm #Terminal Support Tools 
     yay -S tcsh cups sane brscan2 brscan3 --noconfirm #Printer Tools 
     yay -S xf86-input-synaptics xf86-input-mtrack  --noconfirm #Touchpad Tools 
     yay -S ttf-liberation pango  --noconfirm #Fonts and Font Tools 
@@ -347,6 +347,13 @@ function fixWifi {
     sudo cp ~/saveFolder/netctlProfiles/* /etc/netctl
 }
 
+#Optimize Battery on startup
+function powertopAdd {
+    sudo cp ~/.dotFiles/services/powertop.service /etc/systemd/system/
+    sudo systemctl daemon-reload
+    sudo systemctl enable powertop.service
+}
+
 function fixAudio {
     #Default is that HDMI Out is default speaker. This makes normal speaker default
     sudo sh -c "echo -e \"pcm.\!default {\n        type hw\n        card 1\n}\" > /etc/asound.conf"
@@ -357,9 +364,11 @@ function main {
     installPrograms
     addConfigs
     fixWifi
+    powertopAdd
     #fixAudio
     setUpManually
     setUpPrinter
 }
 #main
-setUpMFC
+    powertopAdd
+#setUpMFC
