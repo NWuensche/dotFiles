@@ -219,10 +219,11 @@ exec xautolock -locker myi3lock -time 10 & #suspend lock, don't suspend when in 
 #Disable black screen after 10 minutes
 exec xset s 0 0 #TODO Can evnt. raus
 
+exec xset dpms 0 0 0
+
 #Disable showing screen short before showing lock screen
 exec xset s noexpose
-
-exec xset dpms 0 0 0
+exec xset s noblank
 
 
 

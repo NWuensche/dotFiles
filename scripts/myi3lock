@@ -17,12 +17,12 @@ if [ "$WINDOW" = "$SCREEN" ] || [ "$WINDOW" = "1916x1058" ]; then #Fullscreen or
 #          xdotool mousemove `echo $((X+1))` `echo $((Y+1))`
 #          xdotool mousemove `echo $X` `echo $Y`
 #          xautolock -disable
-        echo "LOL"
-        i3lock
+        systemctl suspend 
+#        i3lock
         #Disable doesn't reset timer
 #         xautolock -enable
         #TODO Sonst evnt xautolock -restart
     fi
 else
-  i3lock
+  systemctl suspend 
 fi
