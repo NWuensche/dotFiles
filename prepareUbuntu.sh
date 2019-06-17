@@ -347,6 +347,12 @@ function fixWifi {
     sudo cp ~/saveFolder/netctlProfiles/* /etc/netctl
 }
 
+function lidCloseLock {
+    sudo cp ~/.dotFiles/services/lock@.service /etc/systemd/system/
+    sudo systemctl daemon-reload
+    systemctl enable lock@$USER.service
+}
+
 #Optimize Battery on startup
 function powertopAdd {
     sudo cp ~/.dotFiles/services/powertop.service /etc/systemd/system/
@@ -364,6 +370,7 @@ function main {
     installPrograms
     addConfigs
     fixWifi
+    lidCloseLock
     powertopAdd
     #fixAudio
     setUpManually
