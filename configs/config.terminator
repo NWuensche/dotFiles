@@ -1,5 +1,4 @@
 [global_config]
-  borderless = True
   suppress_multiple_term_dialog = True
   title_font = Meslo LG S DZ for Powerline 8
   title_transmit_bg_color = "#002b36"
