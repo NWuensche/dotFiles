@@ -189,6 +189,8 @@ function setUpVim {
 
 function setUpTmux {
    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+   # Needed for italic inside tmux
+   tic ~/.dotFiles/terminalStuff/screen-256color.terminfo
 }
 
 function moveConfigs {

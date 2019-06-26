@@ -16,7 +16,10 @@ set number
 
 " Type <Leader>w to save file
 nnoremap <Leader>w :w<CR>
-inoremap <Leader>p <c-r>+
+"inoremap <Leader>p <c-r>+
+" Not formating pasting
+set pastetoggle=<F10>
+inoremap <Leader>p <F10><C-r>+<F10>
 
 nnoremap <Up> <nop>
 nnoremap <Down> <nop>
@@ -141,3 +144,6 @@ map <leader>n :sp %:p:h/macros.tex <CR>
 "Swap Word Right/Left
 nnoremap <silent> gw "_yiw:s/\(\%#\w\+\)\(\W\+\)\(\w\+\)/\3\2\1/<CR><c-o><c-l>:nohlsearch<CR>
 nnoremap <silent> gl "_yiw?\w\+\_W\+\%#<CR>:s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR><c-o><c-l>:nohlsearch<CR>w
+"Italic TMUX
+set t_ZH=[3m
+set t_ZR=[23m

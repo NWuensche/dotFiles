@@ -4,7 +4,7 @@
 
 EXECUTER=$1
 #Just do this for Chromium
-NAMEWINDOW=$(echo $(xwininfo -id $(xdotool getactivewindow)) | sed -n -r '/(prime video|games done quick|youtube|ted|zdfmediathek|kyoto university opencourseware|media.ccc.de).*(Firefox|Chromium)/Ip')
+NAMEWINDOW=$(echo $(xwininfo -id $(xdotool getactivewindow)) | sed -n -r '/(prime video|games done quick|gamesDoneQuick|youtube|ted|zdfmediathek|kyoto university opencourseware|media.ccc.de).*(Firefox|Chromium)/Ip')
 WINDOW=$(echo $(xwininfo -id $(xdotool getactivewindow) -stats | \
                 egrep '(Width|Height):' | \
                 awk '{print $NF}') | \
@@ -17,12 +17,42 @@ if [ "$WINDOW" = "$SCREEN" ] || [ "$WINDOW" = "1916x1058" ]; then #Fullscreen or
 #          xdotool mousemove `echo $((X+1))` `echo $((Y+1))`
 #          xdotool mousemove `echo $X` `echo $Y`
 #          xautolock -disable
-        systemctl suspend 
+#        systemctl suspend 
 #        i3lock
+
+        OLDMOUSEPOS=$(xdotool getmouselocation | awk '{print $1$2}')
+        # Black
+        xset dpms force standby
+        sleep 30
+        CURRMOUSEPOS=$(xdotool getmouselocation | awk '{print $1$2}')
+        if [ "$OLDMOUSEPOS" = "$CURRMOUSEPOS" ] ; then #Fullscreen or single window i3
+          i3lock
+        fi
+        sleep 120
+        CURRMOUSEPOS=$(xdotool getmouselocation | awk '{print $1$2}')
+        if [ "$OLDMOUSEPOS" = "$CURRMOUSEPOS" ] ; then #Fullscreen or single window i3
+          xset dpms force on
+          systemctl suspend 
+        fi
+
         #Disable doesn't reset timer
 #         xautolock -enable
         #TODO Sonst evnt xautolock -restart
     fi
 else
-  systemctl suspend 
+  #systemctl suspend 
+        OLDMOUSEPOS=$(xdotool getmouselocation | awk '{print $1$2}')
+        # Black
+        xset dpms force standby
+        sleep 30
+        CURRMOUSEPOS=$(xdotool getmouselocation | awk '{print $1$2}')
+        if [ "$OLDMOUSEPOS" = "$CURRMOUSEPOS" ] ; then #Fullscreen or single window i3
+          i3lock
+        fi
+        sleep 120
+        CURRMOUSEPOS=$(xdotool getmouselocation | awk '{print $1$2}')
+        if [ "$OLDMOUSEPOS" = "$CURRMOUSEPOS" ] ; then #Fullscreen or single window i3
+          xset dpms force on
+          systemctl suspend 
+        fi
 fi

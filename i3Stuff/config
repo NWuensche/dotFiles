@@ -212,7 +212,8 @@ exec /usr/lib/notification-daemon-1.0/notification-daemon & #Daemon for notifica
 exec_always "setxkbmap eu -option caps:escape"
 exec feh --bg-scale ~/.background-image
 exec light -S 40
-exec terminator -x tmux attach
+#Italic
+exec terminator -x  env TERM=screen-256color tmux attach
 exec xinput -set-prop 12 141 1
 exec xautolock -locker myi3lock -time 10 & #suspend lock, don't suspend when in one of the corners
 #exec xss-lock -- true & #Disable default screensaver which darkens screen every 10 minutes
