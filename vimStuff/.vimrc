@@ -8,7 +8,6 @@ set spell
 set splitbelow 
 syntax enable
 let mapleader = ","
-let $SNIPPETSPATH = '/home/nwuensche/.dotFiles/vimStuff'
 set rtp^=$SNIPPETSPATH
 set spelllang=en,de
 " Show Line Number

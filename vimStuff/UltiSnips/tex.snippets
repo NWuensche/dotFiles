@@ -1,0 +1,47 @@
+snippet frame
+\\begin{frame}{${1:title}}
+\\end{frame}
+endsnippet
+
+snippet date
+${2:${1:`date +%d`}.`date +%m`}.`date +%Y`
+endsnippet
+
+
+snippet itemize
+	\\begin{itemize}
+		\\item ${1:Text}
+	\\end{itemize}
+endsnippet
+
+
+snippet enum
+	\\begin{enumerate}
+		\\item ${1:Text}
+	\\end{enumerate}
+endsnippet
+
+
+snippet block
+	\\begin{block}{${1:Title}}
+		${2:Text}
+	\\end{block}
+
+
+snippet nc
+	\\newcommand{\\${1:Name}}{${2:Command}}
+	\\end{columns}
+endsnippet
+
+snippet split
+	\\begin{columns}[T] % align columns
+		\\begin{column}{.48\textwidth}
+			${1:Left}
+		\\end{column}%
+		\\hfill%
+
+		\\begin{column}{.48\textwidth}
+			${2:Right}
+		\\end{column}%
+	\\end{columns}
+endsnippet
