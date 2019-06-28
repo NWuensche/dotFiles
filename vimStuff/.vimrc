@@ -45,6 +45,8 @@ call vundle#begin()
 " 	------- PLUGINS BEGIN ------- "
 " Let Vundle manage Vundle
 Plugin 'VundleVim/Vundle.vim'
+" Vim symbol renderer
+Plugin 'lervag/vimtex'
 " Git Plugin
 Plugin 'tpope/vim-fugitive'
 " Close Brackets automaticaly
@@ -146,3 +148,13 @@ nnoremap <silent> gl "_yiw?\w\+\_W\+\%#<CR>:s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\
 "Italic TMUX
 set t_ZH=[3m
 set t_ZR=[23m
+
+"Vimtex Plugin
+let g:tex_flavor='latex'
+let g:vimtex_view_method='zathura'
+let g:vimtex_quickfix_mode=0
+set conceallevel=1
+let g:tex_conceal='abdmg'
+
+"Fix previous spelling error auto
+inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u

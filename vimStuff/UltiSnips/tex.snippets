@@ -1,5 +1,6 @@
 snippet frame
 \\begin{frame}{${1:title}}
+	${2:Text}
 \\end{frame}
 endsnippet
 
@@ -26,7 +27,7 @@ snippet block
 	\\begin{block}{${1:Title}}
 		${2:Text}
 	\\end{block}
-
+endsnippet
 
 snippet nc
 	\\newcommand{\\${1:Name}}{${2:Command}}
@@ -44,4 +45,13 @@ snippet split
 			${2:Right}
 		\\end{column}%
 	\\end{columns}
+endsnippet
+
+snippet mk "Math" wA
+$${1}$`!p
+if t[2] and t[2][0] not in [',', '.', '?', '-', ' ']:
+    snip.rv = ' '
+else:
+    snip.rv = ''
+`$2
 endsnippet
