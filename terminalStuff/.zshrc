@@ -30,6 +30,7 @@ source $ZSH/oh-my-zsh.sh
 alias -s sh=sh
 alias -s txt=vim
 alias -s tex=vim
+alias -s md=vim
 alias -s html=chromium
 alias -s pdf=evince
 alias -s odt=libreoffice
