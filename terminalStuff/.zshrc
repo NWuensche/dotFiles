@@ -32,7 +32,7 @@ alias -s txt=vim
 alias -s tex=vim
 alias -s md=vim
 alias -s html=chromium
-alias -s pdf=evince
+alias -s pdf=zathura
 alias -s odt=libreoffice
 alias -s jpg=feh
 alias -s jpeg=feh
@@ -68,7 +68,7 @@ alias search='googler --count 3'
 alias youtube='mpsyt'
 alias convertALLEPUBS='for EPUBBOOK in *.epub; do; ebook-convert $EPUBBOOK "${EPUBBOOK%.*}.mobi"; done'
 #alias trash-restore='restore-trash'
-alias t='env TERM=screen-256color tmux attach ||  env TERM=screen-256color tmux new'
+alias t='tmux attach || tmux new'
 alias readSite='f() {python3 ~/.dotFiles/scripts/read.py $1 | w3m -T 'text/html'}; f'
 alias recover='f() {sudo grep -a -B100 -A100 "$0" /dev/sda3 > recover.txt; echo "recover can be found in ~/recover.txt"}; f'
 alias decompileJAR='f() {java -cp "/opt/IntelliJ/plugins/java-decompiler/lib/java-decompiler.jar" org.jetbrains.java.decompiler.main.decompiler.ConsoleDecompiler $0}; f'

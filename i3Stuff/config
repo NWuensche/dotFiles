@@ -234,7 +234,7 @@ exec xset s noblank
 exec xinput --set-prop 'TPPS/2 IBM TrackPoint' 'libinput Accel Profile Enabled' 0, 1
 exec xinput --set-prop 'TPPS/2 IBM TrackPoint' 'libinput Accel Speed' 1
 
-#exec_always /home/nwuensche/.dotFiles/scripts/setupMonitor
+exec_always /home/nwuensche/.dotFiles/scripts/setupMonitor
 exec amixer -D pulse sset Capture nocap #Micro off
 
 #exec /home/nwuensche/.dotFiles/scripts/fullscreenLock & #Can't do this in crontab because Environment variables are wrong

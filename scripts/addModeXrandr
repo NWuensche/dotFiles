@@ -1,0 +1,17 @@
+#!/bin/sh
+set -e
+OUT=$1
+X=$2
+Y=$3
+
+if [[ "$Y" == "" ]]; then
+  echo "Format: OUTPUT X Y"
+  exit 1
+fi
+LINE=$(cvt $X $Y | tail -n 1)
+MODE=$(echo "$LINE" | cut -d" " -f 2-)
+echo "$MODE"
+MODE_NAME=$(echo "$LINE" | awk '{print $2}')
+
+xrandr --newmode $MODE
+xrandr --addmode "$OUT" "$MODE_NAME"

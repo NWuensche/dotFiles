@@ -37,13 +37,13 @@ function yayPackages {
     yay -S pulseaudio-bluetooth bluez-utils bluez --noconfirm #Bluetooth
     yay -S xdotool expect --noconfirm # Automation Tools
     yay -S tmux terminator zsh  --noconfirm #Terminator Environment 
-    yay -S curl wget htop neomutt vifm feh mps-youtube pdfgrep calcurse w3m bc mplayer irssi docker  --noconfirm #Terminal Tools 
+    yay -S unzip curl wget htop neomutt vifm feh mps-youtube pdfgrep calcurse w3m bc mplayer irssi docker  --noconfirm #Terminal Tools 
     yay -S powertop jq rsync pwgen xclip ffmpeg xss-lock xautolock youtube-dl trash-cli scrot udiskie ntfs-3g unrar cronie ttf-liberation openssh imapfilter urlview pandoc jpegoptim --noconfirm #Terminal Support Tools 
     yay -S tcsh cups sane brscan2 brscan3 --noconfirm #Printer Tools 
     yay -S xf86-input-synaptics xf86-input-mtrack  --noconfirm #Touchpad Tools 
     yay -S ttf-liberation pango  --noconfirm #Fonts and Font Tools 
     yay -S alsa-utils pulseaudio pavucontrol --noconfirm #Audio 
-    yay -S steam calibre vlc gimp chromium kdenlive libreoffice-fresh-de  evince xournal spotify  --noconfirm #X Tools 
+    yay -S steam calibre vlc gimp chromium kdenlive libreoffice-fresh-de  zathura zathura-pdf-poppler xournal spotify  --noconfirm #X Tools 
     yay -S redshift gparted  arandr wine android-file-transfer notification-daemon  --noconfirm # X Support Tools 
     yay -S virtualbox virtualbox-host-modules-arch virtualbox-guest-iso  --noconfirm #Virtualbox 
     yay -S texlive-most biber texlive-localmanager-git  --noconfirm #Latex 

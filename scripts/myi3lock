@@ -31,7 +31,7 @@ if [ "$WINDOW" = "$SCREEN" ] || [ "$WINDOW" = "1916x1058" ]; then #Fullscreen or
         sleep 120
         CURRMOUSEPOS=$(xdotool getmouselocation | awk '{print $1$2}')
         if [ "$OLDMOUSEPOS" = "$CURRMOUSEPOS" ] ; then #Fullscreen or single window i3
-          xset dpms force on
+#          xset dpms force on
           systemctl suspend 
         fi
 

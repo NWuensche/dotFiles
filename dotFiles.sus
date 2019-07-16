@@ -108,6 +108,10 @@ card configs {
       keybindings.json
       settings.json
   }
+  {
+      into zathura
+      zathurarc
+  }
 
 }
 
