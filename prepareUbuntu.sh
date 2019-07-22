@@ -43,7 +43,7 @@ function yayPackages {
     yay -S xf86-input-synaptics xf86-input-mtrack  --noconfirm #Touchpad Tools 
     yay -S ttf-liberation pango  --noconfirm #Fonts and Font Tools 
     yay -S alsa-utils pulseaudio pavucontrol --noconfirm #Audio 
-    yay -S steam calibre vlc gimp chromium kdenlive libreoffice-fresh-de  zathura zathura-pdf-poppler xournal spotify  --noconfirm #X Tools 
+    yay -S steam calibre vlc gimp chromium kdenlive libreoffice-fresh-de  evince xournal zathura zathura-pdf-poppler xournal spotify  --noconfirm #X Tools 
     yay -S redshift gparted  arandr wine android-file-transfer notification-daemon  --noconfirm # X Support Tools 
     yay -S virtualbox virtualbox-host-modules-arch virtualbox-guest-iso  --noconfirm #Virtualbox 
     yay -S texlive-most biber texlive-localmanager-git  --noconfirm #Latex 

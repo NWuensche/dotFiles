@@ -1,0 +1,34 @@
+#!/bin/sh
+#Download all photos from today to Downloads folder
+set -e
+
+mkdir -p $HOME/Downloads/AndroidFotos
+cd $HOME/Downloads/AndroidFotos
+
+#SD Card - ID from `storage-info`
+SDCARD="2924740609"
+FOTOFOLDER="DCIM/Camera"
+
+ALLFOTOIDSNAMES=$(echo "
+storage $SDCARD
+cd $FOTOFOLDER
+ls
+" | aft-mtp-cli -b)
+ALLFOTONAMES=$(echo "$ALLFOTOIDSNAMES" | awk '{print $2}')
+
+#grep all images with today's date in name
+TODAY=$(date +"%Y%m%d")
+TODAYSFOTONAMES=$(echo "$ALLFOTONAMES" | grep "$TODAY" )
+
+#Add get to feed this list to android again to download (cant add multiple fotos in one command
+GETTODAYSFOTOS=$(echo "$TODAYSFOTONAMES" | awk '{print "get " $0}')
+echo "
+storage $SDCARD
+cd $FOTOFOLDER
+$GETTODAYSFOTOS
+" | aft-mtp-cli -b
+echo "Downloaded in ~/Downloads/AndroidFotos"
+
+
+
+

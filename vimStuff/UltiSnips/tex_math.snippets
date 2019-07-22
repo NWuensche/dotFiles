@@ -1,0 +1,7 @@
+snippet '([A-Za-z])(\d)' "auto subscript" wrA
+`!p snip.rv = match.group(1)`_`!p snip.rv = match.group(2)`
+endsnippet
+
+snippet td "superscript" iA
+^{$1}$0
+endsnippet

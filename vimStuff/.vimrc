@@ -158,3 +158,6 @@ let g:tex_conceal='abdmg'
 
 "Fix previous spelling error auto
 inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
+"Autocomplete on Ctrl+Z
+imap <C-Z> <C-P>
+

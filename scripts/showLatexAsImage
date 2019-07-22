@@ -1,0 +1,36 @@
+#!/bin/sh
+set -e
+
+START=$(mktemp)
+LATEXDOCFILE="$START.tex"
+PDFFILE="$START.pdf"
+IMAGEFILE="$START.jpg"
+SMALLIMAGEFILE="${START}2.jpg"
+OPENPIC="feh --auto-rotate -F"
+
+#Add Latex Boilerplate
+HEADER='\documentclass[preview]{standalone}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\begin{document}
+\phantom{t} %Otherwise Margin will not work on first line
+
+\hspace*{0.4cm}'
+
+FOOTER='\vspace*{0.4cm}
+\end{document}'
+
+LATEXIN=$(cat $1)
+# Add to each nonempty line a hspace
+#MARGINLATEXIN=$(echo "$LATEXIN" |  sed 's/\([^ ].*\)/\\hspace{0.2cm}\1/')
+MARGINLATEXIN=$(echo "$LATEXIN" | sed 's/^[ ]*$/\n\\hspace{0.4cm}/' )
+
+echo "$HEADER
+$MARGINLATEXIN
+$FOOTER" > $LATEXDOCFILE
+
+# Convert latex to image, remove noise from latexmk
+latexmk $LATEXDOCFILE -outdir=/tmp -pdf -silent 2>&1 >/dev/null | grep -v "Run number 1 of rule" || true
+convert -density 2000 $PDFFILE -quality 90  $IMAGEFILE
+convert $IMAGEFILE -resize 800 $SMALLIMAGEFILE
+$OPENPIC $SMALLIMAGEFILE

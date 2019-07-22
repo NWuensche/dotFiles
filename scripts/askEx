@@ -1,0 +1,43 @@
+#!/bin/sh
+#FORMAT - Q.tex/png/jpg, QSQL.tex/png/jpg (Don't have to be same format)
+
+set -e
+
+MODULES="$HOME/Dokumente/Master_Berlin/3.Semester/EX"
+TYPES='(tex|jpg|png)'
+TASKSPERMODULE=2
+OPENPIC="feh --auto-rotate -F"
+
+openFile() {
+  FILE=$1
+  if [[ "$FILE" = *"tex"* ]]; then
+    showLatexAsImage $FILE 
+  else
+    $OPENPIC $FILE
+  fi
+}
+
+
+#Loop over all subdirs, delete "FOLDER/" from beginnging and "/" from end
+for MODULE in `ls -d $MODULES/*/ | sed 's|\(.*\)/$|\1|' `; do
+  #Remove Solutions, only show tex/png/jpg files
+ 
+  echo "MODULE:" $MODULE
+  ESCAPEDMODULE=$(echo "$MODULE" | sed 's|/|\\/|g')
+
+  EXS=$(find "$MODULE" | grep -v "SOL" | sed -n -E "/.*$ESCAPEDMODULE.*\.$TYPES$/p")
+  NUMEXS=$(echo "$EXS" | wc -w) #Empty line => 1 => -w instead of -l
+  if [[ "$NUMEXS" = "0" ]]; then
+    continue
+  fi
+  for i in `seq 1 $TASKSPERMODULE`; do
+    RANDOMNUM=$(( ( RANDOM % $NUMEXS )  + 1 ))
+    RANDOMEX=$(echo "$EXS" | sed "${RANDOMNUM}q;d")
+    echo "Current Exercise: $RANDOMEX" | sed 's| ./| |'
+    openFile $RANDOMEX
+
+    #Add SOL for finding solution + Delete Extension to be able to have differnet data types for exercise and solution
+    RANDOMEXSOL=$(echo "$RANDOMEX" | sed "s/\(.*\)\(\..*\)/\1SOL/")
+    openFile $RANDOMEXSOL*
+  done
+done
