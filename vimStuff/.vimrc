@@ -160,4 +160,5 @@ let g:tex_conceal='abdmg'
 inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 "Autocomplete on Ctrl+Z
 imap <C-Z> <C-P>
-
+"Inkscape Create
+inoremap <C-f> <Esc>: silent exec '.!inkscape-figures create "'.getline('.').'" "'.b:vimtex.root.'/figures/"'<CR><CR>:w<CR>
