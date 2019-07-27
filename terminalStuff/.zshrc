@@ -18,7 +18,7 @@ export MESA_GLSL_CACHE_DISABLE=true #Fix Bug Chrome
 #No Files found in gitignore in fzf vim
 export FZF_DEFAULT_COMMAND='fd --type f'   
 
-export BROWSER="chromium-browser"
+export BROWSER="chromium"
 
 alias gf='/usr/bin/gf'
 alias feh='feh --auto-rotate'
