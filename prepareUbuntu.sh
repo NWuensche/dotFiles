@@ -37,7 +37,7 @@ function yayPackages {
     yay -S pulseaudio-bluetooth bluez-utils bluez --noconfirm #Bluetooth
     yay -S xdotool expect --noconfirm # Automation Tools
     yay -S tmux terminator zsh  --noconfirm #Terminator Environment 
-    yay -S unzip curl wget htop neomutt vifm feh mps-youtube pdfgrep calcurse w3m bc mplayer irssi docker  --noconfirm #Terminal Tools 
+    yay -S unzip curl wget htop neomutt vifm feh mps-youtube pdfgrep calcurse w3m bc mplayer irssi docker stow --noconfirm #Terminal Tools 
     yay -S powertop jq rsync pwgen xclip ffmpeg xss-lock xautolock youtube-dl trash-cli scrot udiskie ntfs-3g unrar cronie ttf-liberation openssh imapfilter urlview pandoc jpegoptim --noconfirm #Terminal Support Tools 
     yay -S tcsh cups sane brscan2 brscan3 --noconfirm #Printer Tools 
     yay -S xf86-input-synaptics xf86-input-mtrack  --noconfirm #Touchpad Tools 
@@ -185,8 +185,6 @@ function setUpVim {
     curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-
-    ln -s ~/.dotFiles/vimStuff/UltiSnips ~/.vim/UltiSnips
 }
 
 function setUpTmux {
@@ -203,27 +201,12 @@ function moveConfigs {
     sudo /bin/cp  ~/saveFolder/hosts /etc/hosts;
 
     #Just for super-user-spark
-    sudo sysctl kernel.unprivileged_userns_clone=1 #Otherwise nix install will fail
-    curl https://nixos.org/nix/install | sh
-    . /home/nwuensche/.nix-profile/etc/profile.d/nix.sh
-    nix-env --install super-user-spark
-    ~/.nix-profile/bin/spark -r deploy ~/.dotFiles/dotFiles.sus
     ~/.nix-profile/bin/spark -r deploy ~/saveFolder/saveFolder.sus
-    if [ -e /home/nwuensche/.cache/dmenu_run ]
-    then
-        rm .cache/dmenu_run # Neceassary for dmenu finding ~/bin
-    fi
 
-    #Not necessary anymore  - Hard Link for every Script to be part of dmenu
-    #for fullfile in ~/.dotFiles/scripts/*; do
-    #        filename=$(basename -- "$fullfile")
-    #        ln -f $fullfile "/home/nwuensche/bin/$filename"
-    #done
-    #for fullfile in ~/saveFolder/privateScripts/*; do
-    #        filename=$(basename -- "$fullfile")
-    #        ln -f $fullfile "/home/nwuensche/bin/$filename"
-    #done
+    ( cd $HOME/.dotFiles/stowConfigs; stow i3 wallpaper vim git terminal gpg programConfigs vifm podget X -t $HOME )
 
+    sudo ln -s ~/.dotFiles/rules/99-udisks2.rules /etc/udev/rules.d
+    sudo ln -s ~/.dotFiles/services/rfkill-own.service /etc/systemd/system/rfkill-own.service
     ln -sf ~/saveFolder/Anki21Config ~/.local/share/Anki2
     gpg --import ~/saveFolder/gpg_key_pub.asc
     gpg --import ~/saveFolder/gpg_key.asc
