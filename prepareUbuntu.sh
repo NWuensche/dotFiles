@@ -3,7 +3,7 @@
 set -e #Exit after first non zero error code
 
 function checkHDD {
-    if [ ! -d /run/media/nwuensche/TOSHIBA\ EXT ]
+    if [ ! -d /run/media/nwuensche/5f65b653-f040-40eb-a2de-64a7e4cac5c4 ]
     then
         echo "udiskie-mount external drive"
         exit 1
