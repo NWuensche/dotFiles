@@ -195,19 +195,15 @@ function setUpTmux {
 
 function moveConfigs {
     cp ~/saveFolder/ssh ~/.ssh -r # Must do this before spark, because config will be overwritten otherwise
-    /bin/cp -r ~/saveFolder/.jarsNotToSave ~
     cp -r ~/saveFolder/ssh ~/.ssh
     crontab ~/saveFolder/listCrontab;
     sudo /bin/cp  ~/saveFolder/hosts /etc/hosts;
 
-    #Just for super-user-spark
-    ~/.nix-profile/bin/spark -r deploy ~/saveFolder/saveFolder.sus
-
     ( cd $HOME/.dotFiles/stowConfigs; stow i3 wallpaper vim git terminal gpg programConfigs vifm podget X -t $HOME )
+    sh ~/saveFolder/doStowSaveFolder.sh
 
     sudo ln -s ~/.dotFiles/rules/99-udisks2.rules /etc/udev/rules.d
     sudo ln -s ~/.dotFiles/services/rfkill-own.service /etc/systemd/system/rfkill-own.service
-    ln -sf ~/saveFolder/Anki21Config ~/.local/share/Anki2
     gpg --import ~/saveFolder/gpg_key_pub.asc
     gpg --import ~/saveFolder/gpg_key.asc
     expect ~/saveFolder/trustGPG Wuensche-N
