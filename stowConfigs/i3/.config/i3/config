@@ -162,6 +162,9 @@ bar {
         mode hide
         position top
         workspace_buttons yes
+    colors{
+      separator #ffffff
+    }
       #font pango:DejaVu Sans Mono, Icons 8
 
 }

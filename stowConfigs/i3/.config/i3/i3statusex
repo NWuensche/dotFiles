@@ -1,10 +1,55 @@
-#!/bin/zsh
-# shell script to prepend i3status with more stuff
+#!/bin/sh
+#FORMAT [[{item1}, {item2}],\n [{item1}, {item2}],\n...]
+
+function setColorBattery() {
+  FULLPERCENT=$(echo "$1" | sed -n 's/^\S*BAT \([0-9]*[0-9]\),.*/\1/p' )
+  if (( FULLPERCENT >= 30)); then
+    COLOR="#00ff00"
+  elif (( FULLPERCENT >= 10)); then
+    COLOR="#ffff00"
+  else
+    COLOR="#ff0000"
+  fi
+
+}
+
+function getBrightness() {
+  BRIGHT=$(cat /sys/class/backlight/intel_backlight/brightness)
+  MAX_BRIGHT=$(cat /sys/class/backlight/intel_backlight/max_brightness)
+  echo "🌣 $((BRIGHT*100/MAX_BRIGHT))%"
+}
+
+echo "{\"version\": 1, \"click_events\": true}" #Otherwise does not parse JSON
+echo "["
+
+IFS='|'
 i3status -c ~/.config/i3/i3bar.config | while :
 do
-       BRIGHT=$(cat /sys/class/backlight/intel_backlight/brightness)
-       MAX_BRIGHT=$(cat /sys/class/backlight/intel_backlight/max_brightness)
-       read line
-       echo "☼ $((BRIGHT*100/MAX_BRIGHT))% | $line" || exit 1
+  echo -n "["
+
+  COLOR="#ffffff"
+  BRIGHTNESS=$(getBrightness)
+  OUT=""
+  OUT+="{\"full_text\": \" $BRIGHTNESS \", \"color\": \"$COLOR\", \"background\": \"#000000\",  \"separator\": true, \"min_width\": null,  \"align\": null},"
+
+  read LINE
+  for ITEM in $LINE; do
+    COLOR="#ffffff"
+    ITEM=$(echo "$ITEM" | sed 's/^\s*//' | sed 's/\s*$//') #Remove Leading and then Trailing Space
+    if [[ `echo "$ITEM" | grep "BAT" || true` != "" ]]; then
+      setColorBattery "$ITEM"
+    fi
+
+    OUT+="{\"full_text\": \" $ITEM \", \"color\": \"$COLOR\", \"background\": \"#000000\",  \"separator\": true, \"min_width\": null,  \"align\": null},"
+  done
+
+  #Remove space after "|" of last item
+  OUT=$(echo "$OUT" | sed 's/\(.*\)| /\1|/')
+  
+  #remove comma of last item to make JSON parsable for i3
+  echo -n "${OUT::-1}"
+
+  echo  "]," || exit 1 #Need exit 1 to stop "fast" endless loop
 done
+
 
