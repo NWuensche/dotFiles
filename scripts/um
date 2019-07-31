@@ -1,0 +1,53 @@
+#!/bin/sh
+set -e
+#/dev/sdx[1-9]
+PART=$1
+
+REGEX="^/dev/\(sd[b-z]\)\([1-9]\)$"
+#Don't unmount sda
+RIGHTFORMAT=$(echo "$PART" | sed -n "s|$REGEX|RIGHT|p")
+
+if [[ "$RIGHTFORMAT" != "RIGHT" ]]; then
+  echo "Use format /dev/sdx[1-9]"
+  exit 1
+fi
+
+#Get sdx part
+SDXNAME=$(echo "$PART" | sed -n "s|$REGEX|\1|p")
+
+OUTPUT=$( lsblk -J )
+
+# Get right list element with name sdx
+SDXINFO=$(echo "$OUTPUT" | jq ".blockdevices[] | select( .name == \"$SDXNAME\")" )
+
+if [[ "$SDXINFO"  == "" ]]; then
+  echo "Can't find /dev/$SDXNAME" HDD
+  exit 1
+fi
+
+#sdx[1-9]
+PARTNAME=$(echo "$PART" | sed -n "s|$REGEX|\1\2|p" )
+
+PARTINFO=$(echo "$SDXINFO" | jq ".children[] | select( .name == \"$PARTNAME\") " )
+
+if [[ "$PARTINFO"  == "" ]]; then
+  echo "Can't find /dev/$PARTNAME" partition
+  exit 1
+fi
+
+#Find real mountpoint that udiskie can unmount + lock
+MOUNTPOINT=$(echo "$PARTINFO" | jq '.mountpoint')
+
+#Logical Device -> Look in children for real mountpoint
+if [[ "$MOUNTPOINT"  == "null" ]]; then
+  MOUNTPOINT=$(echo "$PARTINFO" | jq '.children[0].mountpoint') #There should only be one child for one partition, otherwise I have multiple childs in one partition and can't unmount them really
+fi
+
+#If still no mountpoint, something went wrong
+if [[ "$MOUNTPOINT"  == "" ]]; then
+  echo "Can't find mountpoint for $PART"
+  exit 1
+fi
+
+MOUNTPOINT=$(echo "$MOUNTPOINT" | sed 's/^"\(.*\)"$/\1/') #Remove Quotes around mountpoint if there are any
+udiskie-umount "$MOUNTPOINT"
