@@ -6,7 +6,7 @@ saveStuff;
 cp ~/.oh-my-zsh/themes/agnoster.zsh-theme ~/.dotFiles/terminalStuff/agnoster.zsh-theme
 
 cd ~/.dotFiles;
-git add .;
+git add . || true; #
 git commit -m "(`date +%d-%m-%Y`) change dotFiles";
 git push;
 cd;
