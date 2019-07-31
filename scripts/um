@@ -1,4 +1,5 @@
 #!/bin/sh
+# Helps with udiskie-umount /dev/sdb1 if sdb1 is encrypted. `udiskie-umount /dev/sdb1` throws otherwise an error that target is busy. By doint udiskie-umount /run/media/... with the right folder, this does not occur. This script basically maps /dev/sdb1 to /run/media/...
 set -e
 #/dev/sdx[1-9]
 PART=$1
