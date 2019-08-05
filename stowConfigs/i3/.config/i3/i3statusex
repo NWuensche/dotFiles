@@ -43,9 +43,6 @@ do
     OUT+="{\"full_text\": \" $ITEM \", \"color\": \"$COLOR\", \"background\": \"#000000\",  \"separator\": true, \"min_width\": null,  \"align\": null},"
   done
 
-  #Remove space after "|" of last item
-  OUT=$(echo "$OUT" | sed 's/\(.*\)| /\1|/')
-  
   #remove comma of last item to make JSON parsable for i3
   echo -n "${OUT::-1}"
 

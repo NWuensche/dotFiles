@@ -4,6 +4,8 @@ set shiftwidth=2
 set expandtab
 set clipboard=unnamedplus
 set spell
+
+
 " New split always below current window
 set splitbelow 
 syntax enable
