@@ -17,6 +17,7 @@ function importFiles {
     cp /run/media/nwuensche/TOSHIBA\ EXT/AufPC/* ~/ -r
     cp /run/media/nwuensche/TOSHIBA\ EXT/Dokumente/Master_Berlin ~/Dokumente/ -r
     cp /run/media/nwuensche/TOSHIBA\ EXT/Dokumente/tub-cacert.pem ~/Dokumente/
+    cp /run/media/nwuensche/TOSHIBA\ EXT/Dokumente/Gesch* ~/Dokumente/
     cp /run/media/nwuensche/TOSHIBA\ EXT/saveFolder ~ -r
 
     mv ~/dotFiles ~/.dotFiles
