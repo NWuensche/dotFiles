@@ -32,7 +32,7 @@ function yayPackages {
     sudo pacman -Syu --noconfirm
     git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si  --noconfirm && cd ~ && rm -rf yay #Install yay
     sudo yay -Syu --noconfirm
-    yay -S ruby jdk10-openjdk maven python3 python-pip git hub intellij-idea-ultimate-edition intellij-idea-ultimate-edition-jre --noconfirm #Programming TODO android-studio
+    yay -S ruby openjdk maven python3 python-pip git hub intellij-idea-ultimate-edition intellij-idea-ultimate-edition-jre --noconfirm #Programming TODO android-studio
     yay -S xorg xf86-video-intel lightdm lightdm-gtk-greeter i3-wm dmenu i3status i3lock --noconfirm #UI
     yay -S gvim vim-spell-de vim-spell-en --noconfirm #Vim 
     yay -S pulseaudio-bluetooth bluez-utils bluez --noconfirm #Bluetooth
