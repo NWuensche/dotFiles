@@ -5,6 +5,7 @@ export ZSH=/home/nwuensche/.oh-my-zsh
 plugins=(git)
 ZSH_THEME="agnoster"
 EDITOR=vim
+
 export EDITOR
 ANDROID_HOME=/home/nwuensche/Android/Sdk
 export ANDROID_HOME
@@ -14,6 +15,7 @@ export MAVEN_OPTS
 export PATH=$PATH:/home/nwuensche/Android/Sdk/tools:/home/nwuensche/Android/Sdk/platform-tools:~/.nix-profile/bin:~/.local/bin:~/.cabal/bin:~/saveFolder/privateScripts:~/.dotFiles/scripts:/home/nwuensche/.gem/ruby/2.6.0/bin
 
 export MESA_GLSL_CACHE_DISABLE=true #Fix Bug Chrome
+
 
 #No Files found in gitignore in fzf vim
 export FZF_DEFAULT_COMMAND='fd --type f'   
@@ -88,8 +90,13 @@ alias sv="source /opt/anaconda/bin/activate root; conda activate py368"
 alias aShell="Xvfb :20 -screen 0 1024x768x16 &;export DISPLAY=:20;~/Android/Sdk/emulator/emulator @Nexus_4_API_28 &; sleep 5; adb shell"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+#
+#Load git/hub completion from this folder (Has to be somewhere at the end to work)
+export fpath=(~/.zsh/completions $fpath) 
+autoload -U compinit && compinit
 
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 #export SDKMAN_DIR="/home/nwuensche/.sdkman"
 #[[ -s "/home/nwuensche/.sdkman/bin/sdkman-init.sh" ]] && source "/home/nwuensche/.sdkman/bin/sdkman-init.sh"
+

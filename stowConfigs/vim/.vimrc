@@ -139,7 +139,7 @@ nmap gcc guu~h
 "Compile current file (Full Path)
 map <F2> :! latexmk -pdf %:p <CR>
 
-autocmd Filetype json :%!python -m json.tool
+autocmd Filetype json :%!ownjsonTool --no-ensure-ascii
 " Used for moving stuff inside tikz
 xnoremap <leader>m <esc>:'<,'>!moveTikz -r 
 map <leader>n :sp %:p:h/macros.tex <CR>
