@@ -39,7 +39,7 @@ function yayPackages {
     yay -S xdotool expect --noconfirm # Automation Tools
     yay -S tmux terminator zsh  --noconfirm #Terminator Environment 
     yay -S unzip curl mitmproxy wget htop neomutt vifm feh mps-youtube pdfgrep calcurse w3m bc mplayer irssi docker stow --noconfirm #Terminal Tools 
-    yay -S powertop jq rsync pwgen xclip ffmpeg xss-lock xautolock youtube-dl trash-cli scrot udiskie ntfs-3g unrar cronie ttf-liberation openssh imapfilter urlview pandoc jpegoptim --noconfirm #Terminal Support Tools 
+    yay -S powertop python-pytube python-selenium jq rsync pwgen xclip ffmpeg xss-lock xautolock youtube-dl trash-cli scrot udiskie ntfs-3g unrar cronie ttf-liberation openssh imapfilter urlview pandoc jpegoptim --noconfirm #Terminal Support Tools 
     yay -S tcsh cups sane brscan2 brscan3 --noconfirm #Printer Tools 
     yay -S xf86-input-synaptics xf86-input-mtrack  --noconfirm #Touchpad Tools 
     yay -S ttf-liberation pango  --noconfirm #Fonts and Font Tools 
@@ -53,7 +53,6 @@ function yayPackages {
 
     gem install bluebutton #Own config for bluetooth button
 
-    sudo pip install mitmproxy pytube selenium
     sudo systemctl enable cronie.service #Enable Cron
 
     sudo systemctl enable org.cups.cupsd.service
@@ -61,7 +60,6 @@ function yayPackages {
 
     sudo systemctl enable netctl-auto@wlp4s0.service
 
-}
 
 function setUpBackgroundLight {
     git clone https://github.com/haikarainen/light.git
@@ -118,14 +116,14 @@ function loadBR {
   git clone https://github.com/stefanw/pdfcutter
   git clone https://github.com/okfde/bundesrat-scraper
 
-  sudo pip install jupyter
+  pip install --user jupyter
   yay -S anaconda --noconfirm
   source /opt/anaconda/bin/activate root
   conda create -n py368 python=3.6 ipykernel
   sudo conda install -y nb_conda_kernels
   conda activate py368
   sudo conda install -y lxml
-  sudo pip install pdfcutter requests lxml
+  pip install --user pdfcutter requests lxml
 
   sudo ipython3 kernel install #Otherwise jupyter cant find kernel
 }
