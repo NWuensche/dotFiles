@@ -195,6 +195,7 @@ bindsym XF86Explorer exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.
 
 #Colons break rsync for backing up
 bindsym Print exec scrot '%d.%m.%Y %H-%M-%S.png' -e 'mv "$f" ~/Bilder/'
+bindsym --release Shift+Print exec scrot -s '/tmp/%d.%m.%Y %H-%M-%S.jpg' -e '~/.dotFiles/scripts/reduceSizeImages "$f" && xclip -selection c -t image/png  < "$f" && trash "$f"' #Can't use semicolon insteead of && because i3 can't escape semicolon
 
 bindsym $mod+backslash workspace 1
 bindsym $mod+apostrophe workspace 1
