@@ -2,7 +2,7 @@
 export ZSH=/home/nwuensche/.oh-my-zsh
 
 
-plugins=(git)
+plugins=(git gitfast)
 ZSH_THEME="agnoster"
 EDITOR=vim
 
@@ -67,6 +67,7 @@ alias sendKindle='f() {echo "" | for doc do neomutt -s "test" -e "$(cat ~/saveFo
 alias histrm='f() { LC_ALL=C sed --in-place "/$1/d" $HISTFILE;};f'
 alias getIt='f() {getIt $1; histrm get;clear; zsh}; f'
 alias search='googler --count 3'
+alias xournal='xournalpp'
 alias youtube='mpsyt'
 alias convertALLEPUBS='for EPUBBOOK in *.epub; do; ebook-convert $EPUBBOOK "${EPUBBOOK%.*}.mobi"; done'
 #alias trash-restore='restore-trash'
