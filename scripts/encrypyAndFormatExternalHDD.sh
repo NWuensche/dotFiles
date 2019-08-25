@@ -13,9 +13,9 @@ EOF
 #If error here, delete partition with gparted first and unmount HDD
 sudo cryptsetup -y -v luksFormat --type luks2 /dev/sdb1
 
-sudo cryptsetup open /dev/sdb1 exthdd3
+sudo cryptsetup open /dev/sdb1 usbenc
 
-echo Y | sudo mkfs.ext4 /dev/mapper/exthdd3
+echo Y | sudo mkfs.ext4 /dev/mapper/usbenc
 
 echo "Also do last line script after remount to make HDD writeable"
 #sudo chown -R $USER /run/media/$USER/20118cj7-33b1-4f38-bbf5-94a58dee2751
