@@ -253,6 +253,9 @@ function setUpMFC {
     find . -type f -exec sed -i 's/\/etc\/init.d\//\/etc\/rc.d\//g' {} +
     find . -type f -exec sed -i 's/\/run\/current-system\/sw\/bin\/tcsh/\/usr\/bin\/tcsh/g' {} +
     find . -type f -exec sed -i 's/DefaultPageSize: BrLetter/DefaultPageSize: BrA4/g' {} +
+    # New CUPS Versions don't allow Custom as a word in ppd file
+    find . -type f -exec sed -i 's|.*Custom/Custom.*||g' {} +
+
 
     #sudo systemctl disable cups.service #Schlägt evnt fehl, da cups noch nicht init wurde. Dann einfach mit den nächsten Kommandos weiter machen
     sudo systemctl enable org.cups.cupsd.service
@@ -361,5 +364,5 @@ function main {
     setUpPrinter
 }
 #main
-    powertopAdd
-#setUpMFC
+#powertopAdd
+setUpMFC
