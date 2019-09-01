@@ -324,6 +324,7 @@ function setUpManually {
     #chromium # Sync
     echo "Install Tmux Plugins with Prefix + I"
     echo "Import Android Studio Settings"
+    echo "Run Android Studio and install Android, then run \`addUdevSmartphone\` script"
 }
 
 
