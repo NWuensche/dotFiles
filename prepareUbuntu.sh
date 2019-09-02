@@ -10,6 +10,7 @@ function checkHDD {
     fi
 }
 
+
 function importFiles {
     mkdir -p ~/Bilder
     mkdir -p ~/Dokumente
@@ -61,6 +62,7 @@ function yayPackages {
     sudo systemctl start org.cups.cupsd.service
 
     sudo systemctl enable netctl-auto@wlp4s0.service
+ }
 
 
 function setUpBackgroundLight {
@@ -149,7 +151,6 @@ function installAnki {
   make
   sudo mv anki-* /opt/anki
   cd ~
-  
 }
 
 function installPrograms {
@@ -195,7 +196,7 @@ function setUpTmux {
 }
 
 function moveConfigs {
-    cp ~/saveFolder/ssh ~/.ssh -r # Must do this before spark, because config will be overwritten otherwise
+    cp ~/saveFolder/ssh ~/.ssh -r # Must do this before stow, because config will be overwritten otherwise
     cp -r ~/saveFolder/ssh ~/.ssh
     crontab ~/saveFolder/listCrontab;
     sudo /bin/cp  ~/saveFolder/hosts /etc/hosts;
@@ -257,7 +258,7 @@ function setUpMFC {
     find . -type f -exec sed -i 's|.*Custom/Custom.*||g' {} +
 
 
-    #sudo systemctl disable cups.service #Schlägt evnt fehl, da cups noch nicht init wurde. Dann einfach mit den nächsten Kommandos weiter machen
+    sudo systemctl disable cups.service || true #Schlägt evnt fehl, da cups noch nicht init wurde.
     sudo systemctl enable org.cups.cupsd.service
     sudo systemctl daemon-reload
     sudo systemctl start org.cups.cupsd.service
@@ -354,16 +355,16 @@ function fixAudio {
 }
 
 function main {
-    #setUpHome
+    setUpHome
     installPrograms
     addConfigs
     fixWifi
     lidCloseLock
     powertopAdd
-    #fixAudio
+    #fixAudio Not Necessary
     setUpManually
     setUpPrinter
 }
-#main
-#powertopAdd
-setUpMFC
+
+main
+#setUpMFC

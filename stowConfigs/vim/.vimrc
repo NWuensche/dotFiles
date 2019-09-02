@@ -82,6 +82,8 @@ Plugin 'chrisbra/csv.vim'
 "Android
 "Plugin 'hsanson/vim-android'
 Plugin 'udalov/kotlin-vim'
+"Dart Lang syntax
+Plugin 'dart-lang/dart-vim-plugin'
 "	------- PLUGINS END ------- "
 
 call vundle#end()
