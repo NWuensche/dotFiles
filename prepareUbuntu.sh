@@ -323,7 +323,7 @@ function setUpManually {
     #android-studio ~/wallabag #Download Android Stuff
     #steam #Download Updates
     #chromium # Sync
-    echo "Install Tmux Plugins with Prefix + I"
+    #echo "Install Tmux Plugins with Prefix + I (Shift + I)?" Should be unnecessary with new reloadTmux function
     echo "Import Android Studio Settings"
     echo "Run Android Studio and install Android, then run \`addUdevSmartphone\` script"
 }
@@ -354,6 +354,11 @@ function fixAudio {
     sudo sh -c "echo -e \"pcm.\!default {\n        type hw\n        card 1\n}\" > /etc/asound.conf"
 }
 
+function reloadTmux {
+  tmux new-session -d #Create tmux session without attaching so that source-file can be read by someone
+  tmux source-file ~/.tmux.conf
+}
+
 function main {
     setUpHome
     installPrograms
@@ -361,6 +366,7 @@ function main {
     fixWifi
     lidCloseLock
     powertopAdd
+    reloadTmux
     #fixAudio Not Necessary
     setUpManually
     setUpPrinter

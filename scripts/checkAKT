@@ -1,0 +1,8 @@
+#!/bin/sh
+set -e
+SITE=$(curl -s https://www.akt.tu-berlin.de/menue/teaching/)
+COUNT_WINTER=$(echo "$SITE" | tr '/' '\n' | tr ' ' '\n' | tr '_' '\n' | grep -c winter)
+
+if (( $COUNT_WINTER != 8 )); then
+  notify-send "AKT Winter Term"
+fi
