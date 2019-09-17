@@ -3,6 +3,10 @@ nnoremap <Down> <nop>
 nnoremap <Left> <nop>
 nnoremap <Right> <nop>
 
+"No Deleting in Insert Mode
+inoremap <BS> <Nop>
+inoremap <Del> <Nop>
+
 set relativenumber
 set number
 
@@ -43,6 +47,8 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 " Vim symbol renderer
 Plugin 'lervag/vimtex'
+" Vim Hard Mode
+Plugin 'dusans/vim-hardmode'
 " Git Plugin
 Plugin 'tpope/vim-fugitive'
 " Close Brackets automaticaly
