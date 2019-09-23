@@ -243,4 +243,5 @@ exec amixer -D pulse sset Capture nocap #Micro off
 
 #exec /home/nwuensche/saveFolder/privateScripts/startVPN &
 
+exec xhost +local: #Necessary to be able to open gparted inside a tmux session
 #exec /home/nwuensche/.dotFiles/scripts/fullscreenLock & #Can't do this in crontab because Environment variables are wrong
