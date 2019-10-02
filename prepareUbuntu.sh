@@ -372,6 +372,5 @@ function main {
     setUpPrinter
 }
 
-#main
+main
 #setUpMFC
-installAnki
