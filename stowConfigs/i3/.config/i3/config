@@ -185,8 +185,8 @@ bindsym XF86AudioMute exec "amixer -q -D pulse set Master toggle"
 bindsym XF86AudioMicMute exec "amixer -q -D pulse sset Capture toggle"
 #bindsym XF86Display exec "notify-send 'XF86Display'" #F7
 #bindsym XF86WLAN exec notify-send 'XF86WLAN' #F8, but throws i3 error
-bindsym XF86Tools exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause #F9
-bindsym XF86Search exec bash .dotFiles/scripts/spotifyNotification #F10
+bindsym XF86Tools exec echo "pause" > /tmp/mplayerControl #F9
+bindsym XF86Search exec echo "quit" > /tmp/mplayerControl && notify-send "Closed Music"  #F10
 bindsym XF86LaunchA exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous #F11
 bindsym XF86Explorer exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next #F12
 
