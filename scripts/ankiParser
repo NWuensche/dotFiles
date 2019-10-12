@@ -1,0 +1,69 @@
+#!/bin/python3
+import sys
+
+'''
+Format INFILE:
+
+This is a test
+If everything works as intended
+$E = m^2\cdot c$
+;
+This works
+$f(x)=2$ pretty
+well
+
+testFront
+;
+testBack
+'''
+
+if len(sys.argv) !=3:
+    print("ankiParser INFILE OUTFILE\nAbort" )
+    sys.exit()
+
+IFile = sys.argv[1]
+OFile = sys.argv[2]
+
+beforeSemi = True
+firstPart=[]
+secondPart=[]
+
+linenum = 0
+with open(IFile) as f:
+    for line in f:
+        linenum+=1
+        line = line.strip()
+        if ',' in line:
+            print("Line " + str(linenum) + ": Comma on line " + str(linenum) +" messes up import. Abort")
+            sys.exit(1)
+        elif line == ";" and beforeSemi: #First semicolon
+            beforeSemi = False
+            continue
+        elif ";" in line:
+            print("Line " + str(linenum) + ": Don't use Semicolon")
+            sys.exit(1)
+        elif line == "": #Just Spaces -> New Card
+            if beforeSemi or firstPart == "" or secondPart == "":
+                print("Line " + str(linenum) + ": Forgot semicolon/second part of card. Or two spaces after card")
+                sys.exit(1)
+
+            outF = open(OFile, 'a')
+            outF.write('\\\\'.join(firstPart) + " ; " + '\\\\'.join(secondPart) + "\n")
+
+            beforeSemi = True
+            firstPart=[]
+            secondPart=[]
+            continue
+
+        if beforeSemi:
+            firstPart.append(line)
+        else:
+            secondPart.append(line)
+
+
+if beforeSemi or firstPart == "" or secondPart == "":
+    print("Line " + str(linenum) + ": Forgot semicolon/second part of card. Or two spaces after card")
+    sys.exit(1)
+
+outF = open(OFile, 'a')
+outF.write('\\\\'.join(firstPart) + " ; " + '\\\\'.join(secondPart)+ "\n")
