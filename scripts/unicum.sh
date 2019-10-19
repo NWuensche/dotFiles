@@ -18,7 +18,8 @@ mydriver.get(baseurl)
 print(mydriver.page_source)
 "
 )
-BERLIN_TIMES=$(echo "$SITE" | sed -n 's/.*Berlin.*/Berlin/p' | wc -l)
+NO_FU=$(echo "$SITE" | sed 's/Freie Universität Berlin//g')
+BERLIN_TIMES=$(echo "$NO_FU" | sed -n 's/.*Berlin.*/Berlin/p' | wc -l)
 if (( $BERLIN_TIMES > 0 )); then
     notify-send "Look Unicum Bag"
 fi

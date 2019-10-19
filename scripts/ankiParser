@@ -33,10 +33,11 @@ with open(IFile) as f:
     for line in f:
         linenum+=1
         line = line.strip()
-        if ',' in line:
-            print("Line " + str(linenum) + ": Comma on line " + str(linenum) +" messes up import. Abort")
-            sys.exit(1)
-        elif line == ";" and beforeSemi: #First semicolon
+#        if ',' in line:
+#            print("Line " + str(linenum) + ": Comma messes up import. Abort")
+#            sys.exit(1)
+#        elif line == ";" and beforeSemi: #First semicolon
+        if line == ";" and beforeSemi: #First semicolon
             beforeSemi = False
             continue
         elif ";" in line:

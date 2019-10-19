@@ -3,7 +3,7 @@ set -e
 ping -q -W 2 8.8.8.8 -c 2 #Check Connection
 
 AKTCHANGE=$(curl -s https://www.akt.tu-berlin.de/menue/teaching/winter_term_20192020/ | grep "Last Update: &nbsp;20.09.19"  || true )
-BRILLCHANGE=$(curl -s https://www.algo.tu-berlin.de/menue/teaching/winter_term_201920/ | grep "Last Update: &nbsp;30.09.19"  || true )
+BRILLCHANGE=$(curl -s https://www.algo.tu-berlin.de/menue/teaching/winter_term_201920/ | grep "Last Update: &nbsp;15.10.19"  || true )
 
 if [[ "$AKTCHANGE" == "" ]]; then
   notify-send "AKT Change"
