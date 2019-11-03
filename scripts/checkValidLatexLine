@@ -1,0 +1,27 @@
+#!/bin/bash
+
+#HEADER/FOOTER from Anki Latex Card
+
+OUT="/tmp/latexCheckOut"
+mkdir -p $OUT
+TMP=$(mktemp)
+HEADER='
+\documentclass[12pt]{article}
+\special{papersize=3in,5in}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb,amsmath}
+\usepackage{graphicx}
+\graphicspath{{/home/nwuensche/saveFolder/AnkiImages/}}
+\pagestyle{empty}
+\setlength{\parindent}{0in}
+\renewcommand{\l}{\lambda}
+\begin{document}
+'
+FOOTER='
+\end{document}
+'
+LINE=$1
+echo "$HEADER">$TMP
+echo "$LINE">>$TMP
+echo "$FOOTER">>$TMP
+/bin/pdflatex --output-directory="$OUT" --halt-on-error $TMP

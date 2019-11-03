@@ -149,7 +149,7 @@ function installAnki {
   tar xjf /tmp/anki.tar.bz2
   cd anki-*
   make
-  sudo mv anki-* /opt/anki
+  sudo mv /tmp/anki-* /opt/anki
   cd ~
 }
 

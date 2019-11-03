@@ -18,7 +18,8 @@ mydriver.get(baseurl)
 print(mydriver.page_source)
 "
 )
-NO_FU=$(echo "$SITE" | sed 's/Freie Universität Berlin//g')
+NO_HWR=$(echo "$SITE" | sed 's|HWR Berlin</a></div><div class="_30n_">Berlin||g' |  sed 's/HWRBerlin//g')
+NO_FU=$(echo "$NO_HWR" | sed 's/Freie Universität Berlin//g')
 BERLIN_TIMES=$(echo "$NO_FU" | sed -n 's/.*Berlin.*/Berlin/p' | wc -l)
 if (( $BERLIN_TIMES > 0 )); then
     notify-send "Look Unicum Bag"
