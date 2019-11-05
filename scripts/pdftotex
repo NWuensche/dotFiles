@@ -1,0 +1,8 @@
+#!/bin/sh
+PDF=$1
+pdftotext $PDF
+PDFNAME=$(echo "$PDF" | sed 's/\(.*\)\..*/\1/g')
+TEXTFILE="$PDFNAME.txt"
+cat $TEXTFILE | sed 's/ﬁ/fi/g' | sed 's/ﬀ/ff/g' | sed 's/Σ∗/\\Sigma^*/g' |  sed 's/Σ/\\Sigma/g' | sed 's/⊆/\\subseteq/g' | sed 's/{/\\{/g' | sed 's/}/\\}/g' | sed 's/‘/"/g' | sed 's/’/"/g' |  sed 's/“/"/g' |  sed 's/”/"/g' | sed 's/·/\\cdot/g' | sed 's/∈/\\in/g' | sed 's/−/-/g' | sed 's/×/\\times/g' | sed 's/|\(\S\) |/|\1|/g'  | sed "s/$(echo -ne '\uFFFD')/TODO/g" > "$PDFNAME.tex.txt"
+
+

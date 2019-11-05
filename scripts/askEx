@@ -17,6 +17,34 @@ openFile() {
   fi
 }
 
+checkFileEnding() {
+  FILE=$1
+  FILEENDING=$(echo "$FILE" | sed 's/.*\.\(.*\)/\1/g')
+  if [[ "$FILEENDING" != "tex" && "$FILEENDING" != "jpg" && "$FILEENDING" != "png"   ]]; then
+    echo "$FILE" wrong file format
+    exit 1
+  fi
+}
+
+for FILE in `find $MODULES -type f`; do
+  checkFileEnding "$FILE"
+  if [[ "$FILE" = *"SOL"* ]]; then #Is a Solution
+    EX=$(echo "$FILE" | sed 's/SOL//') #Take out SOL
+    EXFILENAME=$(echo "$FILE" | sed 's/\(.*\)SOL\.\(.*\)/\1/g')
+    NUMOFEXFILES=$(ls "$EXFILENAME".* 2> /dev/null | wc -l)
+    if (( $NUMOFEXFILES != 1 )); then #EX File doesn't exist
+      echo "Exercise to $FILE does not exist"
+      exit 1
+    fi
+  else #Is an Exercise
+    SOLFILENAME=$(echo "$FILE" | sed 's/\(.*\)\(\..*\)/\1SOL/g')
+    NUMOFSOLFILES=$(ls "$SOLFILENAME".* 2> /dev/null  | wc -l)
+    if (( $NUMOFSOLFILES != 1 )); then #SOL File doesn't exist
+      echo "Solution to $FILE does not exist"
+      exit 1
+    fi
+  fi
+done
 
 #Loop over all subdirs, delete "FOLDER/" from beginnging and "/" from end
 for MODULE in `ls -d $MODULES/*/ | sed 's|\(.*\)/$|\1|' `; do

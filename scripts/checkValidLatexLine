@@ -24,4 +24,4 @@ LINE=$1
 echo "$HEADER">$TMP
 echo "$LINE">>$TMP
 echo "$FOOTER">>$TMP
-/bin/pdflatex --output-directory="$OUT" --halt-on-error $TMP
+pdflatex --output-directory="$OUT" --halt-on-error $TMP
