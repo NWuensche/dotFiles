@@ -78,14 +78,14 @@ for line in content:
 
     if beforeSemi:
         try:
-            subprocess.check_output("checkValidLatexLine \'" +line + "\'", shell=True)
+            subprocess.check_output("checkValidLatexLine \'" +line.replace("'", "\"") + "\'", shell=True) #' does not crash latex, but bash argument. Therefore check with ", but original string will be appended with ' to OutFile
         except:
             print("Line " + str(linenum) + ": Not valid Latex code")
             sys.exit(1)
         firstPart.append(line)
     else:
         try:
-            subprocess.check_output("checkValidLatexLine \'" +line + "\'", shell=True)
+            subprocess.check_output("checkValidLatexLine \'" +line.replace("'", "\"") + "\'", shell=True)#' does not crash latex, but bash argument. Therefore check with ", but original string will be appended with ' to OutFile
         except:
             print("Line " + str(linenum) + ": Not valid Latex code")
             sys.exit(1)
