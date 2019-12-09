@@ -10,11 +10,17 @@ HEADER='
 \special{papersize=3in,5in}
 \usepackage[utf8]{inputenc}
 \usepackage{amssymb,amsmath}
+\usepackage{mathtools}
+
 \usepackage{graphicx}
 \graphicspath{{/home/nwuensche/saveFolder/AnkiImages/}}
 \pagestyle{empty}
 \setlength{\parindent}{0in}
 \renewcommand{\l}{\lambda}
+\newcommand{\N}{\mathbb{N}}\newcommand{\R}{\mathbb{R}}
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+\DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
+
 \begin{document}
 '
 FOOTER='

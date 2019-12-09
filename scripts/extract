@@ -1,23 +1,37 @@
 #!/bin/bash
 
-GET="."
-
 SCRIPTNAME="${0##*/}"
 
 err() {
     printf >&2 "$SCRIPTNAME: $*\n"
-    exit 1
+    exit 1;
 }
+
+readF() {
+  read -p "Extract to: " TARGET
+  if [[ -z $TARGET ]]; then
+    echo "Please Enter Folder Name"
+    BADF=true
+  elif [[ -e $TARGET ]]; then
+    echo "Folder already exists"
+    BADF=true
+  else
+    mkdir $TARGET
+  fi;
+}
+
+BADF=false
+readF
+while $BADF ; do
+  BADF=false
+  readF
+  echo $BADF
+done
 
 ARC="$1"
 [[ -f $ARC ]] || err $"'$ARC' does not exist"
 ARC="$(readlink -f "$ARC")"
 
-read -p "Extract to [default: $DEFAULT_TARGET]: " TARGET
-[[ -z $TARGET ]] &&\
-    TARGET="$DEFAULT_TARGET"
-[[ -d $TARGET ]] || mkdir "$TARGET"
-[[ -w $TARGET ]] || err $"Permission denied: '$TARGET' is not writable"
 
 cd "$TARGET"
 case "$ARC" in
