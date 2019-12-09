@@ -1,0 +1,16 @@
+#!/bin/sh
+#Shoutout to https://github.com/tavinus/pdfScale for the exact gs parameters and the translate formula
+SCALE="$1"
+IN="$2"
+OUT="$3"
+if [[ "$OUT" == "" ]]; then
+  echo "pdfScaler FACTOR INFILE OUTFILE"
+  exit 1
+fi
+A4HEIGHT=842 #Get this from `convert PDF JPG` -> `file JPG` -> width/height
+A4WIDTH=595
+XTRANS=$(echo "scale=6; 0.5*(1.0-$SCALE)/$SCALE*$A4WIDTH"  | bc) #scale definies number of digits after point
+YTRANS=$(echo "scale=6; 0.5*(1.0-$SCALE)/$SCALE*$A4HEIGHT"  | bc)
+
+gs -q -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -sOutputFile="$OUT"  -c "<</BeginPage{$SCALE $SCALE scale $XTRANS $YTRANS translate}>> setpagedevice" -f "$IN" #-dNOPAUSE + dBATCH + sDEVICE make gs non-interactive
+
