@@ -29,11 +29,43 @@ function setUpHome {
     importFiles
 }
 
+#Download by myself and not by AUR because updating is easier afterwards (inside IJ, not through AUR)
+function installIJ {
+  OUT_IJ="/tmp/IJ.tar.gz"
+  OUT_DIR="/opt/intellij"
+
+  CURR_IJ=$(curl -s https://data.services.jetbrains.com/products/releases\?code\=IIU\&latest\=true\&type\=release | jq ".IIU[0].downloads.linux.link" | sed 's|"||g')
+
+  echo "Downloading IntelliJ"
+  wget -q "$CURR_IJ" -O "$OUT_IJ"
+
+  sudo mkdir -p "$OUT_DIR"
+  sudo chmod 0755 "$OUT_DIR"
+  sudo tar -xzf "$OUT_IJ" -C "$OUT_DIR" --strip-components=1 #strip parent dir inside tarball
+
+}
+
+#Download by myself and not by AUR because updating is easier afterwards (inside AS, not through AUR)
+function installAndroidStudio {
+  OUT_AS="/tmp/AS.tar.gz"
+  OUT_DIR="/opt/android-studio"
+
+  URL_AS=$(curl -s "https://developer.android.com/studio/\#downloads" | sed -n '/p class="agreed"/,$ p' | sed -n 's/.*href="\(.*linux\.tar\.gz\)"/\1/pg'  | head -n 1)
+
+  echo "Downloading Android Studio"
+  wget -q "$URL_AS" -O "$OUT_AS"
+
+  sudo mkdir -p "$OUT_DIR"
+  sudo chmod 0755 "$OUT_DIR"
+  sudo tar -xzf "$OUT_AS" -C "$OUT_DIR" --strip-components=1 #strip parent dir inside tarball
+
+}
+
 function yayPackages {
     sudo pacman -Syu --noconfirm
     git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si  --noconfirm && cd ~ && rm -rf yay #Install yay
     sudo yay -Syu --noconfirm
-    yay -S ruby jdk-openjdk maven python3 gradle python-pip git hub intellij-idea-ultimate-edition intellij-idea-ultimate-edition-jre --noconfirm #Programming
+    yay -S ruby jdk-openjdk maven python3 gradle python-pip git hub --noconfirm #Programming
     yay -S xorg xf86-video-intel lightdm lightdm-gtk-greeter i3-wm dmenu i3status i3lock --noconfirm #UI
     yay -S gvim vim-spell-de vim-spell-en --noconfirm #Vim 
     yay -S pulseaudio-bluetooth bluez-utils bluez --noconfirm #Bluetooth
@@ -56,6 +88,7 @@ function yayPackages {
 
     gem install bluebutton #Own config for bluetooth button
 
+    installIJ
     installAndroidStudio
 
     sudo systemctl enable cronie.service #Enable Cron
@@ -66,20 +99,6 @@ function yayPackages {
     sudo systemctl enable netctl-auto@wlp4s0.service
  }
 
-function installAndroidStudio {
-  OUT_AS="/tmp/AS.tar.gz"
-  OUT_DIR="/opt/android-studio"
-
-  URL_AS=$(curl -s "https://developer.android.com/studio/\#downloads" | sed -n '/p class="agreed"/,$ p' | sed -n 's/.*href="\(.*linux\.tar\.gz\)"/\1/pg'  | head -n 1)
-
-  echo "Downloading Android Studio"
-  wget -q "$URL_AS" -O "$OUT_AS"
-
-  sudo mkdir -p "$OUT_DIR"
-  sudo chmod 0755 "$OUT_DIR"
-  sudo tar -xzf "$OUT_AS" -C "$OUT_DIR" --strip-components=1 #strip parent dir inside tarball
-
-}
 
 
 function setUpBackgroundLight {
