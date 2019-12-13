@@ -40,7 +40,7 @@ function installIJ {
   wget -q "$CURR_IJ" -O "$OUT_IJ"
 
   sudo mkdir -p "$OUT_DIR"
-  sudo chmod 0755 "$OUT_DIR"
+  sudo chmod 0777 "$OUT_DIR"
   sudo tar -xzf "$OUT_IJ" -C "$OUT_DIR" --strip-components=1 #strip parent dir inside tarball
 
 }
@@ -56,7 +56,7 @@ function installAndroidStudio {
   wget -q "$URL_AS" -O "$OUT_AS"
 
   sudo mkdir -p "$OUT_DIR"
-  sudo chmod 0755 "$OUT_DIR"
+  sudo chmod 0777 "$OUT_DIR"
   sudo tar -xzf "$OUT_AS" -C "$OUT_DIR" --strip-components=1 #strip parent dir inside tarball
 
 }
