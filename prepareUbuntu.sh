@@ -177,16 +177,30 @@ function loadWallabag {
 }
 
 function installAnki {
-  SITE=$(curl -s https://apps.ankiweb.net/ )
-  URL="https://apps.ankiweb.net"
-  URL+=$(echo "$SITE" | sed -n 's|.*href="\(.*amd64.*bz2\).*|\1|p' | head -n 1)
-  curl -s "$URL" --output - > /tmp/anki.tar.bz2
-  cd /tmp
-  tar xjf /tmp/anki.tar.bz2
-  cd anki-*
-  make
-  sudo mv /tmp/anki-* /opt/anki
-  cd ~
+  #Base Anki Installation
+  TMP_TAR="/tmp/anki.tar.gz"
+  TMP_OUT="/tmp/anki"
+  OUT="/opt/anki"
+
+  BASE_URL="https://github.com"
+  LATEST_ANKI="$BASE_URL"
+  LATEST_ANKI+=$(curl -s https://github.com/dae/anki/releases | sed -n 's|.*href="\(.*.tar.gz\)".*|\1|gp' | head -n 1)
+
+  curl -s -L "$LATEST_ANKI" --output - > "$TMP_TAR"
+  #mkdir -p "$TMP_OUT"
+  mkdir -p "$TMP_OUT"
+  tar xzf "$TMP_TAR" -C "$TMP_OUT" --strip-components=1
+  sudo cp -r "$TMP_OUT" "$OUT"
+  sudo chmod -R 0777 "$OUT"
+  ( cd "$OUT"
+    sh "tools/build_ui.sh"
+  )
+
+  #importCSV Script
+  TMP_SCRIPT="/tmp/importAnki.py"
+  curl -s -L https://github.com/NWuensche/AnkiTerminalImporter/raw/master/importAnki.py > "$TMP_SCRIPT"
+  cp "$TMP_SCRIPT" "$OUT/importAnki.py"
+  sudo chmod -R 0755 "$OUT"
 }
 
 function installPrograms {
