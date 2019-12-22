@@ -11,6 +11,7 @@ HEADER='
 \usepackage[utf8]{inputenc}
 \usepackage{amssymb,amsmath}
 \usepackage{mathtools}
+\usepackage{stmaryrd}
 
 \usepackage{graphicx}
 \graphicspath{{/home/nwuensche/saveFolder/AnkiImages/}}

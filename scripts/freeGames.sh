@@ -1,5 +1,5 @@
 freeEpic() {
-  FREE=$(curl --connect-timeout 2 -s https://www.freegamekeys.com/epic-store/ --compressed | sed -n '/Check Giveaway/p' | head -n 1 | sed -n '/Wolf/p' ) #If DISTRAINT isn't the latest free game anymore, then notify me
+  FREE=$(curl --connect-timeout 2 -s https://www.freegamekeys.com/epic-store/ --compressed | sed -n '/Check Giveaway/p' | head -n 1 | sed -n '/SUPERHOT/p' ) #If DISTRAINT isn't the latest free game anymore, then notify me
   if [[ "$FREE" == "" ]] ; then
     notify-send "Epic Store Free Game";
   fi
@@ -21,7 +21,7 @@ freeHB() {
 }
 
 freeOrigin() {
-  FREE=$(curl --connect-timeout 2 -s https://www.freegamekeys.com/origin/ --compressed | sed -n '/Check Giveaway/p' | head -n 1 | sed -n '/The Sims 4 Standard Edition/p' ) #If DISTRAINT isn't the latest free game anymore, then notify me
+  FREE=$(curl --connect-timeout 2 -s https://www.freegamekeys.com/origin/ --compressed | sed -n '/Check Giveaway/p' | head -n 1 | sed -n '/Access: 1 Month/p' ) #If DISTRAINT isn't the latest free game anymore, then notify me
   if [[ "$FREE" == "" ]] ; then
     notify-send "Origin Free Game";
   fi
