@@ -1,5 +1,5 @@
-freeEpic() {
-  FREE=$(curl --connect-timeout 2 -s https://www.freegamekeys.com/epic-store/ --compressed | sed -n '/Check Giveaway/p' | head -n 1 | sed -n '/SUPERHOT/p' ) #If DISTRAINT isn't the latest free game anymore, then notify me
+reeEpic() {
+  FREE=$(curl --connect-timeout 2 -s https://www.freegamekeys.com/epic-store/ --compressed | sed -n '/Check Giveaway/p' | head -n 1 | sed -n '/Inferno/p' ) #If DISTRAINT isn't the latest free game anymore, then notify me
   if [[ "$FREE" == "" ]] ; then
     notify-send "Epic Store Free Game";
   fi
