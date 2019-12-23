@@ -87,6 +87,7 @@ alias fixAndroid="sudo  ~/Android/Sdk/platform-tools/adb kill-server; sudo  ~/An
 alias fixEmulator="sudo  ~/Android/Sdk/platform-tools/adb kill-server" #When adb opened with sudo, than emu can't integrate with adb -> Shows Unauthorized
 alias cbuild="(cd /home/nwuensche/Dokumente/6.Semester/VNS/Vanda; cabal build)"
 alias sv="source /opt/anaconda/bin/activate root; conda activate py368"
+alias offlineimap="~/saveFolder/privateScripts/offlineimap"
 
 #Android Stuff
 alias aShell="Xvfb :20 -screen 0 1024x768x16 &;export DISPLAY=:20;~/Android/Sdk/emulator/emulator @Nexus_4_API_28 &; sleep 5; adb shell"
