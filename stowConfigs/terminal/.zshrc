@@ -64,7 +64,6 @@ alias scan='scanimage --format=png > ~/scan.png; echo "scan can be found in ~/sc
 alias reducePDFMore='f() { gs -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS="/screen" -sOutputFile=output.pdf $1  }; f'
 alias reducePDFMore2='f() { gs -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS="/ebook" -sOutputFile=output.pdf $1  }; f'
 alias FEp='f() {mplayer $(wget https://rss.simplecast.com/podcasts/1684/rss -O- 2>/dev/null| grep "enclosure" | tac | sed -n $1p | cut -f2 -d"\"")}; f'
-alias sendKindle='f() {echo "" | for doc do neomutt -s "test" -e "$(cat ~/saveFolder/sendKindleFrom.txt)" "$(cat ~/saveFolder/kindleAddress.txt)" -a "$doc"; done}; f'
 alias histrm='f() { LC_ALL=C sed --in-place "/$1/d" $HISTFILE;};f'
 alias getIt='f() {getIt $1; histrm get;clear; zsh}; f'
 alias search='googler --count 3'
