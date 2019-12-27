@@ -1,0 +1,4 @@
+#!/bin/sh
+FILE=$1
+base64 -d "$FILE" > "$FILE.pdf"
+

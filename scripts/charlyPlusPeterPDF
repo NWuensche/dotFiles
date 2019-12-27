@@ -1,0 +1,18 @@
+#!/bin/sh
+set -e
+
+ZOOM=$1
+FILES=${@:2} #All except first
+TMPUNITE=$(mktemp --suffix=.pdf)
+TMPSCALE=$(mktemp --suffix=.pdf)
+OUTPDF="outCharlyPlusPeter.pdf"
+
+if [[ "$FILES" == "" ]]; then
+  echo "charlyPlusPeterPDF ZOOM FILES"
+  exit 1
+fi
+
+pdfunite $FILES "$TMPUNITE"
+pdfScaler "$ZOOM" "$TMPUNITE" "$TMPSCALE"
+pdfnup "$TMPSCALE" --nup 2x1 --no-landscape --outfile "$OUTPDF"
+echo "Out written in $OUTPDF"
