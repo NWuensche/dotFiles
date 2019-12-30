@@ -82,7 +82,6 @@ alias pacman="yay"
 
 #VNS Stuff
 alias ctest="(cd /home/nwuensche/Dokumente/6.Semester/VNS/Vanda; cabal configure --enable-tests && cabal test)"
-alias fixAndroid="sudo  ~/Android/Sdk/platform-tools/adb kill-server; sudo  ~/Android/Sdk/platform-tools/adb start-server"
 alias fixEmulator="sudo  ~/Android/Sdk/platform-tools/adb kill-server" #When adb opened with sudo, than emu can't integrate with adb -> Shows Unauthorized
 alias cbuild="(cd /home/nwuensche/Dokumente/6.Semester/VNS/Vanda; cabal build)"
 alias sv="source /opt/anaconda/bin/activate root; conda activate py368"
