@@ -19,6 +19,18 @@ function getBrightness() {
   echo "🌣 $((BRIGHT*100/MAX_BRIGHT))%"
 }
 
+function switchNumberToDOW() {
+  case "$1" in
+    1) echo "Mo";;
+    2) echo "Di";;
+    3) echo "Mi";;
+    4) echo "Do";;
+    5) echo "Fr";;
+    6) echo "Sa";;
+    7) echo "So";;
+  esac
+}
+
 echo "{\"version\": 1, \"click_events\": true}" #Otherwise does not parse JSON
 echo "["
 
@@ -38,6 +50,12 @@ do
     ITEM=$(echo "$ITEM" | sed 's/^\s*//' | sed 's/\s*$//') #Remove Leading and then Trailing Space
     if [[ `echo "$ITEM" | grep "BAT" || true` != "" ]]; then
       setColorBattery "$ITEM"
+    fi
+
+    #Match dd.dd.dddd
+    if [[ `echo "$ITEM" | sed -n '/[0-9][0-9]\.[0-9][0-9]\.[0-9][0-9][0-9][0-9]/p'` != "" ]]; then
+      DOW=$(switchNumberToDOW `date +"%u"`)
+      ITEM="$DOW, $ITEM"
     fi
 
     OUT+="{\"full_text\": \" $ITEM \", \"color\": \"$COLOR\", \"background\": \"#000000\",  \"separator\": true, \"min_width\": null,  \"align\": null},"

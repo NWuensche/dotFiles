@@ -78,7 +78,8 @@ function yayPackages {
     yay -S ttf-liberation pango  --noconfirm #Fonts and Font Tools 
     yay -S alsa-utils pulseaudio pavucontrol --noconfirm #Audio 
     yay -S steam calibre vlc gimp chromium kdenlive libreoffice-fresh-de  evince xournalpp zathura zathura-pdf-poppler spotify  --noconfirm #X Tools 
-    yay -S redshift gparted  arandr wine android-file-transfer simple-mtpfs notification-daemon  --noconfirm # X Support Tools 
+    yay -S wine lib32-libpulse --noconfirm # Wine stuff
+    yay -S redshift gparted arandr android-file-transfer simple-mtpfs notification-daemon  --noconfirm # X Support Tools 
     yay -S virtualbox virtualbox-host-modules-arch virtualbox-guest-iso  --noconfirm #Virtualbox 
     yay -S texlive-most biber texlive-localmanager-git  --noconfirm #Latex 
     yay -S slack-desktop openconnect telegram-desktop macchanger --noconfirm #Other Stuff 
