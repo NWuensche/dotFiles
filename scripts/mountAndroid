@@ -2,8 +2,8 @@
 #/home/nwuensche/.dotFiles/scripts/fixAndroid
 /home/nwuensche/Android/Sdk/platform-tools/adb shell svc usb setFunction mtp true #Make Device MTP usable
 #touch /home/nwuensche/weg1
-sudo mkdir -p /run/media/nwuensche/phone
+/usr/bin/sudo /usr/bin/mkdir -p /run/media/nwuensche/phone
 #touch /home/nwuensche/weg2
-sudo chmod 0777 /run/media/nwuensche/phone
+/usr/bin/sudo /usr/bin/chmod 0777 /run/media/nwuensche/phone
 #touch /home/nwuensche/weg3
 /usr/bin/sudo -u nwuensche /usr/bin/simple-mtpfs --device 1 /run/media/nwuensche/phone
