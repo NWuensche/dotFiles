@@ -96,6 +96,11 @@ alias aShell="Xvfb :20 -screen 0 1024x768x16 &;export DISPLAY=:20;~/Android/Sdk/
 export fpath=(~/.zsh/completions $fpath) 
 autoload -U compinit && compinit
 
+#if [[ `pgrep -x udiskie` == "" ]] ; then
+#  udiskie &
+#  disown
+#fi
+
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 #export SDKMAN_DIR="/home/nwuensche/.sdkman"

@@ -211,7 +211,6 @@ exec redshift -l 55.7:12.6 -t 5700:3600 -g 0.8 -m randr -v &>/dev/null &
 # Lock when Laptop lid closed
 #exec xss-lock -- i3lock-wrapper -n &
 #exec xbacklight -set 30
-exec udiskie &
 exec /usr/lib/notification-daemon-1.0/notification-daemon & #Daemon for notifications
 exec_always "setxkbmap eu -option caps:escape"
 exec feh --bg-scale ~/.background-image
@@ -242,6 +241,8 @@ exec_always /home/nwuensche/.dotFiles/scripts/setupMonitor
 exec amixer -D pulse sset Capture nocap #Micro off
 
 exec /home/nwuensche/saveFolder/privateScripts/startVPN &
+
+exec /usr/bin/udiskie &
 
 exec xhost +local: #Necessary to be able to open gparted inside a tmux session
 #exec /home/nwuensche/.dotFiles/scripts/fullscreenLock & #Can't do this in crontab because Environment variables are wrong
