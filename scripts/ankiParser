@@ -42,6 +42,7 @@ outF = open(OFile, 'w') #Delete everything from Outfile
 beforeSemi = True
 firstPart=[]
 secondPart=[]
+allFirstParts=[]
 
 linenum = 0
 with open(IFile) as f:
@@ -59,6 +60,9 @@ for line in content:
 #        elif line == ";" and beforeSemi: #First semicolon
     if line == ";" and beforeSemi: #First semicolon
         beforeSemi = False
+        if firstPart in allFirstParts:
+            print("Line " + str(linenum) + ": Duplicate Front of Page")
+            sys.exit(1)
         continue
     elif ";" in line:
         print("Line " + str(linenum) + ": Don't use Semicolon")
@@ -72,6 +76,7 @@ for line in content:
         outF.write('\\\\'.join(firstPart) + " ; " + '\\\\'.join(secondPart) + "\n")
 
         beforeSemi = True
+        allFirstParts.append(firstPart)
         firstPart=[]
         secondPart=[]
         continue
