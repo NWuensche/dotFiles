@@ -1,0 +1,26 @@
+#!/bin/sh
+set -e
+
+PDFPATH="$1"
+if [[ "$PDFPATH" == "" ]]; then
+  echo "Format: scanPDFTo PATH"
+  exit 1
+fi
+
+if [[ "$PDFPATH" != *".pdf" ]]; then
+  echo "Format: scanPDFTo PATH.pdf"
+  exit 1
+fi
+
+if [ -e "$PDFPATH" ]; then
+  echo "File $PDFPATH already exists"
+  exit 1
+fi
+
+TMPSCAN=$(mktemp --suffix=.png)
+scanimage --resolution 300 --format=png --progress > "$TMPSCAN"
+
+TMPFILTER=$(mktemp --suffix=.png)
+convert -brightness-contrast -20x30 "$TMPSCAN" "$TMPFILTER"
+
+convert "$TMPFILTER" "$PDFPATH"

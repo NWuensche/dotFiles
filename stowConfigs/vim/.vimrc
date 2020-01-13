@@ -123,7 +123,7 @@ let @t='gg/\[*\](E"adiwb"sdi(h"apcs([lxelxGGo["apA: "sp' " for Issue 39
 map <F2> :! latexmk -pdf %:p <CR>
 "map <F2> :! latexmk -pdf paper.tex<CR>
 
-autocmd Filetype json :%!ownjsonTool --no-ensure-ascii
+"autocmd Filetype json :%!ownjsonTool --no-ensure-ascii
 " Used for moving stuff inside tikz
 xnoremap <leader>m <esc>:'<,'>!moveTikz -r 
 

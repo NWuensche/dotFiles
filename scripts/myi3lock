@@ -33,7 +33,8 @@ if [ "$WINDOW" = "$SCREEN" ] || [ "$WINDOW" = "1916x1058" ]; then #Fullscreen or
         sleep 30
         CURRMOUSEPOS=$(xdotool getmouselocation | awk '{print $1$2}')
         if [ "$OLDMOUSEPOS" = "$CURRMOUSEPOS" ] ; then #Fullscreen or single window i3
-          i3lock
+          #NEW i3lock
+          xset dpms force on
         fi
         sleep 120
         CURRMOUSEPOS=$(xdotool getmouselocation | awk '{print $1$2}')
@@ -55,13 +56,15 @@ else
         sleep 30
         CURRMOUSEPOS=$(xdotool getmouselocation | awk '{print $1$2}')
         if [ "$OLDMOUSEPOS" = "$CURRMOUSEPOS" ] ; then #Fullscreen or single window i3
-          i3lock
+          xset s activate
+          #NEW i3lock
         fi
         sleep 120
         CURRMOUSEPOS=$(xdotool getmouselocation | awk '{print $1$2}')
         AUDIORUNNING=$(isAudioRunning)
         if [ "$OLDMOUSEPOS" = "$CURRMOUSEPOS" ] && [ "$AUDIORUNNING" = "FALSE" ] ; then #Fullscreen or single window i3 and no music playing right now
           xset dpms force on
+          xset s activate
           systemctl suspend 
         fi
 fi

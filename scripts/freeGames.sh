@@ -1,5 +1,5 @@
 freeEpic() {
-  FREE=$(curl --connect-timeout 2 -s https://www.freegamekeys.com/epic-games-store/ --compressed | sed -n '/Check Giveaway/p' | head -n 1 | sed -n '/Darksiders/p' ) #If DISTRAINT isn't the latest free game anymore, then notify me
+  FREE=$(curl --connect-timeout 2 -s https://www.freegamekeys.com/epic-games-store/ --compressed | sed -n '/Check Giveaway/p' | head -n 1 | sed -n '/Sunde/p' ) #If DISTRAINT isn't the latest free game anymore, then notify me
   if [[ "$FREE" == "" ]] ; then
     notify-send "Epic Store Free Game";
   fi
@@ -16,7 +16,7 @@ freeHB() {
   FREE=$(curl --connect-timeout 2 -s https://www.humblebundle.com/store | grep -i "<p.*Free.*time")
 
   if [[ "$FREE" != "" ]] ; then
-    notify-send "Humblebundle Free Game";
+    notify-send "Humblebundle Active Again!";
   fi
 }
 

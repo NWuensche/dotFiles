@@ -23,6 +23,7 @@ export FZF_DEFAULT_COMMAND='fd --type f'
 
 export BROWSER="chromium"
 
+alias calcurse='c'
 alias gf='/usr/bin/gf'
 alias feh='feh --auto-rotate'
 alias screenshotXVFB="DISPLAY=:19 import -window root /tmp/screenshot.png; feh /tmp/screenshot.png"
