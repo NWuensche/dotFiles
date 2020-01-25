@@ -58,6 +58,7 @@ for line in content:
 #            print("Line " + str(linenum) + ": Comma messes up import. Abort")
 #            sys.exit(1)
 #        elif line == ";" and beforeSemi: #First semicolon
+
     if line == ";" and beforeSemi: #First semicolon
         beforeSemi = False
         if firstPart in allFirstParts:
@@ -66,6 +67,9 @@ for line in content:
         continue
     elif ";" in line:
         print("Line " + str(linenum) + ": Don't use Semicolon")
+        sys.exit(1)
+    elif '"' or "'" in line:
+        print("Line " + str(linenum) + ": Don't use (double) quotes, they will disappear when imported.")
         sys.exit(1)
     elif line == "": #Just Spaces -> New Card
         if beforeSemi or firstPart == "" or secondPart == "":

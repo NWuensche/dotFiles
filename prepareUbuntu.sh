@@ -77,7 +77,7 @@ function yayPackages {
     yay -S xf86-input-synaptics xf86-input-mtrack  --noconfirm #Touchpad Tools 
     yay -S ttf-liberation pango  --noconfirm #Fonts and Font Tools 
     yay -S alsa-utils pulseaudio pavucontrol --noconfirm #Audio 
-    yay -S steam calibre vlc gimp chromium kdenlive libreoffice-fresh-de  evince xournalpp zathura zathura-pdf-poppler spotify  --noconfirm #X Tools 
+    yay -S steam calibre vlc gimp firefox kdenlive libreoffice-fresh-de  evince xournalpp zathura zathura-pdf-poppler spotify  --noconfirm #X Tools 
     yay -S wine lib32-libpulse --noconfirm # Wine stuff
     yay -S redshift gparted arandr android-file-transfer simple-mtpfs notification-daemon  --noconfirm # X Support Tools 
     yay -S virtualbox virtualbox-host-modules-arch virtualbox-guest-iso  --noconfirm #Virtualbox 
@@ -185,7 +185,7 @@ function installAnki {
 
   BASE_URL="https://github.com"
   LATEST_ANKI="$BASE_URL"
-  LATEST_ANKI+=$(curl -s https://github.com/dae/anki/releases | sed -n 's|.*href="\(.*.tar.gz\)".*|\1|gp' | head -n 1)
+  LATEST_ANKI+=$(curl -s https://github.com/ankitects/anki/releases | sed -n 's|.*href="\(.*.tar.gz\)".*|\1|gp' | head -n 1)
 
   curl -s -L "$LATEST_ANKI" --output - > "$TMP_TAR"
   #mkdir -p "$TMP_OUT"
@@ -194,6 +194,11 @@ function installAnki {
   sudo cp -r "$TMP_OUT" "$OUT"
   sudo chmod -R 0777 "$OUT"
   ( cd "$OUT"
+    cd pylib
+    sed -i 's/patterns = .*/patterns = (";")/' anki/importing/csvfile.py #Only accept semicolon as delimiter
+  )
+  ( cd "$OUT"
+    cd "qt" #Needed now
     sh "tools/build_ui.sh"
   )
 
