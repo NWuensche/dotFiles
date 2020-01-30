@@ -54,6 +54,10 @@ content = trimLastEmptyLines(content)
 for line in content:
     linenum+=1
     line = line.strip()
+
+    #Normal quotes disapper when imported
+    line = line.replace('"', '\\doubleq ')
+    line = line.replace("'", '\\singleq ')
 #        if ',' in line:
 #            print("Line " + str(linenum) + ": Comma messes up import. Abort")
 #            sys.exit(1)
@@ -68,9 +72,9 @@ for line in content:
     elif ";" in line:
         print("Line " + str(linenum) + ": Don't use Semicolon")
         sys.exit(1)
-    elif '"' or "'" in line:
-        print("Line " + str(linenum) + ": Don't use (double) quotes, they will disappear when imported.")
-        sys.exit(1)
+#    elif '"' or "'" in line:
+#        print("Line " + str(linenum) + ": Don't use (double) quotes, they will disappear when imported.")
+#        sys.exit(1)
     elif line == "": #Just Spaces -> New Card
         if beforeSemi or firstPart == "" or secondPart == "":
             print("Line " + str(linenum) + ": Forgot semicolon/second part of card. Or two spaces after card")

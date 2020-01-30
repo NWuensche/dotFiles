@@ -18,6 +18,8 @@ HEADER='
 \pagestyle{empty}
 \setlength{\parindent}{0in}
 \renewcommand{\l}{\lambda}
+\newcommand{\doubleq}{"}
+\newcommand{\singleq}{`}
 \newcommand{\N}{\mathbb{N}}\newcommand{\R}{\mathbb{R}}
 \DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
 \DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
