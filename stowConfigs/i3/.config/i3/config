@@ -219,11 +219,12 @@ exec light -S 40
 exec terminator -x  env TERM=screen-256color tmux attach
 exec xinput -set-prop 12 141 1
 #exec xautolock -locker myi3lock -time 10 & #suspend lock, don't suspend when in one of the corners
-exec xset s 600 #start xss-lock after 10 minutes
+#exec xset s 600 #start xss-lock after 10 minutes
+exec xset s 1 #start xss-lock after  1 second, because i have sleep inside myi3lock script
 exec xss-lock --transfer-sleep-lock -- myi3lock --nofork #transfer + nofork fixes that if you close and repopen lid, that you can see screen shortly
 #exec xss-lock -- true & #Disable default screensaver which darkens screen every 10 minutes
 #Disable black screen after 10 minutes
-exec xset s 0 0 #TODO Can evnt. raus
+#exec xset s 0 0 #TODO Can evnt. raus
 
 exec xset dpms 0 0 0
 
