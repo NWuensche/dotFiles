@@ -1,0 +1,24 @@
+#!/bin/sh
+
+#Yes,it's not a daemon anymore, but I don't want to rename it verywhere
+#Setup xset  + xss-lock for xautolock. Because I can set only a black screen without a lock with `xset dpms force standby` iff xss-lock is not running, but I can lock the screen with --transfer-sleep-lock and --nofork iff xss-lock runs
+
+function off() {
+  pkill xss-lock
+}
+
+function on() {
+  off
+
+  #Although xss-lock runs, it should automatically after x seconds lock the screen
+  xset s off
+
+  #Don't show screen after awaking from suspend
+  xset s noexpose
+  xset s noblank
+
+  #Flags prevent show screen after awaking from suspend + failing i3 doesn't show current session
+  xss-lock --transfer-sleep-lock -- i3lock --nofork &
+}
+
+$1

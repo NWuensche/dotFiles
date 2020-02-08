@@ -1,0 +1,66 @@
+#!/bin/bash
+
+#If fullscreen, set cursor to corner to stop xautolock from activating
+
+function isAudioRunning() {
+  #`|| true` to prevent exit 1 when grep doesn't find anything
+  RUNNING=$(echo "list-sink-inputs" | pacmd | grep "state: RUNNING" || true)
+
+  #Some audio is running
+  if [[ "$RUNNING" != "" ]]; then
+    echo "TRUE"
+    exit 0
+  fi
+  echo "FALSE"
+  exit 0
+
+}
+
+function isVideoFullscreen() {
+  NAMEWINDOW=$(echo $(xwininfo -id $(xdotool getactivewindow)) | sed -n -r '/(prime video|games done quick|gamesDoneQuick|youtube|ted|zdfmediathek|kyoto university opencourseware|media.ccc.de).*(Firefox|Chromium)/Ip')
+  WINDOW=$(echo $(xwininfo -id $(xdotool getactivewindow) -stats | \
+                  egrep '(Width|Height):' | \
+                  awk '{print $NF}') | \
+           sed -e 's/ /x/')
+  SCREEN=$(xdpyinfo | grep -m1 dimensions | awk '{print $2}')
+#  notify-send "$WINDOW"
+  if [ "$WINDOW" == "$SCREEN" ] || [ "$WINDOW" == "1916x1060" ] ; then
+    #Don't know how to group conditions with () in bash
+    if [ "$NAMEWINDOW" != "" ]; then
+      echo "TRUE"
+      exit 0
+    fi
+  fi
+  echo "FALSE"
+  exit 0
+}
+
+function notifier() {
+  #Show black screen only if nothing important in fullscreen
+  if [ `isVideoFullscreen` == "FALSE" ] ; then
+    #Black Screen, explanation in xsslockdaemon
+    xsslockdaemon off
+    xset dpms force standby
+    xsslockdaemon on
+  fi
+}
+
+function lock() {
+  # Don't lock if video runs
+  if [ `isVideoFullscreen` == "TRUE" ] ; then
+    exit 0
+  fi
+
+  #Black screen automatically by xautolock notifier
+
+  #lock screen
+  loginctl lock-session
+
+  #If no audio, also sleep
+  if [ `isAudioRunning` == "FALSE" ] ; then 
+    systemctl suspend 
+  fi
+
+}
+
+$1 #Either notifier or main
