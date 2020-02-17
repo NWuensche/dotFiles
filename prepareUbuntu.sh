@@ -85,7 +85,8 @@ function yayPackages {
     yay -S slack-desktop openconnect telegram-desktop macchanger --noconfirm #Other Stuff 
     yay -S wpa_actiond --noconfirm # For auto search WiFi
 
-    pip install --user pytube #python-pytube in AUR is too old
+
+    pip install --user pytube pycurl #python-pytube in AUR is too old
 
     gem install bluebutton #Own config for bluetooth button
 

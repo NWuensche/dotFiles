@@ -101,6 +101,8 @@ filextype *.flac,*.m4a,*.ape,*.ac3,*.og[agx],*.spx,*.opus,*.avi,*.mp4,*.wmv,*.da
         \ mplayer %f &>/dev/null &
 filextype *.wav,*.ogg,*.mp3,*.aac,*.wma terminator -e "mplayer %f" 2>/dev/null
 
+filextype *.ts vim %f
+
 filextype *.odt,*.ods,*.doc,*.docx,*.xls,*.xlsx,*.odp,*.pptx libreoffice %f &>/dev/null &
 
 " Syntax highlighting in preview

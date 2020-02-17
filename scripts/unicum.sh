@@ -8,10 +8,10 @@ from selenium.common.exceptions import NoSuchElementException
 
 baseurl = 'https://www.facebook.com/pg/unicum.de/events/?ref=page_internal'
 
-options = webdriver.FirefoxOptions()
-options.add_argument('--headless')
+options = webdriver.ChromeOptions()
+options.add_argument('headless')
 
-mydriver = webdriver.Firefox(options=options)
+mydriver = webdriver.Chrome(options=options)
 
 mydriver.get(baseurl)
 
