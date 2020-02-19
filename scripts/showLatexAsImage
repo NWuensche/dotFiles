@@ -13,8 +13,8 @@ HEADER='\documentclass[preview]{article} %standalone fixed size in dvipng
 \usepackage{geometry}
 \geometry{
  a4paper,
- total={250mm,150mm},
- left=30mm,
+ total={250mm,150mm}, %Same as dvipng -T down below
+ left=30mm, %Trial and Error
  top=30mm,
  }
 \usepackage{amssymb}

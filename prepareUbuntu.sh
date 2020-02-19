@@ -416,6 +416,10 @@ function reloadTmux {
   tmux source-file ~/.tmux.conf
 }
 
+function setUdevRules {
+  $HOME/saveFolder/privateScripts/addUdevKeyboard
+}
+
 function main {
     setUpHome
     installPrograms
@@ -424,6 +428,7 @@ function main {
     lidCloseLock
     powertopAdd
     reloadTmux
+    setUdevRules
     #fixAudio Not Necessary
     setUpManually
     setUpPrinter
