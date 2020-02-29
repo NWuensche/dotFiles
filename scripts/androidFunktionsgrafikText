@@ -1,6 +1,6 @@
 #!/bin/sh
 
 #E.g. "REMOTE\nMUSIC"
-convert -font $HOME/.dotFiles/fonts/ferrumCC0.otf  -size 1024x500 xc:"#343434"  -stroke white -fill White -gravity Center  -weight 700 -pointsize 100   -annotate 0 $1 Funktionsgrafik.png
+convert -font $HOME/.dotFiles/fonts/ferrumCC0.otf  -size 1024x500 xc:"#343434"  -stroke white -fill White -gravity Center  -weight 700 -pointsize 100   -annotate 0 "$1" Funktionsgrafik.png
 
 echo "Out in Funktionsgrafik.png"

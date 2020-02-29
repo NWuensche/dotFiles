@@ -17,11 +17,11 @@ for f in *.m4a; do mv -- "$f" "name/${f//\ /_}"; done
 
 cd name
 for i in *.m4a; do
-    POSTFIXFREE=`echo $i | cut -d'.' -f1`;
+    POSTFIXFREE=`echo "$i" | cut -d'.' -f1`;
     INTERPRET=$(echo $i  | awk -F"_-" '{print $1}' | sed 's/_/\ /g')
     TITLE=$(echo -n $i | awk -F"-" '{print $2}' | cut -c 2- | awk -F"." '{print $1}' | sed 's/_/\ /g')
     
-    ffmpeg -i "$i" -metadata artist="$INTERPRET" -metadata title="$TITLE" $POSTFIXFREE.mp3;
+    ffmpeg -i "$i" -metadata artist="$INTERPRET" -metadata title="$TITLE" "$POSTFIXFREE".mp3;
     trash "$i";
 done
 

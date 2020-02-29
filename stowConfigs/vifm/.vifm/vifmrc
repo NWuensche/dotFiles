@@ -165,7 +165,7 @@ fileviewer *.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,
           \*.as[fx]
          \ vlc %f &
 filextype *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm feh --auto-rotate -F %f &
-filetype *.tgz,*.zip,*.rar,*.gz,*.bz2,*.xz extract %f
+filetype *.tgz,*.zip,*.7z,*.rar,*.gz,*.bz2,*.xz extract %f
 
 nmap `h :cd ~ <CR>
 nmap `d :cd ~/Downloads <CR>
