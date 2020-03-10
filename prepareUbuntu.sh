@@ -179,6 +179,9 @@ function loadWallabag {
 }
 
 function installAnki {
+  yay -S rustup protobuf --noconfirm # Build Tools for Anki
+  sudo pip install maturin #Anki has forgotten to install this
+
   #Base Anki Installation
   TMP_TAR="/tmp/anki.tar.gz"
   TMP_OUT="/tmp/anki"
@@ -186,6 +189,7 @@ function installAnki {
 
   BASE_URL="https://github.com"
   LATEST_ANKI="$BASE_URL"
+  #Release tar.bz2 doesn't have python files, so i cant use my import Script
   LATEST_ANKI+=$(curl -s https://github.com/ankitects/anki/releases | sed -n 's|.*href="\(.*.tar.gz\)".*|\1|gp' | head -n 1)
 
   curl -s -L "$LATEST_ANKI" --output - > "$TMP_TAR"
@@ -196,17 +200,22 @@ function installAnki {
   sudo chmod -R 0777 "$OUT"
   ( cd "$OUT"
     cd pylib
-    sed -i 's/patterns = .*/patterns = (";")/' anki/importing/csvfile.py #Only accept semicolon as delimiter
+    sed -i 's/patterns = .*/patterns = ";"/' anki/importing/csvfile.py #Only accept semicolon as delimiter
   )
   ( cd "$OUT"
-    cd "qt" #Needed now
-    sh "tools/build_ui.sh"
+    make develop #only `make` will also run the program + `make build` always has (for some reason) error 4 + `make develop` is everything except `make run`, which would open gui
+    make clean
   )
+  #Only Old Anki
+  #( cd "$OUT"
+  #  cd "qt" #Needed now
+  #  sh "tools/build_ui.sh"
+  #)
 
   #importCSV Script
   TMP_SCRIPT="/tmp/importAnki.py"
   curl -s -L https://github.com/NWuensche/AnkiTerminalImporter/raw/master/importAnki.py > "$TMP_SCRIPT"
-  cp "$TMP_SCRIPT" "$OUT/importAnki.py"
+  cp "$TMP_SCRIPT" "$OUT/pylib/importAnki.py"
   sudo chmod -R 0755 "$OUT"
 }
 
@@ -434,5 +443,6 @@ function main {
     setUpPrinter
 }
 
-main
+#main
 #setUpMFC
+installAnki
