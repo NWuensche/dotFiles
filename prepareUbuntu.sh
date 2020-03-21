@@ -445,4 +445,4 @@ function main {
 
 #main
 #setUpMFC
-installAnki
+installAndroidStudio

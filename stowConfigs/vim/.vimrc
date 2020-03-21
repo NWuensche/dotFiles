@@ -3,6 +3,7 @@ nnoremap <Down> <nop>
 nnoremap <Left> <nop>
 nnoremap <Right> <nop>
 
+
 "No Deleting in Insert Mode
 inoremap <BS> <Nop>
 inoremap <Del> <Nop>
@@ -120,8 +121,16 @@ let g:snipMate = get(g:, 'snipMate', {})
 
 let @t='gg/\[*\](E"adiwb"sdi(h"apcs([lxelxGGo["apA: "sp' " for Issue 39
 
-map <F2> :! latexmk -pdf %:p <CR>
+filetype plugin on
+
+"autocmd Filetype tex nnoremap <buffer> <F2> :! latexmk -pdf %:p <CR>
+"autocmd Filetype md map <F2> :! pandoc %:p -o %:r.pdf <CR>
 "map <F2> :! latexmk -pdf paper.tex<CR>
+"au Filetype tex map <buffer><F2> :! latexmk -pdf %:p <CR>
+" Filetype stuff doesn't work for some reason
+autocmd BufRead,BufNewFile *.tex map <F2> :! latexmk -pdf %:p <CR>
+autocmd BufRead,BufNewFile *.md map <F2> :! pandoc --filter pandoc-citeproc --bibliography=%:r.bib --csl=%:r.csl --variable papersize=a4paper -s %:p -o %:r.pdf <CR>
+
 
 "autocmd Filetype json :%!ownjsonTool --no-ensure-ascii
 " Used for moving stuff inside tikz
