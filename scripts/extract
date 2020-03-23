@@ -1,4 +1,5 @@
 #!/bin/bash
+#https://askubuntu.com/questions/517891/bash-script-for-extracting-archives-how-to-make-the-script-ask-for-folder-dest
 
 SCRIPTNAME="${0##*/}"
 
