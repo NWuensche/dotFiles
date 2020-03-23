@@ -39,7 +39,7 @@ nnoremap q: :q
 " 	------- VUNDLE BEGIN ------- "
 set nocompatible              " be iMproved, required
 filetype off                  " required
-autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
+"autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
