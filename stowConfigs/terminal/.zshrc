@@ -97,6 +97,8 @@ alias aShell="Xvfb :20 -screen 0 1024x768x16 &;export DISPLAY=:20;~/Android/Sdk/
 export fpath=(~/.zsh/completions $fpath) 
 autoload -U compinit && compinit
 
+eval $(thefuck --alias)
+
 #if [[ `pgrep -x udiskie` == "" ]] ; then
 #  udiskie &
 #  disown
