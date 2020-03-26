@@ -30,13 +30,28 @@ function setUpHome {
 }
 
 #Download by myself and not by AUR because updating is easier afterwards (inside IJ, not through AUR)
-function installIJ {
+function installIJUltimate {
   OUT_IJ="/tmp/IJ.tar.gz"
   OUT_DIR="/opt/intellij"
 
   CURR_IJ=$(curl -s https://data.services.jetbrains.com/products/releases\?code\=IIU\&latest\=true\&type\=release | jq ".IIU[0].downloads.linux.link" | sed 's|"||g')
 
-  echo "Downloading IntelliJ"
+  echo "Downloading IntelliJ Ultimate"
+  wget -q "$CURR_IJ" -O "$OUT_IJ"
+
+  sudo mkdir -p "$OUT_DIR"
+  sudo chmod 0777 "$OUT_DIR"
+  sudo tar -xzf "$OUT_IJ" -C "$OUT_DIR" --strip-components=1 #strip parent dir inside tarball
+
+}
+
+function installIJCommunity {
+    OUT_IJ="/tmp/IJ.tar.gz"
+  OUT_DIR="/opt/intellij"
+
+  CURR_IJ=$(curl -s https://data.services.jetbrains.com/products/releases\?code\=IIC\&latest\=true\&type\=release | jq ".IIC[0].downloads.linux.link" | sed 's|"||g')
+
+  echo "Downloading IntelliJ Community"
   wget -q "$CURR_IJ" -O "$OUT_IJ"
 
   sudo mkdir -p "$OUT_DIR"
@@ -90,7 +105,7 @@ function yayPackages {
 
     gem install bluebutton #Own config for bluetooth button
 
-    installIJ
+    installIJCommunity
     installAndroidStudio
 
     sudo systemctl enable cronie.service #Enable Cron
@@ -445,4 +460,4 @@ function main {
 
 #main
 #setUpMFC
-installAndroidStudio
+installIJCommunity
