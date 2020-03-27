@@ -21,6 +21,7 @@ for i in *.m4a; do
     INTERPRET=$(echo $i  | awk -F"_-" '{print $1}' | sed 's/_/\ /g')
     TITLE=$(echo -n $i | awk -F"-" '{print $2}' | cut -c 2- | awk -F"." '{print $1}' | sed 's/_/\ /g')
     
+    #Need re-encode because m4a->mp3
     ffmpeg -i "$i" -metadata artist="$INTERPRET" -metadata title="$TITLE" "$POSTFIXFREE".mp3;
     trash "$i";
 done
