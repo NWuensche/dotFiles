@@ -129,7 +129,7 @@ filetype plugin on
 "au Filetype tex map <buffer><F2> :! latexmk -pdf %:p <CR>
 " Filetype stuff doesn't work for some reason
 autocmd BufRead,BufNewFile *.tex map <F2> :! latexmk -pdf %:p <CR>
-autocmd BufRead,BufNewFile *.md map <F2> :! pandoc --filter pandoc-citeproc --bibliography=%:r.bib --csl=%:r.csl --variable papersize=a4paper -s %:p -o %:r.pdf <CR>
+autocmd BufRead,BufNewFile *.md map <F2> :! pandoc --filter pandoc-citeproc --bibliography=%:r.bib --csl=%:r.csl --variable papersize=a4paper --metadata link-citations=True -s %:p -o %:r.pdf <CR>
 
 
 "autocmd Filetype json :%!ownjsonTool --no-ensure-ascii
