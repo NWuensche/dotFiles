@@ -1,5 +1,5 @@
 freeEpic() {
-  FREE=$(curl --connect-timeout 2 -s https://www.freegamekeys.com/epic-games-store/ --compressed | sed -n '/Check Giveaway/p' | head -n 1 | sed -n '/r Z/p' ) #If DISTRAINT isn't the latest free game anymore, then notify me
+  FREE=$(curl --connect-timeout 2 -s https://www.freegamekeys.com/epic-games-store/ --compressed | sed -n '/Check Giveaway/p' | head -n 1 | sed -n '/Drawful/p' ) #If DISTRAINT isn't the latest free game anymore, then notify me
   if [[ "$FREE" == "" ]] ; then
     notify-send "Epic Store Free Game";
   fi
@@ -29,7 +29,7 @@ freeOrigin() {
 }
 
 freeSteam() {
-  FREE=$(curl --connect-timeout 2 -s https://steamcommunity.com/groups/freegamesfinders/rss/  | sed -n '/title.*from Steam/Ip' | head -n 1 | sed -n '/Between Two Castles/p' )
+  FREE=$(curl --connect-timeout 2 -s https://steamcommunity.com/groups/freegamesfinders/rss/  | sed -n '/title.*from Steam/Ip' | head -n 1 | sed -n '/Barro/p' )
   if [[ "$FREE" == "" ]] ; then
     notify-send "Steam Free Game";
   fi
