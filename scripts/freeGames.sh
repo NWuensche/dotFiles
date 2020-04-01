@@ -36,7 +36,7 @@ freeOrigin() {
 }
 
 freeSteam() {
-  FREE=$(curl --connect-timeout 2 -s https://steamcommunity.com/groups/freegamesfinders/rss/  | sed -n '/title.*from Steam/Ip' | head -n 1 | sed -n '/One Drop Bot/p' )
+  FREE=$(curl --connect-timeout 2 -s https://steamcommunity.com/groups/freegamesfinders/rss/  | sed -n '/title.*from Steam/Ip' | head -n 1 | sed -n '/Lovers/p' )
   if [[ "$FREE" == "" ]] ; then
     notify-send "Steam Free Game";
   fi
