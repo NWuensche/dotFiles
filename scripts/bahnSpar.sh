@@ -1,7 +1,7 @@
 #!/bin/sh
 
 SITE_TIME=$(curl -s https://www.zugreiseblog.de/bahn-gutschein/ | sed -n 's/.*Aktualisiert: <time class=updated datetime="\([^"]*\).*/\1/p')
-LAST_TIME="2020-03-09 13:04:10"
+LAST_TIME="2020-04-01 17:10:54"
 echo $SITE_TIME
 
 if [[ "$SITE_TIME" != "$LAST_TIME" ]]; then
