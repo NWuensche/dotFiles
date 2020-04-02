@@ -407,6 +407,9 @@ function setUpManually {
     #echo "Install Tmux Plugins with Prefix + I (Shift + I)?" Should be unnecessary with new reloadTmux function
     echo "Import Android Studio Settings"
     echo "Run Android Studio and install Android, then run \`addUdevSmartphone\` script"
+    echo "Import IntelliJ Community Settings"
+    echo "Still works when error that Plugins subfolder is missing "
+    echo "Maybe update Project Settings -> JDK to JDK 10 (from 13) if compilation error "
 }
 
 
