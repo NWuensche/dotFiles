@@ -285,6 +285,8 @@ function moveConfigs {
     ( cd $HOME/.dotFiles/stowConfigs; stow i3 wallpaper vim git terminal gpg programConfigs vifm podget X -t $HOME )
     sh ~/saveFolder/doStowSaveFolder.sh
 
+    sudo ln -s /home/nwuensche/.dotFiles/X/my_dvorak  /usr/share/X11/xkb/symbols/my_dvorak
+
     sudo ln -s ~/.dotFiles/rules/99-udisks2.rules /etc/udev/rules.d
     sudo ln -s ~/.dotFiles/services/rfkill-own.service /etc/systemd/system/rfkill-own.service
     gpg --import ~/saveFolder/gpg_key_pub.asc

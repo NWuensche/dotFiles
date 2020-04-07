@@ -190,6 +190,10 @@ bindsym XF86Search exec echo "quit" > /tmp/mplayerControl && notify-send "Closed
 bindsym XF86LaunchA exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous #F11
 bindsym XF86Explorer exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next #F12
 
+# Push-To-Talk (Can't use bindsyn + bindsym --release for same sym, just doesn't work -> Use bindsym + bindcode for on/off ->  XF86 keys don't have keycode in xev -> Use Mod + x, Keycode 53 = x
+#bindsym --release $mod+x exec "amixer -q -D pulse sset Capture nocap"
+#exec_always xset -r 53 #INFO Disable repetition when pressing x, otherwise microphone stutters because on/off fast
+#bindcode  $mod+53 exec "amixer -q -D pulse sset Capture cap"
 
 #bindcode 123 exec "~/works"
 
@@ -212,7 +216,7 @@ exec redshift -l 55.7:12.6 -t 5700:3600 -g 0.8 -m randr -v &>/dev/null &
 #exec xss-lock -- i3lock-wrapper -n &
 #exec xbacklight -set 30
 exec /usr/lib/notification-daemon-1.0/notification-daemon & #Daemon for notifications
-exec_always "setxkbmap eu -option caps:escape"
+exec_always "setxkbmap my_dvorak -option caps:escape"
 exec feh --bg-scale ~/.background-image
 exec light -S 40
 #Italic
