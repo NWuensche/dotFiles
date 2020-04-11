@@ -190,10 +190,10 @@ bindsym XF86Search exec echo "quit" > /tmp/mplayerControl && notify-send "Closed
 bindsym XF86LaunchA exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous #F11
 bindsym XF86Explorer exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next #F12
 
-# Push-To-Talk (Can't use bindsyn + bindsym --release for same sym, just doesn't work -> Use bindsym + bindcode for on/off ->  XF86 keys don't have keycode in xev -> Use Mod + x, Keycode 53 = x
-#bindsym --release $mod+x exec "amixer -q -D pulse sset Capture nocap"
-#exec_always xset -r 53 #INFO Disable repetition when pressing x, otherwise microphone stutters because on/off fast
-#bindcode  $mod+53 exec "amixer -q -D pulse sset Capture cap"
+# Push-To-Talk (Can't use bindsyn + bindsym --release for same sym, just doesn't work -> Use bindsym + bindcode for on/off ->  XF86 keys don't have keycode in xev -> Use Mod + ;, Keycode 52 = ;
+#bindsym --release $mod+semicolon exec "amixer -q -D pulse sset Capture nocap"
+#exec_always xset -r 52 #INFO Disable repetition when pressing ;, otherwise microphone stutters because on/off fast
+#bindcode  $mod+52 exec "amixer -q -D pulse sset Capture cap"
 
 #bindcode 123 exec "~/works"
 

@@ -16,6 +16,7 @@ mydriver = webdriver.Chrome(options=options)
 mydriver.get(baseurl)
 
 print(mydriver.page_source)
+mydriver.quit()
 "
 )
 NO_HWR=$(echo "$SITE" | sed 's|HWR Berlin</a></div><div class="_30n_">Berlin||g' |  sed 's/HWRBerlin//g')

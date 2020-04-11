@@ -58,6 +58,7 @@ function installIJCommunity {
   sudo chmod 0777 "$OUT_DIR"
   sudo tar -xzf "$OUT_IJ" -C "$OUT_DIR" --strip-components=1 #strip parent dir inside tarball
 
+  sudo chmod 0777 -R "$OUT_DIR" #New 2020.1 try
 }
 
 #Download by myself and not by AUR because updating is easier afterwards (inside AS, not through AUR)

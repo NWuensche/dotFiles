@@ -2,6 +2,7 @@
 // Everything with xmodmap deactivates Alt R
 // Remap ',",` because default symbols are unicode
 // Add é for André
+// Names from cat /usr/share/X11/xkb/symbols/eu
 default partial alphanumeric_keys
 xkb_symbols "dvorak-intl" {
    include "us(dvorak-intl)"
