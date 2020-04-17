@@ -1,5 +1,5 @@
 freeEpic() {
-  FREE=$(curl --connect-timeout 2 -s https://www.freegamekeys.com/epic-games-store/ --compressed | sed -n '/Check Giveaway/p' | head -n 1 | sed -n '/Sun/p' ) #If DISTRAINT isn't the latest free game anymore, then notify me
+  FREE=$(curl --connect-timeout 2 -s https://www.freegamekeys.com/epic-games-store/ --compressed | sed -n '/Check Giveaway/p' | head -n 1 | sed -n '/Cause 4/p' ) #If DISTRAINT isn't the latest free game anymore, then notify me
   if [[ "$FREE" == "" ]] ; then
     notify-send "Epic Store Free Game";
   fi
@@ -13,17 +13,17 @@ freeGOG() {
 }
 
 freeUPlayUbisoft() {
-  FREE=$(curl --connect-timeout 2 -s https://www.freegamekeys.com/uplay/ --compressed | sed -n '/Check Giveaway/p' | head -n 1 | sed -n '/Rayman Legends/p' ) #If DISTRAINT isn't the latest free game anymore, then notify me
+  FREE=$(curl --connect-timeout 2 -s https://www.freegamekeys.com/uplay/ --compressed | sed -n '/Check Giveaway/p' | head -n 1 | sed -n '/Creed 2/p' ) #If DISTRAINT isn't the latest free game anymore, then notify me
   if [[ "$FREE" == "" ]] ; then
     notify-send "UPlay Free Game";
   fi
 }
 
 freeHB() {
-  FREE=$(curl --connect-timeout 2 -s https://www.humblebundle.com/store | grep -i "<p.*Free.*time")
-
-  if [[ "$FREE" != "" ]] ; then
-    notify-send "Humblebundle Active Again!";
+  # https://www.freegamekeys.com/ does not publish Humblebundle 
+  FREE=$(curl --connect-timeout 2 -s https://steamcommunity.com/groups/freegamesfinders/rss/  | sed -n '/title.*from Humble Bundle/Ip' | head -n 1 | sed -n '/Manual Samuel/p' )
+  if [[ "$FREE" == "" ]] ; then
+    notify-send "Humblebundle Free Game";
   fi
 }
 
@@ -36,7 +36,7 @@ freeOrigin() {
 }
 
 freeSteam() {
-  FREE=$(curl --connect-timeout 2 -s https://steamcommunity.com/groups/freegamesfinders/rss/  | sed -n '/title.*from Steam/Ip' | head -n 1 | sed -n '/Arcade Moonlander Plus/p' )
+  FREE=$(curl --connect-timeout 2 -s https://steamcommunity.com/groups/freegamesfinders/rss/  | sed -n '/title.*from Steam/Ip' | head -n 1 | sed -n '/The Search/p' )
   if [[ "$FREE" == "" ]] ; then
     notify-send "Steam Free Game";
   fi
