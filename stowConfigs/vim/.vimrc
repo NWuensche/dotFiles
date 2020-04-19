@@ -1,3 +1,4 @@
+
 nnoremap <Up> <nop>
 nnoremap <Down> <nop>
 nnoremap <Left> <nop>
@@ -128,7 +129,11 @@ filetype plugin on
 "map <F2> :! latexmk -pdf paper.tex<CR>
 "au Filetype tex map <buffer><F2> :! latexmk -pdf %:p <CR>
 " Filetype stuff doesn't work for some reason
-autocmd BufRead,BufNewFile *.tex map <F2> :! latexmk -pdf %:p <CR>
+
+" %:p:r is full path without file extension
+" silent skips 'Press ENTER' prompt, but need to redraw screen afterwards because else it looks empty
+autocmd BufRead,BufNewFile *.tex map <F2>  :w<CR> :silent !  vimCompileAndShowLatex %:p:r <CR> :redraw! <CR>
+
 autocmd BufRead,BufNewFile *.md map <F2> :! pandoc --filter pandoc-citeproc --bibliography=%:r.bib --csl=%:r.csl --variable papersize=a4paper --metadata link-citations=True -s %:p -o %:r.pdf <CR>
 
 
