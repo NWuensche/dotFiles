@@ -3,9 +3,9 @@
 
 set -e
 
-MODULES="$HOME/Dokumente/Master_Berlin/3.Semester/EX"
+MODULES="$HOME/Dokumente/Master_Berlin/4.Semester/EX"
 TYPES='(tex|jpg|png)'
-TASKSPERMODULE=5
+TASKSPERMODULE=1
 OPENPIC="feh --auto-rotate -F"
 
 openFile() {

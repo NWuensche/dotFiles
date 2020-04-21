@@ -93,7 +93,7 @@ function yayPackages {
     yay -S xf86-input-synaptics xf86-input-mtrack  --noconfirm #Touchpad Tools 
     yay -S ttf-liberation pango  --noconfirm #Fonts and Font Tools 
     yay -S alsa-utils pulseaudio pavucontrol --noconfirm #Audio 
-    yay -S steam calibre vlc gimp firefox kdenlive libreoffice-fresh-de  evince xournalpp zathura zathura-pdf-poppler spotify  --noconfirm #X Tools 
+    yay -S steam sqlitebrowser calibre vlc gimp firefox kdenlive libreoffice-fresh-de  evince xournalpp zathura zathura-pdf-poppler spotify  --noconfirm #X Tools 
     yay -S wine lib32-libpulse --noconfirm # Wine stuff
     yay -S redshift gparted arandr android-file-transfer simple-mtpfs notification-daemon  --noconfirm # X Support Tools 
     yay -S virtualbox virtualbox-host-modules-arch virtualbox-guest-iso  --noconfirm #Virtualbox 
