@@ -171,7 +171,7 @@ filetype *.tgz,*.zip,*.7z,*.rar,*.gz,*.bz2,*.xz extract %f
 nmap `h :cd ~ <CR>
 nmap `d :cd ~/Downloads <CR>
 nmap `m :cd /run/media/nwuensche <CR>
-nmap `q :cd ~/Dokumente/Master_Berlin/4.Semester/ <CR>
+nmap `' :cd ~/Dokumente/Master_Berlin/4.Semester/ <CR>
 
 
 nmap q :q<CR>

@@ -115,6 +115,9 @@ set t_ZR=[23m
 let g:ycm_key_list_select_completion=[]
 let g:ycm_key_list_previous_completion=[]
 let g:UltiSnipsSnippetsDir='/home/nwuensche/.dotFiles/vimStuff'
+" My tmux overrides c-j
+let g:UltiSnipsJumpForwardTrigger="<c-d>"
+
 
 map <Leader>f :FZF <CR>
 
@@ -134,7 +137,12 @@ filetype plugin on
 " silent skips 'Press ENTER' prompt, but need to redraw screen afterwards because else it looks empty
 autocmd BufRead,BufNewFile *.tex map <F2>  :w<CR> :silent !  vimCompileAndShowLatex %:p:r <CR> :redraw! <CR>
 
+
 autocmd BufRead,BufNewFile *.md map <F2> :! pandoc --filter pandoc-citeproc --bibliography=%:r.bib --csl=%:r.csl --variable papersize=a4paper --metadata link-citations=True -s %:p -o %:r.pdf <CR>
+
+" Test File.py with FileT.py, `read` when error there
+autocmd BufRead,BufNewFile *.py map <F2>  :w<CR> :silent !  pytest %:p:rT.%:e \|\| read <CR> :redraw! <CR>
+
 
 
 "autocmd Filetype json :%!ownjsonTool --no-ensure-ascii

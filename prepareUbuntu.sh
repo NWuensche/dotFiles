@@ -86,7 +86,7 @@ function yayPackages {
     yay -S gvim vim-spell-de vim-spell-en --noconfirm #Vim 
     yay -S pulseaudio-bluetooth bluez-utils bluez --noconfirm #Bluetooth
     yay -S xdotool expect --noconfirm # Automation Tools
-    yay -S tmux terminator zsh  --noconfirm #Terminator Environment 
+    yay -S tmux terminator xterm zsh  --noconfirm #Terminator Environment 
     yay -S unzip curl mitmproxy wget ack progress htop offlineimap neomutt vifm feh mps-youtube pdfgrep calcurse w3m mplayer irssi docker stow --noconfirm #Terminal Tools 
     yay -S powertop python-selenium jq rsync pwgen xclip ffmpeg xss-lock xautolock youtube-dl trash-cli scrot udiskie	exfat-utils ntfs-3g unrar cronie ttf-liberation openssh imapfilter urlview pandoc jpegoptim --noconfirm #Terminal Support Tools 
     yay -S tcsh cups sane brscan2 brscan3 --noconfirm #Printer Tools 
@@ -103,6 +103,9 @@ function yayPackages {
 
 
     pip install --user pytube pycurl #python-pytube in AUR is too old
+
+    pacman -S python-configobj #Needed for terminator, else crash, also enables click on links again somehow
+
 
     gem install bluebutton #Own config for bluetooth button
 
@@ -450,6 +453,10 @@ function setUdevRules {
   $HOME/saveFolder/privateScripts/addUdevKeyboard
 }
 
+function disableWebcam {
+  sudo sh -c "echo \"blacklist uvcvideo\" > /etc/modprobe.d/disable_webcam.conf"
+}
+
 function main {
     setUpHome
     installPrograms
@@ -459,6 +466,8 @@ function main {
     powertopAdd
     reloadTmux
     setUdevRules
+    disableWebcam
+    sh ~/saveFolder/setupScripts.sh
     #fixAudio Not Necessary
     setUpManually
     setUpPrinter
