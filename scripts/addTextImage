@@ -1,0 +1,28 @@
+#!/bin/sh
+set -e
+
+#Add Text below Image
+
+INPATH=$1
+TEXT=$2
+OUTPATH=$3
+
+if [[ "$OUTPATH" == "" ]]; then
+  echo "FORMAT addText INFILE TEXT OUTPATH"
+  exit 1
+fi
+
+if [[ ! -e "$INPATH" ]] ; then
+  echo "$INPATH does not exist"
+  exit 1
+fi
+
+if [[ -e "$OUTPATH" ]] ; then
+  echo "$OUTPATH already exists"
+  exit 1
+fi
+
+WIDTH=$(file "$INPATH" | sed -n 's/.* \([0-9][0-9]*\) x .*/\1/pg')
+
+#size breaks line while really use given pointsize, else makes image wider or font smaller
+convert "$INPATH"  -pointsize 30 -size "${WIDTH}x" caption:"$TEXT" -gravity center -append "$OUTPATH"
