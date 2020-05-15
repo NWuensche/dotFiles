@@ -1,5 +1,5 @@
 freeEpic() {
-  FREE=$(curl --connect-timeout 2 -s https://www.freegamekeys.com/epic-games-store/ --compressed | sed -n '/Check Giveaway/p' | head -n 1 | sed -n '/Death C/p' ) #If DISTRAINT isn't the latest free game anymore, then notify me
+  FREE=$(curl --connect-timeout 2 -s https://www.freegamekeys.com/epic-games-store/ --compressed | sed -n '/Check Giveaway/p' | head -n 1 | sed -n '/d Th/p' ) #If DISTRAINT isn't the latest free game anymore, then notify me
   if [[ "$FREE" == "" ]] ; then
     notify-send "Epic Store Free Game";
   fi
@@ -13,7 +13,7 @@ freeGOG() {
 }
 
 freeUPlayUbisoft() {
-  FREE=$(curl --connect-timeout 2 -s https://www.freegamekeys.com/uplay/ --compressed | sed -n '/Check Giveaway/p' | head -n 1 | sed -n '/Creed 2/p' ) #If DISTRAINT isn't the latest free game anymore, then notify me
+  FREE=$(curl --connect-timeout 2 -s https://www.freegamekeys.com/uplay/ --compressed | sed -n '/Check Giveaway/p' | head -n 1 | sed -n '/Creed: D/p' ) #If DISTRAINT isn't the latest free game anymore, then notify me
   if [[ "$FREE" == "" ]] ; then
     notify-send "UPlay Free Game";
   fi
@@ -21,7 +21,7 @@ freeUPlayUbisoft() {
 
 freeHB() {
   # https://www.freegamekeys.com/ does not publish Humblebundle 
-  FREE=$(curl --connect-timeout 2 -s https://steamcommunity.com/groups/freegamesfinders/rss/  | sed -n '/title.*from Humble Bundle/Ip' | head -n 1 | sed -n '/Ashes of/p' )
+  FREE=$(curl --connect-timeout 2 -s https://steamcommunity.com/groups/freegamesfinders/rss/  | sed -n '/title.*from Humble Bundle/Ip' | head -n 1 | sed -n '/Aegis D/p' )
   if [[ "$FREE" == "" ]] ; then
     notify-send "Humblebundle Free Game";
   fi
