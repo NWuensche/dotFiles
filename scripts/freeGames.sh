@@ -1,3 +1,4 @@
+GAME="Cows"
 freeEpicUPlayOrigin () {
 FREE=$(curl 'https://www.gamerpower.com/giveaways/pc/free-games' \
   -H 'authority: www.gamerpower.com' \
@@ -12,7 +13,7 @@ FREE=$(curl 'https://www.gamerpower.com/giveaways/pc/free-games' \
   -H 'sec-fetch-dest: document' \
   -H 'accept-language: de-DE,de;q=0.9,en-US;q=0.8,en;q=0.7' \
   --compressed \
-  |  tr '<' '\n' | sed -n 's/.*alt="Free \([^"]*\).*/\1/gp' | head -n 1 | sed -n '/Interk/p' )
+  |  tr '<' '\n' | sed -n 's/.*alt="Free \([^"]*\).*/\1/gp' | head -n 1 | sed -n "/$GAME/p" )
   if [[ "$FREE" == "" ]] ; then
     notify-send "Some Free Game";
   fi
@@ -21,10 +22,15 @@ FREE=$(curl 'https://www.gamerpower.com/giveaways/pc/free-games' \
 
 freeHB() {
   # https://www.freegamekeys.com/ does not publish Humblebundle 
-  FREE=$(curl --connect-timeout 2 -s https://steamcommunity.com/groups/freegamesfinders/rss/  | sed -n '/title.*from Humble Bundle/Ip' | head -n 1 | sed -n '/Aegis D/p' )
-  if [[ "$FREE" == "" ]] ; then
-    notify-send "Humblebundle Free Game";
+  # Can happen that RSS doesnt show last game anymore, so check before if there even is something present
+  ALLFREE=$(curl --connect-timeout 2 -s https://steamcommunity.com/groups/freegamesfinders/rss/  | sed -n '/title.*from Humble Bundle/Ip' | head -n 1  )
+  if [[ "$ALLFREE" != "" ]] ; then
+    FREE=$(echo "$ALLFREE" | sed -n '/Aegis D/p' )
+    if [[ "$FREE" == "" ]] ; then
+      notify-send "Humblebundle Free Game";
+    fi
   fi
+#  ALLFREE=$(curl --connect-timeout 2 -s https://steamcommunity.com/groups/freegamesfinders/rss/  | sed -n '/title.*from Humble Bundle/Ip' | head -n 1 | sed -n '/Aegis D/p' )
 }
 
 

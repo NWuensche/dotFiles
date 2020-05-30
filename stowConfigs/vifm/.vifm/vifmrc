@@ -99,7 +99,7 @@ filextype *.flac,*.m4a,*.ape,*.ac3,*.og[agx],*.spx,*.opus,*.avi,*.mp4,*.wmv,*.da
          \*.fl[icv],*.m2v,*.mov,*.webm,*.ts,*.mts,*.m4v,*.r[am],*.qt,*.divx,
          \*.as[fx]
         \ vlc %f &>/dev/null &
-filextype *.wav,*.ogg,*.mp3,*.aac,*.wma terminator -e "vlc %f" 2>/dev/null
+filextype *.amr,*.wav,*.ogg,*.mp3,*.aac,*.wma terminator -e "vlc %f" 2>/dev/null
 
 filextype *.ts vim %f
 filextype *.db  sqlitebrowser %f &

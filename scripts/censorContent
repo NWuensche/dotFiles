@@ -1,0 +1,171 @@
+#!/usr/bin/python3
+
+from tkinter import *
+from tkinter.colorchooser import askcolor
+from PIL import ImageTk, Image
+import subprocess
+from sys import argv
+import os
+
+#Use for censor stuff on bills for tax
+#Format: censorContent IN OUT.pdf
+#To stop editing page, just close window
+#One Window per Page in PDF, will be merged in OUT
+#In: Filename of png,jpg, pdf , pdf can have multiple pages
+#Out: PDF of painted picture
+def shellOutput(cmd):
+    #INFO umlaut in filename doesn't cause any problem!
+    return subprocess.check_output(cmd , shell=True)[:-1].decode("ascii") #Remove \n at the end + bytes to str (Needed for e.g. mktemp)
+
+class Paint:
+
+    DEFAULT_COLOR = 'black'
+
+    #INFO Assume here inImageFilePath exists and outPDFFilePath not and outPDFFilePath ends on .pdf
+    def __init__(self, inImageFilePath, outPDFFilePath):
+        self.color = self.DEFAULT_COLOR
+
+        self.outPDFFilePath = outPDFFilePath
+
+        self.pady =0
+        self.padx =0
+        self.root = Tk()
+
+        img = ImageTk.PhotoImage(Image.open(inImageFilePath))
+
+        #Somehow really hard to get canvas complete size, so save it in separate variables
+        self.cWidth = img.width()
+        self.cHeight = img.height()
+
+        self.c = Canvas(self.root, bg='white', width=self.cWidth, height=self.cHeight, scrollregion=(0,0,self.cWidth ,self.cHeight)) #scrollregion is part of image that I can scroll !to, not only where scrollbars are
+
+        hbar=Scrollbar(self.root,orient=HORIZONTAL)
+        hbar.pack(side=BOTTOM,fill=X)
+        hbar.config(command=self.c.xview)
+
+
+        vbar=Scrollbar(self.root,orient=VERTICAL)
+        vbar.pack(side=LEFT,fill=Y)
+        vbar.config(command=self.c.yview)
+
+        self.c.config(xscrollcommand=hbar.set, yscrollcommand=vbar.set)
+
+        self.c.create_image(0,0, anchor=NW, image=img)
+        self.c.pack(side=LEFT,expand=True,fill=BOTH)
+
+
+        # Needed for painting
+        self.old_x = None
+        self.old_y = None
+
+        self.bindSetup()
+        self.root.mainloop()
+
+    def bindSetup(self):
+
+        self.c.bind('<Button-1>', self.mouseDown)
+        self.c.bind('<ButtonRelease-1>', self.mouseUp)
+
+        self.root.bind("<Button-4>", self.on_vertical)
+        self.root.bind("<Button-5>", self.on_vertical)
+        self.root.bind("<Shift-Button-5>", self.on_horizontal)
+        self.root.bind("<Shift-Button-4>", self.on_horizontal)
+
+        self.root.protocol("WM_DELETE_WINDOW", self.onClose)
+
+
+    # Add Scroll-Padding
+    def mouseDown(self, event):
+        self.old_x = self.padx + event.x
+        self.old_y = self.pady + event.y
+
+    def mouseUp(self, event):
+        self.new_x = self.padx + event.x
+        self.new_y = self.pady + event.y
+        self.c.create_rectangle(self.old_x, self.old_y, self.new_x, self.new_y, fill=self.color)
+
+
+    def on_vertical(self, event):
+        if event.num == 5 or event.delta == -120:
+            direction = 1
+        if event.num == 4 or event.delta == 120:
+            direction = -1
+        self.c.yview_scroll(direction, 'units')
+        #Offset for scrolling, not handled by event.x
+        self.pady = self.c.yview()[0] * self.cHeight
+
+    def on_horizontal(self, event):
+        direction = 0
+        if event.num == 5 or event.delta == -120:
+            direction = 1
+        if event.num == 4 or event.delta == 120:
+            direction = -1
+        self.c.xview_scroll(direction, 'units')
+        #Offset for scrolling, not handled by event.y
+        self.padx = self.c.xview()[0] * self.cWidth
+
+    #Canvas -> Postscript (50 MB per Page!) -> PDF
+    def onClose(self):
+        print("Saving can take some time...")
+        psFile = shellOutput("mktemp --suffix .eps")
+        self.c.postscript(file = psFile, height = self.cHeight, width = self.cWidth, x =0, y=0 , colormode='color')
+        #with flag "-page a4" somehow the whole content disappears. When I send pdf somewhere, they shouldn't care about the format of the pages
+        subprocess.check_output("convert " + psFile + " " + self.outPDFFilePath, shell=True)
+        self.root.destroy()
+
+
+if __name__ == '__main__':
+
+    #Sanity checks arguments
+    if(len(argv) != 3):
+        print("Format: censorContent IN OUT.pdf")
+        sys.exit(1)
+
+    fullFileNameIn = argv[1]
+    if not os.path.exists(fullFileNameIn):
+        print(fullFileNameIn + " is not a existing file!")
+        sys.exit(1)
+
+
+    outPDFFilePath = argv[2]
+    if os.path.exists(outPDFFilePath):
+        print(outPDFFilePath + " already exists!")
+        sys.exit(1)
+
+    if not outPDFFilePath.endswith(".pdf"):
+        print("out file has to be a pdf!")
+        sys.exit(1)
+
+    if " " in fullFileNameIn  or " " in outPDFFilePath :
+        print("Spaces in names cause problems with subprocess calls, remove spaces!")
+        sys.exit(1)
+
+
+    fileNameIn, fileExtensionIn = fullFileNameIn.rsplit(".", maxsplit=1) #Only split on last . , so file-extension
+
+    #Create pngs from pdf to work on
+    if fileExtensionIn == "pdf":
+        tmpFolderInPDFImages = shellOutput("mktemp -d")
+        print("PDF to image conversion can take some time...")
+
+        #INFO If multiple pages, then names are in-0.png, in-0.png, ...
+        shellOutput("convert -density 300 {} -quality 100 -colorspace RGB  {}/in.png".format(fullFileNameIn, tmpFolderInPDFImages))
+        imagesFromPDF = os.listdir(tmpFolderInPDFImages)
+        imagesFromPDF.reverse() #Want in-0.png as first entry
+
+        tmpFolderOutPDFs = shellOutput("mktemp -d")
+
+        #One canvas for each page, next page when closing window
+        for siteImage in imagesFromPDF:
+            # Swap extension .png to .pdf
+            siteImageName, siteImageExtension = siteImage.rsplit(".", maxsplit=1) #Only split on last . , so file-extension
+            Paint(tmpFolderInPDFImages + "/" +  siteImage, tmpFolderOutPDFs + "/" + siteImageName + ".pdf")
+
+        #INFO Want full path
+        censoredPDFPagesPaths = list(map(lambda f: tmpFolderOutPDFs + "/" + f , os.listdir(tmpFolderOutPDFs)))
+        censoredPDFPagesPaths.reverse() #Want converted /tmp/.../in-0.pdf as first entry
+        censoredPDFPagesPathsStr = " ".join(censoredPDFPagesPaths)
+        subprocess.check_output("pdfunite " + censoredPDFPagesPathsStr + " " + outPDFFilePath, shell=True)
+
+    else: #png/jpg
+        Paint(fullFileNameIn, outPDFFilePath)
