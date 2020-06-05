@@ -1,4 +1,4 @@
-GAME="Cows"
+GAME="verc"
 freeEpicUPlayOrigin () {
 FREE=$(curl 'https://www.gamerpower.com/giveaways/pc/free-games' \
   -H 'authority: www.gamerpower.com' \

@@ -437,6 +437,12 @@ function powertopAdd {
     sudo cp ~/.dotFiles/services/powertop.service /etc/systemd/system/
     sudo systemctl daemon-reload
     sudo systemctl enable powertop.service
+    #TODO Does not work, Also with TLP_ENABLE=1 in conf
+    #Also extra script with echo on in sys/bus does not help me
+    #Needed to not auto-suspend USB Keyboard/Mouse, ids from lsusb
+    yay -S tlp --noconfirm 
+    sudo systemctl enable tlp.service
+    sudo sh -c "echo -e 'USB_BLACKLIST=\"1bcf:0005\"\nUSB_BLACKLIST=\"04d9:a0cd\"' >> /etc/tlp.conf "
 }
 
 function fixAudio {
@@ -463,7 +469,7 @@ function main {
     addConfigs
     fixWifi
     lidCloseLock
-    powertopAdd
+    #powertopAdd INFO Too many auto-suspend Mouse/keyboard problems that I cant solve + powertops give ~5 Minutes more lifetime with full battery, not worth it
     reloadTmux
     setUdevRules
     disableWebcam
@@ -475,4 +481,4 @@ function main {
 
 #main
 #setUpMFC
-installIJCommunity
+loadBR
