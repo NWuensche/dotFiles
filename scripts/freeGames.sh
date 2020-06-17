@@ -1,5 +1,5 @@
-GAME="verc"
-freeEpicUPlayOrigin () {
+GAME="Theatre of"
+freeEpicUPlayOriginHB () {
 FREE=$(curl 'https://www.gamerpower.com/giveaways/pc/free-games' \
   -H 'authority: www.gamerpower.com' \
   -H 'cache-control: max-age=0' \
@@ -20,22 +20,9 @@ FREE=$(curl 'https://www.gamerpower.com/giveaways/pc/free-games' \
 
 }
 
-freeHB() {
-  # https://www.freegamekeys.com/ does not publish Humblebundle 
-  # Can happen that RSS doesnt show last game anymore, so check before if there even is something present
-  ALLFREE=$(curl --connect-timeout 2 -s https://steamcommunity.com/groups/freegamesfinders/rss/  | sed -n '/title.*from Humble Bundle/Ip' | head -n 1  )
-  if [[ "$ALLFREE" != "" ]] ; then
-    FREE=$(echo "$ALLFREE" | sed -n '/Aegis D/p' )
-    if [[ "$FREE" == "" ]] ; then
-      notify-send "Humblebundle Free Game";
-    fi
-  fi
-#  ALLFREE=$(curl --connect-timeout 2 -s https://steamcommunity.com/groups/freegamesfinders/rss/  | sed -n '/title.*from Humble Bundle/Ip' | head -n 1 | sed -n '/Aegis D/p' )
-}
-
 
 freeSteam() {
-  FREE=$(curl --connect-timeout 2 -s https://steamcommunity.com/groups/freegamesfinders/rss/  | sed -n '/title.*in Steam/Ip' | head -n 1 | sed -n '/Aegis Defenders/p' )
+  FREE=$(curl --connect-timeout 2 -s https://steamcommunity.com/groups/freegamesfinders/rss/  | sed -n '/title.*in Steam/Ip' | head -n 1 | sed -n '/Kao/p' )
   if [[ "$FREE" == "" ]] ; then
     notify-send "Steam Free Game";
   fi
@@ -43,7 +30,6 @@ freeSteam() {
 
 ping -q -W 2 8.8.8.8 -c 2 #Check Connection
 
-freeEpicUPlayOrigin 
+freeEpicUPlayOriginHB
 
-freeHB
 freeSteam
