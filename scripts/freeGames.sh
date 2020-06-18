@@ -1,4 +1,4 @@
-GAME="Theatre of"
+GAME="Pathwa"
 freeEpicUPlayOriginHB () {
 FREE=$(curl 'https://www.gamerpower.com/giveaways/pc/free-games' \
   -H 'authority: www.gamerpower.com' \

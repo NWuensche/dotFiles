@@ -20,7 +20,10 @@ HEADER='
 \renewcommand{\l}{\lambda}
 \newcommand{\doubleq}{"}
 \newcommand{\singleq}{`}
-\newcommand{\N}{\mathbb{N}}\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\G}{\mathcal{G}}
+\newcommand{\E}{\mathcal{E}}
 \DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
 \DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
 
