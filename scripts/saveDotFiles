@@ -10,3 +10,5 @@ git add . || true; #
 git commit -m "(`date +%d-%m-%Y`) change dotFiles" || true;
 git push;
 cd;
+
+sync
