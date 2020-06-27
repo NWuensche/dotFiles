@@ -1608,4 +1608,4 @@ c.downloads.remove_finished = 5000 #ms
 
 ## Bindings for register mode
 # config.bind('<Escape>', 'leave-mode', mode='register')
-
+c.content.host_blocking.lists.append( str(config.configdir) + "/blockedHosts")

@@ -1,4 +1,4 @@
-GAME="Pathwa"
+GAME="AIM2"
 freeEpicUPlayOriginHB () {
 FREE=$(curl 'https://www.gamerpower.com/giveaways/pc/free-games' \
   -H 'authority: www.gamerpower.com' \
@@ -22,7 +22,7 @@ FREE=$(curl 'https://www.gamerpower.com/giveaways/pc/free-games' \
 
 
 freeSteam() {
-  FREE=$(curl --connect-timeout 2 -s https://steamcommunity.com/groups/freegamesfinders/rss/  | sed -n '/title.*in Steam/Ip' | head -n 1 | sed -n '/Kao/p' )
+  FREE=$(curl --connect-timeout 2 -s https://steamcommunity.com/groups/freegamesfinders/rss/  | sed -n '/title.*in Steam/Ip' | head -n 1 | sed -n '/Among U/p' )
   if [[ "$FREE" == "" ]] ; then
     notify-send "Steam Free Game";
   fi

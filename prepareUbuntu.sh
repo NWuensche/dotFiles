@@ -100,6 +100,7 @@ function yayPackages {
     yay -S texlive-most biber texlive-localmanager-git  --noconfirm #Latex 
     yay -S slack-desktop openconnect telegram-desktop macchanger --noconfirm #Other Stuff 
     yay -S wpa_actiond --noconfirm # For auto search WiFi
+    yay -S pdfjs --noconfirm # needed for pdf viewer qutebrowser
 
 
     pip install --user pytube pycurl #python-pytube in AUR is too old
