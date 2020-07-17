@@ -1,4 +1,4 @@
-GAME="AIM2"
+GAME="UPDATED"
 freeEpicUPlayOriginHB () {
 FREE=$(curl 'https://www.gamerpower.com/giveaways/pc/free-games' \
   -H 'authority: www.gamerpower.com' \
@@ -16,6 +16,7 @@ FREE=$(curl 'https://www.gamerpower.com/giveaways/pc/free-games' \
   |  tr '<' '\n' | sed -n 's/.*alt="Free \([^"]*\).*/\1/gp' | head -n 1 | sed -n "/$GAME/p" )
   if [[ "$FREE" == "" ]] ; then
     notify-send "Some Free Game";
+    echo "Some Free Game";
   fi
 
 }
@@ -25,6 +26,7 @@ freeSteam() {
   FREE=$(curl --connect-timeout 2 -s https://steamcommunity.com/groups/freegamesfinders/rss/  | sed -n '/title.*in Steam/Ip' | head -n 1 | sed -n '/Among U/p' )
   if [[ "$FREE" == "" ]] ; then
     notify-send "Steam Free Game";
+    echo "Steam Free Game";
   fi
 }
 
