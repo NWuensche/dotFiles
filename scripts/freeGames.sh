@@ -1,4 +1,4 @@
-GAME="Remnant"
+GAME="Theatre"
 #Does not include HB
 freeEpicUPlayOriginHB () {
 FREE=$(curl 'https://www.gamerpower.com/giveaways/pc/free-games' \

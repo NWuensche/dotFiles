@@ -103,6 +103,9 @@ function yayPackages {
     yay -S pdfjs --noconfirm # needed for pdf viewer qutebrowser
 
 
+    gpg --keyserver hkp://keys.gnupg.net:80 --recv-keys  6113D89CA825C5CEDD02C87273B35DA54ACB7D10 #AUR of pass-tomb forgets to import this key
+    yay -S pass-tomb --noconfirm
+
     pip install --user pytube pycurl #python-pytube in AUR is too old
 
     pacman -S python-configobj #Needed for terminator, else crash, also enables click on links again somehow
