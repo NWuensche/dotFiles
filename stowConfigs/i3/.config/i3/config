@@ -256,7 +256,13 @@ exec amixer -D pulse sset Capture nocap #Micro off
 
 exec /home/nwuensche/saveFolder/privateScripts/startVPN &
 
+exec xbindkeys #Activate button mapping Wacom tablet
+
 exec /usr/bin/udiskie &
+
+#exec xsetwacom set 14 PressureCurve 12 80 100 100 #id from  xsetwacom list devices, current curve is high output for light input
+#exec xsetwacom set 16 Button 1 "key +ctrl z -ctrl" # Undo (in xournalpp) with left lower button on wacom pad
+#exec xsetwacom set 16 Button 3 "key +ctrl +shift p -shift -ctrl" #Select pen in xournal for left upper button on wacom pad
 
 exec xhost +local: #Necessary to be able to open gparted inside a tmux session
 #exec /home/nwuensche/.dotFiles/scripts/fullscreenLock & #Can't do this in crontab because Environment variables are wrong

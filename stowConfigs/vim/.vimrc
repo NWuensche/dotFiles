@@ -155,3 +155,6 @@ nnoremap <silent> gl "_yiw?\w\+\_W\+\%#<CR>:s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\
 
 "Autocomplete on Ctrl+Z
 imap <C-Z> <C-P>
+
+" texvim needed, else error on start
+let g:tex_flavor = 'latex'

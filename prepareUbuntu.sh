@@ -91,6 +91,7 @@ function yayPackages {
     yay -S powertop python-selenium jq rsync pwgen xclip ffmpeg xss-lock xautolock youtube-dl trash-cli scrot udiskie	exfat-utils ntfs-3g unrar cronie ttf-liberation openssh imapfilter urlview pandoc jpegoptim --noconfirm #Terminal Support Tools 
     yay -S tcsh cups sane brscan2 brscan3 --noconfirm #Printer Tools 
     yay -S xf86-input-synaptics xf86-input-mtrack  --noconfirm #Touchpad Tools 
+    yay -S xf86-input-wacom xbindkeys --noconfirm #Wacom Tablet Tools
     yay -S ttf-liberation pango  --noconfirm #Fonts and Font Tools 
     yay -S alsa-utils pulseaudio pavucontrol --noconfirm #Audio 
     yay -S steam sqlitebrowser calibre vlc gimp firefox kdenlive libreoffice-fresh-de  evince xournalpp zathura zathura-pdf-poppler spotify  --noconfirm #X Tools 
@@ -269,6 +270,10 @@ function fixTouchToClickTouchPad {
     sudo cp ~/.dotFiles/X/touchpad.conf /etc/X11/xorg.conf.d/70-synaptics.conf
 }
 
+function wacomTabletConfig {
+    sudo cp ~/.dotFiles/X/wacomTablet.conf /etc/X11/xorg.conf.d/72-wacom-options.conf
+}
+
 function setUpVim {
     sudo vim +'set spell spelllang=en,de' +y +1 +q +q #German Spell Check
 
@@ -317,6 +322,7 @@ function addConfigs {
     fixDisplayManager 
     setGroups 
     fixTouchToClickTouchPad 
+    wacomTabletConfig
     autoStartVPN
     setUpVim
     setUpTmux
