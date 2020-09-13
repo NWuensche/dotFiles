@@ -1,4 +1,4 @@
-GAME="Breach"
+GAME="Desert Law"
 #Does not include HB
 freeEpicUPlayOriginHB () {
 FREE=$(curl 'https://www.gamerpower.com/giveaways/pc/free-games' \
