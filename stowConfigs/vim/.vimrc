@@ -47,8 +47,8 @@ call vundle#begin()
 " 	------- PLUGINS BEGIN ------- "
 " Let Vundle manage Vundle
 Plugin 'VundleVim/Vundle.vim'
-" Vim symbol renderer
-Plugin 'lervag/vimtex'
+" Latex
+"Plugin 'lervag/vimtex'
 " Vim Hard Mode
 Plugin 'dusans/vim-hardmode'
 " Git Plugin
@@ -72,9 +72,9 @@ Plugin 'bronson/vim-trailing-whitespace'
 " Markdown Folding
 Plugin 'nelstrom/vim-markdown-folding'
 " Surround text with brackets
-Plugin 'tpope/vim-surround'
+"Plugin 'tpope/vim-surround'
 " Latex Preview in Okular
-Plugin 'xuhdev/vim-latex-live-preview'
+"Plugin 'xuhdev/vim-latex-live-preview'
 " Allow Snippets(+Dependecies)
 " Plugin 'MarcWeber/vim-addon-mw-utils'
 " Plugin 'tomtom/tlib_vim'
@@ -89,9 +89,9 @@ Plugin 'yegappan/grep'
 Plugin 'chrisbra/csv.vim'
 "Android
 "Plugin 'hsanson/vim-android'
-Plugin 'udalov/kotlin-vim'
+"Plugin 'udalov/kotlin-vim'
 "Dart Lang syntax
-Plugin 'dart-lang/dart-vim-plugin'
+"Plugin 'dart-lang/dart-vim-plugin'
 "	------- PLUGINS END ------- "
 
 call vundle#end()
@@ -157,4 +157,4 @@ nnoremap <silent> gl "_yiw?\w\+\_W\+\%#<CR>:s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\
 imap <C-Z> <C-P>
 
 " texvim needed, else error on start
-let g:tex_flavor = 'latex'
+"let g:tex_flavor = 'latex'
