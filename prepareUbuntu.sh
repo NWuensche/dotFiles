@@ -295,6 +295,7 @@ function moveConfigs {
     crontab ~/saveFolder/listCrontab;
     sudo /bin/cp  ~/saveFolder/hosts /etc/hosts;
 
+    #TODO Vim could cause problem because I install plugins *afterwards*. If omnicomplete vim does not work, look if ftplugin and autoload folders in .vim folder correctly in
     ( cd $HOME/.dotFiles/stowConfigs; stow i3 wallpaper vim git terminal gpg programConfigs vifm podget X -t $HOME )
     sh ~/saveFolder/doStowSaveFolder.sh
 

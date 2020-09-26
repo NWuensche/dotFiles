@@ -158,3 +158,6 @@ imap <C-Z> <C-P>
 
 " texvim needed, else error on start
 "let g:tex_flavor = 'latex'
+
+" Needed for .vim/ftplugin/tex.vim to be autoloaded for .vim files
+let g:tex_flavor = 'latex'
