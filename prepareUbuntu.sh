@@ -274,6 +274,12 @@ function wacomTabletConfig {
     sudo cp ~/.dotFiles/X/wacomTablet.conf /etc/X11/xorg.conf.d/72-wacom-options.conf
 }
 
+#Works for Firefox+Youtube and VLC
+# Check https://www.youtube.com/watch?v=MfL_JkcEFbE for test
+function fixScreenTearingIntelHDGraphics {
+    sudo cp ~/.dotFiles/X/IntelHDGraphicsTearingFix.conf /etc/X11/xorg.conf.d/20-intel.conf
+}
+
 function setUpVim {
     sudo vim +'set spell spelllang=en,de' +y +1 +q +q #German Spell Check
 
@@ -324,6 +330,7 @@ function addConfigs {
     setGroups 
     fixTouchToClickTouchPad 
     wacomTabletConfig
+    fixScreenTearingIntelHDGraphics
     autoStartVPN
     setUpVim
     setUpTmux
@@ -492,5 +499,3 @@ function main {
 
 #main
 #setUpMFC
-installIJCommunity
-#loadBR
