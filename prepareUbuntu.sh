@@ -492,4 +492,5 @@ function main {
 
 #main
 #setUpMFC
-loadBR
+installIJCommunity
+#loadBR

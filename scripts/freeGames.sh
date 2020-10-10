@@ -1,4 +1,4 @@
-GAME="p G"
+GAME="on a P"
 #Does not include HB
 freeEpicUPlayOriginHB () {
 FREE=$(curl 'https://www.gamerpower.com/giveaways/pc/free-games' \
@@ -25,7 +25,7 @@ FREE=$(curl 'https://www.gamerpower.com/giveaways/pc/free-games' \
 
 #Includes HB
 freeSteam() {
-  FREE=$(curl --connect-timeout 2 -s https://steamcommunity.com/groups/freegamesfinders/rss/  | sed -n '/title.*\(in Steam\|from Humble Bundle\)/Ip' | head -n 1 | sed -n '/Magr/p' )
+  FREE=$(curl --connect-timeout 2 -s https://steamcommunity.com/groups/freegamesfinders/rss/  | sed -n '/title.*\(in Steam\|on Steam\|from Humble Bundle\)/Ip' | head -n 1 | sed -n '/Garden/p' )
   if [[ "$FREE" == "" ]] ; then
     notify-send "Steam Free Game";
     echo "Steam Free Game";
