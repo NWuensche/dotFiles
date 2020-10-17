@@ -70,7 +70,9 @@ Plugin 'ericbn/vim-solarized'
 " Fixing whitespaces
 Plugin 'bronson/vim-trailing-whitespace'
 " Markdown Folding
-Plugin 'nelstrom/vim-markdown-folding'
+Plugin 'mikeboiko/vim-markdown-folding'
+"INFO Original Markdown Plugin, but without fix for https://github.com/masukomi/vim-markdown-folding/issues/42
+"Plugin 'nelstrom/vim-markdown-folding'
 " Surround text with brackets
 "Plugin 'tpope/vim-surround'
 " Latex Preview in Okular

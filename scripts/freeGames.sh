@@ -1,4 +1,4 @@
-GAME="hog 2"
+GAME="s Zone"
 #Does not include HB
 freeEpicUPlayOriginHB () {
 FREE=$(curl 'https://www.gamerpower.com/giveaways/pc/free-games' \
