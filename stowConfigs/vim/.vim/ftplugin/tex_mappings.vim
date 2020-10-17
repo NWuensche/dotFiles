@@ -3,7 +3,7 @@
 setlocal completefunc=latexcomplete#CompleteFA
 "imap $ n
 " <expr> allows evaluate function afterwards
-inoremap <expr> $ AddTildesBeforeDollarR()
+inoremap <expr> $ AddTildesBeforeDollar()
 "use this with keys and not <expr> because with <expr> I can't do setlist ("normal r4") (only way to change characters in vimscript), get error -> use keys like a
 "inoremap stops $-call recursion hell
 "Always see call in status bar, this flickering is annoying
@@ -12,7 +12,15 @@ inoremap <expr> $ AddTildesBeforeDollarR()
 "inoremap stops $-call recursion hell
 inoremap <leader>$ , $
 
-function! AddTildesBeforeDollarR()
+"Use Custom Method for folding
+set foldmethod=expr
+"Use this custom folding (have to give it parameter v:lnum, does not work
+"somehow to get inside the function
+"INFO If I want to change actual folding displayed text: https://stackoverflow.com/questions/33281187/how-to-change-the-way-that-vim-display-those-collapsed-folded-lines
+set foldexpr=MyLatexFold(v:lnum)
+
+
+function! AddTildesBeforeDollar()
   let keysReturn = ""
   "get position of cursor on line to know what is left of cursor
   let start = col('.') - 1
@@ -21,7 +29,7 @@ function! AddTildesBeforeDollarR()
   if 1-IsInsideMathEnvironment() && (start>0)
     "INFO a + b, a+=b is always number evaluation, returns 0 for two strings
     let keysReturn = keysReturn . "\<ESC>"
-    let keysReturn = keysReturn . ChangeSpaceR()
+    let keysReturn = keysReturn . ChangeSpace()
     let keysReturn = keysReturn . "a"
   endif
   let keysReturn = keysReturn . '$'
@@ -30,7 +38,7 @@ endfun
 
 "Change previous symbol in line if necessary
 "Does check for comma (no tilde), space(replace with tilde), {}(replace with tilde) and any other symbol(add tilde if no space-thing before)
-function! ChangeSpaceR()
+function! ChangeSpace()
   " get current line (all of it)
   let line = getline('.')
   "get position of cursor on line to know what is left of cursor
@@ -69,62 +77,6 @@ function! ChangeSpaceR()
   endif
 endfun
 
-function! AddTildesBeforeDollar()
-  "get position of cursor on line to know what is left of cursor
-  let start = col('.') - 1
-  let line = getline('.')
-  "1-x negates x
-  "if cursor on left, then do nothing special
-  if 1-IsInsideMathEnvironment() && (start>0)
-    call ChangeSpace()
-    "line[start-1] = 'i'
-    "return '$'
-    return ''
-  endif
-endfun
-
-"Change previous symbol in line if necessary
-"Does check for comma (no tilde), space(replace with tilde), {}(replace with tilde) and any other symbol(add tilde if no space-thing before)
-function! ChangeSpace()
-  " get current line (all of it)
-  let line = getline('.')
-  "get position of cursor on line to know what is left of cursor
-  let start = col('.') - 1
-  "if on , then write space and $ later
-  if line[start] == ','
-    normal a 
-    return ''
-  endif
-
-  "Check for symbol before cursor
-  if start>0
-    "if command \test{}, then {} is space -> replace {} with ~
-    if line[start] == '}' && line[start-1] == '{'
-      normal xr~
-      return ''
-    endif
-    if line[start-1] != ',' && line[start] == ' '
-      "Does press r and ~, without normal would do :r~<CR>
-      normal r~
-      return ''
-    endif
-    if line[start-1] == ',' && line[start] == ' '
-      return ''
-    endif
-  endif
-
-  "replace space with tilde
-  if line[start] == ' '
-    normal r~
-    return ''
-  endif
-  "on something that is not space, -> dd a 
-  if line[start] != ' '
-    normal a~
-    return ''
-  endif
-endfun
-
 "Say I'm inside math mode if number of $ before cursor is odd (works also when
 "$$-environment somewhere
 "returns 1 if in math mode, 0 else
@@ -144,3 +96,31 @@ function! IsInsideMathEnvironment()
   endwhile
   return numDollarsLeft % 2
 endfun
+
+" Fold all documentsclass/chapter/section/subsection/subsubsection on some level (else too hard to find anything)
+" INFO More sophisticated fold start/ends mechanisms: :help fold-expr
+function! MyLatexFold(currLineNum)
+  "Line starts with (spaces ok) a keywork
+  let regex = '^\s*\\\(documentclass\|chapter\|section\|subsection\|subsubsection\)'
+  let line = getline(a:currLineNum)
+  if line =~ regex
+      " A level 1 fold starts here
+      " INFO Only have level 1 folds here (everything on same level
+      return '>1'
+  else
+    let lastLineNum = line('$')
+    "If not at last line (else error)
+    "Check if next line contains keyword
+    "If so, end folding here(cause on next line starts new one)
+    if a:currLineNum != lastLineNum
+      let nextLine = getline(a:currLineNum + 1)
+      "Check if next line contains keyword
+      if nextLine =~ regex
+        "End level 1 fold
+        return '<1'
+      endif
+    endif
+    " Use fold level from previous line
+    return '='
+  endif
+endfunction
