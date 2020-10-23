@@ -5,7 +5,13 @@ setlocal spelllang=en_us,de
 "called when pressing <C-x><C-u>
 "actual function in .vim/autoload/
 setlocal completefunc=latexcomplete#CompleteFA
-syn match texSomevariable "\\cref{[^}]\{-}}"hs=s+6,he=e-1 containedin=texStatement,texRefZone contains=@NoSpell
+
+"Normal syn regions/matchs don't seem to work because there already is this tex.vim file where I have to plug in, I can't just do whatever I want
+"Don't spellcheck argument of cref anymore - This is adapted from /usr/share/vim/vim82/syntax/tex.vim Line 649 (Add new keyword "cref" that behaves like bibliography/label..., which is what I want)
+syn region texRefZone		matchgroup=texStatement start="\\cref{"		end="}\|%stopzone\>"	contains=@texRefGroup
+"Spell check optional argument of \cite(t) because e.g. could misspell "Theorem" or "Corollary" - Override/Copy /usr/share/vim/vim82/syntax/tex.vim Line 653, only changed to add @Spell option to get spellchecking for this optional argument of \cite(t)
+syn region texRefOption	contained	matchgroup=Delimiter start='\[' end=']'		contains=@texRefGroup,texRefZone,@Spell	nextgroup=texRefOption,texCite
+
 
 "imap $ n
 " <expr> allows evaluate function afterwards
