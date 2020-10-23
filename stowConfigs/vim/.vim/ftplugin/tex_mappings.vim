@@ -1,6 +1,12 @@
+"en is both us + gb english
+"en_us/en_gb are seperate languages
+"For MA is consistency only en_us nice + "graph coloring" in american english seems to be used more than "graph colouring" (KKS20 uses coloring)
+setlocal spelllang=en_us,de
 "called when pressing <C-x><C-u>
 "actual function in .vim/autoload/
 setlocal completefunc=latexcomplete#CompleteFA
+syn match texSomevariable "\\cref{[^}]\{-}}"hs=s+6,he=e-1 containedin=texStatement,texRefZone contains=@NoSpell
+
 "imap $ n
 " <expr> allows evaluate function afterwards
 inoremap <expr> $ AddTildesBeforeDollar()
@@ -47,6 +53,11 @@ function! ChangeSpace()
   "if on , then write space and $ later
   if line[start] == ','
     return " "
+  endif
+
+  "Else double tilde
+  if line[start] == '~'
+    return ""
   endif
   "normal behavior for $$ symbol
   if line[start] == '$'
@@ -101,7 +112,7 @@ endfun
 " INFO More sophisticated fold start/ends mechanisms: :help fold-expr
 function! MyLatexFold(currLineNum)
   "Line starts with (spaces ok) a keywork
-  let regex = '^\s*\\\(documentclass\|chapter\|section\|subsection\|subsubsection\)'
+  let regex = '^\s*\\\(documentclass\|chapter\|section\|subsection\|subsubsection\|paragraph\)'
   let line = getline(a:currLineNum)
   if line =~ regex
       " A level 1 fold starts here

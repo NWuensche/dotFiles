@@ -81,7 +81,7 @@ function! latexcomplete#getPrefixBracket()
         "echoerr 'a' .leftTillCursor
         "This means for '\NAME{tt' returns NAME (Cursor on t)
         "Is greedy, so returns LAST bracket name (which is good, because closest bracket to cursor
-        let bracketName = matchstr(line, '.*\\\zs[^{]*\ze{')
+        let bracketName = matchstr(leftTillCursor, '.*\\\zs[^{]*\ze{')
         "echoerr 'b' .bracketName
 
         return bracketName

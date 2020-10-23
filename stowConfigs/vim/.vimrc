@@ -163,3 +163,6 @@ imap <C-Z> <C-P>
 
 " Needed for .vim/ftplugin/tex.vim to be autoloaded for .vim files
 let g:tex_flavor = 'latex'
+
+"Exclude spellcheck in Latex Comments
+let g:tex_comment_nospell=1
