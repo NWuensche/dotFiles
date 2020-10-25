@@ -178,21 +178,6 @@ function installFonts {
     rm -rf fonts
 }
 
-function loadBR {
-  git clone https://github.com/stefanw/pdfcutter
-  git clone https://github.com/okfde/bundesrat-scraper
-
-  pip install --user jupyter
-  yay -S anaconda --noconfirm
-  source /opt/anaconda/bin/activate root
-  conda create -n py368 python=3.6 ipykernel
-  sudo conda install -y nb_conda_kernels
-  conda activate py368
-  sudo conda install -y lxml
-  pip install --user pdfcutter requests lxml
-
-  sudo ipython3 kernel install #Otherwise jupyter cant find kernel
-}
 
 function loadWallabag {
     git clone https://github.com/NWuensche/android-app ~/wallabag
@@ -251,7 +236,6 @@ function installPrograms {
     #installLatexTUDresden
     installFonts
     loadWallabag
-    loadBR
     installAnki #Need to do this manually because pacman anki conflicts with python pacakges
 }
 
