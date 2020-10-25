@@ -28,8 +28,8 @@ set rtp^=$SNIPPETSPATH
 set splitbelow
 
 " Not formatting pasting
-set pastetoggle=<F10> 
-inoremap <Leader>p <F10><C-r>+<F10>
+"set pastetoggle=<F10> 
+"inoremap <Leader>p <F10><C-r>+<F10>
 
 " Stop Ex-Mode
 nnoremap Q <nop>
@@ -47,23 +47,23 @@ call vundle#begin()
 " 	------- PLUGINS BEGIN ------- "
 " Let Vundle manage Vundle
 Plugin 'VundleVim/Vundle.vim'
-" Latex
+" Advanced Latex Plugin
 "Plugin 'lervag/vimtex'
 " Vim Hard Mode
-Plugin 'dusans/vim-hardmode'
+"Plugin 'dusans/vim-hardmode'
 " Git Plugin
-Plugin 'tpope/vim-fugitive'
+"Plugin 'tpope/vim-fugitive'
 " Close Brackets automaticaly
-Plugin 'Raimondi/delimitMate'
+"Plugin 'Raimondi/delimitMate'
 "Tmux Vim Windows Seamless
-Plugin 'christoomey/vim-tmux-navigator'
+"Plugin 'christoomey/vim-tmux-navigator'
 "Fuzzy Filenames
-Plugin 'ctrlpvim/ctrlp.vim'
+"Plugin 'ctrlpvim/ctrlp.vim'
 
 "Nix Syntax
-Plugin 'LnL7/vim-nix'
+"Plugin 'LnL7/vim-nix'
 "Typescript
-Plugin 'leafgarland/typescript-vim'
+"Plugin 'leafgarland/typescript-vim'
 " Solarized-Theme
 "Plugin 'altercation/vim-colors-solarized'
 Plugin 'ericbn/vim-solarized'
@@ -86,9 +86,9 @@ Plugin 'SirVer/ultisnips'
 " Automatically delete swap file
 "Plugin 'gioele/vim-autoswap'
 " more grep, like Rgrep
-Plugin 'yegappan/grep'
+"Plugin 'yegappan/grep'
 "CSV Files
-Plugin 'chrisbra/csv.vim'
+"Plugin 'chrisbra/csv.vim'
 "Android
 "Plugin 'hsanson/vim-android'
 "Plugin 'udalov/kotlin-vim'
@@ -97,10 +97,6 @@ Plugin 'chrisbra/csv.vim'
 "	------- PLUGINS END ------- "
 
 call vundle#end()
-call plug#begin('~/.vim/plugged')
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
-call plug#end()
 filetype plugin indent on
 "	------- VUNDLE END ------- "
 "
@@ -114,20 +110,20 @@ set t_Co=256
 set t_ZH=[3m
 set t_ZR=[23m
 
-let g:ycm_key_list_select_completion=[]
-let g:ycm_key_list_previous_completion=[]
+" YouCompleteMe + Ultisnaps together
+"let g:ycm_key_list_select_completion=[]
+"let g:ycm_key_list_previous_completion=[]
 let g:UltiSnipsSnippetsDir='/home/nwuensche/.dotFiles/vimStuff'
 " My tmux overrides c-j
-let g:UltiSnipsJumpForwardTrigger="<c-d>"
+"let g:UltiSnipsJumpForwardTrigger="<c-d>"
 
 
-map <Leader>f :FZF <CR>
+"map <Leader>f :FZF <CR>
 
 let g:snipMate = get(g:, 'snipMate', {})
 
 let @t='gg/\[*\](E"adiwb"sdi(h"apcs([lxelxGGo["apA: "sp' " for Issue 39
 
-filetype plugin on
 
 "autocmd Filetype tex nnoremap <buffer> <F2> :! latexmk -pdf %:p <CR>
 "autocmd Filetype md map <F2> :! pandoc %:p -o %:r.pdf <CR>
@@ -152,11 +148,11 @@ autocmd BufRead,BufNewFile *.py map <F2>  :w<CR> :silent !  pytest %:p:rT.%:e \|
 xnoremap <leader>m <esc>:'<,'>!moveTikz -r 
 
 "Swap Word Right/Left
-nnoremap <silent> gw "_yiw:s/\(\%#\w\+\)\(\W\+\)\(\w\+\)/\3\2\1/<CR><c-o><c-l>:nohlsearch<CR>
-nnoremap <silent> gl "_yiw?\w\+\_W\+\%#<CR>:s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR><c-o><c-l>:nohlsearch<CR>w
+"nnoremap <silent> gw "_yiw:s/\(\%#\w\+\)\(\W\+\)\(\w\+\)/\3\2\1/<CR><c-o><c-l>:nohlsearch<CR>
+"nnoremap <silent> gl "_yiw?\w\+\_W\+\%#<CR>:s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR><c-o><c-l>:nohlsearch<CR>w
 
 "Autocomplete on Ctrl+Z
-imap <C-Z> <C-P>
+"imap <C-Z> <C-P>
 
 " texvim needed, else error on start
 "let g:tex_flavor = 'latex'

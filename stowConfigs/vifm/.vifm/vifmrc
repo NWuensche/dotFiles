@@ -172,7 +172,6 @@ nmap `h :cd ~ <CR>
 nmap `d :cd ~/Downloads <CR>
 nmap `m :cd /run/media/nwuensche <CR>
 nmap `q :cd ~/Dokumente/Master_Berlin/5.Semester/master-niklas-wuensche <CR>
-nmap `w :cd ~/Dokumente/BNDSummerOfCode <CR>
 
 
 nmap q :q<CR>

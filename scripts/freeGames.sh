@@ -1,4 +1,4 @@
-GAME="Costume Quest 2"
+GAME="Octave"
 #Does not include HB
 freeEpicUPlayOriginHB () {
 FREE=$(curl 'https://www.gamerpower.com/giveaways/pc/free-games' \
