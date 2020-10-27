@@ -482,4 +482,4 @@ function main {
 }
 
 #main
-#setUpMFC
+setUpMFC

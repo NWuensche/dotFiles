@@ -70,9 +70,16 @@ function! ChangeSpace()
     return ""
   endif
 
-  "Check for symbol before cursor
+  "Check for 1 symbol before cursor
   if start>0
-    "if command \test{}, then {} is space -> replace {} with ~
+    "Check for 2 symbols before cursor
+    "if command '\test{} ', then '{} ' is space -> replace '{} ' with ~
+    if start>1
+      if line[start] == ' ' && line[start-1] == '}' && line[start-2] == '{'
+        return "xxr~"
+      endif
+    endif
+    "if command '\test{}', then '{}' is space -> replace '{}' with ~
     if line[start] == '}' && line[start-1] == '{'
       return "xr~"
     endif
