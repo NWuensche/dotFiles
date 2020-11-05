@@ -1,2 +1,2 @@
-COMMAND chromium %s
+COMMAND firefox %s
 

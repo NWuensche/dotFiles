@@ -87,8 +87,8 @@ function yayPackages {
     yay -S pulseaudio-bluetooth bluez-utils bluez --noconfirm #Bluetooth
     yay -S xdotool expect --noconfirm # Automation Tools
     yay -S tmux terminator xterm zsh  --noconfirm #Terminator Environment 
-    yay -S unzip curl mitmproxy wget ack progress htop offlineimap neomutt vifm feh mps-youtube pdfgrep calcurse w3m mplayer irssi docker stow --noconfirm #Terminal Tools 
-    yay -S powertop python-selenium jq rsync pwgen xclip ffmpeg xss-lock xautolock youtube-dl trash-cli scrot udiskie	exfat-utils ntfs-3g unrar cronie ttf-liberation openssh imapfilter urlview pandoc jpegoptim --noconfirm #Terminal Support Tools 
+    yay -S unzip curl mitmproxy wget ack progress htop offlineimap neomutt vifm feh pdfgrep calcurse w3m mplayer irssi docker stow --noconfirm #Terminal Tools 
+    yay -S powertop python-selenium jq rsync pwgen xclip ffmpeg xss-lock xautolock trash-cli scrot udiskie	exfat-utils ntfs-3g unrar cronie ttf-liberation openssh imapfilter urlview pandoc-bin jpegoptim --noconfirm #Terminal Support Tools , pandoc-bin from AUR and not pandoc from community because I don't want 60 dynamic Haskell Library dependencies, but only the binary
     yay -S tcsh cups sane brscan2 brscan3 --noconfirm #Printer Tools 
     yay -S xf86-input-synaptics xf86-input-mtrack  --noconfirm #Touchpad Tools 
     yay -S xf86-input-wacom xbindkeys --noconfirm #Wacom Tablet Tools
@@ -96,7 +96,7 @@ function yayPackages {
     yay -S alsa-utils pulseaudio pavucontrol --noconfirm #Audio 
     yay -S steam sqlitebrowser calibre vlc gimp firefox kdenlive libreoffice-fresh-de  evince xournalpp zathura zathura-pdf-poppler spotify  --noconfirm #X Tools 
     yay -S wine lib32-libpulse --noconfirm # Wine stuff
-    yay -S redshift gparted arandr android-file-transfer simple-mtpfs notification-daemon  --noconfirm # X Support Tools 
+    yay -S redshift gparted arandr android-file-transfer simple-mtpfs dunst  --noconfirm # X Support Tools 
     yay -S virtualbox virtualbox-host-modules-arch virtualbox-guest-iso  --noconfirm #Virtualbox 
     yay -S texlive-most biber texlive-localmanager-git  --noconfirm #Latex 
     yay -S slack-desktop openconnect telegram-desktop macchanger --noconfirm #Other Stuff 

@@ -215,7 +215,8 @@ exec redshift -l 55.7:12.6 -t 5700:3600 -g 0.8 -m randr -v &>/dev/null &
 # Lock when Laptop lid closed
 #exec xss-lock -- i3lock-wrapper -n &
 #exec xbacklight -set 30
-exec /usr/lib/notification-daemon-1.0/notification-daemon & #Daemon for notifications
+#exec /usr/lib/notification-daemon-1.0/notification-daemon & #Daemon for notifications
+exec dunst & #Daemon for notifications
 #exec_always "setxkbmap my_dvorak -option caps:escape"
 exec_always "setxkbmap eu -option caps:escape"
 exec feh --bg-scale ~/.background-image

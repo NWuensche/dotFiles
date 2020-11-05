@@ -69,6 +69,10 @@ function! ChangeSpace()
   if line[start] == '$'
     return ""
   endif
+  "normal behavior for e.g. \emph{!$
+  if line[start] == '{'
+    return ""
+  endif
 
   "Check for 1 symbol before cursor
   if start>0

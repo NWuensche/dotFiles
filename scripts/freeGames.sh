@@ -1,7 +1,7 @@
-GAME="Octave"
+GAME="s 3"
 #Does not include HB
 freeEpicUPlayOriginHB () {
-FREE=$(curl 'https://www.gamerpower.com/giveaways/pc/free-games' \
+FREE=$(curl -s 'https://www.gamerpower.com/giveaways/pc/free-games' \
   -H 'authority: www.gamerpower.com' \
   -H 'cache-control: max-age=0' \
   -H 'dnt: 1' \
@@ -25,7 +25,7 @@ FREE=$(curl 'https://www.gamerpower.com/giveaways/pc/free-games' \
 
 #Includes HB
 freeSteam() {
-  FREE=$(curl --connect-timeout 2 -s https://steamcommunity.com/groups/freegamesfinders/rss/  | sed -n '/title.*\(in Steam\|on Steam\|from Humble Bundle\)/Ip' | head -n 1 | sed -n '/minigames from SEGA/p' )
+  FREE=$(curl --connect-timeout 2 -s https://steamcommunity.com/groups/freegamesfinders/rss/  | sed -n '/title.*\(in Steam\|on Steam\|from Humble Bundle\)/Ip' | head -n 1 | sed -n '/: Cl/p' )
   if [[ "$FREE" == "" ]] ; then
     notify-send "Steam Free Game";
     echo "Steam Free Game";

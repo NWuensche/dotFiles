@@ -15,17 +15,16 @@ set number
 set tabstop=2
 set shiftwidth=2
 set expandtab
-set clipboard=unnamedplus
+"set clipboard=unnamedplus
 
 set spell
 set spelllang=en,de
 
-set splitbelow
 syntax enable
 let mapleader = ","
 set rtp^=$SNIPPETSPATH
 
-set splitbelow
+set splitright
 
 " Not formatting pasting
 "set pastetoggle=<F10> 
