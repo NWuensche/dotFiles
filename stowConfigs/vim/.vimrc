@@ -25,6 +25,7 @@ let mapleader = ","
 set rtp^=$SNIPPETSPATH
 
 set splitright
+set splitbelow
 
 " Not formatting pasting
 "set pastetoggle=<F10> 

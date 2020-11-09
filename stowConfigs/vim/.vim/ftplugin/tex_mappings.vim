@@ -2,6 +2,10 @@
 "en_us/en_gb are seperate languages
 "For MA is consistency only en_us nice + "graph coloring" in american english seems to be used more than "graph colouring" (KKS20 uses coloring)
 setlocal spelllang=en_us,de
+
+"Fixes that syntax is not applied sometimes, but takes some time
+syntax sync fromstart
+
 "called when pressing <C-x><C-u>
 "actual function in .vim/autoload/
 setlocal completefunc=latexcomplete#CompleteFA
@@ -9,8 +13,22 @@ setlocal completefunc=latexcomplete#CompleteFA
 "Normal syn regions/matchs don't seem to work because there already is this tex.vim file where I have to plug in, I can't just do whatever I want
 "Don't spellcheck argument of cref anymore - This is adapted from /usr/share/vim/vim82/syntax/tex.vim Line 649 (Add new keyword "cref" that behaves like bibliography/label..., which is what I want)
 syn region texRefZone		matchgroup=texStatement start="\\cref{"		end="}\|%stopzone\>"	contains=@texRefGroup
+"syn region texRefZone		matchgroup=texStatement start="\\draw\[" end=";\|%stopzone\>"	contains=@texRefGroup,@NoSpell
+"syn region myTikzR start='\[' end=']' contains=Delimeter,@NoSpell,@texMatchGroup
+"syn region myTikzR start='\[' end=']' contains=@NoSpell
+"syn region myTikzRA start='(' end=')' contains=@NoSpell
+"syn keyword myTikzK ]
+
+"syn region texRefZone		matchgroup=texStatement start="\\draw" end=";\|%stopzone\>"	contains=myTikzR,myTikzRA
+"syn region texRefZone		matchgroup=texStatement start="\\node" end=";\|%stopzone\>"
+"syn region my	start="\\draw" end=";"
+"hi def link my Todo
+"syn region texRefZone		matchgroup=texStatement start="\\tikzstyle{"		end="}\|%stopzone\>" contains=@texRefGroup
 "Spell check optional argument of \cite(t) because e.g. could misspell "Theorem" or "Corollary" - Override/Copy /usr/share/vim/vim82/syntax/tex.vim Line 653, only changed to add @Spell option to get spellchecking for this optional argument of \cite(t)
-syn region texRefOption	contained	matchgroup=Delimiter start='\[' end=']'		contains=@texRefGroup,texRefZone,@Spell	nextgroup=texRefOption,texCite
+"syn region texRefOption	contained	matchgroup=Delimiter start='\[' end=']'		contains=@texRefGroup,texRefZone,@Spell	nextgroup=texRefOption,texCite
+
+"syn region myTikz	start="\\node" 		end=";\|%stopzone\>"	contains=myTikzR
+"syn region myTikzR start='(' end=')' contains=@NoSpell
 
 
 "imap $ n
@@ -125,10 +143,11 @@ function! IsInsideMathEnvironment()
   return numDollarsLeft % 2
 endfun
 
-" Fold all documentsclass/chapter/section/subsection/subsubsection on some level (else too hard to find anything)
+" Fold all documentsclass/chapter/section/subsection/subsubsection on some level (else too hard to find anything) + all figures
 " INFO More sophisticated fold start/ends mechanisms: :help fold-expr
 function! MyLatexFold(currLineNum)
   "Line starts with (spaces ok) a keywork
+  "Block for chapter/section/... indentation
   let regex = '^\s*\\\(documentclass\|chapter\|section\|subsection\|subsubsection\|paragraph\)'
   let line = getline(a:currLineNum)
   if line =~ regex
@@ -147,8 +166,19 @@ function! MyLatexFold(currLineNum)
         "End level 1 fold
         return '<1'
       endif
+  endif
+
+    "Block for figures
+    if line =~ '^\s*\\begin{figure}'
+      "add one indent level
+      return 'a1'
+    elseif line =~ '^\s*\\end{figure}'
+      "subtract one indent level
+      return 's1'
     endif
+
     " Use fold level from previous line
     return '='
+
   endif
 endfunction

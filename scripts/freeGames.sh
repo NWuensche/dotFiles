@@ -1,4 +1,5 @@
-GAME="s 3"
+GAME="w Age"
+set -e # to stop on failing ping
 #Does not include HB
 freeEpicUPlayOriginHB () {
 FREE=$(curl -s 'https://www.gamerpower.com/giveaways/pc/free-games' \
