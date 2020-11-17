@@ -31,6 +31,11 @@ syn region texRefZone		matchgroup=texStatement start="\\cref{"		end="}\|%stopzon
 "syn region myTikzR start='(' end=')' contains=@NoSpell
 
 
+"Don't increase numbers accidentally when using tmux
+nnoremap <C-a> <nop>
+
+"Don't insert strange stuff accidentally when using tmux
+inoremap <C-a> <nop>
 "imap $ n
 " <expr> allows evaluate function afterwards
 inoremap <expr> $ AddTildesBeforeDollar()

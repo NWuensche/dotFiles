@@ -47,7 +47,7 @@ call vundle#begin()
 " 	------- PLUGINS BEGIN ------- "
 " Let Vundle manage Vundle
 Plugin 'VundleVim/Vundle.vim'
-" Advanced Latex Plugin
+" Advanced Latex Plugin, does not fulfill my spelling needs tikz
 "Plugin 'lervag/vimtex'
 " Vim Hard Mode
 "Plugin 'dusans/vim-hardmode'
