@@ -414,6 +414,7 @@ function setUpManually {
     #chromium # Sync
     #echo "Install Tmux Plugins with Prefix + I (Shift + I)?" Should be unnecessary with new reloadTmux function
     echo "Import Android Studio Settings"
+    echo "Import Firefox Bookmarks"
     echo "Run Android Studio and install Android, then run \`addUdevSmartphone\` script"
     echo "Import IntelliJ Community Settings"
     echo "Still works when error that Plugins subfolder is missing "
