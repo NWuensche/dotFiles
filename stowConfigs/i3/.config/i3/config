@@ -222,7 +222,6 @@ exec_always "setxkbmap eu -option caps:escape"
 exec feh --bg-scale ~/.background-image
 exec light -S 40
 exec urxvtd -f #Use daemon for all terminals, all use same process -> much faster when multiple terminals, use for clients afterwards `urxvtc`, not `urxvt`, -f forks process, better than &
-exec urxvtc -e env TERM=screen-256color tmux &
 #Italic
 exec xinput -set-prop 12 141 1
 #exec xautolock -locker myi3lock -time 10 & #suspend lock, don't suspend when in one of the corners
@@ -268,3 +267,4 @@ exec /usr/bin/udiskie &
 
 exec xhost +local: #Necessary to be able to open gparted inside a tmux session
 #exec /home/nwuensche/.dotFiles/scripts/fullscreenLock & #Can't do this in crontab because Environment variables are wrong
+exec urxvtc -e env TERM=screen-256color tmux & #Needs to be a lot of after urxvtd call above, to give time. Otherwise terminal just wont start
