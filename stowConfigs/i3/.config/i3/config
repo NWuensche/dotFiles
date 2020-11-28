@@ -198,7 +198,7 @@ bindcode  $mod+52 exec "amixer -q -D pulse sset Capture cap"
 #bindcode 123 exec "~/works"
 
 #Colons break rsync for backing up
-bindsym Print exec scrot '/home/nwuensche/Bilder/%d.%m.%Y %H-%M-%S.png' #-e 'mv "$f" ~/Bilder/'
+bindsym Print exec scrot '/home/nwuensche/Bilder/%Y.%m.%d %H-%M-%S.png' #-e 'mv "$f" ~/Bilder/'
 bindsym --release Shift+Print exec scrot -s '/home/nwuensche/Bilder/%d.%m.%Y %H-%M-%S.png'
 
 bindsym $mod+backslash workspace 1

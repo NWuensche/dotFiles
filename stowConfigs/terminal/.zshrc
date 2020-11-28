@@ -15,6 +15,8 @@ export MAVEN_OPTS
 export PATH=$PATH:/home/nwuensche/Android/Sdk/tools:/home/nwuensche/Android/Sdk/platform-tools:~/.nix-profile/bin:~/.local/bin:~/.cabal/bin:~/saveFolder/privateScripts:~/.dotFiles/scripts:/home/nwuensche/.gem/ruby/2.6.0/bin
 export PATH=$PATH:/usr/lib/python3.7/site-packages
 
+export HISTORY_IGNORE='(pass *|getIt *)'
+
 export MESA_GLSL_CACHE_DISABLE=true #Fix Bug Chrome
 
 
@@ -65,8 +67,8 @@ alias scan='scanimage --format=png > ~/scan.png; echo "scan can be found in ~/sc
 alias reducePDFMore='f() { gs -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS="/screen" -sOutputFile=output.pdf $1  }; f'
 alias reducePDFMore2='f() { gs -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS="/ebook" -sOutputFile=output.pdf $1  }; f'
 alias FEp='f() {mplayer $(wget https://rss.simplecast.com/podcasts/1684/rss -O- 2>/dev/null| grep "enclosure" | tac | sed -n $1p | cut -f2 -d"\"")}; f'
-alias histrm='f() { LC_ALL=C sed --in-place "/$1/d" $HISTFILE;};f'
-alias getIt='f() {getIt $1; histrm get;clear; zsh}; f'
+#alias histrm='f() { LC_ALL=C sed --in-place "/$1/d" $HISTFILE;};f' INFO Better use HISTORY_IGNORE variable
+alias getIt='f() {getIt $1; clear; zsh}; f'
 alias search='googler --count 3'
 alias xournal='xournalpp'
 alias convertALLEPUBS='for EPUBBOOK in *.epub; do; ebook-convert $EPUBBOOK "${EPUBBOOK%.*}.mobi"; done'

@@ -1,4 +1,4 @@
-GAME="e E5"
+GAME="Mud"
 set -e # to stop on failing ping
 #Does not include HB
 freeEpicUPlayOriginHB () {
@@ -15,7 +15,7 @@ FREE=$(curl -s 'https://www.gamerpower.com/giveaways/pc/free-games' \
   -H 'sec-fetch-dest: document' \
   -H 'accept-language: de-DE,de;q=0.9,en-US;q=0.8,en;q=0.7' \
   --compressed \
-  |  tr '<' '\n' | sed -n 's/.*alt="Free \([^"]*\).*/\1/gp' | head -n 1 | sed -n "/$GAME/p" )
+  |  tr '<' '\n' |  sed -n 's/.*p class="card-text truncate2 text-muted mb-2 mt-1">\(.*\)/\1/p' | grep -iv 'Indiegala' | grep -iv 'itchio' | head -n 1 | sed -n "/$GAME/p" ) #INFO Don't show anything from Indiegala or itchio
   if [[ "$FREE" == "" ]] ; then
     notify-send "Some Free Game";
     echo "Some Free Game";

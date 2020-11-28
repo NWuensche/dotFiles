@@ -1,4 +1,5 @@
 [global_config]
+  disable_mousewheel_zoom = True #Might work at some point, already in code, but does nothing in git master, just leave it in
   suppress_multiple_term_dialog = True
   title_font = Meslo LG S DZ for Powerline 8
   title_transmit_bg_color = "#002b36"
@@ -16,6 +17,7 @@
 [plugins]
 [profiles]
   [[default]]
+    alternate_screen_scroll = False
     background_color = "#002b36"
     copy_on_selection = True
     cursor_color = "#839496"
