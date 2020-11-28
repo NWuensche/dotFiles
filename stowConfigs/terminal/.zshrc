@@ -95,13 +95,13 @@ alias offlineimap="~/saveFolder/privateScripts/offlineimap"
 #Android Stuff
 alias aShell="Xvfb :20 -screen 0 1024x768x16 &;export DISPLAY=:20;~/Android/Sdk/emulator/emulator @Nexus_4_API_28 &; sleep 5; adb shell"
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+#[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 #
 #Load git/hub completion from this folder (Has to be somewhere at the end to work)
 export fpath=(~/.zsh/completions $fpath) 
 autoload -U compinit && compinit
 
-eval $(thefuck --alias)
+#eval $(thefuck --alias) Takes very long (~0.1 sec with `time zsh -c 'source ~/.zshrc'` , means half of the startup time)
 
 #if [[ `pgrep -x udiskie` == "" ]] ; then
 #  udiskie &
@@ -112,4 +112,3 @@ eval $(thefuck --alias)
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 #export SDKMAN_DIR="/home/nwuensche/.sdkman"
 #[[ -s "/home/nwuensche/.sdkman/bin/sdkman-init.sh" ]] && source "/home/nwuensche/.sdkman/bin/sdkman-init.sh"
-

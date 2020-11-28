@@ -1,17 +1,20 @@
 !!! Config for urxvt terminal 
 !INFO Own stuff
-!URxvt.underlineURLs: true
 URxvt*letterSpace: -2
-!Using Xft.antialias changes the antialias option of !every! graphical program (firefox, ...)
+!Using Xft.antialias changes the antialias option of !every! graphical program (firefox, ...), thus do it for URxvt alone
 URxvt.antialias:              true
+
+
 URxvt.allow_bold:           true
 !INFO It looks weird inside vim if I use pixelsize 23 or 25
 URxvt*font:xft:Meslo LG S DZ for Powerline:pixelsize=24,xft:Source Code Pro:pixelsize=18:style=medium,xft:Dejavu Sans Mono:pixelsize=15
 URxvt*boldFont:xft:Meslo LG S DZ for Powerline:pixelsize=24:style=bold
-! Fix bold colors
+! Fix bold colors e.g. in ls -la for symlinks use light cyan, not dark cyan
 URxvt.intensityStyles: false 
-!Use foreground color (text color) from terminator
+
+!Use foreground color (text color) + cursor color from terminator
 *foreground: #839496
+URxvt.cursorColor:          #839496
 
 !Fix Copy/Paste in terminal with Ctrl+Shift+C/V
 !Iso stuff is for debugging purposes, also has shortcut Ctrl+Shift+C, so disable it
@@ -20,19 +23,13 @@ URxvt.iso14755_52:     false
 URxvt.keysym.Shift-Control-V: eval:paste_clipboard
 URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
 URxvt.perl-ext-common: selection-to-clipboard
-!URxvt.clipboard.autocopy: true
+
 !'selection-to-clipboard' adds  selection directly from PRIMARY Buffer to clipboard
 URxvt.perl-ext-common:      default,matcher,selection-to-clipboard
 URxvt.url-launcher:          firefox
 !Display URLs without underline or special color (underline on hover doesn't seem to be possible)
 URxvt.matcher.rend.0:        fg0
 !URxvt.matcher.rend.0:        Italic fg9 INFO Also possible like this to do Italic
-
-xterm*dynamicColors: true
-urxvt*dynamicColors: on
-!URxvt*cursorColor:  #D6C0FB
-!URxvt*cursorBlink:  on
-!
 
 !Rest from  https://gist.github.com/yevgenko/1167205
 
@@ -85,9 +82,8 @@ URxvt.matcher.button:       1
 
 ! Cursor
 URxvt.cursorBlink:          true
-!URxvt.cursorColor:          #657b83
+!URxvt.cursorColor:          #657b83 INFO Other one at top
 URxvt.cursorUnderline:      false
-!INFO Mine*cursorColor:      *XtDefaultForeground
 
 ! Pointer
 URxvt.pointerBlank:         true
@@ -98,7 +94,7 @@ URxvt.pointerBlank:         true
 !*foreground: #657b83 INFO Custom foreground above
 !!*fading: 40
 *fadeColor: #002b36
-*cursorColor: #93a1a1
+!*cursorColor: #93a1a1 INFO Other one at top
 *pointerColorBackground: #586e75
 *pointerColorForeground: #93a1a1
 
@@ -133,4 +129,3 @@ URxvt.pointerBlank:         true
 !! white dark/light
 *color7: #eee8d5
 *color15: #fdf6e3
-
