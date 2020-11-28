@@ -6,7 +6,7 @@ URxvt*letterSpace: -2
 URxvt.antialias:              true
 URxvt.allow_bold:           true
 !INFO It looks weird inside vim if I use pixelsize 23 or 25
-URxvt*font:xft:Meslo LG S DZ for Powerline:pixelsize=24
+URxvt*font:xft:Meslo LG S DZ for Powerline:pixelsize=24,xft:Source Code Pro:pixelsize=18:style=medium,xft:Dejavu Sans Mono:pixelsize=15
 URxvt*boldFont:xft:Meslo LG S DZ for Powerline:pixelsize=24:style=bold
 ! Fix bold colors
 URxvt.intensityStyles: false 

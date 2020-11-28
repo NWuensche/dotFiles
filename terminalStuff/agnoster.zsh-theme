@@ -103,7 +103,7 @@ prompt_git() {
     dirty=$(parse_git_dirty)
     ref=$(git symbolic-ref HEAD 2> /dev/null) || ref="➦ $(git rev-parse --short HEAD 2> /dev/null)"
     if has_unpushed; then
-      pushI=" ⬆"
+      pushI=" ▲" #Arrow before from terminator does not work with urxvt
     fi
     if [[ -n $dirty ]]; then
       prompt_segment yellow black
