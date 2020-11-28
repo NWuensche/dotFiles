@@ -6,6 +6,8 @@ plugins=(git gitfast)
 ZSH_THEME="agnoster"
 EDITOR=vim
 
+xset b off #Disable beep sound for urxvt (and terminals in general)
+
 export EDITOR
 ANDROID_HOME=/home/nwuensche/Android/Sdk
 export ANDROID_HOME
