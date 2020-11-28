@@ -8,7 +8,7 @@ close() {
   ) | sudo bluetoothctl
 }
 
-trap 'close' SIGINT
+trap 'close' SIGINT #Trap Ctrl-C, !not! some exit 1 returns
 
 sudo systemctl start bluetooth.service
 (

@@ -27,9 +27,9 @@ URxvt.perl-ext-common: selection-to-clipboard
 !'selection-to-clipboard' adds  selection directly from PRIMARY Buffer to clipboard
 URxvt.perl-ext-common:      default,matcher,selection-to-clipboard
 URxvt.url-launcher:          firefox
-!Display URLs without underline or special color (underline on hover doesn't seem to be possible)
-URxvt.matcher.rend.0:        fg0
-!URxvt.matcher.rend.0:        Italic fg9 INFO Also possible like this to do Italic
+!Display URLs without underline or special color (underline on hover doesn't seem to be possible), just use font like it isn't a URL
+URxvt.matcher.rend.0:        true
+!URxvt.matcher.rend.0:        Italic fg9 INFO Also possible like this to do Italic + foreground color 9
 
 !Rest from  https://gist.github.com/yevgenko/1167205
 
