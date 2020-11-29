@@ -419,7 +419,8 @@ function setUpManually {
     echo "Import IntelliJ Community Settings"
     echo "Still works when error that Plugins subfolder is missing "
     echo "Maybe update Project Settings -> JDK to JDK 10 (from 13) if compilation error "
-    echo "Start Firefox once, close it, remove  .mozilla/firefox/RANDOM.default-release folder completely and move firefoxProfile to it (RANDOM part has to match exactly with old folder!)
+    echo "Start Firefox once, close it, remove  .mozilla/firefox/RANDOM.default-release folder completely and move firefoxProfile to it (RANDOM part has to match exactly with old folder!)"
+    echo "Firefox: Change default Search Engine (right one should be in list)"
 }
 
 
