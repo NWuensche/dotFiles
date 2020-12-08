@@ -121,6 +121,8 @@ function yayPackages {
 
     sudo systemctl enable org.cups.cupsd.service
     sudo systemctl start org.cups.cupsd.service
+    sudo systemctl enable cups.service #New
+    sudo systemctl start cups.service
 
     sudo systemctl enable netctl-auto@wlp4s0.service
  }
@@ -485,4 +487,5 @@ function main {
 }
 
 #main
-setUpMFC
+#setUpMFC
+installIJCommunity
