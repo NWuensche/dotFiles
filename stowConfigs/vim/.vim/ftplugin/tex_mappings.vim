@@ -103,7 +103,8 @@ function! ChangeSpace()
     "if command '\test{} ', then '{} ' is space -> replace '{} ' with ~
     if start>1
       if line[start] == ' ' && line[start-1] == '}' && line[start-2] == '{'
-        return "xxr~"
+        "small x jumps cursor to right, capital X jumps cursor to left
+        return "XXr~" 
       endif
     endif
     "if command '\test{}', then '{}' is space -> replace '{}' with ~

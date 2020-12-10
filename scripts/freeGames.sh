@@ -1,4 +1,4 @@
-GAME="SEVEN"
+GAME="r: E"
 set -e # to stop on failing ping
 #Does not include HB
 freeEpicUPlayOriginHB () {
@@ -26,7 +26,7 @@ FREE=$(curl -s 'https://www.gamerpower.com/giveaways/pc/free-games' \
 
 #Includes HB
 freeSteam() {
-  FREE=$(curl --connect-timeout 2 -s https://steamcommunity.com/groups/freegamesfinders/rss/  | sed -n '/title.*\(in Steam\|in the Steam\|on Steam\|from Humble Bundle\)/Ip' | head -n 1 | sed -n '/Z: Sl/p' )
+  FREE=$(curl --connect-timeout 2 -s https://steamcommunity.com/groups/freegamesfinders/rss/  | sed -n '/title.*\(in Steam\|in the Steam\|on Steam\|from Humble Bundle\)/Ip' | head -n 1 | sed -n '/Seven/p' )
   if [[ "$FREE" == "" ]] ; then
     notify-send "Steam Free Game";
     echo "Steam Free Game";
