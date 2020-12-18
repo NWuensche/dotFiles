@@ -109,7 +109,7 @@ function! ChangeSpace()
     endif
     "if command '\test{}', then '{}' is space -> replace '{}' with ~
     if line[start] == '}' && line[start-1] == '{'
-      return "xr~"
+      return "Xr~"
     endif
     if line[start-1] != ',' && line[start] == ' '
       return "r~"

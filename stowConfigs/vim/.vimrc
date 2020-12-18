@@ -143,6 +143,15 @@ autocmd BufRead,BufNewFile *.md map <F2> :! pandoc --filter pandoc-citeproc --bi
 " Test File.py with FileT.py, `read` when error there
 autocmd BufRead,BufNewFile *.py map <F2>  :w<CR> :silent !  pytest %:p:rT.%:e \|\| read <CR> :redraw! <CR>
 
+" Dont autocomplete by looking through all 'include' files (e.g. boost)
+" TODO Does not work, thus I just set complete globaly (Which works)
+if &filetype == "cpp"
+  set complete-=i
+endif
+if &filetype == "hpp"
+  set complete-=i
+endif
+set complete-=i
 
 
 "autocmd Filetype json :%!ownjsonTool --no-ensure-ascii
