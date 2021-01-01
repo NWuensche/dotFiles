@@ -488,4 +488,5 @@ function main {
 
 #main
 #setUpMFC
-installIJCommunity
+#installIJCommunity
+installAndroidStudio

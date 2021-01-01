@@ -1,4 +1,4 @@
-GAME="Odd"
+GAME="Jurassic World E"
 set -e # to stop on failing ping
 #Does not include HB
 freeEpicUPlayOriginHB () {
@@ -37,4 +37,4 @@ ping -q -W 2 8.8.8.8 -c 2 #Check Connection
 
 freeEpicUPlayOriginHB
 
-freeSteam
+#freeSteam Defect no Steam/HB game + Didn't find anything new (wrt gamerpower website)  in ~6Months
