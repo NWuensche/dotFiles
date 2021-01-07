@@ -2,6 +2,8 @@
 "en_us/en_gb are seperate languages
 "For MA is consistency only en_us nice + "graph coloring" in american english seems to be used more than "graph colouring" (KKS20 uses coloring)
 setlocal spelllang=en_us,de
+"else syntax highlighting fails
+set redrawtime=10000
 
 "Fixes that syntax is not applied sometimes, but takes some time
 syntax sync fromstart
