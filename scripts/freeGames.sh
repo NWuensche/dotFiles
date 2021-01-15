@@ -1,4 +1,4 @@
-GAME="Jurassic World E"
+GAME="Bomber Crew"
 set -e # to stop on failing ping
 #Does not include HB
 freeEpicUPlayOriginHB () {

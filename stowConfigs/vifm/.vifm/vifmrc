@@ -173,6 +173,8 @@ nmap `d :cd ~/Downloads <CR>
 nmap `m :cd /run/media/nwuensche <CR>
 nmap `q :cd ~/Dokumente/Master_Berlin/5.Semester/master-niklas-wuensche <CR>
 
+"Dont increase number when pressing TMUX twice
+nmap <C-a> : <CR>
 
 nmap q :q<CR>
 nmap DD :!trash %f<CR>
