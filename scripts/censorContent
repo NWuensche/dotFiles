@@ -4,6 +4,7 @@ from tkinter import *
 from tkinter.colorchooser import askcolor
 from PIL import ImageTk, Image
 import subprocess
+import sys
 from sys import argv
 import os
 
@@ -110,7 +111,7 @@ class Paint:
         psFile = shellOutput("mktemp --suffix .eps")
         self.c.postscript(file = psFile, height = self.cHeight, width = self.cWidth, x =0, y=0 , colormode='color')
         #with flag "-page a4" somehow the whole content disappears. When I send pdf somewhere, they shouldn't care about the format of the pages
-        subprocess.check_output("convert " + psFile + " " + self.outPDFFilePath, shell=True)
+        subprocess.check_output("epspdf " + psFile + " " + self.outPDFFilePath, shell=True) #epspdf much better quality than `convert EPS PDF`
         self.root.destroy()
 
 
@@ -123,7 +124,7 @@ if __name__ == '__main__':
 
     fullFileNameIn = argv[1]
     if not os.path.exists(fullFileNameIn):
-        print(fullFileNameIn + " is not a existing file!")
+        print(fullFileNameIn + " is not an existing file!")
         sys.exit(1)
 
 
@@ -136,8 +137,8 @@ if __name__ == '__main__':
         print("out file has to be a pdf!")
         sys.exit(1)
 
-    if " " in fullFileNameIn  or " " in outPDFFilePath :
-        print("Spaces in names cause problems with subprocess calls, remove spaces!")
+    if " " in outPDFFilePath :
+        print("Spaces in names of out-file cause problems with subprocess calls, remove spaces!") #spaces in in-file work!
         sys.exit(1)
 
 
