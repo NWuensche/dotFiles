@@ -87,7 +87,7 @@ function yayPackages {
     yay -S pulseaudio-bluetooth bluez-utils bluez --noconfirm #Bluetooth
     yay -S xdotool expect --noconfirm # Automation Tools
     yay -S tmux rxvt-unicode xterm zsh  --noconfirm #Terminator Environment 
-    yay -S unzip curl mitmproxy wget ack progress htop offlineimap neomutt vifm feh pdfgrep calcurse w3m mplayer irssi docker stow --noconfirm #Terminal Tools 
+    yay -S zip unzip curl mitmproxy wget ack progress htop offlineimap neomutt vifm feh pdfgrep calcurse w3m mplayer irssi docker stow --noconfirm #Terminal Tools 
     yay -S powertop python-selenium jq rsync pwgen xclip ffmpeg xss-lock xautolock trash-cli scrot udiskie	exfat-utils ntfs-3g unrar cronie ttf-liberation openssh imapfilter urlview pandoc-bin jpegoptim --noconfirm #Terminal Support Tools , pandoc-bin from AUR and not pandoc from community because I don't want 60 dynamic Haskell Library dependencies, but only the binary
     yay -S tcsh cups sane brscan2 brscan3 --noconfirm #Printer Tools 
     yay -S xf86-input-synaptics xf86-input-mtrack  --noconfirm #Touchpad Tools 
