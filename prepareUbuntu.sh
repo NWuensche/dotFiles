@@ -2,8 +2,9 @@
 
 set -e #Exit after first non zero error code
 
+HDD="/run/media/nwuensche/5f65b653-f040-40eb-a2de-64a7e4cac5c4"
 function checkHDD {
-    if [ ! -d /run/media/nwuensche/5f65b653-f040-40eb-a2de-64a7e4cac5c4 ]
+    if [ ! -d "$HDD" ]
     then
         echo "udiskie-mount external drive"
         exit 1
@@ -15,11 +16,11 @@ function importFiles {
     mkdir -p ~/Bilder
     mkdir -p ~/Dokumente
     mkdir -p ~/Downloads
-    cp /run/media/nwuensche/TOSHIBA\ EXT/AufPC/* ~/ -r
-    cp /run/media/nwuensche/TOSHIBA\ EXT/Dokumente/Master_Berlin ~/Dokumente/ -r
-    cp /run/media/nwuensche/TOSHIBA\ EXT/Dokumente/tub-cacert.pem ~/Dokumente/
-    cp /run/media/nwuensche/TOSHIBA\ EXT/Dokumente/Gesch* ~/Dokumente/
-    cp /run/media/nwuensche/TOSHIBA\ EXT/saveFolder ~ -r
+    cp "$HDD"/AufPC/* ~/ -r
+    cp "$HDD"/Dokumente/Master_Berlin ~/Dokumente/ -r
+    cp "$HDD"/Dokumente/tub-cacert.pem ~/Dokumente/
+    cp "$HDD"/Dokumente/Gesch* ~/Dokumente/
+    cp "$HDD"/saveFolder ~ -r
 
     mv ~/dotFiles ~/.dotFiles
 }
@@ -238,7 +239,7 @@ function installPrograms {
     #installLatexTUDresden
     installFonts
     loadWallabag
-    installAnki #Need to do this manually because pacman anki conflicts with python pacakges
+    #installAnki #Need to do this manually because pacman anki conflicts with python pacakges
 }
 
 function fixDisplayManager {
@@ -486,7 +487,7 @@ function main {
     setUpPrinter
 }
 
-#main
+main
 #setUpMFC
 #installIJCommunity
-installAndroidStudio
+#installAndroidStudio
