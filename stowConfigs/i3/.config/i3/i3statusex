@@ -16,7 +16,7 @@ function setColorBattery() {
 function getBrightness() {
   BRIGHT=$(cat /sys/class/backlight/intel_backlight/brightness)
   MAX_BRIGHT=$(cat /sys/class/backlight/intel_backlight/max_brightness)
-  echo "🌣 $((BRIGHT*100/MAX_BRIGHT))%"
+  echo "☼ $((BRIGHT*100/MAX_BRIGHT))%"
 }
 
 function switchNumberToDOW() {

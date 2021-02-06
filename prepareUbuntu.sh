@@ -82,6 +82,8 @@ function yayPackages {
     sudo pacman -Syu --noconfirm
     git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si  --noconfirm && cd ~ && rm -rf yay #Install yay
     sudo yay -Syu --noconfirm
+    sudo killall dirmngr #Else key import for tomb does not work
+    pacman -Rs vim || true #will conflict to gvim, thus when installed for debugging, we have to remove it
     yay -S ruby jdk-openjdk maven python3 gradle python-pip git hub --noconfirm #Programming
     yay -S xorg xf86-video-intel lightdm lightdm-gtk-greeter i3-wm dmenu i3status i3lock --noconfirm #UI
     yay -S gvim vim-spell-de vim-spell-en --noconfirm #Vim 
@@ -95,7 +97,7 @@ function yayPackages {
     yay -S xf86-input-wacom xbindkeys --noconfirm #Wacom Tablet Tools
     yay -S ttf-liberation pango  --noconfirm #Fonts and Font Tools 
     yay -S alsa-utils pulseaudio pavucontrol --noconfirm #Audio 
-    yay -S steam sqlitebrowser calibre vlc gimp firefox kdenlive libreoffice-fresh-de  evince xournalpp zathura zathura-pdf-poppler spotify  --noconfirm #X Tools 
+    yay -S steam sqlitebrowser calibre vlc gimp firefox kdenlive libreoffice-fresh-de  evince xournalpp zathura zathura-pdf-poppler  --noconfirm #X Tools 
     yay -S wine lib32-libpulse --noconfirm # Wine stuff
     yay -S redshift gparted arandr android-file-transfer simple-mtpfs dunst  --noconfirm # X Support Tools 
     yay -S virtualbox virtualbox-host-modules-arch virtualbox-guest-iso  --noconfirm #Virtualbox 
@@ -108,20 +110,15 @@ function yayPackages {
     gpg --keyserver hkp://keys.gnupg.net:80 --recv-keys  6113D89CA825C5CEDD02C87273B35DA54ACB7D10 #AUR of pass-tomb forgets to import this key
     yay -S pass-tomb --noconfirm
 
-    pip install --user pytube pycurl #python-pytube in AUR is too old
-
-    pacman -S python-configobj #Needed for terminator, else crash, also enables click on links again somehow
 
 
-    gem install bluebutton #Own config for bluetooth button
+#    gem install bluebutton #Own config for bluetooth button
 
     installIJCommunity
     installAndroidStudio
 
     sudo systemctl enable cronie.service #Enable Cron
 
-    sudo systemctl enable org.cups.cupsd.service
-    sudo systemctl start org.cups.cupsd.service
     sudo systemctl enable cups.service #New
     sudo systemctl start cups.service
 
@@ -167,10 +164,7 @@ function installLatexTUDresden {
 }
 
 function autoStartVPN {
-    sudo systemctl enable --now nordvpnsd
-    systemctl --user enable --now nordvpnud
     sh ~/saveFolder/setupVPN.sh
-    
 }
 
 function installFonts {
