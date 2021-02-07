@@ -253,7 +253,7 @@ function installPrograms {
 }
 
 function fixDisplayManager {
-    sudo sh -c 'echo "greeter-session=lightdm-gtk-greeter" >> /etc/lightdm/lightdm.conf' #Configure Display (Login) Manager
+    sudo sed -i 's/^#greeter-session=.*/greeter-session=lightdm-gtk-greeter/' /etc/lightdm/lightdm.conf #Configure Display (Login) Manager, has to be directly under [Seat:*]
     sudo systemctl enable lightdm.service
     if [[ "$CPU" == "AMD" ]]; then
       sudo systemctl disable lightdm.service

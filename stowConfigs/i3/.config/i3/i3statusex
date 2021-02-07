@@ -1,6 +1,14 @@
 #!/bin/sh
 #FORMAT [[{item1}, {item2}],\n [{item1}, {item2}],\n...]
 
+#different files for intel/amd where brightness is standing in
+BRIGHTNESS_FOLDER=""
+if [[ -d '/sys/class/backlight/intel_backlight' ]]; then
+  BRIGHTNESS_FOLDER="/sys/class/backlight/intel_backlight"
+else
+  BRIGHTNESS_FOLDER="/sys/class/backlight/amdgpu_bl0"
+fi
+
 function setColorBattery() {
   FULLPERCENT=$(echo "$1" | sed -n 's/^\S*BAT \([0-9]*[0-9]\),.*/\1/p' )
   if (( FULLPERCENT >= 30)); then
@@ -14,8 +22,8 @@ function setColorBattery() {
 }
 
 function getBrightness() {
-  BRIGHT=$(cat /sys/class/backlight/intel_backlight/brightness)
-  MAX_BRIGHT=$(cat /sys/class/backlight/intel_backlight/max_brightness)
+  BRIGHT=$(cat "$BRIGHTNESS_FOLDER/brightness")
+  MAX_BRIGHT=$(cat "$BRIGHTNESS_FOLDER/max_brightness")
   echo "☼ $((BRIGHT*100/MAX_BRIGHT))%"
 }
 
