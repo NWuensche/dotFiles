@@ -3,6 +3,7 @@
 set -e #Exit after first non zero error code
 
 HDD="/run/media/nwuensche/5f65b653-f040-40eb-a2de-64a7e4cac5c4"
+CPU=$(cat /proc/cpuinfo | sed -n 's/.*\(Intel\|AMD\).*/\1/p' | head -n 1) #Intel or AMD
 function checkHDD {
     if [ ! -d "$HDD" ]
     then
@@ -85,7 +86,21 @@ function yayPackages {
     sudo killall dirmngr #Else key import for tomb does not work
     pacman -Rs vim || true #will conflict to gvim, thus when installed for debugging, we have to remove it
     yay -S ruby jdk-openjdk maven python3 gradle python-pip git hub --noconfirm #Programming
-    yay -S xorg xf86-video-intel lightdm lightdm-gtk-greeter i3-wm dmenu i3status i3lock --noconfirm #UI
+    yay -S xorg lightdm lightdm-gtk-greeter accountsservice i3-wm dmenu i3status i3lock plymouth --noconfirm #UI, accountsservice fixed lightdm warning, plymouth necessary for lightdm on AMD
+
+    #Makes problems when I install wrong one
+    if [[ "$CPU" == "Intel" ]]; then
+      yay -S xf86-video-intel --noconfirm
+    fi
+    if [[ "$CPU" == "AMD" ]]; then
+      yay -S xf86-video-amd --noconfirm
+
+      #Fix backlight adjustment
+      yay -Rs xorg-backlight --noconfirm
+      yay -S acpilight --noconfirm
+      sudo usermod -a -G video nwuensche
+    fi
+
     yay -S gvim vim-spell-de vim-spell-en --noconfirm #Vim 
     yay -S pulseaudio-bluetooth bluez-utils bluez --noconfirm #Bluetooth
     yay -S xdotool expect --noconfirm # Automation Tools
@@ -105,6 +120,7 @@ function yayPackages {
     yay -S slack-desktop openconnect telegram-desktop macchanger --noconfirm #Other Stuff 
     yay -S wpa_actiond --noconfirm # For auto search WiFi
     yay -S pdfjs --noconfirm # needed for pdf viewer qutebrowser
+    yay -S lutris lib32-gnutls lib32-libpulse #lutris + programs for epic store TODO If still no sound, do https://www.reddit.com/r/wine_gaming/comments/7qm8wp/for_anyone_with_sound_issues_on_grand_theft_auto/
 
 
     gpg --keyserver hkp://keys.gnupg.net:80 --recv-keys  6113D89CA825C5CEDD02C87273B35DA54ACB7D10 #AUR of pass-tomb forgets to import this key
@@ -232,13 +248,17 @@ function installPrograms {
     setUpBackgroundLight
     #installLatexTUDresden
     installFonts
-    loadWallabag
+    #loadWallabag
     #installAnki #Need to do this manually because pacman anki conflicts with python pacakges
 }
 
 function fixDisplayManager {
     sudo sh -c 'echo "greeter-session=lightdm-gtk-greeter" >> /etc/lightdm/lightdm.conf' #Configure Display (Login) Manager
     sudo systemctl enable lightdm.service
+    if [[ "$CPU" == "AMD" ]]; then
+      sudo systemctl disable lightdm.service
+      sudo systemctl enable lightdm-plymouth.service
+    fi
 }
 
 function setGroups {
@@ -261,15 +281,6 @@ function fixScreenTearingIntelHDGraphics {
     sudo cp ~/.dotFiles/X/IntelHDGraphicsTearingFix.conf /etc/X11/xorg.conf.d/20-intel.conf
 }
 
-function setUpVim {
-    sudo vim +'set spell spelllang=en,de' +y +1 +q +q #German Spell Check
-
-    #Vundle Install
-    curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-}
-
 function setUpTmux {
    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
    # Needed for italic inside tmux
@@ -277,12 +288,14 @@ function setUpTmux {
 }
 
 function moveConfigs {
-    cp ~/saveFolder/ssh ~/.ssh -r # Must do this before stow, because config will be overwritten otherwise
-    cp -r ~/saveFolder/ssh ~/.ssh
+    cp ~/saveFolder/ssh ~/.ssh -r -p # Must do this before stow, because config will be overwritten otherwise
+    chmod 0700 ~/.ssh/id_b* # correct modifiers, matches public key as well
+    chmod 0755 ~/.ssh/id_b*.pub #fix modifier public key back
     crontab ~/saveFolder/listCrontab;
     sudo /bin/cp  ~/saveFolder/hosts /etc/hosts;
 
     #TODO Vim could cause problem because I install plugins *afterwards*. If omnicomplete vim does not work, look if ftplugin and autoload folders in .vim folder correctly in
+    rm -r .zshrc .bashrc .bash_profile .vim/ || true #Might have been created during debugging, would cause errors, problematic vim file is `.vim/autoload/plug.vim`
     ( cd $HOME/.dotFiles/stowConfigs; stow i3 wallpaper vim git terminal gpg programConfigs vifm podget X -t $HOME )
     sh ~/saveFolder/doStowSaveFolder.sh
 
@@ -293,9 +306,16 @@ function moveConfigs {
     gpg --import ~/saveFolder/gpg_key_pub.asc
     gpg --import ~/saveFolder/gpg_key.asc
     expect ~/saveFolder/trustGPG Wuensche-N
+
+    mkdir -p ~/.cache/mutt/messages #Else mutt warnings
 }
 
 function setUpVimPlugins {
+    sudo vim +'set spell spelllang=en,de' +y +1 +q +q #German Spell Check
+    #Vundle Install - Unnecessary because now plug.vim in stow Config
+    #curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    #    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
     vim +PluginInstall +q +q
     vim +PlugInstall +q +q
 }
@@ -311,9 +331,11 @@ function addConfigs {
     setGroups 
     fixTouchToClickTouchPad 
     wacomTabletConfig
-    fixScreenTearingIntelHDGraphics
+    #Breaks AMD setup
+    if [[ "$CPU" == "Intel" ]]; then
+      fixScreenTearingIntelHDGraphics
+    fi
     autoStartVPN
-    setUpVim
     setUpTmux
     moveConfigs
     setUpVimPlugins
@@ -345,9 +367,9 @@ function setUpMFC {
 
 
     sudo systemctl disable cups.service || true #Schlägt evnt fehl, da cups noch nicht init wurde.
-    sudo systemctl enable org.cups.cupsd.service
+    sudo systemctl enable cups.service
     sudo systemctl daemon-reload
-    sudo systemctl start org.cups.cupsd.service
+    sudo systemctl start cups.service
     sudo cp -rv usr /
 
     sudo tcsh /usr/local/Brother/cupswrapper/cupswrapperMFC5440CN-1.0.2
@@ -374,9 +396,9 @@ function setUpDCP {
     find . -type f -exec sed -i 's/\/run\/current-system\/sw\/bin\/tcsh/\/usr\/bin\/tcsh/g' {} +
     find . -type f -exec sed -i 's/DefaultPageSize: Letter/DefaultPageSize: A4/g' {} +
 
-    sudo systemctl enable org.cups.cupsd.service
+    sudo systemctl enable cups.service
     sudo systemctl daemon-reload
-    sudo systemctl start org.cups.cupsd.service
+    sudo systemctl start cups.service
     sudo cp -rv usr /
 
     sudo sh /tmp/DCPInstall/usr/local/Brother/Printer/dcp145c/cupswrapper/cupswrapperdcp145c
@@ -465,18 +487,51 @@ function disableWebcam {
   sudo sh -c "echo \"blacklist uvcvideo\" > /etc/modprobe.d/disable_webcam.conf"
 }
 
+function master {
+  yay -S boost --noconfirm
+}
+
+function fixSuspendAMD {
+  # From https://wiki.archlinux.org/index.php/Lenovo_IdeaPad_5_14are05
+  yay -S acpica cpio --noconfirm
+  DUMPFOLDER=$(mktemp -d)
+  cd $DUMPFOLDER
+  sudo acpidump -b
+  iasl -e *.dat -d dsdt.dat
+  iasl -e *.dat -d dsdt.dat
+  curl 'https://gist.githubusercontent.com/zurohki/4b859668c901e6ba13e8187a0d5d734c/raw/a04e217f273630cfae8ab3aa82002e99b9b039d5/dsdt.patch' > dsdt.patch
+  patch -p1 < dsdt.patch
+  iasl -ve -tc dsdt.dsl
+  mkdir -p kernel/firmware/acpi
+  cp dsdt.aml kernel/firmware/acpi
+  find kernel | cpio -H newc --create > acpi_override
+  sudo cp acpi_override /boot
+  sudo sed -i 's/^GRUB_CMDLINE_LINUX_DEFAULT="\(.*\)"$/GRUB_CMDLINE_LINUX_DEFAULT="\1 mem_sleep_default=deep"/' /etc/default/grub
+  sudo sh -c 'echo "GRUB_EARLY_INITRD_LINUX_CUSTOM=acpi_override" >> /etc/default/grub'
+  sudo grub-mkconfig -o /boot/grub/grub.cfg
+  #Dont need echo deep > /sys/power/mem_sleep, because grub option is already 'mem_sleep_default=!deep!'
+}
+
 function main {
+    if [[ "$CPU" != "Intel" && "$CPU" != "AMD" ]]; then
+      echo "Don't know your CPU!"
+      exit 1
+    fi
     setUpHome
     installPrograms
     addConfigs
     fixWifi
     lidCloseLock
     #powertopAdd INFO Too many auto-suspend Mouse/keyboard problems that I cant solve + powertops give ~5 Minutes more lifetime with full battery, not worth it
+    if [[ "$CPU" == "AMD" ]]; then
+      fixSuspendAMD
+    fi
     reloadTmux
     setUdevRules
     disableWebcam
     sh ~/saveFolder/setupScripts.sh
     #fixAudio Not Necessary
+    master
     setUpManually
     setUpPrinter
 }
