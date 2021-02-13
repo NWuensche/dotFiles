@@ -183,7 +183,8 @@ bindsym XF86AudioRaiseVolume exec "amixer -q -D pulse sset Master '5%+'"
 #bindsym XF86AudioRaiseVolume exec "volUpOrButton"
 bindsym XF86AudioLowerVolume exec "amixer -q -D pulse sset Master '5%-'"
 bindsym XF86AudioMute exec "amixer -q -D pulse set Master toggle"
-bindsym XF86AudioMicMute exec "amixer -q -D pulse sset Capture toggle"
+bindsym XF86AudioMicMute exec "/home/nwuensche/.dotFiles/scripts/toggleMicrophoneAndLED"
+#bindsym XF86AudioMicMute exec "amixer -q -D pulse sset Capture toggle"
 #bindsym XF86Display exec "notify-send 'XF86Display'" #F7
 #bindsym XF86WLAN exec notify-send 'XF86WLAN' #F8, but throws i3 error
 bindsym XF86Tools exec echo "pause" > /tmp/mplayerControl #F9
@@ -201,6 +202,9 @@ bindcode  $mod+52 exec "amixer -q -D pulse sset Capture cap"
 #Colons break rsync for backing up
 bindsym Print exec scrot '/home/nwuensche/Bilder/%Y.%m.%d %H-%M-%S.png' #-e 'mv "$f" ~/Bilder/'
 bindsym --release Shift+Print exec scrot -s '/home/nwuensche/Bilder/%Y.%m.%d %H-%M-%S.png'
+#AMD bind Print key on key next to it wouthout Fn; cant bind it to Print key directly because it has exact same name/code/... as meta key (Cant put this comment directly behind commands without causing i3 error for some reason)
+bindcode  255 exec scrot '/home/nwuensche/Bilder/%Y.%m.%d %H-%M-%S.png' 
+bindcode --release Shift+255 exec scrot -s '/home/nwuensche/Bilder/%Y.%m.%d %H-%M-%S.png' 
 
 bindsym $mod+backslash workspace 1
 bindsym $mod+apostrophe workspace 1
@@ -254,7 +258,6 @@ exec xinput --set-prop 'TPPS/2 IBM TrackPoint' 'libinput Accel Profile Enabled' 
 exec xinput --set-prop 'TPPS/2 IBM TrackPoint' 'libinput Accel Speed' 1
 
 exec_always /home/nwuensche/.dotFiles/scripts/setupMonitor
-exec amixer -D pulse sset Capture nocap #Micro off
 
 exec /home/nwuensche/saveFolder/privateScripts/startVPN &
 
@@ -268,5 +271,8 @@ exec /usr/bin/udiskie &
 
 exec xhost +local: #Necessary to be able to open gparted inside a tmux session
 #exec /home/nwuensche/.dotFiles/scripts/fullscreenLock & #Can't do this in crontab because Environment variables are wrong
-#exec urxvtc -e env TERM=screen-256color tmux & #Needs to be a lot of after urxvtd call above, to give time. Otherwise terminal just wont start
-exec urxvtc -e env TERM=screen-256color tmux attach || tmux new & #Needs to be a lot of after urxvtd call above, to give time. Otherwise terminal just wont start
+exec sleep 0.1; urxvtc -e env TERM=screen-256color zsh -c 'tmux attach || tmux' #Does not show anything without sleep (maybe because of daemon), but `exec_always` works without sleep
+
+# Has to be at end, else will not get executed
+#exec amixer -D pulse sset Capture nocap #Micro off
+exec "/home/nwuensche/.dotFiles/scripts/toggleMicrophoneAndLED" #Micro off

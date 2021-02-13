@@ -15,6 +15,7 @@ setlocal completefunc=latexcomplete#CompleteFA
 "Normal syn regions/matchs don't seem to work because there already is this tex.vim file where I have to plug in, I can't just do whatever I want
 "Don't spellcheck argument of cref anymore - This is adapted from /usr/share/vim/vim82/syntax/tex.vim Line 649 (Add new keyword "cref" that behaves like bibliography/label..., which is what I want)
 syn region texRefZone		matchgroup=texStatement start="\\cref{"		end="}\|%stopzone\>"	contains=@texRefGroup
+syn region texRefZone		matchgroup=texStatement start="\\citeauthor{"		end="}\|%stopzone\>"	contains=@texRefGroup
 "syn region texRefZone		matchgroup=texStatement start="\\draw\[" end=";\|%stopzone\>"	contains=@texRefGroup,@NoSpell
 "syn region myTikzR start='\[' end=']' contains=Delimeter,@NoSpell,@texMatchGroup
 "syn region myTikzR start='\[' end=']' contains=@NoSpell

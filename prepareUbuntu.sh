@@ -91,9 +91,11 @@ function yayPackages {
     #Makes problems when I install wrong one
     if [[ "$CPU" == "Intel" ]]; then
       yay -S xf86-video-intel --noconfirm
+      yay -S intel-ucode --noconfirm #Will be enabled automatically when running grub-mkconfig next time
     fi
     if [[ "$CPU" == "AMD" ]]; then
       yay -S xf86-video-amd --noconfirm
+      yay -S amd-ucode --noconfirm #Will be enabled automatically when running grub-mkconfig next time
 
       #Fix backlight adjustment
       yay -Rs xorg-backlight --noconfirm
@@ -135,10 +137,15 @@ function yayPackages {
 
     sudo systemctl enable cronie.service #Enable Cron
 
-    sudo systemctl enable cups.service #New
+    sudo systemctl enable cups.service
     sudo systemctl start cups.service
 
-    sudo systemctl enable netctl-auto@wlp4s0.service
+    if [[ "$CPU" == "Intel" ]]; then
+      sudo systemctl enable netctl-auto@wlp4s0.service
+    fi
+    if [[ "$CPU" == "AMD" ]]; then
+      sudo systemctl enable netctl-auto@wlo1.service
+    fi
  }
 
 
@@ -277,8 +284,13 @@ function wacomTabletConfig {
 
 #Works for Firefox+Youtube and VLC
 # Check https://www.youtube.com/watch?v=MfL_JkcEFbE for test
-function fixScreenTearingIntelHDGraphics {
-    sudo cp ~/.dotFiles/X/IntelHDGraphicsTearingFix.conf /etc/X11/xorg.conf.d/20-intel.conf
+function fixScreenTearing {
+    if [[ "$CPU" == "Intel" ]]; then
+      sudo cp ~/.dotFiles/X/IntelHDGraphicsTearingFix.conf /etc/X11/xorg.conf.d/20-intel.conf
+    fi
+    if [[ "$CPU" == "AMD" ]]; then
+      sudo cp ~/.dotFiles/X/AMDTearingFix.conf /etc/X11/xorg.conf.d/20-amdgpu.conf
+    fi
 }
 
 function setUpTmux {
@@ -321,9 +333,15 @@ function setUpVimPlugins {
 }
 
 function lowerTimeoutGRUB {
-    cat /etc/default/grub | sed 's/GRUB_TIMEOUT=5/GRUB_TIMEOUT=1/g' > /tmp/grub #File data will be lost when piping directly back into the file
+    cat /etc/default/grub | sed 's/GRUB_TIMEOUT=5/GRUB_TIMEOUT=2/g' > /tmp/grub #File data will be lost when piping directly back into the file
     sudo cp /tmp/grub /etc/default/grub
     sudo grub-mkconfig -o /boot/grub/grub.cfg
+}
+
+function addFirefoxProfile {
+  timeout 10s firefox -headless || true #create profile for firefox without X + automatically close (will always return 1 when timeouted)
+  rm -r ~/.mozilla/firefox/*.default-release/* #remove Anything inside old profile, but not folder itself (has to keep exact, random, name)
+  cp -r ~/saveFolder/firefoxProfile/* ~/.mozilla/firefox/*.default-release/
 }
 
 function addConfigs { 
@@ -331,15 +349,13 @@ function addConfigs {
     setGroups 
     fixTouchToClickTouchPad 
     wacomTabletConfig
-    #Breaks AMD setup
-    if [[ "$CPU" == "Intel" ]]; then
-      fixScreenTearingIntelHDGraphics
-    fi
+    fixScreenTearing
     autoStartVPN
     setUpTmux
     moveConfigs
     setUpVimPlugins
     lowerTimeoutGRUB
+    addFirefoxProfile
 }
 
 function setUpMFC {
@@ -444,7 +460,13 @@ function setUpManually {
 
 
 function fixWifi {
-    sudo cp ~/saveFolder/services/fixwifi.service /etc/systemd/system/
+    #different names for wifi modules
+    if [[ "$CPU" == "Intel" ]]; then
+      sudo cp ~/saveFolder/services/fixwifiintel.service /etc/systemd/system/fixwifi.service
+    fi
+    if [[ "$CPU" == "AMD" ]]; then
+      sudo cp ~/saveFolder/services/fixwifiamd.service /etc/systemd/system/fixwifi.service
+    fi
     sudo systemctl daemon-reload
     sudo systemctl enable fixwifi.service
     sudo cp ~/saveFolder/netctlProfiles/* /etc/netctl
@@ -487,11 +509,20 @@ function disableWebcam {
   sudo sh -c "echo \"blacklist uvcvideo\" > /etc/modprobe.d/disable_webcam.conf"
 }
 
-function master {
-  yay -S boost --noconfirm
+function allowChangeCapsLockLED {
+  sudo sed -i 's|!allowExplicit|allowExplicit|g' /usr/share/X11/xkb/compat/ledcaps || true #Allows setting LED with xset without root, used for microphone LED on AMD, dont fail for laptop without capslock LED
 }
 
-function fixSuspendAMD {
+function master {
+  yay -S boost --noconfirm
+  yay -S python-pytest --noconfirm
+  pip install jsoncomment
+}
+
+function fixGrubStuffAMD {
+  sudo sed -i 's/^GRUB_CMDLINE_LINUX_DEFAULT="\(.*\)"$/GRUB_CMDLINE_LINUX_DEFAULT="\1 splash/' /etc/default/grub #For some reason no `splash` screen option present
+
+  # Fix Suspend wake up
   # From https://wiki.archlinux.org/index.php/Lenovo_IdeaPad_5_14are05
   yay -S acpica cpio --noconfirm
   DUMPFOLDER=$(mktemp -d)
@@ -508,9 +539,19 @@ function fixSuspendAMD {
   sudo cp acpi_override /boot
   sudo sed -i 's/^GRUB_CMDLINE_LINUX_DEFAULT="\(.*\)"$/GRUB_CMDLINE_LINUX_DEFAULT="\1 mem_sleep_default=deep"/' /etc/default/grub
   sudo sh -c 'echo "GRUB_EARLY_INITRD_LINUX_CUSTOM=acpi_override" >> /etc/default/grub'
-  sudo grub-mkconfig -o /boot/grub/grub.cfg
   #Dont need echo deep > /sys/power/mem_sleep, because grub option is already 'mem_sleep_default=!deep!'
+
+  #Fix Suspend Brightness can be read (fixes journalctl error, but did not notice)
+  sudo sed -i 's/^GRUB_CMDLINE_LINUX_DEFAULT="\(.*\)"$/GRUB_CMDLINE_LINUX_DEFAULT="\1 acpi_backlight=vendor"/' /etc/default/grub
+
+  #Fix journalctl error with virtalization (not noticed) (not fixed with iommu=pt)
+  #Neither amd_iommu=on nor iommu=pt fix `amd_iommu=on fixed acp_pdm_mach acp_pdm_mach.0: snd_soc_register_card(acp) failed: -517`, but  Only sound issue, see package of github linux kernel (sometimes there, sometimes not)
+  sudo sed -i 's/^GRUB_CMDLINE_LINUX_DEFAULT="\(.*\)"$/GRUB_CMDLINE_LINUX_DEFAULT="\1 iommu=soft"/' /etc/default/grub
+
+
+  sudo grub-mkconfig -o /boot/grub/grub.cfg
 }
+
 
 function main {
     if [[ "$CPU" != "Intel" && "$CPU" != "AMD" ]]; then
@@ -524,11 +565,12 @@ function main {
     lidCloseLock
     #powertopAdd INFO Too many auto-suspend Mouse/keyboard problems that I cant solve + powertops give ~5 Minutes more lifetime with full battery, not worth it
     if [[ "$CPU" == "AMD" ]]; then
-      fixSuspendAMD
+      fixGrubStuffAMD
     fi
     reloadTmux
     setUdevRules
     disableWebcam
+    allowChangeCapsLockLED
     sh ~/saveFolder/setupScripts.sh
     #fixAudio Not Necessary
     master
