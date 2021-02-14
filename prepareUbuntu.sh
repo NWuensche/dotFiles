@@ -122,7 +122,7 @@ function yayPackages {
     yay -S slack-desktop openconnect telegram-desktop macchanger --noconfirm #Other Stuff 
     yay -S wpa_actiond --noconfirm # For auto search WiFi
     yay -S pdfjs --noconfirm # needed for pdf viewer qutebrowser
-    yay -S lutris lib32-gnutls lib32-libpulse #lutris + programs for epic store TODO If still no sound, do https://www.reddit.com/r/wine_gaming/comments/7qm8wp/for_anyone_with_sound_issues_on_grand_theft_auto/
+    yay -S lutris lib32-gnutls lib32-libpulse --noconfirm #lutris + programs for epic store TODO If still no sound, do https://www.reddit.com/r/wine_gaming/comments/7qm8wp/for_anyone_with_sound_issues_on_grand_theft_auto/
 
 
     gpg --keyserver hkp://keys.gnupg.net:80 --recv-keys  6113D89CA825C5CEDD02C87273B35DA54ACB7D10 #AUR of pass-tomb forgets to import this key
@@ -450,7 +450,7 @@ function setUpManually {
     #android-studio ~/wallabag #Download Android Stuff
     #steam #Download Updates
     #chromium # Sync
-    #echo "Install Tmux Plugins with Prefix + I (Shift + I)?" Should be unnecessary with new reloadTmux function
+    echo "Install Tmux Plugins with Prefix + I (Shift + I)" #Should be unnecessary with new reloadTmux function, but TODO still is necessary
     echo "Import Android Studio Settings"
 #   echo "Import Firefox Bookmarks"
 #   echo "Start Firefox once, close it, remove  .mozilla/firefox/RANDOM.default-release folder completely and move firefoxProfile to it (RANDOM part has to match exactly with old folder!)"
