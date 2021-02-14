@@ -114,14 +114,14 @@ function yayPackages {
     yay -S xf86-input-wacom xbindkeys --noconfirm #Wacom Tablet Tools
     yay -S ttf-liberation pango  --noconfirm #Fonts and Font Tools 
     yay -S alsa-utils pulseaudio pavucontrol --noconfirm #Audio 
-    yay -S steam sqlitebrowser calibre vlc gimp firefox kdenlive libreoffice-fresh-de  evince xournalpp zathura zathura-pdf-poppler  --noconfirm #X Tools 
+    yay -S steam sqlitebrowser calibre vlc gimp audacity firefox kdenlive libreoffice-fresh-de  evince xournalpp zathura zathura-pdf-poppler  --noconfirm #X Tools 
     yay -S wine lib32-libpulse --noconfirm # Wine stuff
     yay -S redshift gparted arandr android-file-transfer simple-mtpfs dunst  --noconfirm # X Support Tools 
     yay -S virtualbox virtualbox-host-modules-arch virtualbox-guest-iso  --noconfirm #Virtualbox 
     yay -S texlive-most biber texlive-localmanager-git  --noconfirm #Latex 
     yay -S slack-desktop openconnect telegram-desktop macchanger --noconfirm #Other Stuff 
     yay -S wpa_actiond --noconfirm # For auto search WiFi
-    yay -S pdfjs --noconfirm # needed for pdf viewer qutebrowser
+    yay -S qutebrowser pdfjs --noconfirm || true #Alternative browser, might fail because of python packages, pdfjs needed for pdf viewer qutebrowser
     yay -S lutris lib32-gnutls lib32-libpulse --noconfirm #lutris + programs for epic store TODO If still no sound, do https://www.reddit.com/r/wine_gaming/comments/7qm8wp/for_anyone_with_sound_issues_on_grand_theft_auto/
 
 
@@ -460,6 +460,8 @@ function setUpManually {
     echo "Maybe update Project Settings -> JDK to JDK 10 (from 13) if compilation error "
     echo "Firefox: Change default Search Engine (right one should be in list)"
     echo "Firefox: Import ublock filters"
+    echo "Check all important folders from Documents copied"
+    echo "Clear USB-Stick"
 }
 
 
@@ -497,7 +499,12 @@ function powertopAdd {
 
 function fixAudio {
     #Default is that HDMI Out is default speaker. This makes normal speaker default
-    sudo sh -c "echo -e \"pcm.\!default {\n        type hw\n        card 1\n}\" > /etc/asound.conf"
+    sudo sh -c "echo -e \"pcm.!default {\n        type hw\n        card 1\n}\" > /etc/asound.conf"
+}
+
+function fixAudioAMD {
+    #Default is that HDMI Out is default speaker. This makes normal speaker default, number from cat /proc/asound/cards
+    sudo sh -c "echo -e \"pcm.!default {\n        type hw\n        card 2\n}\" > /etc/asound.conf"
 }
 
 function reloadTmux {
@@ -576,13 +583,15 @@ function main {
     disableWebcam
     allowChangeCapsLockLED
     sh ~/saveFolder/setupScripts.sh
+    if [[ "$CPU" == "AMD" ]]; then
+      fixAudioAMD
+    fi
     #fixAudio Not Necessary
     master
     setUpManually
     setUpPrinter
 }
-
-main
+#main
 #setUpMFC
 #installIJCommunity
 #installAndroidStudio

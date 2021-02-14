@@ -4,7 +4,7 @@ set -e
 #/dev/sdx[1-9]
 PART=$1
 
-REGEX="^/dev/\(sd[b-z]\)\([1-9]\)$"
+REGEX="^/dev/\(sd[a-z]\)\([1-9]\)$" #AMD standard first is sda, not sdb
 #Don't unmount sda
 RIGHTFORMAT=$(echo "$PART" | sed -n "s|$REGEX|RIGHT|p")
 
