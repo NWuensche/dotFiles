@@ -83,7 +83,7 @@ function yayPackages {
     sudo pacman -Syu --noconfirm
     git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si  --noconfirm && cd ~ && rm -rf yay #Install yay
     sudo yay -Syu --noconfirm
-    sudo killall dirmngr #Else key import for tomb does not work
+    sudo killall dirmngr || true #Else key import for tomb does not work
     pacman -Rs vim || true #will conflict to gvim, thus when installed for debugging, we have to remove it
     yay -S ruby jdk-openjdk maven python3 gradle python-pip git hub --noconfirm #Programming
     yay -S xorg lightdm lightdm-gtk-greeter accountsservice i3-wm dmenu i3status i3lock plymouth --noconfirm #UI, accountsservice fixed lightdm warning, plymouth necessary for lightdm on AMD
@@ -94,11 +94,11 @@ function yayPackages {
       yay -S intel-ucode --noconfirm #Will be enabled automatically when running grub-mkconfig next time
     fi
     if [[ "$CPU" == "AMD" ]]; then
-      yay -S xf86-video-amd --noconfirm
+      yay -S xf86-video-amdgpu --noconfirm
       yay -S amd-ucode --noconfirm #Will be enabled automatically when running grub-mkconfig next time
 
       #Fix backlight adjustment
-      yay -Rs xorg-backlight --noconfirm
+      yay -Rs xorg-xbacklight --noconfirm || true
       yay -S acpilight --noconfirm
       sudo usermod -a -G video nwuensche
     fi
@@ -308,6 +308,9 @@ function moveConfigs {
 
     #TODO Vim could cause problem because I install plugins *afterwards*. If omnicomplete vim does not work, look if ftplugin and autoload folders in .vim folder correctly in
     rm -r .zshrc .bashrc .bash_profile .vim/ || true #Might have been created during debugging, would cause errors, problematic vim file is `.vim/autoload/plug.vim`
+    #Create folders so that stow does not symlink whole folder
+    mkdir -p ~/.vifm
+    mkdir -p ~/.vim
     ( cd $HOME/.dotFiles/stowConfigs; stow i3 wallpaper vim git terminal gpg programConfigs vifm podget X -t $HOME )
     sh ~/saveFolder/doStowSaveFolder.sh
 
@@ -521,7 +524,7 @@ function master {
 }
 
 function fixGrubStuffAMD {
-  sudo sed -i 's/^GRUB_CMDLINE_LINUX_DEFAULT="\(.*\)"$/GRUB_CMDLINE_LINUX_DEFAULT="\1 splash/' /etc/default/grub #For some reason no `splash` screen option present
+  sudo sed -i 's/^GRUB_CMDLINE_LINUX_DEFAULT="\(.*\)"$/GRUB_CMDLINE_LINUX_DEFAULT="\1 splash"/' /etc/default/grub #For some reason no `splash` screen option present
 
   # Fix Suspend wake up
   # From https://wiki.archlinux.org/index.php/Lenovo_IdeaPad_5_14are05
