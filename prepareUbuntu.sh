@@ -17,10 +17,10 @@ function importFiles {
     mkdir -p ~/Bilder
     mkdir -p ~/Dokumente
     mkdir -p ~/Downloads
-    cp "$HDD"/AufPC/* ~/ -r
-    cp "$HDD"/Dokumente/Master_Berlin ~/Dokumente/ -r
-    cp "$HDD"/Dokumente/tub-cacert.pem ~/Dokumente/
-    cp "$HDD"/Dokumente/Gesch* ~/Dokumente/
+    cp "$HDD"/AufPC/* ~/ -r || true
+    cp "$HDD"/Dokumente/Master_Berlin ~/Dokumente/ -r  || true
+    cp "$HDD"/Dokumente/tub-cacert.pem ~/Dokumente/ || true
+    cp "$HDD"/Dokumente/Gesch* ~/Dokumente/ || true
     cp "$HDD"/saveFolder ~ -r
 
     mv ~/dotFiles ~/.dotFiles
@@ -449,13 +449,14 @@ function setUpManually {
     #chromium # Sync
     #echo "Install Tmux Plugins with Prefix + I (Shift + I)?" Should be unnecessary with new reloadTmux function
     echo "Import Android Studio Settings"
-    echo "Import Firefox Bookmarks"
+#   echo "Import Firefox Bookmarks"
+#   echo "Start Firefox once, close it, remove  .mozilla/firefox/RANDOM.default-release folder completely and move firefoxProfile to it (RANDOM part has to match exactly with old folder!)"
     echo "Run Android Studio and install Android, then run \`addUdevSmartphone\` script"
     echo "Import IntelliJ Community Settings"
     echo "Still works when error that Plugins subfolder is missing "
     echo "Maybe update Project Settings -> JDK to JDK 10 (from 13) if compilation error "
-    echo "Start Firefox once, close it, remove  .mozilla/firefox/RANDOM.default-release folder completely and move firefoxProfile to it (RANDOM part has to match exactly with old folder!)"
     echo "Firefox: Change default Search Engine (right one should be in list)"
+    echo "Firefox: Import ublock filters"
 }
 
 
