@@ -20,6 +20,7 @@ map ) zoom 0.0
 
 set render-loading "false"
 
+set font "Meslo LG S DZ for Powerline Regular 8"
 
 ## zathurarc-dark
 #
