@@ -251,6 +251,7 @@ exec xautolock -time 10 -locker "easyi3lock lock" -notify 120 -notifier "easyi3l
 
 
 
+for_window [instance="origin.exe"] floating enable #Needed for origin over lutris
 
 
 # Since Ubuntu 18.04, Trackpoint lags. This helps

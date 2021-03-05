@@ -173,3 +173,10 @@ let g:tex_flavor = 'latex'
 
 "Exclude spellcheck in Latex Comments
 let g:tex_comment_nospell=1
+
+"Don't increase numbers accidentally when using tmux (latex + bibtex + Python)
+nnoremap <C-a> <nop>
+
+"Don't increase numbers accidentally when using tmux (latex + bibtex + Python)
+inoremap <C-a> <nop>
+

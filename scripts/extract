@@ -42,7 +42,7 @@ case "$ARC" in
     *.bz2)       bunzip2 "$ARC"     ;;
     *.rar)       unrar e "$ARC"     ;;
     *.gz)        gunzip "$ARC"      ;;
-    *.tar)       tar xf "$ARC"      ;;
+    *.tar)       tar -xvf "$ARC"      ;;
     *.tbz2)      tar xjf "$ARC"     ;;
     *.tgz)       tar xzf "$ARC"     ;;
     *.zip)       unzip "$ARC"       ;;
