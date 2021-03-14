@@ -1,4 +1,4 @@
-GAME="d D"
+GAME="Metro 2033"
 set -e # to stop on failing ping
 #Does not include HB
 freeEpicUPlayOriginHB () {

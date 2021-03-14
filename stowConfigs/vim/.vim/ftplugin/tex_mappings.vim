@@ -186,6 +186,15 @@ function! MyLatexFold(currLineNum)
       return 's1'
     endif
 
+    "Block for table
+    if line =~ '^\s*\\begin{table}'
+      "add one indent level
+      return 'a1'
+    elseif line =~ '^\s*\\end{table}'
+      "subtract one indent level
+      return 's1'
+    endif
+
     " Use fold level from previous line
     return '='
 
