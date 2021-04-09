@@ -150,7 +150,8 @@ if __name__ == '__main__':
         print("PDF to image conversion can take some time...")
 
         #INFO If multiple pages, then names are in-0.png, in-0.png, ...
-        shellOutput("convert -density 300 {} -quality 100 -colorspace RGB  {}/in.png".format(fullFileNameIn, tmpFolderInPDFImages))
+#        shellOutput("convert -density 300 {} -quality 100 -colorspace RGB  {}/in.png".format(fullFileNameIn, tmpFolderInPDFImages))
+        shellOutput("convert -density 150 {} -quality 100 -colorspace RGB  {}/in.png".format(fullFileNameIn, tmpFolderInPDFImages))
         imagesFromPDF = os.listdir(tmpFolderInPDFImages)
         imagesFromPDF.reverse() #Want in-0.png as first entry
 

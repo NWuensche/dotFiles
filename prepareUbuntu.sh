@@ -123,6 +123,8 @@ function yayPackages {
     yay -S wpa_actiond --noconfirm # For auto search WiFi
     yay -S qutebrowser pdfjs --noconfirm || true #Alternative browser, might fail because of python packages, pdfjs needed for pdf viewer qutebrowser
     yay -S lutris lib32-gnutls lib32-libpulse --noconfirm #lutris + programs for epic store TODO If still no sound, do https://www.reddit.com/r/wine_gaming/comments/7qm8wp/for_anyone_with_sound_issues_on_grand_theft_auto/
+    yay -S libstdc++5 --noconfirm #needed for cups/printer
+
 
 
     gpg --keyserver hkp://keys.gnupg.net:80 --recv-keys  6113D89CA825C5CEDD02C87273B35DA54ACB7D10 #AUR of pass-tomb forgets to import this key
@@ -198,6 +200,11 @@ function installFonts {
     rm -rf fonts
 }
 
+function installDependenciesCensorContent {
+  pacman -S tk --noconfirm
+  sudo sed -i 's|<policy domain="delegate" rights="none" pattern="gs" />|<!-- <policy domain="delegate" rights="none" pattern="gs" /> -->|' /etc/ImageMagick-7/policy.xml #needed to convert pdf to png, else error
+}
+
 
 function loadWallabag {
     git clone https://github.com/NWuensche/android-app ~/wallabag
@@ -257,6 +264,7 @@ function installPrograms {
     installFonts
     #loadWallabag
     #installAnki #Need to do this manually because pacman anki conflicts with python pacakges
+    installDependenciesCensorContent
 }
 
 function fixDisplayManager {
@@ -595,4 +603,5 @@ function main {
 #setUpMFC
 #installIJCommunity
 #installAndroidStudio
-setUpDCP
+#setUpDCP
+setUpMFC
