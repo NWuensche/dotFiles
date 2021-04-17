@@ -5,7 +5,7 @@ set -e #So dont show PDF when compilation broke (Also on first time generate PDF
 
 FILEPATHWOEXT="$1"
 
-latexmk -pdf "$FILEPATHWOEXT.tex"
+latexmk -pdf -xelatex "$FILEPATHWOEXT.tex" #Need xelatex for application
 
 ALREADYSHOWN=$(pgrep -f "$FILEPATHWOEXT.pdf" || true ) #-f also searches inside processes arguments names (important for pdf), || true because empty pgrep exits 1
 if [[ "$ALREADYSHOWN" == "" ]] ; then

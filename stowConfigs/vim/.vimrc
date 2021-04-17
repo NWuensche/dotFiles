@@ -134,7 +134,7 @@ let @t='gg/\[*\](E"adiwb"sdi(h"apcs([lxelxGGo["apA: "sp' " for Issue 39
 " silent skips 'Press ENTER' prompt, but need to redraw screen afterwards because else it looks empty
 autocmd BufRead,BufNewFile *.tex map <F3>  :w<CR> :silent !  vimCompileAndShowLatex %:p:r <CR> :redraw! <CR>
 " line('.') is current Line number of cursor
-autocmd BufRead,BufNewFile *.tex map <F2>  :w<CR> :silent exe '! fastLatexCompile ' . line('.') <CR> :redraw! <CR>
+"autocmd BufRead,BufNewFile *.tex map <F2>  :w<CR> :silent exe '! fastLatexCompile ' . line('.') <CR> :redraw! <CR>
 "<CR> :redraw! <CR>
 
 
