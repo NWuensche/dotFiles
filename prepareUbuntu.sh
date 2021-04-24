@@ -604,4 +604,5 @@ function main {
 #installIJCommunity
 #installAndroidStudio
 #setUpDCP
-setUpMFC
+#setUpMFC
+installAndroidStudio

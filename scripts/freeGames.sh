@@ -1,4 +1,4 @@
-GAME="t Tree"
+GAME="Quip"
 set -e # to stop on failing ping
 #Does not include HB
 freeEpicUPlayOriginHB () {
