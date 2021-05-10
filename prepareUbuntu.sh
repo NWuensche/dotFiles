@@ -108,7 +108,7 @@ function yayPackages {
     yay -S xdotool expect --noconfirm # Automation Tools
     yay -S tmux rxvt-unicode xterm zsh  --noconfirm #Terminator Environment 
     yay -S zip unzip curl mitmproxy wget ack progress htop offlineimap neomutt vifm feh pdfgrep calcurse w3m mplayer irssi docker stow --noconfirm #Terminal Tools 
-    yay -S powertop python-selenium geckodriver jq rsync pwgen xclip ffmpeg xss-lock xautolock trash-cli scrot udiskie	exfat-utils ntfs-3g unrar cronie ttf-liberation openssh imapfilter urlview pandoc-bin jpegoptim --noconfirm #Terminal Support Tools , pandoc-bin from AUR and not pandoc from community because I don't want 60 dynamic Haskell Library dependencies, but only the binary
+    yay -S powertop python-selenium geckodriver jq rsync pwgen xclip ffmpeg xss-lock xautolock scrot udiskie	exfat-utils ntfs-3g unrar cronie ttf-liberation openssh imapfilter urlview pandoc-bin jpegoptim --noconfirm #Terminal Support Tools , pandoc-bin from AUR and not pandoc from community because I don't want 60 dynamic Haskell Library dependencies, but only the binary
     yay -S tcsh cups sane brscan2 brscan3 --noconfirm #Printer Tools 
     yay -S xf86-input-synaptics xf86-input-mtrack  --noconfirm #Touchpad Tools 
     yay -S xf86-input-wacom xbindkeys --noconfirm #Wacom Tablet Tools
@@ -124,6 +124,8 @@ function yayPackages {
     yay -S qutebrowser pdfjs --noconfirm || true #Alternative browser, might fail because of python packages, pdfjs needed for pdf viewer qutebrowser
     yay -S lutris lib32-gnutls lib32-libpulse --noconfirm #lutris + programs for epic store TODO If still no sound, do https://www.reddit.com/r/wine_gaming/comments/7qm8wp/for_anyone_with_sound_issues_on_grand_theft_auto/
     yay -S libstdc++5 --noconfirm #needed for cups/printer
+
+    pip install -U trash-cli #pacman trash-cli gives error when doing trash-empty, so install from python
 
 
 
