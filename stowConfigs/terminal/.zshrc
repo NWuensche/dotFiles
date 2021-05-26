@@ -28,7 +28,7 @@ export FZF_DEFAULT_COMMAND='fd --type f'
 export BROWSER="firefox"
 
 alias calcurse='c'
-alias gf='/usr/bin/gf'
+#alias gf='/usr/bin/gf'
 alias feh='feh --auto-rotate'
 alias screenshotXVFB="DISPLAY=:19 import -window root /tmp/screenshot.png; feh /tmp/screenshot.png"
 alias android-file-transfer="aft-mtp-cli"
@@ -62,6 +62,7 @@ alias pdflatex='f() { (pdflatex $1; trash *.aux; trash *.log; trash *.nav; trash
 alias downloadFolder='wget -r --no-parent'
 alias z='(cd ~; vim .zshrc)'
 alias v='vifm .'
+#alias v='vim'
 alias downloadPDFsfrom='wget -r -l1 -A.pdf --no-check-certificate'
 alias 2pagesPDF='pdfnup --nup 2x1 --suffix test'
 alias reducePDF='f() { gs -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS="/printer" -sOutputFile=output.pdf $1  }; f'
