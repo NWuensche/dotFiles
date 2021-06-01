@@ -17,7 +17,7 @@ export MAVEN_OPTS
 export PATH=$PATH:/home/nwuensche/Android/Sdk/tools:/home/nwuensche/Android/Sdk/platform-tools:~/.nix-profile/bin:~/.local/bin:~/.cabal/bin:~/saveFolder/privateScripts:~/.dotFiles/scripts:/home/nwuensche/.gem/ruby/2.6.0/bin
 export PATH=$PATH:/usr/lib/python3.7/site-packages
 
-export HISTORY_IGNORE='(pass *|getIt *)'
+export HISTORY_IGNORE='(pass *|getIt *|shred *)'
 
 export MESA_GLSL_CACHE_DISABLE=true #Fix Bug Chrome
 
