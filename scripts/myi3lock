@@ -18,7 +18,7 @@ function isAudioRunning() {
 
 EXECUTER=$1
 #Just do this for Chromium
-NAMEWINDOW=$(echo $(xwininfo -id $(xdotool getactivewindow)) | sed -n -r '/(prime video|games done quick|gamesDoneQuick|youtube|ted|zdfmediathek|kyoto university opencourseware|media.ccc.de|ARD Mediathek|invidious).*(Firefox|Chromium)/Ip')
+NAMEWINDOW=$(echo $(xwininfo -id $(xdotool getactivewindow)) | sed -n -r '/(prime video|games done quick|gamesDoneQuick|youtube|ted|zdfmediathek|kyoto university opencourseware|media.ccc.de|ARD Mediathek|invidious|Teams).*(Firefox|Chromium)/Ip')
 WINDOW=$(echo $(xwininfo -id $(xdotool getactivewindow) -stats | \
                 egrep '(Width|Height):' | \
                 awk '{print $NF}') | \

@@ -116,7 +116,7 @@ function yayPackages {
     yay -S alsa-utils pulseaudio pavucontrol --noconfirm #Audio 
     yay -S steam sqlitebrowser calibre vlc gimp audacity firefox kdenlive libreoffice-fresh-de  evince xournalpp zathura zathura-pdf-poppler  --noconfirm #X Tools 
     yay -S wine lib32-libpulse --noconfirm # Wine stuff
-    yay -S redshift gparted arandr android-file-transfer simple-mtpfs dunst  --noconfirm # X Support Tools 
+    yay -S redshift gparted arandr android-file-transfer simple-mtpfs dunst cheese  --noconfirm # X Support Tools 
     yay -S virtualbox virtualbox-host-modules-arch virtualbox-guest-iso  --noconfirm #Virtualbox 
     yay -S texlive-most biber texlive-localmanager-git  --noconfirm #Latex 
     yay -S slack-desktop openconnect telegram-desktop signal-desktop macchanger --noconfirm #Other Stuff 
