@@ -606,4 +606,5 @@ function main {
 #installAndroidStudio
 #setUpDCP
 #setUpMFC
-installAndroidStudio
+#installAndroidStudio
+disableWebcam
