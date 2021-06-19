@@ -14,7 +14,7 @@ export ANDROID_HOME
 MAVEN_OPTS="-Xmx1024m -Xms512m"
 export MAVEN_OPTS
 #export PATH="/home/nwuensche/anaconda3/bin:$PATH"
-export PATH=$PATH:/home/nwuensche/Android/Sdk/tools:/home/nwuensche/Android/Sdk/platform-tools:~/.nix-profile/bin:~/.local/bin:~/.cabal/bin:~/saveFolder/privateScripts:~/.dotFiles/scripts:/home/nwuensche/.gem/ruby/2.6.0/bin
+export PATH=$PATH:/home/nwuensche/Android/Sdk/emulator:/home/nwuensche/Android/Sdk/tools:/home/nwuensche/Android/Sdk/platform-tools:~/.nix-profile/bin:~/.local/bin:~/.cabal/bin:~/saveFolder/privateScripts:~/.dotFiles/scripts:/home/nwuensche/.gem/ruby/2.6.0/bin
 export PATH=$PATH:/usr/lib/python3.7/site-packages
 
 export HISTORY_IGNORE='(pass *|getIt *|shred *)'
@@ -65,10 +65,12 @@ alias v='vifm .'
 #alias v='vim'
 alias downloadPDFsfrom='wget -r -l1 -A.pdf --no-check-certificate'
 alias 2pagesPDF='pdfnup --nup 2x1 --suffix test'
-alias reducePDF='f() { gs -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS="/printer" -sOutputFile=output.pdf $1  }; f'
+alias PDFReduce='f() { gs -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS="/printer" -sOutputFile=output.pdf $1  }; f'
 alias scan='scanimage --format=png > ~/scan.png; echo "scan can be found in ~/scan.png"'
-alias reducePDFMore='f() { gs -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS="/screen" -sOutputFile=output.pdf $1  }; f'
-alias reducePDFMore2='f() { gs -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS="/ebook" -sOutputFile=output.pdf $1  }; f'
+alias PDFReduceMore='f() { gs -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS="/ebook" -sOutputFile=output.pdf $1  }; f'
+alias PDFReduceMore2='f() { gs -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS="/screen" -sOutputFile=output.pdf $1  }; f'
+alias PDFGrayscale='f() { gs -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -sColorConversionStrategy=Gray -sOutputFile=outputGray.pdf $1  }; f'
+alias PDFNoCopyText='f() { gs -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dNoOutputFonts -sOutputFile=outputNoCopyText.pdf $1  }; f'
 alias FEp='f() {mplayer $(wget https://rss.simplecast.com/podcasts/1684/rss -O- 2>/dev/null| grep "enclosure" | tac | sed -n $1p | cut -f2 -d"\"")}; f'
 #alias histrm='f() { LC_ALL=C sed --in-place "/$1/d" $HISTFILE;};f' INFO Better use HISTORY_IGNORE variable
 alias getIt='f() {getIt $1; clear; zsh}; f'

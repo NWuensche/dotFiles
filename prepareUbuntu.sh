@@ -113,7 +113,7 @@ function yayPackages {
     yay -S xf86-input-synaptics xf86-input-mtrack  --noconfirm #Touchpad Tools 
     yay -S xf86-input-wacom xbindkeys --noconfirm #Wacom Tablet Tools
     yay -S ttf-liberation pango  --noconfirm #Fonts and Font Tools 
-    yay -S alsa-utils pulseaudio pavucontrol --noconfirm #Audio 
+    yay -S alsa-utils pulseaudio pavucontrol pulsemixer --noconfirm #Audio 
     yay -S steam sqlitebrowser calibre vlc gimp audacity firefox kdenlive libreoffice-fresh-de  evince xournalpp zathura zathura-pdf-poppler  --noconfirm #X Tools 
     yay -S wine lib32-libpulse --noconfirm # Wine stuff
     yay -S redshift gparted arandr android-file-transfer simple-mtpfs dunst cheese  --noconfirm # X Support Tools 
@@ -605,6 +605,6 @@ function main {
 #installIJCommunity
 #installAndroidStudio
 #setUpDCP
-#setUpMFC
+setUpMFC
 #installAndroidStudio
-disableWebcam
+#disableWebcam

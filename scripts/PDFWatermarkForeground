@@ -1,0 +1,45 @@
+#!/bin/bash
+set -e
+
+ANGLE=45 # in degrees counterclockwise from horizontal
+GREY=0.75 # 0 is black 1 is white
+FONTSIZE=72 # For 15 characters, `72` is ideal
+
+INPUTFILE=$1
+TEXT=$2
+OUTPUTFILE=$3
+
+if [[ "$#" != 3 ]]; then #Number of arguments
+  echo "Usage: $0 IN.pdf TEXT OUT.pdf"
+  exit 1
+fi
+
+if [[ ! -f "$INPUTFILE" ]]; then #INPUT File exists
+  echo "Usage: $0 IN.pdf TEXT OUT.pdf"
+  exit 1
+fi
+
+if [[ -f "$OUTPUTFILE" ]]; then #OUT File does not exist
+  echo "Usage: $0 IN.pdf TEXT OUT.pdf"
+  exit 1
+fi
+
+#Generate Watermark PDF (Does not work in variable because of null-bytes)
+function getWatermarkPDF() {
+ps2pdf - - <<!
+%!PS
+/cm { 28.4 mul } bind def
+/draft-Bigfont /Helvetica-Bold findfont $FONTSIZE scalefont def
+/draft-copy {
+        gsave initgraphics $GREY setgray
+        5 cm 10 cm moveto
+        $ANGLE rotate
+        draft-Bigfont setfont
+        ($TEXT) show grestore
+ } def
+draft-copy showpage
+!
+}
+
+
+getWatermarkPDF | pdftk $INPUTFILE stamp - output $OUTPUTFILE

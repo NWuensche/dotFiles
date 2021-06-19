@@ -167,7 +167,10 @@ if __name__ == '__main__':
         censoredPDFPagesPaths = list(map(lambda f: tmpFolderOutPDFs + "/" + f , os.listdir(tmpFolderOutPDFs)))
         censoredPDFPagesPaths.reverse() #Want converted /tmp/.../in-0.pdf as first entry
         censoredPDFPagesPathsStr = " ".join(censoredPDFPagesPaths)
-        subprocess.check_output("pdfunite " + censoredPDFPagesPathsStr + " " + outPDFFilePath, shell=True)
+        unitedPDF = tmpFolderOutPDFs + "/united.pdf"
+        subprocess.check_output("pdfunite " + censoredPDFPagesPathsStr + " " + unitedPDF, shell=True)
+        # Convert to A4 size, otherwise it is for some reason A3 (only visible when printing) + quiet
+        subprocess.check_output("pdfjam -q --outfile " + outPDFFilePath + " --paper a4paper " + unitedPDF, shell=True)
 
     else: #png/jpg
         Paint(fullFileNameIn, outPDFFilePath)
