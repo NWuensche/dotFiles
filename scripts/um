@@ -37,11 +37,11 @@ if [[ "$PARTINFO"  == "" ]]; then
 fi
 
 #Find real mountpoint that udiskie can unmount + lock
-MOUNTPOINT=$(echo "$PARTINFO" | jq '.mountpoint')
+MOUNTPOINT=$(echo "$PARTINFO" | jq '.mountpoints[0]')
 
 #Logical Device -> Look in children for real mountpoint
 if [[ "$MOUNTPOINT"  == "null" ]]; then
-  MOUNTPOINT=$(echo "$PARTINFO" | jq '.children[0].mountpoint') #There should only be one child for one partition, otherwise I have multiple childs in one partition and can't unmount them really
+  MOUNTPOINT=$(echo "$PARTINFO" | jq '.children[0].mountpoints[0]') #There should only be one child for one partition, otherwise I have multiple childs in one partition and can't unmount them really
 fi
 
 #If still no mountpoint, something went wrong
