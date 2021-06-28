@@ -8,6 +8,7 @@ import sys
 from sys import argv
 import os
 
+#TODO Could try to use ps2pdf to draw rectangles onto pdf without convert it into (lossy) image, see `PDFWatermarkBackground` Script + https://courses.cs.duke.edu/spring02/cps006/assign/recursivegraph/postscript-help.htm (fill) , dont forget `PDFNoCopyText` , dont forget to adapt size of Postscript-PDF to original PDF (often times not A4, use pdfinfo or normalize size to A4 with pdfjam )
 #Use for censor stuff on bills for tax
 #Format: censorContent IN OUT.pdf
 #To stop editing page, just close window

@@ -15,12 +15,12 @@ if [[ "$#" != 3 ]]; then #Number of arguments
 fi
 
 if [[ ! -f "$INPUTFILE" ]]; then #INPUT File exists
-  echo "Usage: $0 IN.pdf TEXT OUT.pdf"
+  echo "$INPUTFILE does not exist!"
   exit 1
 fi
 
 if [[ -f "$OUTPUTFILE" ]]; then #OUT File does not exist
-  echo "Usage: $0 IN.pdf TEXT OUT.pdf"
+  echo "$OUTPUTFILE already exists!"
   exit 1
 fi
 
@@ -28,7 +28,8 @@ fi
 function getWatermarkPDF() {
 ps2pdf - - <<!
 %!PS
-/cm { 28.4 mul } bind def
+/cm { 28.4 mul } bind def %define 1 cm = 28.4 points in postscript
+<< /PageSize [ 21 cm 29.7 cm] >> setpagedevice
 /draft-Bigfont /Helvetica-Bold findfont $FONTSIZE scalefont def
 /draft-copy {
         gsave initgraphics $GREY setgray
