@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #FORMAT [[{item1}, {item2}],\n [{item1}, {item2}],\n...]
 
 #different files for intel/amd where brightness is standing in
