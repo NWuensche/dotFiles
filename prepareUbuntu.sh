@@ -104,7 +104,7 @@ function yayPackages {
     fi
 
     yay -S gvim vim-spell-de vim-spell-en --noconfirm #Vim 
-    yay -S pulseaudio-bluetooth bluez-utils bluez --noconfirm #Bluetooth
+    yay -S bluez-utils bluez --noconfirm #Bluetooth
     yay -S xdotool expect --noconfirm # Automation Tools
     yay -S tmux rxvt-unicode xterm zsh  --noconfirm #Terminator Environment 
     yay -S zip unzip trash-cli curl mitmproxy wget ack progress htop offlineimap neomutt vifm feh pdfgrep pdftk calcurse w3m mplayer irssi docker stow --noconfirm #Terminal Tools 
@@ -113,7 +113,7 @@ function yayPackages {
     yay -S xf86-input-synaptics xf86-input-mtrack  --noconfirm #Touchpad Tools 
     yay -S xf86-input-wacom xbindkeys --noconfirm #Wacom Tablet Tools
     yay -S ttf-liberation pango  --noconfirm #Fonts and Font Tools 
-    yay -S alsa-utils pulseaudio pavucontrol pulsemixer --noconfirm #Audio 
+    yay -S alsa-utils pipewire-pulse pavucontrol pulsemixer --noconfirm #Audio, pipewire better with bluetooth than pulseaudio
     yay -S steam sqlitebrowser calibre vlc gimp audacity firefox kdenlive libreoffice-fresh-de  evince xournalpp zathura zathura-pdf-poppler  --noconfirm #X Tools 
     yay -S wine lib32-libpulse --noconfirm # Wine stuff
     yay -S redshift gparted arandr android-file-transfer simple-mtpfs dunst cheese  --noconfirm # X Support Tools 
@@ -320,6 +320,7 @@ function moveConfigs {
     #Create folders so that stow does not symlink whole folder
     mkdir -p ~/.vifm
     mkdir -p ~/.vim
+    mkdir -p ~/.config/udiskie
     ( cd $HOME/.dotFiles/stowConfigs; stow i3 wallpaper vim git terminal gpg programConfigs vifm podget X -t $HOME )
     sh ~/saveFolder/doStowSaveFolder.sh
 
