@@ -605,7 +605,7 @@ function main {
 #setUpMFC
 #installIJCommunity
 #installAndroidStudio
-#setUpDCP
-setUpMFC
+setUpDCP
+#setUpMFC
 #installAndroidStudio
 #disableWebcam
