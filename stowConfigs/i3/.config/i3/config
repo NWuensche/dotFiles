@@ -260,7 +260,7 @@ exec xinput --set-prop 'TPPS/2 IBM TrackPoint' 'libinput Accel Speed' 1
 
 exec_always /home/nwuensche/.dotFiles/scripts/setupMonitor
 
-exec /home/nwuensche/saveFolder/privateScripts/startVPN &
+#exec /home/nwuensche/saveFolder/privateScripts/startVPN &
 
 exec xbindkeys #Activate button mapping Wacom tablet
 
