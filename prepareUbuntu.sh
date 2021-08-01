@@ -2,8 +2,9 @@
 
 set -e #Exit after first non zero error code
 
-HDD="/run/media/nwuensche/5f65b653-f040-40eb-a2de-64a7e4cac5c4"
 CPU=$(cat /proc/cpuinfo | sed -n 's/.*\(Intel\|AMD\).*/\1/p' | head -n 1) #Intel or AMD
+
+HDD="/run/media/nwuensche/5f65b653-f040-40eb-a2de-64a7e4cac5c4"
 function checkHDD {
     if [ ! -d "$HDD" ]
     then

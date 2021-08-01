@@ -4,7 +4,8 @@
 
 function isAudioRunning() {
   #`|| true` to prevent exit 1 when grep doesn't find anything
-  RUNNING=$(echo "list-sink-inputs" | pacmd | grep "state: RUNNING" || true)
+#  RUNNING=$(echo "list-sink-inputs" | pacmd | grep "state: RUNNING" || true) Pulseaudio
+  RUNNING=$(pactl list sink-inputs | grep "Corked: no" || true) #Pipewire
 
   #Some audio is running
   if [[ "$RUNNING" != "" ]]; then
