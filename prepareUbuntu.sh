@@ -19,13 +19,37 @@ function importFiles {
     mkdir -p ~/Dokumente
     mkdir -p ~/Downloads
     cp "$HDD"/AufPC/* ~/ -r || true
-    cp "$HDD"/Dokumente/Master_Berlin ~/Dokumente/ -r  || true
-    cp "$HDD"/Dokumente/tub-cacert.pem ~/Dokumente/ || true
-    cp "$HDD"/Dokumente/Gesch* ~/Dokumente/ || true
-    cp "$HDD"/saveFolder ~ -r
+
+    cp "$HDD"/saveFolder ~ -r #Need saveFolder before Dokumente Restore
+
+    echo "Restoring Dokumente, might take a while..."
+    restoreDokumenteStructure
 
     mv ~/dotFiles ~/.dotFiles
 }
+
+#Copy exactly the files which were last on laptop, mkdir folder before copying file
+function restoreDokumenteStructure {
+  checkHDD
+  PREFIX=$HOME
+  STRUCTUREFOLDERS=$HOME/saveFolder/DokumenteFoldersStructure.txt
+  STRUCTUREFILES=$HOME/saveFolder/DokumenteFilesStructure.txt
+
+  #Restore folders for safe mkdir (also create empty folders)
+  #Read file without trimming whitespaces
+  while IFS="" read -r FOLDERNAME || [ -n "$FOLDERNAME" ]
+  do
+    mkdir -p "$PREFIX/$FOLDERNAME" #Interpret Spaces correctly with quotes
+  done < $STRUCTUREFOLDERS
+
+  #Copy files
+  #Read file without trimming whitespaces
+  while IFS="" read -r FILENAME || [ -n "$FILENAME" ]
+  do
+    cp "$HDD/$FILENAME" -i "$PREFIX/$FILENAME" #Interpret Spaces correctly with quotes, dont override stuff with -i
+  done < $STRUCTUREFILES
+}
+
 
 function setUpHome {
     checkHDD
@@ -606,7 +630,7 @@ function main {
 #setUpMFC
 #installIJCommunity
 #installAndroidStudio
-setUpDCP
+#setUpDCP
 #setUpMFC
 #installAndroidStudio
 #disableWebcam
