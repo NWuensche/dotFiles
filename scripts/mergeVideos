@@ -1,0 +1,70 @@
+#!/bin/bash
+
+set -e
+
+# Put a video (Snippet) at a specific timestamp of another video (Main)
+
+#MAIN, SNIPPET and OUT all have to be mkv, else concat will not work
+MAIN=$1
+SNIPPET=$2
+TIME=$3 #Time where to add Snippet In seconds
+OUT=$4
+
+if [[ "$#" != 4 ]]; then #Number of arguments
+  echo "Usage: $0 MAIN.mkv SNIPPET.mkv TIME (in seconds) OUT.mkv"
+  exit 1
+fi
+
+if [[ ! -f "$MAIN" ]]; then #INPUT File exists
+  echo "$MAIN does not exist!"
+  exit 1
+fi
+
+if [[ ! -f "$SNIPPET" ]]; then #INPUT File exists
+  echo "$SNIPPET does not exist!"
+  exit 1
+fi
+
+if [[ -f "$OUT" ]]; then #OUT File does not exist
+  echo "$OUT already exists!"
+  exit 1
+fi
+
+if [[ "$MAIN" != *.mkv ]]; then
+  echo "$MAIN 3has to be mkv-format!"
+  exit 1
+fi
+
+if [[ "$SNIPPET" != *.mkv ]]; then
+  echo "$SNIPPET has to be mkv-format!"
+  exit 1
+fi
+
+if [[ "$OUT" != *.mkv ]]; then
+  echo "$OUT has to be mkv-format!"
+  exit 1
+fi
+
+ISNUMREGEX='^[0-9]+$'
+if ! [[ $TIME =~ $ISNUMREGEX ]] ; then
+   echo "$TIME is not a integer"
+   exit 1
+fi
+
+
+PART1=$(mktemp --suffix=.mkv)
+PART2=$(mktemp --suffix=.mkv)
+PART3=$(mktemp --suffix=.mkv)
+
+rm $PART1 $PART2 $PART3 #Need names, but no file should exist there
+
+ffmpeg -i $MAIN -ss 0 -t $TIME $PART1
+ffmpeg -i $SNIPPET $PART2 #Need to reformat snippet, otherwise ffmpeg cannot concat all videos later on
+ffmpeg -i $MAIN -ss $TIME $PART3
+
+LIST=$(mktemp --suffix=.txt)
+echo "file $PART1" > $LIST
+echo "file $PART2" >> $LIST
+echo "file $PART3" >> $LIST
+
+ffmpeg -f concat -safe 0 -i $LIST $OUT
