@@ -143,13 +143,14 @@ nnoremap cc cw<c-u>
 nnoremap A cw
 
 " Example of standard two-panel file managers mappings
-nnoremap <f3> :!less %f<cr>
-nnoremap <f4> :edit<cr>
-nnoremap <f5> :copy<cr>
-nnoremap <f6> :move<cr>
+"nnoremap <f3> :!less %f<cr>
+"nnoremap <f4> :edit<cr>
+"nnoremap <f5> :copy<cr>
+"nnoremap <f6> :move<cr>
+nnoremap <f6> :mkdirspace<space>
 nnoremap <f7> :mkdirspace<space>
-nnoremap <f8> :delete<cr>
-nnoremap <f9> :!vim<space>
+"nnoremap <f8> :delete<cr>
+"nnoremap <f9> :!vim<space>
 
 " New stuff
 
