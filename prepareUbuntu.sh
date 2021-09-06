@@ -559,10 +559,13 @@ function allowChangeCapsLockLED {
   sudo sed -i 's|!allowExplicit|allowExplicit|g' /usr/share/X11/xkb/compat/ledcaps || true #Allows setting LED with xset without root, used for microphone LED on AMD, dont fail for laptop without capslock LED
 }
 
-function master {
-  yay -S boost --noconfirm
-  yay -S python-pytest --noconfirm
-  pip install jsoncomment
+# https://wiki.archlinux.org/title/Laptop/Lenovo#Battery_Conservation_Mode_on_IdeaPad_laptops
+function enableBatteryConservationModeIdeapad {
+  isKernelModuleLoaded=$( lsmod | grep '^ideapad_laptop' || true )
+
+  if [[ $isKernelModuleLoaded != "" ]]; then
+    sudo sh -c 'echo 1 >/sys/bus/platform/drivers/ideapad_acpi/VPC2004:00/conservation_mode'
+  fi
 }
 
 function fixGrubStuffAMD {
@@ -621,16 +624,18 @@ function main {
     if [[ "$CPU" == "AMD" ]]; then
       fixAudioAMD
     fi
+    enableBatteryConservationModeIdeapad
     #fixAudio Not Necessary
-    master
+    #master
     setUpManually
     setUpPrinter
 }
 #main
 #setUpMFC
-installIJCommunity
+#installIJCommunity
 #installAndroidStudio
 #setUpDCP
 #setUpMFC
 #installAndroidStudio
 #disableWebcam
+enableBatteryConservationModeIdeapad
