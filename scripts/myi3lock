@@ -1,4 +1,3 @@
-jj
 #If fullscreen, set cursor to corner to stop xautolock from activating
 
 function isAudioRunning() {

@@ -632,10 +632,10 @@ function main {
 }
 #main
 #setUpMFC
-#installIJCommunity
+installIJCommunity
 #installAndroidStudio
 #setUpDCP
 #setUpMFC
 #installAndroidStudio
 #disableWebcam
-enableBatteryConservationModeIdeapad
+#enableBatteryConservationModeIdeapad
