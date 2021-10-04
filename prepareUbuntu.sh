@@ -93,7 +93,7 @@ function installAndroidStudio {
   OUT_AS="/tmp/AS.tar.gz"
   OUT_DIR="/opt/android-studio"
 
-  URL_AS=$(curl -s "https://developer.android.com/studio/\#downloads" | sed -n '/p class="agreed"/,$ p' | sed -n 's/.*href="\(.*linux\.tar\.gz\)"/\1/pg'  | head -n 1)
+  URL_AS=$(curl -s "https://developer.android.com/studio/\#downloads" | sed -n '/id="agreeLabel"/,$ p' | sed -n 's/.*href="\(.*linux\.tar\.gz\)"/\1/pg'  | head -n 1)
 
   echo "Downloading Android Studio"
   wget -q "$URL_AS" -O "$OUT_AS"
@@ -632,8 +632,8 @@ function main {
 }
 #main
 #setUpMFC
-installIJCommunity
-#installAndroidStudio
+#installIJCommunity
+installAndroidStudio
 #setUpDCP
 #setUpMFC
 #installAndroidStudio
