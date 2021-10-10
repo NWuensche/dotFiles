@@ -6,7 +6,7 @@
 
 MONITOR=$(xrandr | sed -n 's/^\(eDP\S*\) .*connected.*$/\1/p')
 HDMI=$(xrandr | sed -n 's/^\(HDMI\S*\) connected.*$/\1/p') #find connected HDMI, e.g. thinkpad has two (disconnected) HDMI names
-VGA=$(xrandr | sed -n 's/^\(DP\S*\) connected.*$/\1/p') #find connected HDMI, e.g. thinkpad has two (disconnected) HDMI names
+VGA=$(xrandr | sed -n 's/^\(DisplayPort-[0-9]\S*\) connected.*$/\1/p') #find connected HDMI, e.g. thinkpad has two (disconnected) HDMI names
 
 #2 ex. Monitors
 if [[ "$VGA" != "" && "$HDMI" != "" ]]; then

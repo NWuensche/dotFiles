@@ -109,8 +109,9 @@ function yayPackages {
     git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si  --noconfirm && cd ~ && rm -rf yay #Install yay
     sudo yay -Syu --noconfirm
     sudo killall dirmngr || true #Else key import for tomb does not work
-    pacman -Rs vim || true #will conflict to gvim, thus when installed for debugging, we have to remove it
+    yay -Rs vim --noconfirm || true #will conflict to gvim, thus when installed for debugging, we have to remove it
     yay -S ruby jdk-openjdk maven python3 gradle python-pip git hub --noconfirm #Programming
+    yay -Rs acpilight --noconfirm || true #Just for sanity, when I restart script here, xorg would complain otherwise
     yay -S xorg lightdm lightdm-gtk-greeter accountsservice i3-wm dmenu i3status i3lock plymouth --noconfirm #UI, accountsservice fixed lightdm warning, plymouth necessary for lightdm on AMD
 
     #Makes problems when I install wrong one
@@ -139,11 +140,11 @@ function yayPackages {
     yay -S xf86-input-wacom xbindkeys --noconfirm #Wacom Tablet Tools
     yay -S ttf-liberation pango  --noconfirm #Fonts and Font Tools 
     yay -S alsa-utils pipewire-pulse pavucontrol pulsemixer --noconfirm #Audio, pipewire better with bluetooth than pulseaudio
-    yay -S steam sqlitebrowser calibre vlc gimp audacity firefox kdenlive libreoffice-fresh-de  evince xournalpp zathura zathura-pdf-poppler  --noconfirm #X Tools 
+    yay -S steam legendary sqlitebrowser calibre vlc gimp audacity firefox chromium kdenlive libreoffice-fresh-de  evince xournalpp zathura zathura-pdf-poppler  --noconfirm #X Tools 
     yay -S wine lib32-libpulse --noconfirm # Wine stuff
     yay -S redshift gparted arandr android-file-transfer simple-mtpfs dunst cheese  --noconfirm # X Support Tools 
     yay -S virtualbox virtualbox-host-modules-arch virtualbox-guest-iso  --noconfirm #Virtualbox 
-    yay -S texlive-most biber texlive-localmanager-git  --noconfirm #Latex 
+    yay -S texlive-most biber tllocalmgr-git  --noconfirm #Latex 
     yay -S slack-desktop openconnect telegram-desktop signal-desktop macchanger --noconfirm #Other Stuff 
     yay -S wpa_actiond --noconfirm # For auto search WiFi
     yay -S qutebrowser pdfjs --noconfirm || true #Alternative browser, might fail because of python packages, pdfjs needed for pdf viewer qutebrowser
@@ -153,7 +154,6 @@ function yayPackages {
 
 
 
-    gpg --keyserver hkp://keys.gnupg.net:80 --recv-keys  6113D89CA825C5CEDD02C87273B35DA54ACB7D10 #AUR of pass-tomb forgets to import this key
     yay -S pass-tomb --noconfirm
 
 
@@ -227,7 +227,7 @@ function installFonts {
 }
 
 function installDependenciesCensorContent {
-  pacman -S tk --noconfirm
+  yay -S tk --noconfirm
   sudo sed -i 's|<policy domain="delegate" rights="none" pattern="gs" />|<!-- <policy domain="delegate" rights="none" pattern="gs" /> -->|' /etc/ImageMagick-7/policy.xml #needed to convert pdf to png, else error
 }
 
@@ -465,7 +465,7 @@ function setUpPrinter {
         read -p "Is MFC5440CN connected and powered? (y/n)" yn
         case $yn in
             [YyJj]* ) setUpMFC; break;;
-            [Nn]* ) exit;;
+            [Nn]* ) break;;
             * ) echo "Please answer y or n.";;
         esac
     done
@@ -474,7 +474,7 @@ function setUpPrinter {
         read -p "Is DCP145C connected and powered? (y/n)" yn
         case $yn in
             [YyJj]* ) setUpDCP; break;;
-            [Nn]* ) exit;;
+            [Nn]* ) break;;
             * ) echo "Please answer y or n.";;
         esac
     done
@@ -489,12 +489,15 @@ function setUpManually {
     echo "Import Android Studio Settings"
 #   echo "Import Firefox Bookmarks"
 #   echo "Start Firefox once, close it, remove  .mozilla/firefox/RANDOM.default-release folder completely and move firefoxProfile to it (RANDOM part has to match exactly with old folder!)"
+    echo "Firefox: Set default Search Engine"
     echo "Run Android Studio and install Android, then run \`addUdevSmartphone\` script"
     echo "Import IntelliJ Community Settings"
     echo "Still works when error that Plugins subfolder is missing "
     echo "Maybe update Project Settings -> JDK to JDK 10 (from 13) if compilation error "
     echo "Firefox: Change default Search Engine (right one should be in list)"
     echo "Firefox: Import ublock filters"
+    echo "Login Steam and Legendary(Epic)"
+    echo "Remove install-scripts in /root/"
     echo "Check all important folders from Documents copied"
     echo "Clear USB-Stick"
 }
@@ -539,7 +542,7 @@ function fixAudio {
 
 function fixAudioAMD {
     #Default is that HDMI Out is default speaker. This makes normal speaker default, number from cat /proc/asound/cards
-    sudo sh -c "echo -e \"pcm.!default {\n        type hw\n        card 2\n}\" > /etc/asound.conf"
+    sudo sh -c "echo -e \"pcm.!default {\n        type hw\n        card 3\n}\" > /etc/asound.conf"
 }
 
 function reloadTmux {
@@ -627,15 +630,17 @@ function main {
     enableBatteryConservationModeIdeapad
     #fixAudio Not Necessary
     #master
-    setUpManually
     setUpPrinter
+    setUpManually
 }
 #main
 #setUpMFC
 #installIJCommunity
-installAndroidStudio
+#installAndroidStudio
 #setUpDCP
 #setUpMFC
 #installAndroidStudio
 #disableWebcam
 #enableBatteryConservationModeIdeapad
+#fixAudioAMD
+setUpPrinter
