@@ -34,6 +34,8 @@ function restoreDokumenteStructure {
   PREFIX=$HOME
   STRUCTUREFOLDERS=$HOME/saveFolder/DokumenteFoldersStructure.txt
   STRUCTUREFILES=$HOME/saveFolder/DokumenteFilesStructure.txt
+  SYMLINKFILES=$HOME/saveFolder/DokumenteFilesSymlinks.txt
+
 
   #Restore folders for safe mkdir (also create empty folders)
   #Read file without trimming whitespaces
@@ -48,6 +50,22 @@ function restoreDokumenteStructure {
   do
     cp "$HDD/$FILENAME" -i "$PREFIX/$FILENAME" #Interpret Spaces correctly with quotes, dont override stuff with -i
   done < $STRUCTUREFILES
+
+  #Restore Symlinks
+  (  #Need to cd because else symlinks names are wrong (with "Dokumente" on front"
+    cd $PREFIX/Dokumente/
+
+    SYMTOORIG=$(cat $SYMLINKFILES) #link -> orig
+
+    while read -r LINE; do
+      SYM=$(echo "$LINE" | sed 's|^\(\S*\) -> \(\S*\)$|\1|' )
+      if [[ -e "$SYM" ]]; then #Otherwise, ln -s can make weird shit with trying to make symlink on second parameter instead of first one (which is crazy)
+        continue
+      fi
+      echo "$LINE" | sed 's|^\(\S*\) -> \(\S*\)$|ln -s \2/ \1|' |  xargs -I{} sh -c 'eval {}' #eval Does not work without sh for some reason
+    done <<<  "$SYMTOORIG"
+  )
+
 }
 
 
@@ -643,4 +661,4 @@ function main {
 #disableWebcam
 #enableBatteryConservationModeIdeapad
 #fixAudioAMD
-setUpPrinter
+#setUpPrinter
