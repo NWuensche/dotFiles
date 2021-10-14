@@ -168,6 +168,7 @@ function yayPackages {
     yay -S qutebrowser pdfjs --noconfirm || true #Alternative browser, might fail because of python packages, pdfjs needed for pdf viewer qutebrowser
     yay -S lutris lib32-gnutls lib32-libpulse --noconfirm #lutris + programs for epic store TODO If still no sound, do https://www.reddit.com/r/wine_gaming/comments/7qm8wp/for_anyone_with_sound_issues_on_grand_theft_auto/
     yay -S libstdc++5 --noconfirm #needed for cups/printer
+    yay -S ifplugd --noconfirm #LAN
 
 
 
@@ -190,6 +191,10 @@ function yayPackages {
       sudo systemctl enable netctl-auto@wlp4s0.service
     fi
     if [[ "$CPU" == "AMD" ]]; then
+      #LAN
+      sudo systemctl enable --now netctl-ifplugd@enp4s0f3u1u3.service
+      sudo systemctl enable --now dhcpcd@enp4s0f3u1u3.service
+      #WiFi
       sudo systemctl enable netctl-auto@wlo1.service
     fi
  }
@@ -662,3 +667,4 @@ function main {
 #enableBatteryConservationModeIdeapad
 #fixAudioAMD
 #setUpPrinter
+enableBatteryConservationModeIdeapad

@@ -1,4 +1,3 @@
-set -x
 BATTERYPATH=$(upower --dump | sed -n 's|Device: \(\S*BAT\S\)|\1|p')
 PER=$( upower -i $BATTERYPATH | grep percentage |  awk '{print $2}' | sed 's/%//g' ) #Delete % sign
 # Only natural numer CAPA to make it easier, % sign away
