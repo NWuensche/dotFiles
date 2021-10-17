@@ -666,5 +666,5 @@ function main {
 #disableWebcam
 #enableBatteryConservationModeIdeapad
 #fixAudioAMD
-#setUpPrinter
-enableBatteryConservationModeIdeapad
+setUpPrinter
+#enableBatteryConservationModeIdeapad
