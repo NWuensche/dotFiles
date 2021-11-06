@@ -1,3 +1,4 @@
+#!/bin/sh
 #If fullscreen, set cursor to corner to stop xautolock from activating
 
 function isAudioRunning() {
@@ -23,8 +24,8 @@ WINDOW=$(echo $(xwininfo -id $(xdotool getactivewindow) -stats | \
                 awk '{print $NF}') | \
          sed -e 's/ /x/')
 SCREEN=$(xdpyinfo | grep -m1 dimensions | awk '{print $2}')
-if [ "$WINDOW" = "$SCREEN" ] || [ "$WINDOW" = "1916x1058" ]; then #Fullscreen or single window i3
-    if [ "$NAMEWINDOW" = "" ]; then
+if [ "$WINDOW" == "$SCREEN" ] || [ "$WINDOW" == "1916x1060" ]; then #Fullscreen or single window i3
+    if [ "$NAMEWINDOW" == "" ]; then
 
         OLDMOUSEPOS=$(xdotool getmouselocation | awk '{print $1$2}')
         # Black
@@ -38,7 +39,7 @@ if [ "$WINDOW" = "$SCREEN" ] || [ "$WINDOW" = "1916x1058" ]; then #Fullscreen or
         sleep 120
         CURRMOUSEPOS=$(xdotool getmouselocation | awk '{print $1$2}')
         AUDIORUNNING=$(isAudioRunning)
-        if [ "$OLDMOUSEPOS" = "$CURRMOUSEPOS" ] && [ "$AUDIORUNNING" = "FALSE" ] ; then #Fullscreen or single window i3 and no music playing right now
+        if [ "$OLDMOUSEPOS" == "$CURRMOUSEPOS" ] && [ "$AUDIORUNNING" == "FALSE" ] ; then #Fullscreen or single window i3 and no music playing right now
 #          xset dpms force on
            systemctl suspend 
         fi
@@ -61,7 +62,7 @@ else
         sleep 120
         CURRMOUSEPOS=$(xdotool getmouselocation | awk '{print $1$2}')
         AUDIORUNNING=$(isAudioRunning)
-        if [ "$OLDMOUSEPOS" = "$CURRMOUSEPOS" ] && [ "$AUDIORUNNING" = "FALSE" ] ; then #Fullscreen or single window i3 and no music playing right now
+        if [ "$OLDMOUSEPOS" == "$CURRMOUSEPOS" ] && [ "$AUDIORUNNING" == "FALSE" ] ; then #Fullscreen or single window i3 and no music playing right now
           xset dpms force on
           xset s activate
           systemctl suspend 

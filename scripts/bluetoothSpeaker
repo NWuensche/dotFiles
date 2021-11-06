@@ -14,6 +14,6 @@ sleep 2
 ) | sudo bluetoothctl
 sleep 5
 (
-    echo 'connect 30:22:00:22:98:8E'
+    echo 'connect 08:EB:ED:82:1F:63'
 ) | sudo bluetoothctl
 

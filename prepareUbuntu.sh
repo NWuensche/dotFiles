@@ -341,13 +341,20 @@ function wacomTabletConfig {
 
 #Works for Firefox+Youtube and VLC
 # Check https://www.youtube.com/watch?v=MfL_JkcEFbE for test
-function fixScreenTearing {
+function fixScreenTearingAndAMDDockingStation {
     if [[ "$CPU" == "Intel" ]]; then
       sudo cp ~/.dotFiles/X/IntelHDGraphicsTearingFix.conf /etc/X11/xorg.conf.d/20-intel.conf
     fi
     if [[ "$CPU" == "AMD" ]]; then
       sudo cp ~/.dotFiles/X/AMDTearingFix.conf /etc/X11/xorg.conf.d/20-amdgpu.conf
+      fixDockingStationAMD
     fi
+}
+
+# Fixes HDMI on Dockingstation, see https://wiki.archlinux.org/title/intel_graphics#Installation (search `modesetting`)
+# When using `amdgpu`, VGA works, but looks blurry (but might be faster?)
+function fixDockingStationAMD {
+  sudo sed 's/Driver "amdgpu"/Driver "modesetting"/' /etc/X11/xorg.conf.d/20-amdgpu.conf -i
 }
 
 function setUpTmux {
@@ -410,7 +417,7 @@ function addConfigs {
     setGroups 
     fixTouchToClickTouchPad 
     wacomTabletConfig
-    fixScreenTearing
+    fixScreenTearingAndAMDDockingStation
     autoStartVPN
     setUpTmux
     moveConfigs
@@ -667,4 +674,5 @@ function main {
 #enableBatteryConservationModeIdeapad
 #fixAudioAMD
 #setUpPrinter
-enableBatteryConservationModeIdeapad
+#enableBatteryConservationModeIdeapad
+fixScreenTearingAndAMDDockingStation

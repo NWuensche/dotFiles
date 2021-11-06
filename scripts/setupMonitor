@@ -4,17 +4,31 @@
 #1 ex. Monitor -> Mirror Laptop
 #0 ex. Monitors -> Just show Laptop
 
-MONITOR=$(xrandr | sed -n 's/^\(eDP\S*\) .*connected.*$/\1/p')
-HDMI=$(xrandr | sed -n 's/^\(HDMI\S*\) connected.*$/\1/p') #find connected HDMI, e.g. thinkpad has two (disconnected) HDMI names
-VGA=$(xrandr | sed -n 's/^\(DisplayPort-[0-9]\S*\) connected.*$/\1/p') #find connected HDMI, e.g. thinkpad has two (disconnected) HDMI names
+set -x
 
-#2 ex. Monitors
-if [[ "$VGA" != "" && "$HDMI" != "" ]]; then
-    xrandr --output $VGA --auto --output $HDMI --auto --right-of $VGA --output $MONITOR --off
-elif [[ "$VGA" != "" ]]; then
-    xrandr --output $MONITOR --auto --output $VGA --auto --same-as $MONITOR --output $HDMI --off
-elif [[ "$HDMI" != "" ]]; then
-    xrandr --output $MONITOR --auto --output $HDMI --auto --same-as $MONITOR --output $VGA --off
-else
-    xrandr --output $MONITOR --auto --output $HDMI --off --output $VGA --off
-fi
+
+#Have to do this manually with Docking Station for some reason
+function disableAllDisconnected {
+  DISCONNECTED_DOCKING=$(xrandr | sed -n 's/^\(D\S*P\S*-[0-9]\S*\) disconnected.*$/\1/p') #find connected HDMI, e.g. thinkpad has two (disconnected) HDMI names
+  echo "$DISCONNECTED_DOCKING" | xargs -I{} xrandr --output {} --off
+}
+
+function enableRightMonitors {
+  MONITOR=$(xrandr | sed -n 's/^\(eDP\S*\) .*connected.*$/\1/p')
+  HDMI=$(xrandr | sed -n 's/^\(HDMI\S*\) connected.*$/\1/p') #find connected HDMI, e.g. thinkpad has two (disconnected) HDMI names
+  VGA=$(xrandr | sed -n 's/^\(D\S*P\S*-[0-9]\S*\) connected.*$/\1/p') #find connected HDMI, e.g. thinkpad has two (disconnected) HDMI names
+  #2 ex. Monitors
+  if [[ "$VGA" != "" && "$HDMI" != "" ]]; then
+      xrandr --output $VGA --auto --output $HDMI --auto --right-of $VGA --output $MONITOR --off
+  elif [[ "$VGA" != "" ]]; then
+      #xrandr --output $MONITOR --auto --off --output $VGA --auto --same-as $MONITOR --output $HDMI --off
+      xrandr --output $MONITOR --auto --output $VGA --auto --same-as $MONITOR #--output $HDMI --off
+  elif [[ "$HDMI" != "" ]]; then
+      xrandr --output $MONITOR --auto --output $HDMI --auto --same-as $MONITOR #--output $VGA --off
+  else
+      xrandr --output $MONITOR --auto --output $HDMI --off --output $VGA --off
+  fi
+} 
+
+disableAllDisconnected
+enableRightMonitors

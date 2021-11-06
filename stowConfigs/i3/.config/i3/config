@@ -258,6 +258,8 @@ exec xinput --set-prop 'TPPS/2 IBM TrackPoint' 'libinput Accel Profile Enabled' 
 exec xinput --set-prop 'TPPS/2 IBM TrackPoint' 'libinput Accel Speed' 1
 
 exec_always /home/nwuensche/.dotFiles/scripts/setupMonitor
+bindsym $mod+Shift+w exec xrandr --output eDP-1 --auto
+bindsym $mod+Shift+s exec xrandr --output eDP-1 --off
 
 #exec /home/nwuensche/saveFolder/privateScripts/startVPN &
 
@@ -276,3 +278,6 @@ exec sleep 0.1; urxvtc -e env TERM=screen-256color zsh -c 'tmux attach || tmux' 
 # Has to be at end, else will not get executed
 #exec amixer -D pulse sset Capture nocap #Micro off
 exec sleep 1; "/home/nwuensche/.dotFiles/scripts/toggleMicrophoneAndLED" #Micro off, without sleep will not work
+
+#dunst 
+bindsym ctrl+space exec dunstctl close
