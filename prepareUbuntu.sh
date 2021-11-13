@@ -193,7 +193,8 @@ function yayPackages {
     if [[ "$CPU" == "AMD" ]]; then
       #LAN
       sudo systemctl enable --now netctl-ifplugd@enp4s0f3u1u3.service
-      sudo systemctl enable --now dhcpcd@enp4s0f3u1u3.service
+      #sudo systemctl enable --now dhcpcd@enp4s0f3u1u3.service Does block if no LAN https://wiki.archlinux.org/title/dhcpcd#dhcpcd@.service_causes_slow_startup
+      sudo systemctl enable --now dhcpcd
       #WiFi
       sudo systemctl enable netctl-auto@wlo1.service
     fi
@@ -597,7 +598,7 @@ function enableBatteryConservationModeIdeapad {
   isKernelModuleLoaded=$( lsmod | grep '^ideapad_laptop' || true )
 
   if [[ $isKernelModuleLoaded != "" ]]; then
-    sudo sh -c 'echo 1 >/sys/bus/platform/drivers/ideapad_acpi/VPC2004:00/conservation_mode'
+    sudo sh -c 'echo 0 >/sys/bus/platform/drivers/ideapad_acpi/VPC2004:00/conservation_mode'
   fi
 }
 
@@ -674,5 +675,5 @@ function main {
 #enableBatteryConservationModeIdeapad
 #fixAudioAMD
 #setUpPrinter
-#enableBatteryConservationModeIdeapad
-fixScreenTearingAndAMDDockingStation
+enableBatteryConservationModeIdeapad
+#fixScreenTearingAndAMDDockingStation
