@@ -1,4 +1,4 @@
-GAME="d Chro"
+GAME="The W"
 set -e # to stop on failing ping
 #Does not include HB
 freeEpicUPlayOriginHB () {
@@ -15,7 +15,7 @@ FREE=$(curl -s 'https://www.gamerpower.com/giveaways/pc/free-games' \
   -H 'sec-fetch-dest: document' \
   -H 'accept-language: de-DE,de;q=0.9,en-US;q=0.8,en;q=0.7' \
   --compressed \
-  |  tr '<' '\n' |  sed -n 's/.*p class="card-text truncate2 text-muted mb-2 mt-1">\(.*\)/\1/p' | grep -iv 'Microsoft Store' |  grep -iv 'Indiegala' | grep -iv 'Indie Gala' | grep -iv 'itchio' | grep -iv 'itch.io' | head -n 1 | sed -n "/$GAME/p" ) #INFO Don't show anything from Indiegala or itchio
+  |  tr '<' '\n' |  sed -n 's/.*p class="card-text truncate2 text-muted mb-2 mt-1">\(.*\)/\1/p' | grep -iv 'Microsoft Store' |  grep -iv 'Indiegaka' | grep -iv 'Indiegala' | grep -iv 'Indie Gala' | grep -iv 'itchio' | grep -iv 'itch.io' | head -n 1 | sed -n "/$GAME/p" ) #INFO Don't show anything from Indiegala or itchio
   if [[ "$FREE" == "" ]] ; then
     notify-send "Some Free Game";
     echo "Some Free Game";
