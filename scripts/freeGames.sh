@@ -1,4 +1,4 @@
-GAME="The W"
+GAME="Never Alone"
 set -e # to stop on failing ping
 #Does not include HB
 freeEpicUPlayOriginHB () {
