@@ -1,5 +1,6 @@
 #!/bin/bash
 sudo systemctl start bluetooth.service
+rfkill | sed -n 's/^ \([0-9]\) bluetooth.*/\1/p' | xargs -I{} sudo rfkill unblock {}
 pulseaudio -k
 (
     echo default-agent

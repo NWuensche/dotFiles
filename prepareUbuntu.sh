@@ -194,7 +194,7 @@ function yayPackages {
       #LAN
       sudo systemctl enable --now netctl-ifplugd@enp4s0f3u1u3.service
       #sudo systemctl enable --now dhcpcd@enp4s0f3u1u3.service Does block if no LAN https://wiki.archlinux.org/title/dhcpcd#dhcpcd@.service_causes_slow_startup
-      sudo systemctl enable --now dhcpcd
+      sudo systemctl enable --now dhcpcd # Causes that WLAN is off by default + WiFi Crashes sometimes
       #WiFi
       sudo systemctl enable netctl-auto@wlo1.service
     fi
