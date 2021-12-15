@@ -258,8 +258,8 @@ exec xinput --set-prop 'TPPS/2 IBM TrackPoint' 'libinput Accel Profile Enabled' 
 exec xinput --set-prop 'TPPS/2 IBM TrackPoint' 'libinput Accel Speed' 1
 
 exec_always /home/nwuensche/.dotFiles/scripts/setupMonitor
-bindsym $mod+Shift+w exec xrandr --output eDP-1 --auto
-bindsym $mod+Shift+s exec xrandr --output eDP-1 --off
+bindsym $mod+Shift+w exec xrandr --output eDP --auto
+bindsym $mod+Shift+s exec xrandr --output eDP --off
 
 #exec /home/nwuensche/saveFolder/privateScripts/startVPN &
 

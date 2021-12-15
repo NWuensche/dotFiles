@@ -675,5 +675,5 @@ function main {
 #enableBatteryConservationModeIdeapad
 #fixAudioAMD
 #setUpPrinter
-enableBatteryConservationModeIdeapad
-#fixScreenTearingAndAMDDockingStation
+#enableBatteryConservationModeIdeapad
+fixScreenTearingAndAMDDockingStation

@@ -110,9 +110,13 @@ class Paint:
     def onClose(self):
         print("Saving can take some time...")
         psFile = shellOutput("mktemp --suffix .eps")
+        jpgFile = shellOutput("mktemp --suffix .jpg")
+        tmppdfFile = shellOutput("mktemp --suffix .pdf")
         self.c.postscript(file = psFile, height = self.cHeight, width = self.cWidth, x =0, y=0 , colormode='color')
         #with flag "-page a4" somehow the whole content disappears. When I send pdf somewhere, they shouldn't care about the format of the pages
-        subprocess.check_output("epspdf " + psFile + " " + self.outPDFFilePath, shell=True) #epspdf much better quality than `convert EPS PDF`
+        subprocess.check_output("epspdf " + psFile + " " + tmppdfFile, shell=True) #epspdf much better quality than `convert EPS PDF`
+        subprocess.check_output("pdftoppm -jpeg -r 300 -singlefile " + tmppdfFile + " " + jpgFile[:-4], shell=True) #pdfppm much better quality than convert + Need step through jpeg, because otherwise in PDF censor box is only overlay, which one can take away, :-4 because pdftoppm adds own `.jpg` postfix (can be seen in firefox)
+        subprocess.check_output("convert " + jpgFile + " " + self.outPDFFilePath, shell=True) #epspdf much better quality than `convert EPS PDF`
         self.root.destroy()
 
 
