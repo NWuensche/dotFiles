@@ -148,6 +148,7 @@ function yayPackages {
     fi
 
     yay -S gvim vim-spell-de vim-spell-en --noconfirm #Vim 
+    yay -S xorg-xeyes sway swaylock swayidle wl-clipboard wdisplay wlr-randr grim slurp gammastep #wayland/sway stuff (grim+slurp = scrot)
     yay -S bluez-utils bluez --noconfirm #Bluetooth
     yay -S xdotool expect --noconfirm # Automation Tools
     yay -S tmux rxvt-unicode xterm zsh  --noconfirm #Terminator Environment 
@@ -414,7 +415,7 @@ function addFirefoxProfile {
 }
 
 function addConfigs { 
-    fixDisplayManager 
+    #Not for wayland - fixDisplayManager 
     setGroups 
     fixTouchToClickTouchPad 
     wacomTabletConfig

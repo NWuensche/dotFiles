@@ -1,0 +1,44 @@
+#!/bin/bash
+
+PARAM="$1" #SOFT or HARD, if soft, then only black screen, if hard, then lock + suspend
+
+function isAudioRunning {
+  #`|| true` to prevent exit 1 when grep doesn't find anything
+  #  RUNNING=$(echo "list-sink-inputs" | pacmd | grep "state: RUNNING" || true) Pulseaudio
+  RUNNING=$( pactl list sink-inputs | grep "Corked: no" || true ) #Pipewire
+
+  #Some audio is running
+  if [[ "$RUNNING" != "" ]]; then
+    echo "TRUE"
+    exit 0
+  fi
+  echo "FALSE"
+  exit 0
+}
+
+function isVideoOn {
+  RUNNING=$( swaymsg -t get_tree | jq -r '..|try select(.focused == true) | ."window_properties"."title"'  | sed -n -r '/(prime video|games done quick|gamesDoneQuick|youtube|ted|zdfmediathek|kyoto university opencourseware|media.ccc.de|ARD Mediathek|Invidious|Teams|Meeting|Zoom).*(Firefox|Chromium|Browser)/Ip' )
+
+  #Some video is running
+  if [[ "$RUNNING" != "" ]]; then
+    echo "TRUE"
+    exit 0
+  fi
+  echo "FALSE"
+  exit 0
+}
+
+if [[ `isVideoOn` == "TRUE" && `isAudioRunning` == "TRUE" ]]; then #Actively Video watching, don't do anything
+  echo ""
+elif [[ `isAudioRunning` == "TRUE" ]]; then #Actively hearing something, lock screen + dark, but don't suspend
+  swaymsg "output * dpms off" #Black Screen, but not suspend
+  if [[ "$PARAM" == "HARD" ]]; then 
+    swaylock -f
+  fi
+else #Not hearing or viewing something, thus lock/suspend
+  swaymsg "output * dpms off" #Black Screen, but not suspend
+  if [[ "$PARAM" == "HARD" ]]; then 
+    swaylock -f
+    systemctl suspend
+  fi
+fi
