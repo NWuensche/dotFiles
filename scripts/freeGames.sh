@@ -1,4 +1,4 @@
-GAME="Remnant"
+GAME="Mutant Y"
 set -e # to stop on failing ping
 #Does not include HB
 freeEpicUPlayOriginHB () {

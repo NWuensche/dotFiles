@@ -1,10 +1,14 @@
 #!/bin/sh
 #Enable Capslock LED if microphone is off
 #xset does not fail even if caps lock does not have an LED
-amixer -q -D pulse sset Capture toggle
-MICROPHONEOFF=$(amixer -q -D pulse scontents Capture | tail -n 1 | sed -n 's/.*off.*/off/p' )
-if [[ "$MICROPHONEOFF" == "off" ]]; then
-  xset led named 'Caps Lock'
-else
-  xset -led named 'Caps Lock'
-fi
+#Number from  pactl list sinks | grep -e "Desc" -e "Sink #"
+#Name from pactl get-default-source
+pactl set-source-mute alsa_input.pci-0000_04_00.6.HiFi__hw_acp__source toggle
+
+#Does not work under wayland + Could not find alternative
+#MICROPHONEOFF=$(amixer -q -D pulse scontents Capture | tail -n 1 | sed -n 's/.*off.*/off/p' )
+#if [[ "$MICROPHONEOFF" == "off" ]]; then
+#  xset led named 'Caps Lock'
+#else
+#  xset -led named 'Caps Lock'
+#fi

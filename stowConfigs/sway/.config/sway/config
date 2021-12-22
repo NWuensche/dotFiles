@@ -289,11 +289,11 @@ exec /usr/bin/udiskie &
 
 exec xhost +local: #Necessary to be able to open gparted inside a tmux session
 #exec /home/nwuensche/.dotFiles/scripts/fullscreenLock & #Can't do this in crontab because Environment variables are wrong
-exec sleep 0.1; urxvtc -e env TERM=screen-256color zsh -c 'tmux attach || tmux' #Does not show anything without sleep (maybe because of daemon), but `exec_always` works without sleep
+exec urxvtc -e env TERM=screen-256color zsh -c 'tmux attach || tmux' #Does not show anything without sleep (maybe because of daemon), but `exec_always` works without sleep
 
 # Has to be at end, else will not get executed
 #exec amixer -D pulse sset Capture nocap #Micro off
-exec sleep 1; "/home/nwuensche/.dotFiles/scripts/toggleMicrophoneAndLED" #Micro off, without sleep will not work
+exec_always sh -c "sleep 1; /home/nwuensche/.dotFiles/scripts/toggleMicrophoneAndLED" #Micro off, does not work without sleep
 
 #dunst 
 bindsym ctrl+space exec dunstctl close
