@@ -1,4 +1,4 @@
-GAME="Mutant Y"
+GAME="Prey"
 set -e # to stop on failing ping
 #Does not include HB
 freeEpicUPlayOriginHB () {

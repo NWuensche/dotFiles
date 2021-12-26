@@ -13,6 +13,7 @@ input * {
     xkb_layout "eu"
     #xkb_variant "colemak,,typewriter"
     xkb_options "caps:escape"
+    tap enabled #Light Tap for Touchpad enabled
 }
 
 
@@ -173,7 +174,7 @@ bar {
         position top
         workspace_buttons yes
 #Otherwise in sway, bar-text is too far right
-        status_edge_padding 25 
+#        status_edge_padding 25 
 #    colors{
 #      separator #ffffff
 #    }
