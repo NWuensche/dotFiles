@@ -148,7 +148,7 @@ function yayPackages {
     fi
 
     yay -S gvim vim-spell-de vim-spell-en --noconfirm #Vim 
-    yay -S xorg-xeyes sway swaylock swayidle wl-clipboard wdisplay wlr-randr grim slurp gammastep #wayland/sway stuff (grim+slurp = scrot)
+    yay -S xorg-xeyes sway swaylock swayidle bemenu-wayland wl-clipboard wdisplay wlr-randr grim slurp gammastep #wayland/sway stuff (grim+slurp = scrot)
     yay -S bluez-utils bluez --noconfirm #Bluetooth
     yay -S xdotool expect --noconfirm # Automation Tools
     yay -S tmux rxvt-unicode xterm zsh  --noconfirm #Terminator Environment 
@@ -599,7 +599,7 @@ function enableBatteryConservationModeIdeapad {
   isKernelModuleLoaded=$( lsmod | grep '^ideapad_laptop' || true )
 
   if [[ $isKernelModuleLoaded != "" ]]; then
-    sudo sh -c 'echo 0 >/sys/bus/platform/drivers/ideapad_acpi/VPC2004:00/conservation_mode'
+    sudo sh -c 'echo 1 >/sys/bus/platform/drivers/ideapad_acpi/VPC2004:00/conservation_mode'
   fi
 }
 
@@ -646,7 +646,7 @@ function main {
     installPrograms
     addConfigs
     fixWifi
-    lidCloseLock
+    #lidCloseLock only needed x11
     #powertopAdd INFO Too many auto-suspend Mouse/keyboard problems that I cant solve + powertops give ~5 Minutes more lifetime with full battery, not worth it
     if [[ "$CPU" == "AMD" ]]; then
       fixGrubStuffAMD
