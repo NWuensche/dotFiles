@@ -130,7 +130,7 @@ function yayPackages {
     yay -Rs vim --noconfirm || true #will conflict to gvim, thus when installed for debugging, we have to remove it
     yay -S ruby jdk-openjdk maven python3 gradle python-pip git hub --noconfirm #Programming
     yay -Rs acpilight --noconfirm || true #Just for sanity, when I restart script here, xorg would complain otherwise
-    yay -S xorg lightdm lightdm-gtk-greeter accountsservice i3-wm dmenu i3status i3lock plymouth --noconfirm #UI, accountsservice fixed lightdm warning, plymouth necessary for lightdm on AMD
+    yay -S xorg xorg-xinit lightdm lightdm-gtk-greeter accountsservice i3-wm dmenu i3status i3lock plymouth --noconfirm #UI, accountsservice fixed lightdm warning, plymouth necessary for lightdm on AMD, xorg-xinit for startx
 
     #Makes problems when I install wrong one
     if [[ "$CPU" == "Intel" ]]; then
@@ -148,7 +148,7 @@ function yayPackages {
     fi
 
     yay -S gvim vim-spell-de vim-spell-en --noconfirm #Vim 
-    yay -S xorg-xeyes sway swaylock swayidle bemenu-wayland wl-clipboard wdisplay wlr-randr grim slurp gammastep #wayland/sway stuff (grim+slurp = scrot)
+    yay -S xorg-xeyes sway swaylock swayidle bemenu-wayland wl-clipboard wdisplay wlr-randr grim slurp gammastep imv #wayland/sway stuff (grim+slurp = scrot, imv =feh)
     yay -S bluez-utils bluez --noconfirm #Bluetooth
     yay -S xdotool expect --noconfirm # Automation Tools
     yay -S tmux rxvt-unicode xterm zsh  --noconfirm #Terminator Environment 
