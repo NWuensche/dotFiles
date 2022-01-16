@@ -1,6 +1,6 @@
 #!/bin/sh
+ydotoold &
 while true; do
   sleep 400
-  xdotool mousemove 0 0
-  xdotool mousemove 100 0
+  ydotool mousemove 0 1
 done
