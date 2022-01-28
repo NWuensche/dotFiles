@@ -152,7 +152,7 @@ function yayPackages {
     yay -S bluez-utils bluez --noconfirm #Bluetooth
     yay -S xdotool ydotool expect --noconfirm # Automation Tools
     yay -S tmux rxvt-unicode xterm zsh  --noconfirm #Terminator Environment 
-    yay -S zip unzip trash-cli curl mitmproxy wget ack progress htop offlineimap neomutt vifm feh pdfgrep pdftk calcurse w3m mplayer irssi docker stow --noconfirm #Terminal Tools 
+    yay -S zip unzip trash-cli curl mitmproxy wget ack progress htop offlineimap neomutt vifm feh pdfgrep pdftk calcurse w3m mplayer irssi docker stow perl-image-exiftool --noconfirm #Terminal Tools 
     yay -S powertop python-selenium geckodriver jq rsync pwgen xclip ffmpeg xss-lock xautolock scrot udiskie	exfat-utils ntfs-3g unrar cronie ttf-liberation openssh imapfilter urlview pandoc-bin jpegoptim --noconfirm #Terminal Support Tools , pandoc-bin from AUR and not pandoc from community because I don't want 60 dynamic Haskell Library dependencies, but only the binary
     yay -S tcsh cups sane brscan2 brscan3 simple-scan --noconfirm #Printer Tools 
     yay -S xf86-input-synaptics xf86-input-mtrack  --noconfirm #Touchpad Tools 
@@ -599,7 +599,7 @@ function enableBatteryConservationModeIdeapad {
   isKernelModuleLoaded=$( lsmod | grep '^ideapad_laptop' || true )
 
   if [[ $isKernelModuleLoaded != "" ]]; then
-    sudo sh -c 'echo 0 >/sys/bus/platform/drivers/ideapad_acpi/VPC2004:00/conservation_mode'
+    sudo sh -c 'echo 1 >/sys/bus/platform/drivers/ideapad_acpi/VPC2004:00/conservation_mode'
   fi
 }
 
