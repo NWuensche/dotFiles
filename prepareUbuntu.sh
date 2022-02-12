@@ -676,5 +676,6 @@ function main {
 #enableBatteryConservationModeIdeapad
 #fixAudioAMD
 #setUpPrinter
-enableBatteryConservationModeIdeapad
+#enableBatteryConservationModeIdeapad
 #fixScreenTearingAndAMDDockingStation
+installAndroidStudio
