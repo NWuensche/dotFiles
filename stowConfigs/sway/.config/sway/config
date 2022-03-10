@@ -279,7 +279,7 @@ for_window [instance="origin.exe"] floating enable #Needed for origin over lutri
 #bindsym $mod+Shift+s exec xrandr --output eDP --off
 
 exec_always /home/nwuensche/.dotFiles/scripts/setupMonitorSway
-bindsym $mod+Shift+w exec wlr-randr --output eDP-1 --on
+bindsym $mod+Shift+w exec wlr-randr --output eDP-1 --on --pos 1920\,0
 bindsym $mod+Shift+s exec wlr-randr --output eDP-1 --off
 
 #exec /home/nwuensche/saveFolder/privateScripts/startVPN &

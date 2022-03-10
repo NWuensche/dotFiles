@@ -59,7 +59,7 @@ Plugin 'VundleVim/Vundle.vim'
 "Fuzzy Filenames
 "Plugin 'ctrlpvim/ctrlp.vim'
 "Open URL under Cursor (standard gx in vim 8.2 has bug)
-Plugin 'dhruvasagar/vim-open-url'
+"Plugin 'dhruvasagar/vim-open-url'
 "Nix Syntax
 "Plugin 'LnL7/vim-nix'
 "Typescript
@@ -181,4 +181,4 @@ nnoremap <C-a> <nop>
 "Don't increase numbers accidentally when using tmux (latex + bibtex + Python)
 inoremap <C-a> <nop>
 
-"let g:netrw_browsex_viewer='firefox'
+let g:netrw_browsex_viewer='firefo'
