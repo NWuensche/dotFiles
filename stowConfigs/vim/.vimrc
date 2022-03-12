@@ -181,4 +181,4 @@ nnoremap <C-a> <nop>
 "Don't increase numbers accidentally when using tmux (latex + bibtex + Python)
 inoremap <C-a> <nop>
 
-let g:netrw_browsex_viewer='firefo'
+let g:netrw_browsex_viewer='firefox'
