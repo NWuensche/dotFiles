@@ -1,4 +1,4 @@
-GAME="Cities: Sk"
+GAME="In Sound Mind"
 set -e # to stop on failing ping
 #Does not include HB
 freeEpicUPlayOriginHB () {
