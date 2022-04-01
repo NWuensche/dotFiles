@@ -8,6 +8,10 @@ EDITOR=vim
 
 xset b off #Disable beep sound for urxvt (and terminals in general)
 
+#Enable Wayland for firefox
+export MOZ_WEBRENDER=1
+export MOZ_ENABLE_WAYLAND=1
+
 export EDITOR
 ANDROID_HOME=/home/nwuensche/Android/Sdk
 export ANDROID_HOME
