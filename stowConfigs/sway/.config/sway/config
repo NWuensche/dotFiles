@@ -216,10 +216,10 @@ bindcode  $mod+52 exec "amixer -q -D pulse sset Capture cap"
 #bindcode 123 exec "~/works"
 
 #Colons break rsync for backing up
-bindsym Print exec /home/nwuensche/.dotFiles/scripts/fullScreenshotSway.sh
+bindsym --release Print exec /home/nwuensche/.dotFiles/scripts/fullScreenshotSway.sh
 bindsym --release Shift+Print exec /home/nwuensche/.dotFiles/scripts/partialScreenshotSway.sh
 #AMD bind Print key on key next to it wouthout Fn; cant bind it to Print key directly because it has exact same name/code/... as meta key (Cant put this comment directly behind commands without causing i3 error for some reason)
-bindcode 255 exec /home/nwuensche/.dotFiles/scripts/fullScreenshotSway.sh
+bindcode --release 255 exec /home/nwuensche/.dotFiles/scripts/fullScreenshotSway.sh
 bindcode --release Shift+255 exec /home/nwuensche/.dotFiles/scripts/partialScreenshotSway.sh
 
 bindsym $mod+backslash workspace 1

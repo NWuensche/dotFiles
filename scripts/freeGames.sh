@@ -1,4 +1,4 @@
-GAME="Knightfall"
+GAME="Black Desert"
 set -e # to stop on failing ping
 #Does not include HB
 freeEpicUPlayOriginHB () {
