@@ -2,9 +2,10 @@
 
 LIST='Super Sparpreis Aktion:
 BahnCard 25 zum Jubiläumspreis:
+9-Euro-Ticket: Bundesweit Bus &amp; Bahn fahren
+Für alle ab 65:
 Freifahrten, Gratis-Upgrades &amp; kostenlose BahnCard
 Für alle unter 27:
-25% Rabatt auf ICE-Tickets:
 Flixtrain-Tickets statt
 Als Gruppe ab 9,90€ im ICE fahren
 Sparpreis Europa ab 13,90€
