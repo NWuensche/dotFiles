@@ -151,7 +151,7 @@ function yayPackages {
     yay -S xorg-xeyes sway swaylock swayidle bemenu-wayland wl-clipboard wdisplay wlr-randr grim slurp gammastep imv #wayland/sway stuff (grim+slurp = scrot, imv =feh)
     yay -S bluez-utils bluez --noconfirm #Bluetooth
     yay -S xdotool ydotool expect --noconfirm # Automation Tools
-    yay -S tmux rxvt-unicode xterm zsh  --noconfirm #Terminator Environment 
+    yay -S tmux rxvt-unicode xterm alacritty zsh  --noconfirm #Terminator Environment 
     yay -S zip unzip trash-cli curl mitmproxy wget ack progress htop offlineimap neomutt vifm feh pdfgrep pdftk calcurse w3m mplayer irssi docker stow perl-image-exiftool --noconfirm #Terminal Tools 
     yay -S powertop python-selenium geckodriver jq rsync pwgen xclip ffmpeg xss-lock xautolock scrot udiskie	exfat-utils ntfs-3g unrar cronie ttf-liberation openssh imapfilter urlview pandoc-bin jpegoptim --noconfirm #Terminal Support Tools , pandoc-bin from AUR and not pandoc from community because I don't want 60 dynamic Haskell Library dependencies, but only the binary
     yay -S tcsh cups sane brscan2 brscan3 simple-scan --noconfirm #Printer Tools 
@@ -159,7 +159,7 @@ function yayPackages {
     yay -S xf86-input-wacom xbindkeys --noconfirm #Wacom Tablet Tools
     yay -S ttf-liberation pango  --noconfirm #Fonts and Font Tools 
     yay -S alsa-utils pipewire-pulse pavucontrol pulsemixer --noconfirm #Audio, pipewire better with bluetooth than pulseaudio
-    yay -S steam legendary sqlitebrowser calibre vlc gimp audacity firefox chromium kdenlive libreoffice-fresh-de  evince xournalpp zathura zathura-pdf-poppler  --noconfirm #X Tools 
+    yay -S steam legendary sqlitebrowser calibre vlc mpv gimp audacity firefox chromium kdenlive libreoffice-fresh-de  evince xournalpp zathura zathura-pdf-poppler  --noconfirm #X Tools 
     yay -S wine lib32-libpulse --noconfirm # Wine stuff
     yay -S redshift gparted arandr android-file-transfer simple-mtpfs dunst cheese  --noconfirm # X Support Tools 
     yay -S virtualbox virtualbox-host-modules-arch virtualbox-guest-iso  --noconfirm #Virtualbox 
@@ -379,7 +379,8 @@ function moveConfigs {
     mkdir -p ~/.vifm
     mkdir -p ~/.vim
     mkdir -p ~/.config/udiskie
-    ( cd $HOME/.dotFiles/stowConfigs; stow i3 wallpaper vim git terminal gpg programConfigs vifm podget X -t $HOME )
+    mkdir -p .local/share/applications #for xdg
+    ( cd $HOME/.dotFiles/stowConfigs; stow i3 wallpaper vim git terminal gpg programConfigs vifm podget X xdg -t $HOME )
     sh ~/saveFolder/doStowSaveFolder.sh
 
     sudo ln -s /home/nwuensche/.dotFiles/X/my_dvorak  /usr/share/X11/xkb/symbols/my_dvorak
@@ -669,7 +670,7 @@ function main {
 #main
 #setUpMFC
 #installIJCommunity
-#installAndroidStudio
+installAndroidStudio
 #setUpDCP
 #setUpMFC
 #installAndroidStudio
@@ -677,6 +678,6 @@ function main {
 #enableBatteryConservationModeIdeapad
 #fixAudioAMD
 #setUpPrinter
-enableBatteryConservationModeIdeapad
+#enableBatteryConservationModeIdeapad
 #fixScreenTearingAndAMDDockingStation
 #installAndroidStudio

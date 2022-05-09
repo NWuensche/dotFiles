@@ -98,7 +98,7 @@ command! reload :write | restart
 filextype *.flac,*.m4a,*.ape,*.ac3,*.og[agx],*.spx,*.opus,*.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,
          \*.fl[icv],*.m2v,*.mov,*.webm,*.ts,*.mts,*.m4v,*.r[am],*.qt,*.divx,*.amr,*.wav,*.ogg,*.mp3,*.aac,*.wma
          \*.as[fx]
-        \ vlc %f &>/dev/null &
+        \ mpv %f &>/dev/null &
 
 filextype *.ts vim %f
 filextype *.db  sqlitebrowser %f &
@@ -164,7 +164,7 @@ filextype *.eps = xdg-open %f &
 fileviewer *.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,
           \*.fl[icv],*.m2v,*.mov,*.webm,*.ts,*.mts,*.m4v,*.r[am],*.qt,*.divx,
           \*.as[fx]
-         \ vlc %f &
+         \ mpv %f &
 filextype *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm imv %f &
 filetype *.tgz,*.zip,*.7z,*.rar,*.gz,*.bz2,*.xz extract %f
 
