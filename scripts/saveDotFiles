@@ -11,4 +11,6 @@ git commit -m "(`date +%d-%m-%Y`) change dotFiles" || true;
 git push;
 cd;
 
+sudo cp /etc/systemd/system/bell.service ~/.dotFiles/services/bell.service
+
 sync

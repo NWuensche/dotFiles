@@ -23,7 +23,7 @@ export PATH=$PATH:/usr/lib/python3.7/site-packages
 
 export HISTORY_IGNORE='(pass *|getIt *|shred *)'
 
-export MESA_GLSL_CACHE_DISABLE=true #Fix Bug Chrome
+export MESA_SHADER_CACHE_DISABLE=true #Fix Bug Chrome
 
 
 #No Files found in gitignore in fzf vim

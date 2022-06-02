@@ -1,0 +1,9 @@
+[Unit]
+Description=disable bell
+
+[Service]
+User=root
+ExecStart=rmmod pcspkr
+
+[Install]
+WantedBy=multi-user.target

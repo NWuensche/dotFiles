@@ -58,6 +58,8 @@ Plugin 'VundleVim/Vundle.vim'
 "Plugin 'christoomey/vim-tmux-navigator'
 "Fuzzy Filenames
 "Plugin 'ctrlpvim/ctrlp.vim'
+" Yank into +-Register on wayland
+Plugin 'jasonccox/vim-wayland-clipboard'
 "Open URL under Cursor (standard gx in vim 8.2 has bug)
 "Plugin 'dhruvasagar/vim-open-url'
 "Nix Syntax

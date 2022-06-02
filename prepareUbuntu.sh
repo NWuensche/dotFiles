@@ -158,7 +158,7 @@ function yayPackages {
     yay -S xf86-input-synaptics xf86-input-mtrack  --noconfirm #Touchpad Tools 
     yay -S xf86-input-wacom xbindkeys --noconfirm #Wacom Tablet Tools
     yay -S ttf-liberation pango  --noconfirm #Fonts and Font Tools 
-    yay -S alsa-utils pipewire-pulse pavucontrol pulsemixer --noconfirm #Audio, pipewire better with bluetooth than pulseaudio
+    yay -S alsa-utils pipewire-pulse pavucontrol pulsemixer easyeffects --noconfirm #Audio, pipewire better with bluetooth than pulseaudio
     yay -S steam legendary sqlitebrowser calibre vlc mpv gimp audacity firefox chromium kdenlive libreoffice-fresh-de  evince xournalpp zathura zathura-pdf-poppler  --noconfirm #X Tools 
     yay -S wine lib32-libpulse --noconfirm # Wine stuff
     yay -S redshift gparted arandr android-file-transfer simple-mtpfs dunst cheese  --noconfirm # X Support Tools 
@@ -194,9 +194,9 @@ function yayPackages {
     fi
     if [[ "$CPU" == "AMD" ]]; then
       #LAN
-      sudo systemctl enable --now netctl-ifplugd@enp4s0f3u1u3.service
+      sudo systemctl enable --now netctl-ifplugd@enp4s0f3u1u3.service #Need a netctl profile for this to work
       #sudo systemctl enable --now dhcpcd@enp4s0f3u1u3.service Does block if no LAN https://wiki.archlinux.org/title/dhcpcd#dhcpcd@.service_causes_slow_startup
-      sudo systemctl enable --now dhcpcd # Causes that WLAN is off by default + WiFi Crashes sometimes
+      # I think not needed anymore - sudo systemctl enable --now dhcpcd # Causes that WLAN is off by default + WiFi Crashes sometimes
       #WiFi
       sudo systemctl enable netctl-auto@wlo1.service
     fi
@@ -387,6 +387,12 @@ function moveConfigs {
 
     sudo ln -s ~/.dotFiles/rules/99-udisks2.rules /etc/udev/rules.d
     sudo ln -s ~/.dotFiles/services/rfkill-own.service /etc/systemd/system/rfkill-own.service
+
+    #Otherwise have beep on suspend and restart (think this comes from ifplugd, but -b did not help there
+    sudo cp ~/.dotFiles/services/bell.service /etc/systemd/system/bell.service
+    sudo systemctl daemon-reload
+    sudo systemctl enable --now bell.service
+
     gpg --import ~/saveFolder/gpg_key_pub.asc
     gpg --import ~/saveFolder/gpg_key.asc
     expect ~/saveFolder/trustGPG Wuensche-N
@@ -422,7 +428,7 @@ function addConfigs {
     fixTouchToClickTouchPad 
     wacomTabletConfig
     fixScreenTearingAndAMDDockingStation
-    autoStartVPN
+    #autoStartVPN
     setUpTmux
     moveConfigs
     setUpVimPlugins
