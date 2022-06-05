@@ -1,4 +1,4 @@
-GAME="Tell Me W"
+GAME="New O"
 set -e # to stop on failing ping
 #Does not include HB
 freeEpicUPlayOriginHB () {
