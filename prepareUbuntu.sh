@@ -2,6 +2,8 @@
 
 set -e #Exit after first non zero error code
 
+CONFIGNOSTOWFOLDER="$HOME/saveFolder/configsNotStowed"
+
 CPU=$(cat /proc/cpuinfo | sed -n 's/.*\(Intel\|AMD\).*/\1/p' | head -n 1) #Intel or AMD
 
 HDD="/run/media/nwuensche/5f65b653-f040-40eb-a2de-64a7e4cac5c4"
@@ -32,9 +34,10 @@ function importFiles {
 function restoreDokumenteStructure {
   checkHDD
   PREFIX=$HOME
-  STRUCTUREFOLDERS=$HOME/saveFolder/DokumenteFoldersStructure.txt
-  STRUCTUREFILES=$HOME/saveFolder/DokumenteFilesStructure.txt
-  SYMLINKFILES=$HOME/saveFolder/DokumenteFilesSymlinks.txt
+  OUTFOLDER="$HOME/saveFolder/configsNotStowed/folderLayout"
+  STRUCTUREFOLDERS=$OUTFOLDER/DokumenteFoldersStructure.txt
+  STRUCTUREFILES=$OUTFOLDER/DokumenteFilesStructure.txt
+  SYMLINKFILES=$OUTFOLDER/DokumenteFilesSymlinks.txt
 
 
   #Restore folders for safe mkdir (also create empty folders)
@@ -220,7 +223,7 @@ function installZSH {
     sudo cp /tmp/chsh /etc/pam.d/chsh
     sudo groupadd chsh
     sudo usermod -a -G chsh nwuensche
-    expect ~/saveFolder/setchsh `which zsh`
+    expect ~/saveFolder/installArch/setchsh `which zsh`
 
     /bin/cp ~/.dotFiles/terminalStuff/agnoster.zsh-theme ~/.oh-my-zsh/themes/agnoster.zsh-theme
 }
@@ -241,7 +244,7 @@ function installLatexTUDresden {
 }
 
 function autoStartVPN {
-    sh ~/saveFolder/setupVPN.sh
+    sh ~/saveFolder/privateScripts/setupVPN.sh
 }
 
 function installFonts {
@@ -367,11 +370,13 @@ function setUpTmux {
 }
 
 function moveConfigs {
-    cp ~/saveFolder/ssh ~/.ssh -r -p # Must do this before stow, because config will be overwritten otherwise
+    cp $CONFIGNOSTOWFOLDER/ssh ~/.ssh -r -p # Must do this before stow, because config will be overwritten otherwise
     chmod 0700 ~/.ssh/id_b* # correct modifiers, matches public key as well
     chmod 0755 ~/.ssh/id_b*.pub #fix modifier public key back
-    crontab ~/saveFolder/listCrontab;
-    sudo /bin/cp  ~/saveFolder/hosts /etc/hosts;
+
+    crontab $CONFIGNOSTOWFOLDER/cron/listCrontab;
+
+    sudo /bin/cp $CONFIGNOSTOWFOLDER/hosts/hosts /etc/hosts;
 
     #TODO Vim could cause problem because I install plugins *afterwards*. If omnicomplete vim does not work, look if ftplugin and autoload folders in .vim folder correctly in
     rm -r .zshrc .bashrc .bash_profile .vim/ || true #Might have been created during debugging, would cause errors, problematic vim file is `.vim/autoload/plug.vim`
@@ -381,7 +386,7 @@ function moveConfigs {
     mkdir -p ~/.config/udiskie
     mkdir -p .local/share/applications #for xdg
     ( cd $HOME/.dotFiles/stowConfigs; stow i3 wallpaper vim git terminal gpg programConfigs vifm podget X xdg -t $HOME )
-    sh ~/saveFolder/doStowSaveFolder.sh
+    sh ~/saveFolder/installArch/doStowSaveFolder.sh
 
     sudo ln -s /home/nwuensche/.dotFiles/X/my_dvorak  /usr/share/X11/xkb/symbols/my_dvorak
 
@@ -393,9 +398,9 @@ function moveConfigs {
     sudo systemctl daemon-reload
     sudo systemctl enable --now bell.service
 
-    gpg --import ~/saveFolder/gpg_key_pub.asc
-    gpg --import ~/saveFolder/gpg_key.asc
-    expect ~/saveFolder/trustGPG Wuensche-N
+    gpg --import "$CONFIGNOSTOWFOLDER/gpg/gpg_key_pub.asc"
+    gpg --import "$CONFIGNOSTOWFOLDER/gpg/gpg_key.asc"
+    expect ~/saveFolder/privateScripts/trustGPG Wuensche-N
 
     mkdir -p ~/.cache/mutt/messages #Else mutt warnings
 }
@@ -419,7 +424,7 @@ function lowerTimeoutGRUB {
 function addFirefoxProfile {
   timeout 10s firefox -headless || true #create profile for firefox without X + automatically close (will always return 1 when timeouted)
   rm -r ~/.mozilla/firefox/*.default-release/* #remove Anything inside old profile, but not folder itself (has to keep exact, random, name)
-  cp -r ~/saveFolder/firefoxProfile/* ~/.mozilla/firefox/*.default-release/
+  cp -r $CONFIGNOSTOWFOLDER/firefoxProfile/* ~/.mozilla/firefox/*.default-release/
 }
 
 function addConfigs { 
@@ -545,15 +550,12 @@ function setUpManually {
 
 function fixWifi {
     #different names for wifi modules
-    if [[ "$CPU" == "Intel" ]]; then
-      sudo cp ~/saveFolder/services/fixwifiintel.service /etc/systemd/system/fixwifi.service
-    fi
-    if [[ "$CPU" == "AMD" ]]; then
-      sudo cp ~/saveFolder/services/fixwifiamd.service /etc/systemd/system/fixwifi.service
-    fi
+    WIFIMODULE=$(ls /sys/class/net | grep '^w' ) #wlp4s0 for intel, wlo1 for AMD
+
+    sudo cp ~/saveFolder/servicesSystemD/fixwifi@.service /etc/systemd/system/fixwifi@.service
     sudo systemctl daemon-reload
-    sudo systemctl enable fixwifi.service
-    sudo cp ~/saveFolder/netctlProfiles/* /etc/netctl
+    sudo systemctl enable fixwifi@$WIFIMODULE.service
+    sudo cp $CONFIGNOSTOWFOLDER/netctl/netctlProfiles/* /etc/netctl
 }
 
 function lidCloseLock {
@@ -663,7 +665,7 @@ function main {
     setUdevRules
     disableWebcam
     allowChangeCapsLockLED
-    sh ~/saveFolder/setupScripts.sh
+    sh ~/saveFolder/installArch/setupScripts.sh
     if [[ "$CPU" == "AMD" ]]; then
       fixAudioAMD
     fi
@@ -675,7 +677,6 @@ function main {
 }
 #main
 #setUpMFC
-installIJCommunity
 #installAndroidStudio
 #setUpDCP
 #setUpMFC
@@ -687,3 +688,4 @@ installIJCommunity
 #enableBatteryConservationModeIdeapad
 #fixScreenTearingAndAMDDockingStation
 #installAndroidStudio
+#fixWifi
