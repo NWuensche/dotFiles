@@ -675,7 +675,7 @@ function main {
 }
 #main
 #setUpMFC
-#installIJCommunity
+installIJCommunity
 #installAndroidStudio
 #setUpDCP
 #setUpMFC
@@ -684,6 +684,6 @@ function main {
 #enableBatteryConservationModeIdeapad
 #fixAudioAMD
 #setUpPrinter
-enableBatteryConservationModeIdeapad
+#enableBatteryConservationModeIdeapad
 #fixScreenTearingAndAMDDockingStation
 #installAndroidStudio
