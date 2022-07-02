@@ -167,6 +167,7 @@ fileviewer *.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,
          \ mpv %f &
 filextype *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm imv %f &
 filetype *.tgz,*.zip,*.7z,*.rar,*.gz,*.bz2,*.xz extract %f
+filetype *.gpg gpg %f
 
 nmap `h :cd ~ <CR>
 nmap `d :cd ~/Downloads <CR>

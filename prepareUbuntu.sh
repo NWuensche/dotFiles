@@ -385,7 +385,7 @@ function moveConfigs {
     mkdir -p ~/.vim
     mkdir -p ~/.config/udiskie
     mkdir -p .local/share/applications #for xdg
-    ( cd $HOME/.dotFiles/stowConfigs; stow i3 wallpaper vim git terminal gpg programConfigs vifm podget X xdg -t $HOME )
+    ( cd $HOME/.dotFiles/stowConfigs; stow i3 wallpaper vim git terminal gpg programConfigs vifm X xdg -t $HOME )
     sh ~/saveFolder/installArch/doStowSaveFolder.sh
 
     sudo ln -s /home/nwuensche/.dotFiles/X/my_dvorak  /usr/share/X11/xkb/symbols/my_dvorak
@@ -554,7 +554,7 @@ function fixWifi {
 
     sudo cp ~/saveFolder/servicesSystemD/fixwifi@.service /etc/systemd/system/fixwifi@.service
     sudo systemctl daemon-reload
-    sudo systemctl enable fixwifi@$WIFIMODULE.service
+    sudo systemctl enable --now fixwifi@$WIFIMODULE.service
     sudo cp $CONFIGNOSTOWFOLDER/netctl/netctlProfiles/* /etc/netctl
 }
 
@@ -689,3 +689,4 @@ function main {
 #fixScreenTearingAndAMDDockingStation
 #installAndroidStudio
 #fixWifi
+addFirefoxProfile

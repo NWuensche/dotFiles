@@ -33,6 +33,10 @@ ARC="$1"
 [[ -f $ARC ]] || err $"'$ARC' does not exist"
 ARC="$(readlink -f "$ARC")"
 
+#basename ~/weg.gz .gz -> weg (so no folder and no extension)
+# Need this for .gz files (not .tar.gz.) because cannot change destination folder with gunzip, will always decompress in the folder of the origin file (not in the folder where I'm currently in)
+GZFileName=$(basename "$ARC" ".gz")
+
 
 cd "$TARGET"
 case "$ARC" in
@@ -41,7 +45,7 @@ case "$ARC" in
     *.tar.xz)     tar xf "$ARC"     ;;
     *.bz2)       bunzip2 "$ARC"     ;;
     *.rar)       unrar e "$ARC"     ;;
-    *.gz)        gunzip "$ARC"      ;;
+    *.gz)        gunzip -kc "$ARC" > "$GZFileName" ;;
     *.tar)       tar -xvf "$ARC"      ;;
     *.tbz2)      tar xjf "$ARC"     ;;
     *.tgz)       tar xzf "$ARC"     ;;

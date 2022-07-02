@@ -3,6 +3,7 @@
 LIST='Super Sparpreis Sommer-Aktion:
 10€ Rabatt mit dem Haribo Bahn-Gutschein
 9-Euro-Ticket:
+15€ Hugendubel Bahn-Gutschein
 35% Rabatt auf BahnCard 100
 Sparpreis Europa ab 13,90€
 Als Gruppe ab 8,90€ im ICE fahren
