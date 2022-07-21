@@ -609,7 +609,7 @@ function enableBatteryConservationModeIdeapad {
   isKernelModuleLoaded=$( lsmod | grep '^ideapad_laptop' || true )
 
   if [[ $isKernelModuleLoaded != "" ]]; then
-    sudo sh -c 'echo 1 >/sys/bus/platform/drivers/ideapad_acpi/VPC2004:00/conservation_mode'
+    sudo sh -c 'echo 0 >/sys/bus/platform/drivers/ideapad_acpi/VPC2004:00/conservation_mode'
   fi
 }
 
@@ -685,8 +685,8 @@ function main {
 #enableBatteryConservationModeIdeapad
 #fixAudioAMD
 #setUpPrinter
-#enableBatteryConservationModeIdeapad
+enableBatteryConservationModeIdeapad
 #fixScreenTearingAndAMDDockingStation
 #installAndroidStudio
 #fixWifi
-addFirefoxProfile
+#addFirefoxProfile
