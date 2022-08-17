@@ -3,7 +3,6 @@
 LIST='Super Sparpreis Sommer-Aktion:
 9-Euro-Ticket:
 10€ Rabatt mit dem Haribo Bahn-Gutschein
-Städtereise mit Bahn:
 15€ Hugendubel Bahn-Gutschein
 35% Rabatt auf BahnCard 100
 Sparpreis Europa ab 13,90€
@@ -11,7 +10,6 @@ Als Gruppe ab 8,90€ im ICE fahren
 Freifahrten, Bahn-Gutscheine &amp; kostenlose BahnCard
 Nachtzug-Tickets ab 29,90€
 Flixtrain-Tickets ab 4,99€:
-Für alle über 64:
 BahnCard-Angebot:
 TGV, Thalys und Eurostar:
 Bahn-Shop: Alles rund um die Bahn'

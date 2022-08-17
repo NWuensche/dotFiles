@@ -96,6 +96,8 @@ Plugin 'SirVer/ultisnips'
 "Plugin 'udalov/kotlin-vim'
 "Dart Lang syntax
 "Plugin 'dart-lang/dart-vim-plugin'
+"Tmux jump to already open file
+Plugin 'gioele/vim-autoswap'
 "	------- PLUGINS END ------- "
 
 call vundle#end()
@@ -184,3 +186,7 @@ nnoremap <C-a> <nop>
 inoremap <C-a> <nop>
 
 let g:netrw_browsex_viewer='/home/nwuensche/.dotFiles/scripts/firefoxVim.sh'
+
+"For vim-autoswap
+let g:autoswap_detect_tmux = 1
+set title titlestring=

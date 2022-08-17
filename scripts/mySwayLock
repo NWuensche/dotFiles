@@ -17,7 +17,8 @@ function isAudioRunning {
 }
 
 function isVideoOn {
-  RUNNING=$( swaymsg -t get_tree | jq -r '..|try select(.focused == true) | ."window_properties"."title"'  | sed -n -r '/(prime video|games done quick|gamesDoneQuick|youtube|ted|zdfmediathek|kyoto university opencourseware|media.ccc.de|rC3|ARD Mediathek|Invidious|Jitsi|Teams|Meeting|Zoom|Phoenix).*(Wright|Firefox|Chromium|Browser)/Ip' )
+#  RUNNING=$( swaymsg -t get_tree | jq -r '..|try select(.focused == true) | ."window_properties"."title"'  | sed -n -r '/(prime video|games done quick|gamesDoneQuick|youtube|ted|zdfmediathek|kyoto university opencourseware|media.ccc.de|rC3|ARD Mediathek|Invidious|Jitsi|Teams|Meeting|Zoom|Phoenix).*(Wright|Firefox|Chromium|Browser)/Ip' )
+  RUNNING=$( swaymsg -t get_tree | jq -r '..|try select(.focused == true) | ."name"'  | sed -n -r '/(prime video|games done quick|gamesDoneQuick|youtube|ted|zdfmediathek|kyoto university opencourseware|media.ccc.de|rC3|ARD Mediathek|Invidious|Jitsi|Teams|Meeting|Zoom|Phoenix).*(Wright|Firefox|Chromium|Browser)/Ip' )
 
   #Some video is running
   if [[ "$RUNNING" != "" ]]; then

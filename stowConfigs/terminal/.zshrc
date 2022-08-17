@@ -11,6 +11,7 @@ xset b off #Disable beep sound for urxvt (and terminals in general)
 #Enable Wayland for firefox
 export MOZ_WEBRENDER=1
 export MOZ_ENABLE_WAYLAND=1
+LESS=${LESS}i #Case insensitve
 
 export EDITOR
 ANDROID_HOME=/home/nwuensche/Android/Sdk
