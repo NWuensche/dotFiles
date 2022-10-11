@@ -162,7 +162,7 @@ function yayPackages {
     yay -S xf86-input-wacom xbindkeys --noconfirm #Wacom Tablet Tools
     yay -S ttf-liberation pango  --noconfirm #Fonts and Font Tools 
     yay -S alsa-utils pipewire-pulse pavucontrol pulsemixer easyeffects --noconfirm #Audio, pipewire better with bluetooth than pulseaudio
-    yay -S steam legendary sqlitebrowser calibre vlc mpv gimp audacity firefox chromium kdenlive libreoffice-fresh-de  evince xournalpp zathura zathura-pdf-poppler  --noconfirm #X Tools 
+    yay -S steam legendary sqlitebrowser calibre vlc mpv gimp audacity firefox chromium kdenlive libreoffice-fresh-de  evince xournalpp zathura zathura-pdf-poppler gnucash --noconfirm #X Tools 
     yay -S wine lib32-libpulse --noconfirm # Wine stuff
     yay -S redshift gparted arandr android-file-transfer simple-mtpfs dunst cheese  --noconfirm # X Support Tools 
     yay -S virtualbox virtualbox-host-modules-arch virtualbox-guest-iso  --noconfirm #Virtualbox 
@@ -385,7 +385,9 @@ function moveConfigs {
     mkdir -p ~/.vim
     mkdir -p ~/.config/udiskie
     mkdir -p .local/share/applications #for xdg
-    ( cd $HOME/.dotFiles/stowConfigs; stow i3 wallpaper vim git terminal gpg programConfigs vifm X xdg -t $HOME )
+    mkdir -p $HOME/.config/alacritty
+
+    ( cd $HOME/.dotFiles/stowConfigs; stow i3 wallpaper vim git terminal gpg programConfigs vifm X xdg alacritty -t $HOME )
     sh ~/saveFolder/installArch/doStowSaveFolder.sh
 
     sudo ln -s /home/nwuensche/.dotFiles/X/my_dvorak  /usr/share/X11/xkb/symbols/my_dvorak
@@ -609,7 +611,7 @@ function enableBatteryConservationModeIdeapad {
   isKernelModuleLoaded=$( lsmod | grep '^ideapad_laptop' || true )
 
   if [[ $isKernelModuleLoaded != "" ]]; then
-    sudo sh -c 'echo 0 >/sys/bus/platform/drivers/ideapad_acpi/VPC2004:00/conservation_mode'
+    sudo sh -c 'echo 1 >/sys/bus/platform/drivers/ideapad_acpi/VPC2004:00/conservation_mode'
   fi
 }
 
@@ -680,12 +682,12 @@ function main {
 #installAndroidStudio
 #setUpDCP
 #setUpMFC
-#installAndroidStudio
+installAndroidStudio
 #disableWebcam
 #enableBatteryConservationModeIdeapad
 #fixAudioAMD
 #setUpPrinter
-enableBatteryConservationModeIdeapad
+#enableBatteryConservationModeIdeapad
 #fixScreenTearingAndAMDDockingStation
 #installAndroidStudio
 #fixWifi
