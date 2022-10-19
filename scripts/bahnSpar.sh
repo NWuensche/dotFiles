@@ -1,6 +1,6 @@
 #!/bin/sh
 
-LIST='Buchungsstart für günstige Winter-Tickets am 12. Oktober
+LIST='Buchungsstart! Jetzt günstige Winter-Tickets sichern!
 Bis 7% Ersparnis beim Kauf von BahnCard + Bahntickets
 Nur für kurze Zeit: Super Sparpreis Senioren ab 12,40€
 BahnCard Business 25 mit 65% Rabatt sichern
