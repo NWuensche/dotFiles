@@ -682,12 +682,12 @@ function main {
 #installAndroidStudio
 #setUpDCP
 #setUpMFC
-installAndroidStudio
+#installAndroidStudio
 #disableWebcam
 #enableBatteryConservationModeIdeapad
 #fixAudioAMD
 #setUpPrinter
-#enableBatteryConservationModeIdeapad
+enableBatteryConservationModeIdeapad
 #fixScreenTearingAndAMDDockingStation
 #installAndroidStudio
 #fixWifi
