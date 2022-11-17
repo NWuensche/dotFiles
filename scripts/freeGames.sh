@@ -1,8 +1,8 @@
-GAME="Evoland"
+GAME="Alba"
 set -e # to stop on failing ping
 #Does not include HB
 freeEpicUPlayOriginHB () {
-FREE=$(curl -s 'https://www.gamerpower.com/giveaways/pc/free-games' \
+FREE=$(curl -s 'https:/www.gamerpower.com/giveaways/pc/free-games' \
   -H 'authority: www.gamerpower.com' \
   -H 'cache-control: max-age=0' \
   -H 'dnt: 1' \

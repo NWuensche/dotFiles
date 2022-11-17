@@ -1,16 +1,16 @@
 #!/bin/sh
 
-LIST='Buchungsstart! Jetzt günstige Winter-Tickets sichern!
-Bis 7% Ersparnis beim Kauf von BahnCard + Bahntickets
+LIST='Bis 7% Ersparnis beim Kauf von BahnCard + Bahntickets
 Nur für kurze Zeit: Super Sparpreis Senioren ab 12,40€
+Städtereise buchen und 10€ Sofort-Rabatt aufs Bahnticket sichern
+3-fach BahnBonus Punkte kassieren mit HRS-Hotelbuchung
 BahnCard Business 25 mit 65% Rabatt sichern
-15€ Rabatt für BahnCard-Kauf (nur für Niedersachen / Hamburg / Bremen)
 ICE-Tickets
 Sparpreis Europa ab 13,90€
 Als Gruppe ab 8,90€ im ICE fahren
 Freifahrten, Bahn-Gutscheine &amp; kostenlose BahnCard
 Nachtzug-Tickets ab 29,90€
-Flixtrain-Tickets ab 4,99€:
+Flixtrain-Tickets ab 4,99€
 BahnCard-Angebot:
 TGV, Thalys und Eurostar:
 Bahn-Shop: Alles rund um die Bahn'
