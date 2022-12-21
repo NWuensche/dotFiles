@@ -190,3 +190,9 @@ let g:netrw_browsex_viewer='/home/nwuensche/.dotFiles/scripts/firefoxVim.sh'
 "For vim-autoswap
 let g:autoswap_detect_tmux = 1
 set title titlestring=
+
+" Don't auto jump when entering search word (Fedora)
+set noincsearch
+
+" Otherwise, .md Files will ignore tabstop=2 and just use tabstop=4 (Fedora)
+let g:markdown_recommnded_style=0

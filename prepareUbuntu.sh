@@ -174,6 +174,7 @@ function yayPackages {
     yay -S lutris lib32-gnutls lib32-libpulse --noconfirm #lutris + programs for epic store TODO If still no sound, do https://www.reddit.com/r/wine_gaming/comments/7qm8wp/for_anyone_with_sound_issues_on_grand_theft_auto/
     yay -S libstdc++5 --noconfirm #needed for cups/printer
     yay -S ifplugd --noconfirm #LAN
+    yay -S ltunify --noconfirm #Wireless Keyboard
 
 
 
@@ -547,6 +548,7 @@ function setUpManually {
     echo "Remove install-scripts in /root/"
     echo "Check all important folders from Documents copied"
     echo "Clear USB-Stick"
+    echo "ltunify: Connect Keyboard"
 }
 
 
