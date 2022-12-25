@@ -152,7 +152,7 @@ function yayPackages {
 
     yay -S gvim vim-spell-de vim-spell-en --noconfirm #Vim 
     yay -S xorg-xeyes sway swaylock swayidle bemenu-wayland wl-clipboard wdisplay wlr-randr grim slurp gammastep imv #wayland/sway stuff (grim+slurp = scrot, imv =feh)
-    yay -S bluez-utils bluez --noconfirm #Bluetooth
+    yay -S bluez-utils bluez bluetuith --noconfirm #Bluetooth
     yay -S xdotool ydotool expect --noconfirm # Automation Tools
     yay -S tmux rxvt-unicode xterm alacritty zsh  --noconfirm #Terminator Environment 
     yay -S zip unzip trash-cli curl mitmproxy wget ack progress htop offlineimap neomutt vifm feh pdfgrep pdftk calcurse w3m mplayer irssi docker stow perl-image-exiftool --noconfirm #Terminal Tools 
@@ -613,7 +613,7 @@ function enableBatteryConservationModeIdeapad {
   isKernelModuleLoaded=$( lsmod | grep '^ideapad_laptop' || true )
 
   if [[ $isKernelModuleLoaded != "" ]]; then
-    sudo sh -c 'echo 1 >/sys/bus/platform/drivers/ideapad_acpi/VPC2004:00/conservation_mode'
+    sudo sh -c 'echo 0 >/sys/bus/platform/drivers/ideapad_acpi/VPC2004:00/conservation_mode'
   fi
 }
 

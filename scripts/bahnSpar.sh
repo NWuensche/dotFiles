@@ -2,7 +2,7 @@
 
 LIST='ICE-Tickets
 BahnCard-Angebot:
-50€ Rabatt auf Bahn &amp; Hotel Städtereisen sichern
+10% Rabatt auf Interrail-Tickets
 Sparpreis Europa ab 13,90€
 Als Gruppe ab 8,90€ im ICE fahren
 Freifahrten, Bahn-Gutscheine &amp; kostenlose BahnCard
