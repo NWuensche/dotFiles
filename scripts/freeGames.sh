@@ -1,8 +1,8 @@
-GAME="t Lig"
+GAME="ze th"
 set -e # to stop on failing ping
 #Does not include HB
 freeEpicUPlayOriginHB () {
-FREE=$(curl -s 'https://www.gamerpower.com/giveaways/pc/free-games' \
+FREE=$(curl -s -L 'http://www.gamerpower.com/giveaways/pc/free-games' \
   -H 'authority: www.gamerpower.com' \
   -H 'cache-control: max-age=0' \
   -H 'dnt: 1' \
@@ -20,6 +20,7 @@ FREE=$(curl -s 'https://www.gamerpower.com/giveaways/pc/free-games' \
     notify-send "Some Free Game";
     echo "Some Free Game";
   fi
+
 
 }
 
