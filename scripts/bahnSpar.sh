@@ -1,8 +1,8 @@
 #!/bin/sh
 
-LIST='Sparpreis-Aktion 2023: ICE-Ticket ab 9,65€
-Januar-Rabattaktion: Ab 19€ nach Frankreich &amp; London
-Frühbuchervorteile sichern für Bahn &amp; Hotel Städtereisen 2023
+LIST='Nur für kurze Zeit:
+Sparpreis-Aktion 2023: ICE-Ticket ab 9,65€
+15 % Frühbucherrabatt sichern: Bahn + Hotel ab 83€
 BahnCard-Angebot:
 Sparpreis Europa ab 13,90€
 Als Gruppe ab 8,90€ im ICE fahren
