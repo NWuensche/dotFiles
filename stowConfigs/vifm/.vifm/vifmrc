@@ -171,7 +171,7 @@ filetype *.gpg gpg %f
 
 nmap `h :cd ~ <CR>
 nmap `d :cd ~/Downloads <CR>
-nmap `m :cd /run/media/nwuensche <CR>
+nmap `m :cd /media <CR>
 nmap `q :cd ~/Dokumente/Dresden2021 <CR>
 
 "Dont increase number when pressing TMUX twice
