@@ -150,6 +150,7 @@ function yayPackages {
       sudo usermod -a -G video nwuensche
     fi
 
+    yay -S linux-lts --noconfirm #If normal kernel breaks
     yay -S gvim vim-spell-de vim-spell-en --noconfirm #Vim 
     yay -S xorg-xeyes sway swaylock swayidle bemenu-wayland wl-clipboard wdisplay wlr-randr grim slurp gammastep imv #wayland/sway stuff (grim+slurp = scrot, imv =feh)
     yay -S bluez-utils bluez bluetuith --noconfirm #Bluetooth
@@ -174,6 +175,7 @@ function yayPackages {
     yay -S lutris lib32-gnutls lib32-libpulse --noconfirm #lutris + programs for epic store TODO If still no sound, do https://www.reddit.com/r/wine_gaming/comments/7qm8wp/for_anyone_with_sound_issues_on_grand_theft_auto/
     yay -S libstdc++5 --noconfirm #needed for cups/printer
     yay -S ifplugd --noconfirm #LAN
+    yay -S libdvdcss --noconfirm #VLC Extension read DRM-DVDs
     yay -S ltunify --noconfirm #Wireless Keyboard
 
 
@@ -681,7 +683,7 @@ function main {
 }
 #main
 #setUpMFC
-#installAndroidStudio
+installAndroidStudio
 #setUpDCP
 #setUpMFC
 #installAndroidStudio
