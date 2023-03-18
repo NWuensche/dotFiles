@@ -1,6 +1,7 @@
 #!/bin/sh
 
-LIST='Sparpreis-Aktion 2023: ICE-Ticket ab 9,65€
+LIST='Bahn Bonus Extra-Aktion: Viele zusätzliche Sparpreis-Tickets ab 9,65€
+Sparpreis-Aktion 2023: ICE-Ticket ab 9,65€
 BahnCard-Angebot:
 Sparpreis Europa ab 13,90€
 Als Gruppe ab 8,90€ im ICE fahren
