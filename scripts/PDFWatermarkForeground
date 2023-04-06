@@ -42,5 +42,19 @@ draft-copy showpage
 !
 }
 
+#Same as `PDFNoCopyText` in zshrc alias, but cannot call aliases in script
+#$1=INPDF
+#$2=OUTPDF
+#Already indirectly checked before that $1 is present and $2 is not
+function DontAllowCopyTextPDF() {
+  gs -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dNoOutputFonts -sOutputFile=$2 $1
+}
 
-getWatermarkPDF | pdftk $INPUTFILE stamp - output $OUTPUTFILE
+
+
+TMPWATERMARK=$(mktemp)
+TMPCOPYPROTECT=$(mktemp)
+getWatermarkPDF | pdftk $INPUTFILE stamp - output $TMPWATERMARK
+pdftoppm -jpeg -r 300 -singlefile $TMPWATERMARK $TMPCOPYPROTECT #pdfppm much better quality than convert + Need step through jpeg, because otherwise in PDF censor box is only overlay, which one can take away, 
+convert $TMPCOPYPROTECT.jpg $OUTPUTFILE #pdftoppm adds own .jpg (even when I add it before
+

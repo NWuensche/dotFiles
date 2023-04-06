@@ -683,7 +683,7 @@ function main {
 }
 #main
 #setUpMFC
-installAndroidStudio
+#installAndroidStudio
 #setUpDCP
 #setUpMFC
 #installAndroidStudio

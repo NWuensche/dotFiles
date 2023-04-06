@@ -1,10 +1,15 @@
 #!/bin/sh
 
-LIST='Bahn Bonus Extra-Aktion: Viele zusätzliche Sparpreis-Tickets ab 9,65€
-Sparpreis-Aktion 2023: ICE-Ticket ab 9,65€
+LIST='Deutschlandticket: Vorverkauf gestartet!
+20% Rabatt auf Sparpreis-Tickets
+12% Rabatt auf Tickets für Nachtzug &amp; nach Europa!
+DB Guthabenkarte: 13% Rabatt bei Rewe
+Günstige ICE-Tickets ab 9,65€ buchen
 BahnCard-Angebot:
 Sparpreis Europa ab 13,90€
 Als Gruppe ab 8,90€ im ICE fahren
+Für alle unter 27: Super Sparpreis Young
+Für alle ab 65: Super Sparpreis Senioren
 Freifahrten, Bahn-Gutscheine &amp; kostenlose BahnCard
 Nachtzug-Tickets ab 29,90€
 Flixtrain-Tickets ab 4,99€
@@ -19,7 +24,7 @@ ping -q -W 2 8.8.8.8 -c 2 #Check Connection
 #Old Articles from 2019 in when they get updated for some reason - NEWLIST=$(curl -s https://www.bahndampf.de/angebote | sed -n 's/.*<h3[^_]*_self">\([^<]*\)<.*/\1/p' | perl -CSDA -plE 's/\s/ /g' | sed -e 's/[[:space:]]*$//')
 #sed tbody because bahn has this table twice, but we only want one of them
 #NEWLIST=$(curl -s https://www.bahndampf.de/angebote | sed -n '0,/\/tbody/p' |  sed -n 's/.*<td width="20%"><strong>\([^<]*\)\($\|<.*\)/\1/p' | perl -CSDA -plE 's/\s/ /g' | sed -e 's/[[:space:]]*$//')
-NEWLIST=$(curl -s https://www.bahndampf.de/angebote | sed -n 's/.*<td width="20%"><strong>\([^<]*\)\($\|<.*\)/\1/p' | perl -CSDA -plE 's/\s/ /g' | sed -e 's/[[:space:]]*$//')
+NEWLIST=$(curl -s https://www.bahndampf.de/angebote | sed -n 's/.*<td width="20%">\(<strong><b>\|<b>\|<strong>\)\([^<]*\)\($\|<.*\)/\2/p' | perl -CSDA -plE 's/\s/ /g' | sed -e 's/[[:space:]]*$//') #order in or important, will greeedly take first one (not "largest one"
 
 if [[ "$LIST" != "$NEWLIST" ]]; then #Sometimes with only one wrong
   notify-send "Bahn Rabatt New Stuff"
