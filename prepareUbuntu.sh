@@ -152,7 +152,7 @@ function yayPackages {
 
     yay -S linux-lts --noconfirm #If normal kernel breaks
     yay -S gvim vim-spell-de vim-spell-en --noconfirm #Vim 
-    yay -S xorg-xeyes sway swaylock swayidle bemenu-wayland wl-clipboard wdisplay wlr-randr grim slurp gammastep imv #wayland/sway stuff (grim+slurp = scrot, imv =feh)
+    yay -S xorg-xeyes sway swaylock swayidle bemenu-wayland wl-clipboard wf-recorder wl-mirror wdisplay wlr-randr grim slurp gammastep imv #wayland/sway stuff (grim+slurp = scrot, imv =feh)
     yay -S bluez-utils bluez bluetuith --noconfirm #Bluetooth
     yay -S xdotool ydotool expect --noconfirm # Automation Tools
     yay -S tmux rxvt-unicode xterm alacritty zsh  --noconfirm #Terminator Environment 

@@ -22,7 +22,7 @@ export MAVEN_OPTS
 export PATH=$PATH:/home/nwuensche/Android/Sdk/emulator:/home/nwuensche/Android/Sdk/tools:/home/nwuensche/Android/Sdk/platform-tools:~/.nix-profile/bin:~/.local/bin:~/.cabal/bin:~/saveFolder/privateScripts:~/.dotFiles/scripts:/home/nwuensche/.gem/ruby/2.6.0/bin
 export PATH=$PATH:/usr/lib/python3.7/site-packages
 
-export HISTORY_IGNORE='(pass *|getIt *|shred *)'
+export HISTORY_IGNORE='(pass *|getIt *|getit *|shred *)'
 
 export MESA_SHADER_CACHE_DISABLE=true #Fix Bug Chrome
 

@@ -105,7 +105,7 @@ bindsym $mod+f fullscreen toggle
 bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+#bindsym $mod+space focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
@@ -282,6 +282,9 @@ exec_always /home/nwuensche/.dotFiles/scripts/setupMonitorSway
 bindsym $mod+Shift+w exec wlr-randr --output eDP-1 --on --pos 1920\,0
 bindsym $mod+Shift+s exec wlr-randr --output eDP-1 --off
 
+#Fix error that when laptop taken from doc while closed and suspended, and then opened, then no monitor visible https://github.com/swaywm/sway/issues/6072
+bindswitch --reload --locked lid:off exec wlr-randr --output eDP-1 --on --pos 1920\,0
+
 #exec /home/nwuensche/saveFolder/privateScripts/startVPN &
 
 #exec xbindkeys #Activate button mapping Wacom tablet
@@ -302,8 +305,10 @@ exec alacritty -e  env TERM=screen-256color zsh -c  'tmux attach || tmux'
 exec_always sh -c "sleep 1; /home/nwuensche/.dotFiles/scripts/toggleMicrophoneAndLED" #Micro off, does not work without sleep
 
 #dunst 
-bindsym ctrl+space exec dunstctl close
+#bindsym ctrl+space exec dunstctl close
+bindsym $mod+space exec dunstctl close
 
 exec /usr/lib/geoclue-2.0/demos/agent & #Else Gammastep error
 exec gammastep -l 55.7:12.6 -t 5700:3600 -g 0.8  &
 exec sh /home/nwuensche/saveFolder/privateScripts/killmedia.sh &
+

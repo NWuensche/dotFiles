@@ -1,11 +1,9 @@
 #!/bin/sh
 
-LIST='Deutschlandticket: Vorverkauf gestartet!
-20% Rabatt auf Sparpreis-Tickets
-12% Rabatt auf Tickets für Nachtzug &amp; nach Europa!
-DB Guthabenkarte: 13% Rabatt bei Rewe
-Günstige ICE-Tickets ab 9,65€ buchen
+LIST='20% Rabatt auf Sparpreis-Tickets
+Deutschlandticket: Für 1,63€ pro Tag bundesweit unterwegs
 BahnCard-Angebot:
+Günstige ICE-Tickets ab 9,65€ buchen
 Sparpreis Europa ab 13,90€
 Als Gruppe ab 8,90€ im ICE fahren
 Für alle unter 27: Super Sparpreis Young
