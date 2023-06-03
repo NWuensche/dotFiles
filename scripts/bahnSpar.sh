@@ -1,8 +1,9 @@
 #!/bin/sh
 
 LIST='20% Rabatt auf Sparpreis-Tickets
+BahnCard 25 mit 10,90€ Rabatt buchen
+Bis zu 30% Rabatt auf BahnCard 100 für junge Leute und Senioren
 Deutschlandticket: Für 1,63€ pro Tag bundesweit unterwegs
-BahnCard-Angebot:
 Günstige ICE-Tickets ab 9,65€ buchen
 Sparpreis Europa ab 13,90€
 Als Gruppe ab 8,90€ im ICE fahren
@@ -10,6 +11,7 @@ Für alle unter 27: Super Sparpreis Young
 Für alle ab 65: Super Sparpreis Senioren
 Freifahrten, Bahn-Gutscheine &amp; kostenlose BahnCard
 Nachtzug-Tickets ab 29,90€
+BahnCard-Angebot:
 Flixtrain-Tickets ab 4,99€
 TGV, Thalys und Eurostar:
 Bahn-Shop: Alles rund um die Bahn'

@@ -177,6 +177,7 @@ function yayPackages {
     yay -S ifplugd --noconfirm #LAN
     yay -S libdvdcss --noconfirm #VLC Extension read DRM-DVDs
     yay -S ltunify --noconfirm #Wireless Keyboard
+    yay -S obs wlrobs --noconfirm #obs + screen recording wayland
 
 
 
