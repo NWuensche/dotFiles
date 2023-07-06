@@ -1,4 +1,4 @@
-GAME="Tell Me Why"
+GAME="t Fo"
 set -e # to stop on failing ping
 #Does not include HB
 freeEpicUPlayOriginHB () {
@@ -15,10 +15,10 @@ FREE=$(curl -s -L 'http://www.gamerpower.com/giveaways/pc/free-games' \
   -H 'sec-fetch-dest: document' \
   -H 'accept-language: de-DE,de;q=0.9,en-US;q=0.8,en;q=0.7' \
   --compressed \
-  |  tr '<' '\n' |  sed -n 's/.*p class="card-text truncate2 text-muted mb-2 mt-1">\(.*\)/\1/p' | grep -iv 'Black Desert Online' | grep -iv 'Microsoft Store' |  grep -iv 'Opera Gx' | grep -iv 'Indiegaka' | grep -iv 'Indieg' | grep -iv 'Indiegala' | grep -iv 'Indie Gala' | grep -iv 'itchio' | grep -iv 'itch.io' | grep -iv 'itchi.o' | head -n 1 | sed -n "/$GAME/p" ) #INFO Don't show anything from Indiegala or itchio
+  | tr '<' '\n' | grep 'thumbnail.*alt' | grep -iv 'Black Desert Online' | grep -iv 'Microsoft Store' |  grep -iv 'Opera Gx' | grep -iv 'Indiegaka' | grep -iv 'Indieg' | grep -iv 'Indiegala' | grep -iv 'Indie Gala' | grep -iv 'itchio' | grep -iv 'itch.io' | grep -iv 'itchi.o' | head -n 1 | sed -n "/$GAME/p" ) #INFO Don't show anything from Indiegala or itchio
   if [[ "$FREE" == "" ]] ; then
     notify-send "Some Free Game";
-    echo "Some Free Game";
+    echo "Some Free Game"
   fi
 
 

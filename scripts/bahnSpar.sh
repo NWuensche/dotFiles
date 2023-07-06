@@ -1,8 +1,10 @@
 #!/bin/sh
 
-LIST='20% Rabatt auf Sparpreis-Tickets
-BahnCard 25 mit 10,90€ Rabatt buchen
-Bis zu 30% Rabatt auf BahnCard 100 für junge Leute und Senioren
+LIST='Sparpreis-Aktion!
+15€ Nivea Bahn-Gutschein holen
+Bahnticket 1. Klasse für nur 39€ für Bahn &amp; Hotel Städtereisen
+Fahrrad verschicken mit dem DB Gepäckservice: 29,90€ statt 49,90€
+30% Rabatt: BahnCard 100 für nur 249€ pro Monat
 Deutschlandticket: Für 1,63€ pro Tag bundesweit unterwegs
 Günstige ICE-Tickets ab 9,65€ buchen
 Sparpreis Europa ab 13,90€
