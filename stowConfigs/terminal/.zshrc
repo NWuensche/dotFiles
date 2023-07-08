@@ -7,6 +7,7 @@ ZSH_THEME="agnoster"
 EDITOR=vim
 
 xset b off #Disable beep sound for urxvt (and terminals in general)
+xhost +SI:localuser:root > /dev/null #Needed for gparted to work under wayland
 
 #Enable Wayland for firefox
 export MOZ_WEBRENDER=1

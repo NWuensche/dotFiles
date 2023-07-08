@@ -1,12 +1,11 @@
 #!/bin/sh
 
-LIST='Sparpreis-Aktion!
-15€ Nivea Bahn-Gutschein holen
+LIST='Günstige ICE-Tickets ab 9,65€ buchen
+10% Rabatt auf DB Geschenkkarte bei Penny
 Bahnticket 1. Klasse für nur 39€ für Bahn &amp; Hotel Städtereisen
 Fahrrad verschicken mit dem DB Gepäckservice: 29,90€ statt 49,90€
 30% Rabatt: BahnCard 100 für nur 249€ pro Monat
 Deutschlandticket: Für 1,63€ pro Tag bundesweit unterwegs
-Günstige ICE-Tickets ab 9,65€ buchen
 Sparpreis Europa ab 13,90€
 Als Gruppe ab 8,90€ im ICE fahren
 Für alle unter 27: Super Sparpreis Young
