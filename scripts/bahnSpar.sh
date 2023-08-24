@@ -1,7 +1,7 @@
 #!/bin/sh
 
-LIST='Günstige ICE-Tickets ab 9,65€ buchen
-10% Rabatt auf DB Geschenkkarte bei Penny
+LIST='8% Rabatt auf Bahntickets sichern!
+Günstige ICE-Tickets ab 9,65€ buchen
 Bahnticket 1. Klasse für nur 39€ für Bahn &amp; Hotel Städtereisen
 Fahrrad verschicken mit dem DB Gepäckservice: 29,90€ statt 49,90€
 30% Rabatt: BahnCard 100 für nur 249€ pro Monat
