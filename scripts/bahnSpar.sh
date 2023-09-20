@@ -1,10 +1,8 @@
 #!/bin/sh
 
-LIST='8% Rabatt auf Bahntickets sichern!
-Günstige ICE-Tickets ab 9,65€ buchen
-Bahnticket 1. Klasse für nur 39€ für Bahn &amp; Hotel Städtereisen
-Fahrrad verschicken mit dem DB Gepäckservice: 29,90€ statt 49,90€
+LIST='Sparpreis-Alarm!
 30% Rabatt: BahnCard 100 für nur 249€ pro Monat
+Günstige ICE-Tickets ab 9,65€ buchen
 Deutschlandticket: Für 1,63€ pro Tag bundesweit unterwegs
 Sparpreis Europa ab 13,90€
 Als Gruppe ab 8,90€ im ICE fahren

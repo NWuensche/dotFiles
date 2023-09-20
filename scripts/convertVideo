@@ -1,0 +1,8 @@
+#!/bin/sh
+
+set -e
+
+FILE="$1"
+FILENAME=$(echo "$FILE" | basename "$FILE" .mp4) #without extension
+
+ffmpeg -i "$FILE" "$FILENAME".webm
