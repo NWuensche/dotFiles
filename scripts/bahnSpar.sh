@@ -1,8 +1,9 @@
 #!/bin/sh
 
-LIST='Sparpreis-Alarm!
-30% Rabatt: BahnCard 100 für nur 249€ pro Monat
-Günstige ICE-Tickets ab 9,65€ buchen
+LIST='Buchungsstart für Winter-Reisen:
+BahnCard 25 Aktion: Fast 50% Rabatt im Oktober 2023
+Flexpreis Aktion: Spar-Ticket für Reisen ohne Zugbindung
+Sparpreis-Alarm!
 Deutschlandticket: Für 1,63€ pro Tag bundesweit unterwegs
 Sparpreis Europa ab 13,90€
 Als Gruppe ab 8,90€ im ICE fahren
