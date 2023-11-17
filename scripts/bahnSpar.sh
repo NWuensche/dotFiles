@@ -1,10 +1,10 @@
 #!/bin/sh
 
-LIST='Buchungsstart für Winter-Reisen:
-BahnCard 25 Aktion: Fast 50% Rabatt im Oktober 2023
+LIST='Sparpreis-Hammer!
+Jetzt BahnCard buchen und 5% sparen!
+20% Friends-Rabatt auf ICE-Tickets sichern!
+20% Rabatt für Flixtrain / Flixbus
 Flexpreis Aktion: Spar-Ticket für Reisen ohne Zugbindung
-Sparpreis-Alarm!
-Deutschlandticket: Für 1,63€ pro Tag bundesweit unterwegs
 Sparpreis Europa ab 13,90€
 Als Gruppe ab 8,90€ im ICE fahren
 Für alle unter 27: Super Sparpreis Young
@@ -13,7 +13,7 @@ Freifahrten, Bahn-Gutscheine &amp; kostenlose BahnCard
 Nachtzug-Tickets ab 29,90€
 BahnCard-Angebot:
 Flixtrain-Tickets ab 4,99€
-TGV, Thalys und Eurostar:
+TGV, Eurostar &amp; Co.:
 Bahn-Shop: Alles rund um die Bahn'
 
 set -e # to stop on failing ping
