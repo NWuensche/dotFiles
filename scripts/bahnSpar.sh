@@ -1,9 +1,7 @@
 #!/bin/sh
 
 LIST='Sparpreis-Hammer!
-Jetzt BahnCard buchen und 5% sparen!
 20% Friends-Rabatt auf ICE-Tickets sichern!
-20% Rabatt für Flixtrain / Flixbus
 Flexpreis Aktion: Spar-Ticket für Reisen ohne Zugbindung
 Sparpreis Europa ab 13,90€
 Als Gruppe ab 8,90€ im ICE fahren

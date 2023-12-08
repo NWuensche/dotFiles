@@ -26,7 +26,7 @@
 	rebase = true
 [merge]
 	ff = false
-[url "git@github.com:"]
-  insteadOf = https://github.com/
+#Slows arch installation [url "git@github.com:"]
+#  insteadOf = https://github.com/
 [init]
 	defaultBranch = main

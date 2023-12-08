@@ -39,6 +39,7 @@ alias feh='feh --auto-rotate'
 alias screenshotXVFB="DISPLAY=:19 import -window root /tmp/screenshot.png; feh /tmp/screenshot.png"
 alias android-file-transfer="aft-mtp-cli"
 alias git='hub'
+alias cao='copyAndOpen'
 source $ZSH/oh-my-zsh.sh
 
 alias -s sh=sh

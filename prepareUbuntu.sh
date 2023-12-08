@@ -127,62 +127,62 @@ function installAndroidStudio {
 
 function yayPackages {
     sudo pacman -Syu --noconfirm
-    git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si  --noconfirm && cd ~ && rm -rf yay #Install yay
+    git clone https://aur.archlinux.org/yay-bin.git yay && cd yay && makepkg -si  --noconfirm && cd ~ && rm -rf yay #Install yay
     sudo yay -Syu --noconfirm
     sudo killall dirmngr || true #Else key import for tomb does not work
-    yay -Rs vim --noconfirm || true #will conflict to gvim, thus when installed for debugging, we have to remove it
-    yay -S ruby jdk-openjdk maven python3 gradle python-pip git hub --noconfirm #Programming
-    yay -Rs acpilight --noconfirm || true #Just for sanity, when I restart script here, xorg would complain otherwise
-    yay -S xorg xorg-xinit lightdm lightdm-gtk-greeter accountsservice i3-wm dmenu i3status i3lock plymouth --noconfirm #UI, accountsservice fixed lightdm warning, plymouth necessary for lightdm on AMD, xorg-xinit for startx
+    yay -Rs vim --noconfirm --needed || true #will conflict to gvim, thus when installed for debugging, we have to remove it
+    yay -S ruby jdk-openjdk maven python3 gradle python-pip git hub --noconfirm --needed #Programming
+    yay -Rs acpilight --noconfirm --needed || true #Just for sanity, when I restart script here, xorg would complain otherwise
+    yay -S xorg xorg-xinit lightdm lightdm-gtk-greeter accountsservice i3-wm dmenu i3status i3lock plymouth --noconfirm --needed #UI, accountsservice fixed lightdm warning, plymouth necessary for lightdm on AMD, xorg-xinit for startx
 
     #Makes problems when I install wrong one
     if [[ "$CPU" == "Intel" ]]; then
-      yay -S xf86-video-intel --noconfirm
-      yay -S intel-ucode --noconfirm #Will be enabled automatically when running grub-mkconfig next time
+      yay -S xf86-video-intel --noconfirm --needed
+      yay -S intel-ucode --noconfirm --needed #Will be enabled automatically when running grub-mkconfig next time
     fi
     if [[ "$CPU" == "AMD" ]]; then
-      yay -S xf86-video-amdgpu --noconfirm
-      yay -S amd-ucode --noconfirm #Will be enabled automatically when running grub-mkconfig next time
+      yay -S xf86-video-amdgpu --noconfirm --needed
+      yay -S amd-ucode --noconfirm --needed #Will be enabled automatically when running grub-mkconfig next time
 
       #Fix backlight adjustment
-      yay -Rs xorg-xbacklight --noconfirm || true
-      yay -S acpilight --noconfirm
+      yay -Rs xorg-xbacklight --noconfirm --needed || true
+      yay -S acpilight --noconfirm --needed
       sudo usermod -a -G video nwuensche
     fi
 
-    yay -S linux-lts --noconfirm #If normal kernel breaks
-    yay -S gvim vim-spell-de vim-spell-en --noconfirm #Vim 
-    yay -S xorg-xeyes sway swaylock swayidle bemenu-wayland wl-clipboard wf-recorder wl-mirror wdisplay wlr-randr grim slurp gammastep imv #wayland/sway stuff (grim+slurp = scrot, imv =feh)
-    yay -S bluez-utils bluez bluetuith --noconfirm #Bluetooth
-    yay -S xdotool ydotool expect --noconfirm # Automation Tools
-    yay -S tmux rxvt-unicode xterm alacritty zsh  --noconfirm #Terminator Environment 
-    yay -S zip unzip trash-cli curl mitmproxy wget ack progress htop offlineimap neomutt vifm feh pdfgrep pdftk python-pypdf calcurse w3m mplayer irssi docker stow perl-image-exiftool --noconfirm #Terminal Tools 
-    yay -S powertop python-selenium geckodriver jq rsync pwgen xclip ffmpeg xss-lock xautolock scrot udiskie	exfat-utils ntfs-3g unrar cronie ttf-liberation openssh imapfilter urlview pandoc-bin jpegoptim --noconfirm #Terminal Support Tools , pandoc-bin from AUR and not pandoc from community because I don't want 60 dynamic Haskell Library dependencies, but only the binary
-    yay -S tcsh cups sane brscan2 brscan3 simple-scan --noconfirm #Printer Tools 
-    yay -S xf86-input-synaptics xf86-input-mtrack  --noconfirm #Touchpad Tools 
-    yay -S xf86-input-wacom xbindkeys --noconfirm #Wacom Tablet Tools
-    yay -S ttf-liberation pango  --noconfirm #Fonts and Font Tools 
-    yay -S alsa-utils pipewire-pulse pavucontrol pulsemixer easyeffects --noconfirm #Audio, pipewire better with bluetooth than pulseaudio
-    yay -S steam legendary sqlitebrowser calibre vlc mpv gimp audacity firefox chromium kdenlive libreoffice-fresh-de  evince xournalpp zathura zathura-pdf-poppler gnucash --noconfirm #X Tools 
-    yay -S wine lib32-libpulse --noconfirm # Wine stuff
-    yay -S redshift gparted arandr android-file-transfer simple-mtpfs dunst cheese  --noconfirm # X Support Tools 
-    yay -S virtualbox virtualbox-host-modules-arch virtualbox-guest-iso  --noconfirm #Virtualbox 
-    yay -S qemu gnome-boxes  --noconfirm #Virtualbox 
-    yay -S texlive-most biber tllocalmgr-git texlive-binextra  texlive-langgerman  --noconfirm #Latex + latexmk
-    yay -S slack-desktop openconnect telegram-desktop signal-desktop macchanger --noconfirm #Other Stuff 
-    yay -S wpa_actiond --noconfirm # For auto search WiFi
-    yay -S qutebrowser pdfjs --noconfirm || true #Alternative browser, might fail because of python packages, pdfjs needed for pdf viewer qutebrowser
-    yay -S lutris lib32-gnutls lib32-libpulse --noconfirm #lutris + programs for epic store TODO If still no sound, do https://www.reddit.com/r/wine_gaming/comments/7qm8wp/for_anyone_with_sound_issues_on_grand_theft_auto/
-    yay -S libstdc++5 --noconfirm #needed for cups/printer
-    yay -S ifplugd --noconfirm #LAN
-    yay -S libdvdcss --noconfirm #VLC Extension read DRM-DVDs
-    yay -S ltunify --noconfirm #Wireless Keyboard
-    yay -S obs wlrobs --noconfirm #obs + screen recording wayland
+    yay -S linux-lts --noconfirm --needed #If normal kernel breaks
+    yay -S gvim vim-spell-de vim-spell-en --noconfirm --needed #Vim 
+    yay -S xorg-xeyes sway swaylock swayidle bemenu-wayland wl-clipboard wf-recorder wl-mirror wdisplay wlr-randr grim slurp gammastep imv --noconfirm --needed #wayland/sway stuff (grim+slurp = scrot, imv =feh)
+    yay -S bluez-utils bluez bluetuith-bin --noconfirm --needed #Bluetooth
+    yay -S xdotool ydotool expect --noconfirm --needed # Automation Tools
+    yay -S tmux rxvt-unicode xterm alacritty zsh  --noconfirm --needed #Terminator Environment 
+    yay -S zip unzip trash-cli curl mitmproxy wget ack progress htop offlineimap neomutt vifm feh pdfgrep pdftk python-pypdf calcurse w3m mplayer irssi docker stow perl-image-exiftool --noconfirm --needed #Terminal Tools 
+    yay -S powertop python-selenium geckodriver jq rsync pwgen xclip ffmpeg xss-lock xautolock scrot udiskie	exfat-utils ntfs-3g unrar cronie ttf-liberation openssh imapfilter urlview pandoc-bin jpegoptim --noconfirm --needed #Terminal Support Tools , pandoc-bin from AUR and not pandoc from community because I don't want 60 dynamic Haskell Library dependencies, but only the binary
+    yay -S tcsh cups sane brscan2 brscan3 simple-scan --noconfirm --needed #Printer Tools 
+    yay -S xf86-input-synaptics xf86-input-mtrack  --noconfirm --needed #Touchpad Tools 
+    yay -S xf86-input-wacom xbindkeys --noconfirm --needed #Wacom Tablet Tools
+    yay -S ttf-liberation pango  --noconfirm --needed #Fonts and Font Tools 
+    yay -S alsa-utils pipewire-pulse pavucontrol pulsemixer easyeffects --noconfirm --needed #Audio, pipewire better with bluetooth than pulseaudio
+    yay -S steam legendary sqlitebrowser calibre vlc mpv gimp audacity firefox chromium kdenlive libreoffice-fresh-de  evince xournalpp zathura zathura-pdf-poppler gnucash --noconfirm --needed #X Tools 
+    yay -S wine lib32-libpulse --noconfirm --needed # Wine stuff
+    yay -S redshift gparted arandr android-file-transfer simple-mtpfs dunst cheese  --noconfirm --needed # X Support Tools 
+    yay -S virtualbox virtualbox-host-modules-arch virtualbox-guest-iso  --noconfirm --needed #Virtualbox 
+    yay -S qemu gnome-boxes  --noconfirm --needed #Virtualbox 
+    yay -S texlive-basic texlive-latexextra texlive-latexrecommended biber tllocalmgr-git texlive-binextra  texlive-langgerman  --noconfirm --needed #Latex + latexmk
+    yay -S slack-desktop openconnect telegram-desktop signal-desktop macchanger --noconfirm --needed #Other Stuff 
+    yay -S wpa_actiond --noconfirm --needed # For auto search WiFi
+    yay -S qutebrowser pdfjs --noconfirm --needed || true #Alternative browser, might fail because of python packages, pdfjs needed for pdf viewer qutebrowser
+    yay -S lutris lib32-gnutls lib32-libpulse --noconfirm --needed #lutris + programs for epic store TODO If still no sound, do https://www.reddit.com/r/wine_gaming/comments/7qm8wp/for_anyone_with_sound_issues_on_grand_theft_auto/
+    yay -S libstdc++5 --noconfirm --needed #needed for cups/printer
+    yay -S ifplugd --noconfirm --needed #LAN
+    yay -S libdvdcss --noconfirm --needed #VLC Extension read DRM-DVDs
+    yay -S ltunify --noconfirm --needed #Wireless Keyboard
+    yay -S obs wlrobs --noconfirm --needed #obs + screen recording wayland
 
 
 
 
-    yay -S pass-tomb --noconfirm
+    yay -S pass-tomb --noconfirm --needed
 
 
 
@@ -391,7 +391,7 @@ function moveConfigs {
     mkdir -p .local/share/applications #for xdg
     mkdir -p $HOME/.config/alacritty
 
-    ( cd $HOME/.dotFiles/stowConfigs; stow i3 wallpaper vim git terminal gpg programConfigs vifm X xdg alacritty -t $HOME )
+    ( cd $HOME/.dotFiles/stowConfigs; stow i3 sway wallpaper vim git terminal gpg programConfigs vifm X xdg alacritty -t $HOME )
     sh ~/saveFolder/installArch/doStowSaveFolder.sh
 
     sudo ln -s /home/nwuensche/.dotFiles/X/my_dvorak  /usr/share/X11/xkb/symbols/my_dvorak

@@ -200,6 +200,9 @@ bindsym XF86AudioRaiseVolume exec "amixer -q -D pulse sset Master '5%+'"
 bindsym XF86AudioLowerVolume exec "amixer -q -D pulse sset Master '5%-'"
 bindsym XF86AudioMute exec "amixer -q -D pulse set Master toggle"
 bindsym XF86AudioMicMute exec "/home/nwuensche/.dotFiles/scripts/toggleMicrophoneAndLED"
+bindsym XF86AudioPlay exec "playerctl play-pause"
+bindsym XF86AudioPause exec "playerctl play-pause"
+bindsym XF86AudioMedia exec "playerctl play-pause"
 #bindsym XF86AudioMicMute exec "amixer -q -D pulse sset Capture toggle"
 #bindsym XF86Display exec "notify-send 'XF86Display'" #F7
 #bindsym XF86WLAN exec notify-send 'XF86WLAN' #F8, but throws i3 error
