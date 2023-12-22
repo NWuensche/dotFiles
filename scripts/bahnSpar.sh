@@ -1,6 +1,9 @@
 #!/bin/sh
 
 LIST='Sparpreis-Hammer!
+10% Rabatt auf alle Bahn-Tickets!
+4€ Rabatt auf DB Geschenkkarte bei Edeka und Netto
+BahnCard-Angebot:
 20% Friends-Rabatt auf ICE-Tickets sichern!
 Flexpreis Aktion: Spar-Ticket für Reisen ohne Zugbindung
 Sparpreis Europa ab 13,90€
@@ -9,7 +12,6 @@ Für alle unter 27: Super Sparpreis Young
 Für alle ab 65: Super Sparpreis Senioren
 Freifahrten, Bahn-Gutscheine &amp; kostenlose BahnCard
 Nachtzug-Tickets ab 29,90€
-BahnCard-Angebot:
 Flixtrain-Tickets ab 4,99€
 TGV, Eurostar &amp; Co.:
 Bahn-Shop: Alles rund um die Bahn'

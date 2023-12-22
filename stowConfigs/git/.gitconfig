@@ -22,6 +22,7 @@
 	setup = "!git push --set-upstream origin $(eval \"git branch | grep \\* | cut -d "
   f = "!g() { B=$(git for-each-ref --sort=committerdate refs --format='%(refname:short)' | grep -i $1 | sed 's|^origin/||' | tail -n1); git checkout $B; }; g" #for-each-ref sorts by date, latest one is at the end, refs instead of refs/heads damit ich auch remote-branches bekomme, remove "origin/" from branch to checkout on it
   ff = "!g() { B=$(git for-each-ref --sort=committerdate refs --format='%(refname:short)' | grep -i $1 | tail -n1); git checkout $B --force; }; g" #f + force
+  sclone = "!g() { B=$(echo $1 | sed 's|https://github.com/|git@github.com:|') ; git clone $B; }; g"
 [pull]
 	rebase = true
 [merge]

@@ -153,7 +153,7 @@ function yayPackages {
     yay -S linux-lts --noconfirm --needed #If normal kernel breaks
     yay -S gvim vim-spell-de vim-spell-en --noconfirm --needed #Vim 
     yay -S xorg-xeyes sway swaylock swayidle bemenu-wayland wl-clipboard wf-recorder wl-mirror wdisplay wlr-randr grim slurp gammastep imv --noconfirm --needed #wayland/sway stuff (grim+slurp = scrot, imv =feh)
-    yay -S bluez-utils bluez bluetuith-bin --noconfirm --needed #Bluetooth
+    yay -S bluez-utils bluez bluetuith-bin  playerctl mpris-proxy-service --noconfirm --needed #Bluetooth, mpris-proxy allows next/prev button on headset to work
     yay -S xdotool ydotool expect --noconfirm --needed # Automation Tools
     yay -S tmux rxvt-unicode xterm alacritty zsh  --noconfirm --needed #Terminator Environment 
     yay -S zip unzip trash-cli curl mitmproxy wget ack progress htop offlineimap neomutt vifm feh pdfgrep pdftk python-pypdf calcurse w3m mplayer irssi docker stow perl-image-exiftool --noconfirm --needed #Terminal Tools 
@@ -163,7 +163,7 @@ function yayPackages {
     yay -S xf86-input-wacom xbindkeys --noconfirm --needed #Wacom Tablet Tools
     yay -S ttf-liberation pango  --noconfirm --needed #Fonts and Font Tools 
     yay -S alsa-utils pipewire-pulse pavucontrol pulsemixer easyeffects --noconfirm --needed #Audio, pipewire better with bluetooth than pulseaudio
-    yay -S steam legendary sqlitebrowser calibre vlc mpv gimp audacity firefox chromium kdenlive libreoffice-fresh-de  evince xournalpp zathura zathura-pdf-poppler gnucash --noconfirm --needed #X Tools 
+    yay -S element-desktop torbrowser-launcher steam legendary sqlitebrowser calibre vlc mpv gimp audacity firefox chromium kdenlive libreoffice-fresh-de  evince xournalpp zathura zathura-pdf-poppler gnucash --noconfirm --needed #X Tools 
     yay -S wine lib32-libpulse --noconfirm --needed # Wine stuff
     yay -S redshift gparted arandr android-file-transfer simple-mtpfs dunst cheese  --noconfirm --needed # X Support Tools 
     yay -S virtualbox virtualbox-host-modules-arch virtualbox-guest-iso  --noconfirm --needed #Virtualbox 
@@ -191,10 +191,10 @@ function yayPackages {
     installIJCommunity
     installAndroidStudio
 
+    systemctl --user enable --now mpris-proxy
     sudo systemctl enable cronie.service #Enable Cron
 
-    sudo systemctl enable cups.service
-    sudo systemctl start cups.service
+    sudo systemctl enable --now cups.service
 
     if [[ "$CPU" == "Intel" ]]; then
       sudo systemctl enable netctl-auto@wlp4s0.service

@@ -2,7 +2,7 @@
 swayidle -w \
 timeout 570 'sh /home/nwuensche/.dotFiles/scripts/mySwayLock SOFT' \
 resume 'swaymsg "output * dpms on"' \
-timeout  ` echo $((570+30)) ` 'sh /home/nwuensche/.dotFiles/scripts/mySwayLock HARD' \
+timeout  ` echo $((570+10)) ` 'sh /home/nwuensche/.dotFiles/scripts/mySwayLock HARD' \
 resume 'swaymsg "output * dpms on"' \
 before-sleep 'swaylock -f'
 # `resume` so that monitors will be switched on again
