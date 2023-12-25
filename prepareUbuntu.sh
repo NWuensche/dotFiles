@@ -28,6 +28,7 @@ function importFiles {
     restoreDokumenteStructure
 
     mv ~/dotFiles ~/.dotFiles
+    (cd ~/.dotFiles && git remote set-url origin git@github.com:NWuensche/dotFiles.git ) #Download with https because public, but afterwards want SSH
 }
 
 #Copy exactly the files which were last on laptop, mkdir folder before copying file

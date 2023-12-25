@@ -1,8 +1,6 @@
 #!/bin/sh
 
 LIST='Sparpreis-Hammer!
-10% Rabatt auf alle Bahn-Tickets!
-4€ Rabatt auf DB Geschenkkarte bei Edeka und Netto
 BahnCard-Angebot:
 20% Friends-Rabatt auf ICE-Tickets sichern!
 Flexpreis Aktion: Spar-Ticket für Reisen ohne Zugbindung
