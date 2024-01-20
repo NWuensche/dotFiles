@@ -1,9 +1,10 @@
 #!/bin/sh
 
 LIST='Sparpreis-Hammer!
+12% Rabatt auf Bahntickets nach Europa (Nachtzüge, ICE, EuroCity, TGV, Eurostar &amp; mehr!)
+24€ Rabatt auf Bahn &amp; Hotel Städtereise
 BahnCard-Angebot:
 20% Friends-Rabatt auf ICE-Tickets sichern!
-24€ Rabatt auf Bahn &amp; Hotel Städtereise
 Flexpreis Aktion: Spar-Ticket für Reisen ohne Zugbindung
 Sparpreis Europa ab 13,90€
 Als Gruppe ab 8,90€ im ICE fahren
