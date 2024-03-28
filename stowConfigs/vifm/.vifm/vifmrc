@@ -124,7 +124,7 @@ set vifminfo=dhistory,savedirs,chistory,state,tui,shistory,
 " Start shell in current directory, cd in vifm to ~ to unmount ext. drives
 nnoremap s : let $PREVPWD = system('pwd')
           \| cd
-          \| !cd $PREVPWD && exec zsh<cr>
+          \| !cd "$PREVPWD" && exec zsh<cr>
 
 
 " Display sorting dialog

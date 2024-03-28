@@ -1,11 +1,11 @@
 #!/bin/sh
 
 LIST='Sparpreis-Hammer!
-12% Rabatt auf Bahntickets nach Europa (Nachtzüge, ICE, EuroCity, TGV, Eurostar &amp; mehr!)
-24€ Rabatt auf Bahn &amp; Hotel Städtereise
-BahnCard-Angebot:
+30€ Deutsche Bahn Geschenkkarte bei Rewe für 26€
+Doppelte BahnBonus-Punkte für alle Buchungen
 20% Friends-Rabatt auf ICE-Tickets sichern!
-Flexpreis Aktion: Spar-Ticket für Reisen ohne Zugbindung
+10% Rabatt auf alle Tickets sichern!
+BahnCard-Angebot:
 Sparpreis Europa ab 13,90€
 Als Gruppe ab 8,90€ im ICE fahren
 Für alle unter 27: Super Sparpreis Young

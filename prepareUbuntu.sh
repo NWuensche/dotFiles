@@ -128,6 +128,7 @@ function installAndroidStudio {
 
 function yayPackages {
     sudo pacman -Syu --noconfirm
+    sudo pacman -S debugedit --noconfirm #Else yay makepkg -si will crash
     git clone https://aur.archlinux.org/yay-bin.git yay && cd yay && makepkg -si  --noconfirm && cd ~ && rm -rf yay #Install yay
     sudo yay -Syu --noconfirm
     sudo killall dirmngr || true #Else key import for tomb does not work
@@ -153,14 +154,15 @@ function yayPackages {
 
     yay -S linux-lts --noconfirm --needed #If normal kernel breaks
     yay -S gvim vim-spell-de vim-spell-en --noconfirm --needed #Vim 
-    yay -S xorg-xeyes sway swaylock swayidle bemenu-wayland wl-clipboard wf-recorder wl-mirror wdisplay wlr-randr grim slurp gammastep imv --noconfirm --needed #wayland/sway stuff (grim+slurp = scrot, imv =feh)
+    yay -S xorg-xeyes sway swaylock swayidle bemenu-wayland wl-clipboard wf-recorder wl-mirror wdisplay wlr-randr grim slurp gammastep imv aur/sway-services-git --noconfirm --needed #wayland/sway stuff (grim+slurp = scrot, imv =feh) , sway-services always sway trigger in systemd
     yay -S bluez-utils bluez bluetuith-bin  playerctl mpris-proxy-service --noconfirm --needed #Bluetooth, mpris-proxy allows next/prev button on headset to work
     yay -S xdotool ydotool expect --noconfirm --needed # Automation Tools
     yay -S tmux rxvt-unicode xterm alacritty zsh  --noconfirm --needed #Terminator Environment 
-    yay -S zip unzip trash-cli curl mitmproxy wget ack progress htop offlineimap neomutt vifm feh pdfgrep pdftk python-pypdf calcurse w3m mplayer irssi docker stow perl-image-exiftool --noconfirm --needed #Terminal Tools 
+    yay -S zip unzip trash-cli curl mitmproxy wget ack ansifilter progress htop offlineimap neomutt vifm feh pdfgrep pdftk python-pypdf calcurse w3m mplayer irssi docker stow perl-image-exiftool --noconfirm --needed #Terminal Tools 
     yay -S powertop python-selenium geckodriver jq rsync pwgen xclip ffmpeg xss-lock xautolock scrot udiskie	exfat-utils ntfs-3g unrar cronie ttf-liberation openssh imapfilter urlview pandoc-bin jpegoptim --noconfirm --needed #Terminal Support Tools , pandoc-bin from AUR and not pandoc from community because I don't want 60 dynamic Haskell Library dependencies, but only the binary
     yay -S tcsh cups sane brscan2 brscan3 simple-scan --noconfirm --needed #Printer Tools 
     yay -S xf86-input-synaptics xf86-input-mtrack  --noconfirm --needed #Touchpad Tools 
+    yay -S solaar  --noconfirm --needed #Mouse Tools
     yay -S xf86-input-wacom xbindkeys --noconfirm --needed #Wacom Tablet Tools
     yay -S ttf-liberation pango  --noconfirm --needed #Fonts and Font Tools 
     yay -S alsa-utils pipewire-pulse pavucontrol pulsemixer easyeffects --noconfirm --needed #Audio, pipewire better with bluetooth than pulseaudio
@@ -208,6 +210,8 @@ function yayPackages {
       #WiFi
       sudo systemctl enable netctl-auto@wlo1.service
     fi
+
+    solaar config M720 persistent-remappable-keys 'MultiPlatform Gesture Button' 'Cntrl+LEFTSHIFT' || echo "Reconfigure Mouse once it's connected" #If M720 Mouse connected, remap left gesture key, does only work when Mouse currently selected
  }
 
 
@@ -391,8 +395,9 @@ function moveConfigs {
     mkdir -p ~/.config/udiskie
     mkdir -p .local/share/applications #for xdg
     mkdir -p $HOME/.config/alacritty
+    mkdir -p ~/.xkb/symbols
 
-    ( cd $HOME/.dotFiles/stowConfigs; stow i3 sway wallpaper vim git terminal gpg programConfigs vifm X xdg alacritty -t $HOME )
+    ( cd $HOME/.dotFiles/stowConfigs; stow i3 sway wallpaper vim git terminal gpg programConfigs vifm X xdg xkb alacritty -t $HOME )
     sh ~/saveFolder/installArch/doStowSaveFolder.sh
 
     sudo ln -s /home/nwuensche/.dotFiles/X/my_dvorak  /usr/share/X11/xkb/symbols/my_dvorak
@@ -690,10 +695,11 @@ function main {
 #setUpMFC
 #installAndroidStudio
 #disableWebcam
-enableBatteryConservationModeIdeapad
+#enableBatteryConservationModeIdeapad
 #fixAudioAMD
 #setUpPrinter
 #fixScreenTearingAndAMDDockingStation
 #installAndroidStudio
+installIJCommunity
 #fixWifi
 #addFirefoxProfile

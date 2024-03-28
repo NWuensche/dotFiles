@@ -180,10 +180,10 @@ let g:tex_flavor = 'latex'
 let g:tex_comment_nospell=1
 
 "Don't increase numbers accidentally when using tmux (latex + bibtex + Python)
-nnoremap <C-a> <nop>
+"nnoremap <C-a> <nop>
 
 "Don't increase numbers accidentally when using tmux (latex + bibtex + Python)
-inoremap <C-a> <nop>
+"inoremap <C-a> <nop>
 
 let g:netrw_browsex_viewer='/home/nwuensche/.dotFiles/scripts/firefoxVim.sh'
 

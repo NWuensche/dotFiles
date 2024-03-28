@@ -10,7 +10,7 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 input type:keyboard {
-    xkb_layout "eu"
+    xkb_layout "eu-my"
     xkb_options "caps:escape"
 }
 
@@ -215,6 +215,7 @@ bindsym XF86Explorer exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.
 bindsym --release $mod+semicolon exec "amixer -q -D pulse sset Capture nocap"
 exec_always xset -r 52 #INFO Disable repetition when pressing ;, otherwise microphone stutters because on/off fast
 bindcode  $mod+52 exec "amixer -q -D pulse sset Capture cap"
+#bindcode 9 exec echo q
 
 #bindcode 123 exec "~/works"
 
@@ -318,3 +319,5 @@ exec sh /home/nwuensche/saveFolder/privateScripts/killmedia.sh &
 
 #Solves slow startup firefox https://github.com/swaywm/sway/wiki#gtk-applications-take-20-seconds-to-start
 exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
+#Needed by https://github.com/xdbob/sway-services/
+exec /etc/sway/config.d/10-service.conf

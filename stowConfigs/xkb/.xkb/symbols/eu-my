@@ -1,0 +1,8 @@
+# From https://lokcon.me/2021/10/17/remapping-esc-grave-tilde-sway
+default partial alphanumeric_keys
+xkb_symbols "basic" {
+	include "eu"
+
+	name[Group1] = "English (US, 65/60% escape grave tilde)";
+    key <ESC>  {[ grave,    asciitilde      ]       };
+};
