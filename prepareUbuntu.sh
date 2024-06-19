@@ -695,11 +695,11 @@ function main {
 #setUpMFC
 #installAndroidStudio
 #disableWebcam
-enableBatteryConservationModeIdeapad
+#enableBatteryConservationModeIdeapad
 #fixAudioAMD
 #setUpPrinter
 #fixScreenTearingAndAMDDockingStation
 #installAndroidStudio
-#installIJCommunity
+installIJCommunity
 #fixWifi
 #addFirefoxProfile
