@@ -1,12 +1,11 @@
 #!/bin/sh
 
-LIST='Sparpreis-Hammer!
-30€ Deutsche Bahn Geschenkkarte bei Rewe für 26€
-Doppelte BahnBonus-Punkte für alle Buchungen
-20% Friends-Rabatt auf ICE-Tickets sichern!
-10% Rabatt auf alle Tickets sichern!
+LIST='Sparpreis-Aktion Sommer 2024: ICE-Tickets ab 9,74€
+10% Rabatt auf DB Geschenkkarten bei Edeka
+10% Rabatt auf alle Bahn-Tickets
+Buchen Sie Hotel und 1. Klasse zum Aktionspreis!
+Super Sparpreis:
 BahnCard-Angebot:
-Sparpreis Europa ab 13,90€
 Als Gruppe ab 8,90€ im ICE fahren
 Für alle unter 27: Super Sparpreis Young
 Für alle ab 65: Super Sparpreis Senioren
@@ -14,6 +13,7 @@ Freifahrten, Bahn-Gutscheine &amp; kostenlose BahnCard
 Nachtzug-Tickets ab 29,90€
 Flixtrain-Tickets ab 4,99€
 TGV, Eurostar &amp; Co.:
+My BahnCard 100: Aktionsangebot mit 35% Rabatt
 Bahn-Shop: Alles rund um die Bahn'
 
 set -e # to stop on failing ping
