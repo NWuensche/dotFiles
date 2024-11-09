@@ -112,10 +112,12 @@ function installIJCommunity {
 
 #Download by myself and not by AUR because updating is easier afterwards (inside AS, not through AUR)
 function installAndroidStudio {
+  set -x
   OUT_AS="/tmp/AS.tar.gz"
   OUT_DIR="/opt/android-studio"
 
-  URL_AS=$(curl -s "https://developer.android.com/studio/\#downloads" | sed -n '/id="agreeLabel"/,$ p' | sed -n 's/.*href="\(.*linux\.tar\.gz\)"/\1/pg'  | head -n 1)
+#  URL_AS=$(curl -s "https://developer.android.com/studio/\#downloads" | sed -n '/id="agreeLabel"/,$ p' | sed -n 's/.*href="\(.*linux\.tar\.gz\)"/\1/pg'  | head -n 1)
+  URL_AS="https://redirector.gvt1.com/edgedl/android/studio/ide-zips/2024.2.1.10/android-studio-2024.2.1.10-linux.tar.gz"
 
   echo "Downloading Android Studio"
   wget -q "$URL_AS" -O "$OUT_AS"
@@ -155,7 +157,7 @@ function yayPackages {
     yay -S linux-lts --noconfirm --needed #If normal kernel breaks
     yay -S gvim vim-spell-de vim-spell-en --noconfirm --needed #Vim 
     yay -S xorg-xeyes sway swaylock swayidle bemenu-wayland wl-clipboard wf-recorder wl-mirror wdisplay wlr-randr grim slurp gammastep imv aur/sway-services-git --noconfirm --needed #wayland/sway stuff (grim+slurp = scrot, imv =feh) , sway-services always sway trigger in systemd
-    yay -S bluez-utils bluez bluetuith-bin  playerctl mpris-proxy-service --noconfirm --needed #Bluetooth, mpris-proxy allows next/prev button on headset to work
+    yay -S bluez-utils bluez bluetuith-bin  playerctl  --noconfirm --needed #Should be in bluetuith now - mpris-proxy-service #Bluetooth, mpris-proxy allows next/prev button on headset to work
     yay -S xdotool ydotool expect --noconfirm --needed # Automation Tools
     yay -S tmux rxvt-unicode xterm alacritty zsh  --noconfirm --needed #Terminator Environment 
     yay -S zip unzip trash-cli curl mitmproxy wget ack ansifilter progress htop offlineimap neomutt vifm feh pdfgrep pdftk python-pypdf calcurse w3m mplayer irssi docker stow perl-image-exiftool --noconfirm --needed #Terminal Tools 
@@ -699,7 +701,7 @@ function main {
 #fixAudioAMD
 #setUpPrinter
 #fixScreenTearingAndAMDDockingStation
-#installAndroidStudio
-installIJCommunity
+installAndroidStudio
+#installIJCommunity
 #fixWifi
 #addFirefoxProfile

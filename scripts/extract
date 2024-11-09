@@ -52,5 +52,6 @@ case "$ARC" in
     *.zip)       unzip "$ARC"       ;;
     *.Z)         uncompress "$ARC"  ;;
     *.7z)        7z x "$ARC"        ;;
+    *.xz)        unxz -v "$ARC"        ;;
     *)           echo "'$ARC' cannot be extracted by $SCRIPTNAME" ;;
 esac
