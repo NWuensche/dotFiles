@@ -137,7 +137,7 @@ function yayPackages {
     yay -Rs vim --noconfirm --needed || true #will conflict to gvim, thus when installed for debugging, we have to remove it
     yay -S ruby jdk-openjdk maven python3 gradle python-pip git hub --noconfirm --needed #Programming
     yay -Rs acpilight --noconfirm --needed || true #Just for sanity, when I restart script here, xorg would complain otherwise
-    yay -S xorg xorg-xinit lightdm lightdm-gtk-greeter accountsservice i3-wm dmenu i3status i3lock plymouth --noconfirm --needed #UI, accountsservice fixed lightdm warning, plymouth necessary for lightdm on AMD, xorg-xinit for startx
+    #yay -S xorg xorg-xinit lightdm lightdm-gtk-greeter accountsservice i3-wm dmenu i3status i3lock plymouth --noconfirm --needed #UI, accountsservice fixed lightdm warning, plymouth necessary for lightdm on AMD, xorg-xinit for startx TODO delete Might fix startup
 
     #Makes problems when I install wrong one
     if [[ "$CPU" == "Intel" ]]; then
@@ -149,8 +149,8 @@ function yayPackages {
       yay -S amd-ucode --noconfirm --needed #Will be enabled automatically when running grub-mkconfig next time
 
       #Fix backlight adjustment
-      yay -Rs xorg-xbacklight --noconfirm --needed || true
-      yay -S acpilight --noconfirm --needed
+      #yay -Rs xorg-xbacklight --noconfirm --needed || true
+      #yay -S acpilight --noconfirm --needed TODO delete Might fix startup
       sudo usermod -a -G video nwuensche
     fi
 
@@ -173,7 +173,7 @@ function yayPackages {
     yay -S redshift gparted arandr android-file-transfer simple-mtpfs dunst cheese  --noconfirm --needed # X Support Tools 
     yay -S virtualbox virtualbox-host-modules-arch virtualbox-guest-iso  --noconfirm --needed #Virtualbox 
     yay -S qemu gnome-boxes  --noconfirm --needed #Virtualbox 
-    yay -S texlive-basic texlive-latexextra texlive-latexrecommended biber tllocalmgr-git texlive-binextra  texlive-langgerman  --noconfirm --needed #Latex + latexmk
+   # yay -S texlive-basic texlive-latexextra texlive-latexrecommended biber tllocalmgr-git texlive-binextra  texlive-langgerman  --noconfirm --needed #Latex + latexmk TODO Add, but don't download texlive-full. This is downloaded twice here and each round takes >1h 
     yay -S slack-desktop openconnect telegram-desktop signal-desktop macchanger --noconfirm --needed #Other Stuff 
     yay -S wpa_actiond --noconfirm --needed # For auto search WiFi
     yay -S qutebrowser pdfjs --noconfirm --needed || true #Alternative browser, might fail because of python packages, pdfjs needed for pdf viewer qutebrowser
@@ -187,7 +187,6 @@ function yayPackages {
 
 
 
-    yay -S pass-tomb --noconfirm --needed
 
 
 
@@ -415,6 +414,7 @@ function moveConfigs {
     gpg --import "$CONFIGNOSTOWFOLDER/gpg/gpg_key_pub.asc"
     gpg --import "$CONFIGNOSTOWFOLDER/gpg/gpg_key.asc"
     expect ~/saveFolder/privateScripts/trustGPG Wuensche-N
+    yay -S pass-tomb --noconfirm --needed #Can only install this after gpg import, else build will fail
 
     mkdir -p ~/.cache/mutt/messages #Else mutt warnings
 }
