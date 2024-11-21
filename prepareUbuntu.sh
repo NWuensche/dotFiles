@@ -157,7 +157,6 @@ function yayPackages {
     yay -S linux-lts --noconfirm --needed #If normal kernel breaks
     yay -S gvim vim-spell-de vim-spell-en --noconfirm --needed #Vim 
     yay -S xorg-xeyes sway swaylock swayidle bemenu-wayland wl-clipboard wf-recorder wl-mirror wdisplay wlr-randr grim slurp gammastep imv aur/sway-services-git --noconfirm --needed #wayland/sway stuff (grim+slurp = scrot, imv =feh) , sway-services always sway trigger in systemd
-    exit 0
     yay -S bluez-utils bluez bluetuith-bin  playerctl  --noconfirm --needed #Should be in bluetuith now - mpris-proxy-service #Bluetooth, mpris-proxy allows next/prev button on headset to work
     yay -S xdotool ydotool expect --noconfirm --needed # Automation Tools
     yay -S tmux rxvt-unicode xterm alacritty zsh  --noconfirm --needed #Terminator Environment 
@@ -325,7 +324,7 @@ function installPrograms {
     yayPackages
     syncTime
     installZSH
-    setUpBackgroundLight
+    #setUpBackgroundLight
     #installLatexTUDresden
     installFonts
     #loadWallabag
@@ -445,9 +444,9 @@ function addFirefoxProfile {
 function addConfigs { 
     #Not for wayland - fixDisplayManager 
     setGroups 
-    fixTouchToClickTouchPad 
-    wacomTabletConfig
-    fixScreenTearingAndAMDDockingStation
+    #fixTouchToClickTouchPad 
+    #wacomTabletConfig
+    #fixScreenTearingAndAMDDockingStation
     #autoStartVPN
     setUpTmux
     moveConfigs
