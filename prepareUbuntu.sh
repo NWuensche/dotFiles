@@ -136,7 +136,7 @@ function yayPackages {
     sudo killall dirmngr || true #Else key import for tomb does not work
     yay -Rs vim --noconfirm --needed || true #will conflict to gvim, thus when installed for debugging, we have to remove it
     yay -S ruby jdk-openjdk maven python3 gradle python-pip git hub --noconfirm --needed #Programming
-    yay -Rs acpilight --noconfirm --needed || true #Just for sanity, when I restart script here, xorg would complain otherwise
+    #yay -Rs acpilight --noconfirm --needed || true #Just for sanity, when I restart script here, xorg would complain otherwise TODO delete might fix startip
     #yay -S xorg xorg-xinit lightdm lightdm-gtk-greeter accountsservice i3-wm dmenu i3status i3lock plymouth --noconfirm --needed #UI, accountsservice fixed lightdm warning, plymouth necessary for lightdm on AMD, xorg-xinit for startx TODO delete Might fix startup
 
     #Makes problems when I install wrong one
@@ -157,6 +157,7 @@ function yayPackages {
     yay -S linux-lts --noconfirm --needed #If normal kernel breaks
     yay -S gvim vim-spell-de vim-spell-en --noconfirm --needed #Vim 
     yay -S xorg-xeyes sway swaylock swayidle bemenu-wayland wl-clipboard wf-recorder wl-mirror wdisplay wlr-randr grim slurp gammastep imv aur/sway-services-git --noconfirm --needed #wayland/sway stuff (grim+slurp = scrot, imv =feh) , sway-services always sway trigger in systemd
+    exit 0
     yay -S bluez-utils bluez bluetuith-bin  playerctl  --noconfirm --needed #Should be in bluetuith now - mpris-proxy-service #Bluetooth, mpris-proxy allows next/prev button on headset to work
     yay -S xdotool ydotool expect --noconfirm --needed # Automation Tools
     yay -S tmux rxvt-unicode xterm alacritty zsh  --noconfirm --needed #Terminator Environment 
@@ -690,7 +691,7 @@ function main {
     setUpPrinter
     setUpManually
 }
-#main
+main
 #setUpMFC
 #installAndroidStudio
 #setUpDCP
@@ -701,7 +702,7 @@ function main {
 #fixAudioAMD
 #setUpPrinter
 #fixScreenTearingAndAMDDockingStation
-installAndroidStudio
+#installAndroidStudio
 #installIJCommunity
 #fixWifi
 #addFirefoxProfile
