@@ -397,6 +397,7 @@ function moveConfigs {
     mkdir -p .local/share/applications #for xdg
     mkdir -p $HOME/.config/alacritty
     mkdir -p ~/.xkb/symbols
+    mkdir -p ~/.gnupg
 
     ( cd $HOME/.dotFiles/stowConfigs; stow i3 sway wallpaper vim git terminal gpg programConfigs vifm X xdg xkb alacritty -t $HOME )
     sh ~/saveFolder/installArch/doStowSaveFolder.sh
