@@ -114,7 +114,7 @@ class Paint:
         tmppdfFile = shellOutput("mktemp --suffix .pdf")
         self.c.postscript(file = psFile, height = self.cHeight, width = self.cWidth, x =0, y=0 , colormode='color')
         #with flag "-page a4" somehow the whole content disappears. When I send pdf somewhere, they shouldn't care about the format of the pages
-        subprocess.check_output("epspdf " + psFile + " " + tmppdfFile, shell=True) #epspdf much better quality than `convert EPS PDF`
+        subprocess.check_output("epstopdf " + psFile + " " + tmppdfFile, shell=True) #epspdf much better quality than `convert EPS PDF`
         subprocess.check_output("pdftoppm -jpeg -r 300 -singlefile " + tmppdfFile + " " + jpgFile[:-4], shell=True) #pdfppm much better quality than convert + Need step through jpeg, because otherwise in PDF censor box is only overlay, which one can take away, :-4 because pdftoppm adds own `.jpg` postfix (can be seen in firefox)
         subprocess.check_output("convert " + jpgFile + " " + self.outPDFFilePath, shell=True) #epspdf much better quality than `convert EPS PDF`
         self.root.destroy()
@@ -173,9 +173,11 @@ if __name__ == '__main__':
         censoredPDFPagesPaths.reverse() #Want converted /tmp/.../in-0.pdf as first entry
         censoredPDFPagesPathsStr = " ".join(censoredPDFPagesPaths)
         unitedPDF = tmpFolderOutPDFs + "/united.pdf"
+        repairedPDF = tmpFolderOutPDFs + "/repaired.pdf"
         subprocess.check_output("pdfunite " + censoredPDFPagesPathsStr + " " + unitedPDF, shell=True)
         # Convert to A4 size, otherwise it is for some reason A3 (only visible when printing) + quiet
-        subprocess.check_output("pdfjam -q --outfile " + outPDFFilePath + " --paper a4paper " + unitedPDF, shell=True)
+        subprocess.check_output("pdftk " + unitedPDF + " output  " + repairedPDF, shell=True) #Else ghostscrip does complain
+        subprocess.check_output("gs -q -o " + outPDFFilePath + " -sDEVICE=pdfwrite -sPAPERSIZE=a4 -dPDFFitPage  " + repairedPDF, shell=True) #-dPDFFitPage  for force resize, else pdfunite will crop page https://stackoverflow.com/questions/7446552/resizing-a-pdf-using-ghostscript
 
     else: #png/jpg
         Paint(fullFileNameIn, outPDFFilePath)

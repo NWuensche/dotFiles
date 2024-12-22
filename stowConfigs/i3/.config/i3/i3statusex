@@ -6,7 +6,7 @@ BRIGHTNESS_FOLDER=""
 if [[ -d '/sys/class/backlight/intel_backlight' ]]; then
   BRIGHTNESS_FOLDER="/sys/class/backlight/intel_backlight"
 else
-  BRIGHTNESS_FOLDER="/sys/class/backlight/amdgpu_bl0"
+  BRIGHTNESS_FOLDER="/sys/class/backlight/ideapad"
 fi
 
 function setColorBattery() {

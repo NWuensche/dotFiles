@@ -160,7 +160,7 @@ nnoremap <f7> :mkdirspace<space>
 "filesize in status bar
 
 filetype *.pdf zathura %f &>/dev/null &
-filetype *.png,*.jpg,*.gif,*.jpeg,*.webp = imv %f &
+filetype *.png,*.jpg,*.gif,*.jpeg,*.webp,*.avif = imv %f &
 filetype *.eps = xdg-open %f &
 fileviewer *.eps = xdg-open %f &
 filextype *.eps = xdg-open %f &

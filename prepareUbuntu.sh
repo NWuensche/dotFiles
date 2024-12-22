@@ -135,7 +135,7 @@ function yayPackages {
     sudo yay -Syu --noconfirm
     sudo killall dirmngr || true #Else key import for tomb does not work
     yay -Rs vim --noconfirm --needed || true #will conflict to gvim, thus when installed for debugging, we have to remove it
-    yay -S ruby jdk-openjdk maven python3 gradle python-pip git hub --noconfirm --needed #Programming
+    yay -S ruby jdk-openjdk maven python3 gradle python-pip git hub bc --noconfirm --needed #Programming
     #yay -Rs acpilight --noconfirm --needed || true #Just for sanity, when I restart script here, xorg would complain otherwise TODO delete might fix startip
     #yay -S xorg xorg-xinit lightdm lightdm-gtk-greeter accountsservice i3-wm dmenu i3status i3lock plymouth --noconfirm --needed #UI, accountsservice fixed lightdm warning, plymouth necessary for lightdm on AMD, xorg-xinit for startx TODO delete Might fix startup
 
@@ -149,17 +149,17 @@ function yayPackages {
       yay -S amd-ucode --noconfirm --needed #Will be enabled automatically when running grub-mkconfig next time
 
       #Fix backlight adjustment
-      #yay -Rs xorg-xbacklight --noconfirm --needed || true
+      #yay -Rs xorg-xbacklight --noconfirm || true
       #yay -S acpilight --noconfirm --needed TODO delete Might fix startup
       sudo usermod -a -G video nwuensche
     fi
 
     yay -S linux-lts --noconfirm --needed #If normal kernel breaks
     yay -S gvim vim-spell-de vim-spell-en --noconfirm --needed #Vim 
-    yay -S xorg-xeyes sway swaylock swayidle bemenu-wayland wl-clipboard wf-recorder wl-mirror wdisplay wlr-randr grim slurp gammastep imv aur/sway-services-git --noconfirm --needed #wayland/sway stuff (grim+slurp = scrot, imv =feh) , sway-services always sway trigger in systemd
+    yay -S xorg-xeyes sway swaylock swayidle i3status bemenu-wayland wl-clipboard wf-recorder wl-mirror wdisplay wlr-randr grim slurp gammastep imv aur/sway-services-git xorg-xwayland xorg-xhost dosfstools --noconfirm --needed #wayland/sway stuff (grim+slurp = scrot, imv =feh) , sway-services always sway trigger in systemd, need i3status for sway statusbar xhost + dosfstools for gparted
     yay -S bluez-utils bluez bluetuith-bin  playerctl  --noconfirm --needed #Should be in bluetuith now - mpris-proxy-service #Bluetooth, mpris-proxy allows next/prev button on headset to work
     yay -S xdotool ydotool expect --noconfirm --needed # Automation Tools
-    yay -S tmux rxvt-unicode xterm alacritty zsh  --noconfirm --needed #Terminator Environment 
+    yay -S tmux rxvt-unicode xterm alacritty zsh man-db  --noconfirm --needed #Terminator Environment 
     yay -S zip unzip trash-cli curl mitmproxy wget ack ansifilter progress htop offlineimap neomutt vifm feh pdfgrep pdftk python-pypdf calcurse w3m mplayer irssi docker stow perl-image-exiftool --noconfirm --needed #Terminal Tools 
     yay -S powertop python-selenium geckodriver jq rsync pwgen xclip ffmpeg xss-lock xautolock scrot udiskie	exfat-utils ntfs-3g unrar cronie ttf-liberation openssh imapfilter urlview pandoc-bin jpegoptim --noconfirm --needed #Terminal Support Tools , pandoc-bin from AUR and not pandoc from community because I don't want 60 dynamic Haskell Library dependencies, but only the binary
     yay -S tcsh cups sane brscan2 brscan3 simple-scan --noconfirm --needed #Printer Tools 
@@ -168,12 +168,13 @@ function yayPackages {
     yay -S xf86-input-wacom xbindkeys --noconfirm --needed #Wacom Tablet Tools
     yay -S ttf-liberation pango  --noconfirm --needed #Fonts and Font Tools 
     yay -S alsa-utils pipewire-pulse pavucontrol pulsemixer easyeffects --noconfirm --needed #Audio, pipewire better with bluetooth than pulseaudio
-    yay -S element-desktop torbrowser-launcher steam legendary sqlitebrowser calibre vlc mpv gimp audacity firefox chromium kdenlive libreoffice-fresh-de  evince xournalpp zathura zathura-pdf-poppler gnucash --noconfirm --needed #X Tools 
+    yay -S element-desktop torbrowser-launcher steam legendary heroic-games-launcher-bin sqlitebrowser calibre vlc mpv gimp inkscape audacity firefox chromium kdenlive libreoffice-fresh-de  evince xournalpp zathura zathura-pdf-poppler gnucash --noconfirm --needed #X Tools 
     yay -S wine lib32-libpulse --noconfirm --needed # Wine stuff
     yay -S redshift gparted arandr android-file-transfer simple-mtpfs dunst cheese  --noconfirm --needed # X Support Tools 
     yay -S virtualbox virtualbox-host-modules-arch virtualbox-guest-iso  --noconfirm --needed #Virtualbox 
     yay -S qemu gnome-boxes  --noconfirm --needed #Virtualbox 
    # yay -S texlive-basic texlive-latexextra texlive-latexrecommended biber tllocalmgr-git texlive-binextra  texlive-langgerman  --noconfirm --needed #Latex + latexmk TODO Add, but don't download texlive-full. This is downloaded twice here and each round takes >1h 
+    yay -S texlive-binextra texlive-langgerman texlive-fonts  --noconfirm --needed #Latex + latexmk TODO Add, but don't download texlive-full. This is downloaded twice here and each round takes >1h 
     yay -S slack-desktop openconnect telegram-desktop signal-desktop macchanger --noconfirm --needed #Other Stuff 
     yay -S wpa_actiond --noconfirm --needed # For auto search WiFi
     yay -S qutebrowser pdfjs --noconfirm --needed || true #Alternative browser, might fail because of python packages, pdfjs needed for pdf viewer qutebrowser
@@ -205,7 +206,7 @@ function yayPackages {
     fi
     if [[ "$CPU" == "AMD" ]]; then
       #LAN
-      sudo systemctl enable --now netctl-ifplugd@enp4s0f3u1u3.service #Need a netctl profile for this to work
+      sudo systemctl enable --now netctl-ifplugd@enp4s0f3u1u4.service #Need a netctl profile for this to work
       #sudo systemctl enable --now dhcpcd@enp4s0f3u1u3.service Does block if no LAN https://wiki.archlinux.org/title/dhcpcd#dhcpcd@.service_causes_slow_startup
       # I think not needed anymore - sudo systemctl enable --now dhcpcd # Causes that WLAN is off by default + WiFi Crashes sometimes
       #WiFi
@@ -398,6 +399,8 @@ function moveConfigs {
     mkdir -p $HOME/.config/alacritty
     mkdir -p ~/.xkb/symbols
     mkdir -p ~/.gnupg
+    chmod 0700 ~/.gnupg
+    sudo mkdir /media #Udiskie mount point
 
     ( cd $HOME/.dotFiles/stowConfigs; stow i3 sway wallpaper vim git terminal gpg programConfigs vifm X xdg xkb alacritty -t $HOME )
     sh ~/saveFolder/installArch/doStowSaveFolder.sh
@@ -557,6 +560,7 @@ function setUpManually {
     echo "Firefox: Change default Search Engine (right one should be in list)"
     echo "Firefox: Import ublock filters"
     echo "Login Steam and Legendary(Epic)"
+    echo "Login Signal and Element"
     echo "Remove install-scripts in /root/"
     echo "Check all important folders from Documents copied"
     echo "Clear USB-Stick"
@@ -691,7 +695,8 @@ function main {
     setUpPrinter
     setUpManually
 }
-main
+#main
+setUpDCP
 #setUpMFC
 #installAndroidStudio
 #setUpDCP
