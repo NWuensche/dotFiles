@@ -174,7 +174,7 @@ function yayPackages {
     yay -S virtualbox virtualbox-host-modules-arch virtualbox-guest-iso  --noconfirm --needed #Virtualbox 
     yay -S qemu gnome-boxes  --noconfirm --needed #Virtualbox 
    # yay -S texlive-basic texlive-latexextra texlive-latexrecommended biber tllocalmgr-git texlive-binextra  texlive-langgerman  --noconfirm --needed #Latex + latexmk TODO Add, but don't download texlive-full. This is downloaded twice here and each round takes >1h 
-    yay -S texlive-binextra texlive-langgerman texlive-fonts  --noconfirm --needed #Latex + latexmk TODO Add, but don't download texlive-full. This is downloaded twice here and each round takes >1h 
+    yay -S texlive-binextra texlive-langgerman texlive-fonts texlive-fontsrecommended   --noconfirm --needed #Latex + latexmk, don't download texlive-full. This is downloaded twice here and each round takes >1h ; texlive-fontsrecommended needed because otherwise weird .sly errors when compiling
     yay -S slack-desktop openconnect telegram-desktop signal-desktop macchanger --noconfirm --needed #Other Stuff 
     yay -S wpa_actiond --noconfirm --needed # For auto search WiFi
     yay -S qutebrowser pdfjs --noconfirm --needed || true #Alternative browser, might fail because of python packages, pdfjs needed for pdf viewer qutebrowser
