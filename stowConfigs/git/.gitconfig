@@ -12,6 +12,7 @@
 	sdiff = diff --staged
 	ustashls = diff --staged
 	ustash = stash --include-untracked
+  cb = checkout -b
     df = diff ':(exclude)*min.js' ':(exclude)*merge/export/*' ':(exclude)*VERSION*' ':(exclude)*COMMITHASH*'
 	sdf = diff --staged ':(exclude)*min.js' ':(exclude)*merge/export/*' ':(exclude)*VERSION*' ':(exclude)*COMMITHASH*'
 	deleteCommit = "! f() { git rebase -p --onto \"$1^\" \"$1\" -m --strategy-option=theirs;}; f"

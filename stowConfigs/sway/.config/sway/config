@@ -242,7 +242,7 @@ popup_during_fullscreen smart
 #exec xss-lock -- i3lock-wrapper -n &
 #exec xbacklight -set 30
 #exec /usr/lib/notification-daemon-1.0/notification-daemon & #Daemon for notifications
-exec dunst & #Daemon for notifications
+exec fnott & #Daemon for notifications
 #exec_always "setxkbmap my_dvorak -option caps:escape"
 #exec_always "setxkbmap eu -option caps:escape"
 #exec feh --bg-scale ~/.background-image
@@ -311,7 +311,7 @@ exec_always sh -c "sleep 1; /home/nwuensche/.dotFiles/scripts/toggleMicrophoneAn
 
 #dunst 
 #bindsym ctrl+space exec dunstctl close
-bindsym $mod+space exec dunstctl close
+bindsym $mod+space exec fnottctl dismiss
 
 exec /usr/lib/geoclue-2.0/demos/agent & #Else Gammastep error
 #exec gammastep -l 55.7:12.6 -t 5700:3600 -g 0.8  &

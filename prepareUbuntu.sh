@@ -170,7 +170,7 @@ function yayPackages {
     yay -S alsa-utils pipewire-pulse pavucontrol pulsemixer easyeffects --noconfirm --needed #Audio, pipewire better with bluetooth than pulseaudio
     yay -S element-desktop torbrowser-launcher steam legendary heroic-games-launcher-bin sqlitebrowser calibre vlc mpv gimp inkscape audacity firefox chromium kdenlive libreoffice-fresh-de  evince xournalpp zathura zathura-pdf-poppler gnucash --noconfirm --needed #X Tools 
     yay -S wine lib32-libpulse --noconfirm --needed # Wine stuff
-    yay -S redshift gparted arandr android-file-transfer simple-mtpfs dunst cheese  --noconfirm --needed # X Support Tools 
+    yay -S redshift gparted arandr android-file-transfer simple-mtpfs fnott cheese  --noconfirm --needed # X Support Tools 
     yay -S virtualbox virtualbox-host-modules-arch virtualbox-guest-iso  --noconfirm --needed #Virtualbox 
     yay -S qemu gnome-boxes  --noconfirm --needed #Virtualbox 
    # yay -S texlive-basic texlive-latexextra texlive-latexrecommended biber tllocalmgr-git texlive-binextra  texlive-langgerman  --noconfirm --needed #Latex + latexmk TODO Add, but don't download texlive-full. This is downloaded twice here and each round takes >1h 
@@ -565,6 +565,7 @@ function setUpManually {
     echo "Check all important folders from Documents copied"
     echo "Clear USB-Stick"
     echo "ltunify: Connect Keyboard"
+    echo "bluetuith: TRUST the devices after connecting to them, fixes no-volume-control-issue"
 }
 
 
