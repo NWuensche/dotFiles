@@ -123,3 +123,9 @@ autoload -U compinit && compinit
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 #export SDKMAN_DIR="/home/nwuensche/.sdkman"
 #[[ -s "/home/nwuensche/.sdkman/bin/sdkman-init.sh" ]] && source "/home/nwuensche/.sdkman/bin/sdkman-init.sh"
+
+## [Completion]
+## Completion scripts setup. Remove the following line to uninstall
+[[ -f /home/nwuensche/.dart-cli-completion/zsh-config.zsh ]] && . /home/nwuensche/.dart-cli-completion/zsh-config.zsh || true
+## [/Completion]
+
