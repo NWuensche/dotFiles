@@ -697,7 +697,7 @@ function main {
     setUpManually
 }
 #main
-setUpDCP
+#setUpDCP
 #setUpMFC
 #installAndroidStudio
 #setUpDCP
@@ -708,7 +708,7 @@ setUpDCP
 #fixAudioAMD
 #setUpPrinter
 #fixScreenTearingAndAMDDockingStation
-#installAndroidStudio
+installAndroidStudio
 #installIJCommunity
 #fixWifi
 #addFirefoxProfile
