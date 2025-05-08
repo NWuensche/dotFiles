@@ -117,7 +117,7 @@ function installAndroidStudio {
   OUT_DIR="/opt/android-studio"
 
 #  URL_AS=$(curl -s "https://developer.android.com/studio/\#downloads" | sed -n '/id="agreeLabel"/,$ p' | sed -n 's/.*href="\(.*linux\.tar\.gz\)"/\1/pg'  | head -n 1)
-  URL_AS="https://redirector.gvt1.com/edgedl/android/studio/ide-zips/2024.2.1.10/android-studio-2024.2.1.10-linux.tar.gz"
+  URL_AS="https://r1---sn-4g5ednse.gvt1.com/edgedl/android/studio/ide-zips/2024.3.1.15/android-studio-2024.3.1.15-linux.tar.gz?met=1745863764,&mh=-1&pl=19&rms=onc,onc&shardbypass=sd&redirect_counter=1&cm2rm=sn-8xgn5uxa-cxgz7l&rrc=80&fexp=24351658,24351661&req_id=2ce3d59a92b29704&cms_redirect=yes&mip=92.116.244.170&mm=42&mn=sn-4g5ednse&ms=onc&mt=1745863483&mv=m&mvi=1&rmhost=r5---sn-4g5ednse.gvt1.com&smhost=r3---sn-4g5ednde.gvt1.com"
 
   echo "Downloading Android Studio"
   wget -q "$URL_AS" -O "$OUT_AS"
