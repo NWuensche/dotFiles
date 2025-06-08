@@ -117,7 +117,7 @@ function installAndroidStudio {
   OUT_DIR="/opt/android-studio"
 
 #  URL_AS=$(curl -s "https://developer.android.com/studio/\#downloads" | sed -n '/id="agreeLabel"/,$ p' | sed -n 's/.*href="\(.*linux\.tar\.gz\)"/\1/pg'  | head -n 1)
-  URL_AS="https://r1---sn-4g5ednse.gvt1.com/edgedl/android/studio/ide-zips/2024.3.1.15/android-studio-2024.3.1.15-linux.tar.gz?met=1745863764,&mh=-1&pl=19&rms=onc,onc&shardbypass=sd&redirect_counter=1&cm2rm=sn-8xgn5uxa-cxgz7l&rrc=80&fexp=24351658,24351661&req_id=2ce3d59a92b29704&cms_redirect=yes&mip=92.116.244.170&mm=42&mn=sn-4g5ednse&ms=onc&mt=1745863483&mv=m&mvi=1&rmhost=r5---sn-4g5ednse.gvt1.com&smhost=r3---sn-4g5ednde.gvt1.com"
+  URL_AS="https://r5---sn-5goeenes.gvt1.com/edgedl/android/studio/ide-zips/2024.3.2.15/android-studio-2024.3.2.15-linux.tar.gz?cms_redirect=yes&met=1749226049,&mh=xf&mip=198.167.207.189&mm=28&mn=sn-5goeenes&ms=nvh&mt=1749224127&mv=u&mvi=5&pl=24&rmhost=r4---sn-5goeenes.gvt1.com&rms=nvh,nvh&shardbypass=sdk"
 
   echo "Downloading Android Studio"
   wget -q "$URL_AS" -O "$OUT_AS"
