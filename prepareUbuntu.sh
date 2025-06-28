@@ -706,9 +706,9 @@ function main {
 #disableWebcam
 #enableBatteryConservationModeIdeapad
 #fixAudioAMD
-#setUpPrinter
+setUpPrinter
 #fixScreenTearingAndAMDDockingStation
-installAndroidStudio
+#installAndroidStudio
 #installIJCommunity
 #fixWifi
 #addFirefoxProfile
