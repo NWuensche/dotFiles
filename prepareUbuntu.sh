@@ -171,7 +171,7 @@ function yayPackages {
     yay -S xf86-input-wacom xbindkeys --noconfirm --needed #Wacom Tablet Tools
     yay -S ttf-liberation pango  --noconfirm --needed #Fonts and Font Tools 
     yay -S alsa-utils pipewire-pulse pavucontrol pulsemixer easyeffects --noconfirm --needed #Audio, pipewire better with bluetooth than pulseaudio
-    yay -S element-desktop torbrowser-launcher steam legendary heroic-games-launcher-bin sqlitebrowser calibre vlc mpv gimp inkscape audacity firefox chromium kdenlive libreoffice-fresh-de  evince xournalpp zathura zathura-pdf-poppler gnucash --noconfirm --needed #X Tools 
+    yay -S element-desktop torbrowser-launcher steam legendary heroic-games-launcher-bin sqlitebrowser calibre vlc mpv gimp inkscape audacity firefox chromium kdenlive libreoffice-fresh-de  evince xournalpp zathura zathura-pdf-poppler gnucash brightnessctl --noconfirm --needed #X Tools 
     yay -S wine lib32-libpulse --noconfirm --needed # Wine stuff
     yay -S redshift gparted arandr android-file-transfer simple-mtpfs fnott cheese  --noconfirm --needed # X Support Tools 
     yay -S virtualbox virtualbox-host-modules-arch virtualbox-guest-iso  --noconfirm --needed #Virtualbox 
@@ -720,8 +720,8 @@ fi
 #main
 #setUpDCP
 #setUpMFC
-installAndroidStudio
-#setUpDCP
+#installAndroidStudio
+setUpDCP
 #setUpMFC
 #installAndroidStudio
 #disableWebcam

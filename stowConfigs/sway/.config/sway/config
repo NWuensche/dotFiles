@@ -130,6 +130,7 @@ bindsym $mod+Shift+1 move container to workspace 1
 bindsym $mod+Shift+2 move container to workspace 2
 bindsym $mod+Shift+3 move container to workspace 3
 bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+q exec swaylock
 #bindsym $mod+Shift+5 move container to workspace 5
 #bindsym $mod+Shift+6 move container to workspace 6
 #bindsym $mod+Shift+7 move container to workspace 7
@@ -192,8 +193,10 @@ bar {
 no_focus [window_role="pop-up"]
 
 
-bindsym XF86MonBrightnessUp exec light -A 20
-bindsym XF86MonBrightnessDown exec light -U 20
+#bindsym XF86MonBrightnessUp exec light -A 20
+bindsym XF86MonBrightnessUp exec brightnessctl s 20%+
+bindsym XF86MonBrightnessDown exec brightnessctl s 20%-
+#bindsym XF86MonBrightnessDown exec light -U 20
 
 bindsym XF86AudioRaiseVolume exec "amixer -q -D pulse sset Master '5%+'"
 #bindsym XF86AudioRaiseVolume exec "volUpOrButton"
@@ -247,8 +250,7 @@ exec fnott & #Daemon for notifications
 #exec_always "setxkbmap eu -option caps:escape"
 #exec feh --bg-scale ~/.background-image
 exec light -S 40
-#exec urxvtd -f #Use daemon for all terminals, all use same process -> much faster when multiple terminals, use for clients afterwards `urxvtc`, not `urxvt`, -f forks process, better than &
-#Italic
+#exec urxvtd -f #Use daemon for all terminals, all use same process -> much faster when multiple terminals, use for clients afterwards `urxvtc`, not `urxvt`, -f forks process, better than & #Italic
 #exec xinput -set-prop 12 141 1
 #exec xautolock -locker myi3lock -time 10 & #suspend lock, don't suspend when in one of the corners
 #exec xset s 600 #start xss-lock after 10 minutes
@@ -285,7 +287,9 @@ for_window [instance="origin.exe"] floating enable #Needed for origin over lutri
 
 exec_always /home/nwuensche/.dotFiles/scripts/setupMonitorSway
 bindsym $mod+Shift+w exec wlr-randr --output eDP-1 --on --pos 1920\,0
+bindsym $mod+Shift+a exec wlr-randr --output eDP-1 --on --right-of DP-2
 bindsym $mod+Shift+s exec wlr-randr --output eDP-1 --off
+bindsym $mod+Shift+t exec wlr-randr --output DP-2 --mode 1920x1080 --output eDP-1 --mode 1920x1080 --scale 1 --on --pos 0\,0
 
 #Fix error that when laptop taken from doc while closed and suspended, and then opened, then no monitor visible https://github.com/swaywm/sway/issues/6072
 bindswitch --reload --locked lid:off exec wlr-randr --output eDP-1 --on --pos 1920\,0
@@ -321,3 +325,6 @@ exec sh /home/nwuensche/saveFolder/privateScripts/killmedia.sh &
 exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
 #Needed by https://github.com/xdbob/sway-services/
 exec /etc/sway/config.d/10-service.conf
+
+# Don't idle on games, see https://github.com/swaywm/swayidle/issues/68#issuecomment-670779101
+for_window [class="steam_app*"] inhibit_idle focus

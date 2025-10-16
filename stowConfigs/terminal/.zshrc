@@ -20,7 +20,7 @@ export ANDROID_HOME
 MAVEN_OPTS="-Xmx1024m -Xms512m"
 export MAVEN_OPTS
 #export PATH="/home/nwuensche/anaconda3/bin:$PATH"
-export PATH=$PATH:/home/nwuensche/Android/Sdk/emulator:/home/nwuensche/Android/Sdk/tools:/home/nwuensche/Android/Sdk/platform-tools:~/.nix-profile/bin:~/.local/bin:~/.cabal/bin:~/saveFolder/privateScripts:~/.dotFiles/scripts:/home/nwuensche/.gem/ruby/2.6.0/bin
+export PATH=$PATH:/home/nwuensche/Android/Sdk/emulator:/home/nwuensche/Android/Sdk/tools:/home/nwuensche/Android/Sdk/platform-tools:~/.nix-profile/bin:~/.local/bin:~/.cabal/bin:~/saveFolder/privateScripts:~/.dotFiles/scripts:/home/nwuensche/.gem/ruby/2.6.0/bin:~/.dotnet/tools
 export PATH=$PATH:/usr/lib/python3.7/site-packages
 
 export HISTORY_IGNORE='(pass *|getIt *|getit *|shred *)'
@@ -128,4 +128,9 @@ autoload -U compinit && compinit
 ## Completion scripts setup. Remove the following line to uninstall
 [[ -f /home/nwuensche/.dart-cli-completion/zsh-config.zsh ]] && . /home/nwuensche/.dart-cli-completion/zsh-config.zsh || true
 ## [/Completion]
+
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/home/nwuensche/.lmstudio/bin"
+# End of LM Studio CLI section
 
