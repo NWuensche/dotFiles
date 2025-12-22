@@ -686,7 +686,7 @@ function main {
     setUpHome
     installPrograms
     addConfigs
-    fixWifi
+    # Dont do this, this made wifi connection end of 2025 extremely slow - fixWifi
     #lidCloseLock only needed x11
     #powertopAdd INFO Too many auto-suspend Mouse/keyboard problems that I cant solve + powertops give ~5 Minutes more lifetime with full battery, not worth it
     if [[ "$CPU" == "AMD" ]]; then

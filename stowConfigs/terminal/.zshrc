@@ -34,6 +34,7 @@ export FZF_DEFAULT_COMMAND='fd --type f'
 export BROWSER="/usr/bin/firefox"
 
 alias calcurse='c'
+alias convert='magick' #Ignore warning
 #alias gf='/usr/bin/gf'
 alias feh='feh --auto-rotate'
 alias screenshotXVFB="DISPLAY=:19 import -window root /tmp/screenshot.png; feh /tmp/screenshot.png"
@@ -65,7 +66,7 @@ alias xclip="xclip -selection c"
 #alias cisco="/opt/cisco/anyconnect/bin/vpnui"
 alias mv='mv -iv'
 alias cp='cp -iv'
-alias pdflatex='f() { (pdflatex $1; trash *.aux; trash *.log; trash *.nav; trash *.out; trash *.snm; trash *.toc) }; f'
+#alias pdflatex='f() { (pdflatex $1; trash *.aux; trash *.log; trash *.nav; trash *.out; trash *.snm; trash *.toc) }; f'
 alias downloadFolder='wget -r --no-parent'
 alias z='(cd ~; vim .zshrc)'
 alias v='vifm .'
