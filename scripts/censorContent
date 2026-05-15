@@ -113,10 +113,12 @@ class Paint:
         jpgFile = shellOutput("mktemp --suffix .jpg")
         tmppdfFile = shellOutput("mktemp --suffix .pdf")
         self.c.postscript(file = psFile, height = self.cHeight, width = self.cWidth, x =0, y=0 , colormode='color')
+        img = Image.open(psFile)
+        img.save(tmppdfFile)
         #with flag "-page a4" somehow the whole content disappears. When I send pdf somewhere, they shouldn't care about the format of the pages
-        subprocess.check_output("epstopdf " + psFile + " " + tmppdfFile, shell=True) #epspdf much better quality than `convert EPS PDF`
+#        subprocess.check_output("epstopdf " + psFile + " " + tmppdfFile, shell=True) #epspdf much better quality than `convert EPS PDF`
         subprocess.check_output("pdftoppm -jpeg -r 300 -singlefile " + tmppdfFile + " " + jpgFile[:-4], shell=True) #pdfppm much better quality than convert + Need step through jpeg, because otherwise in PDF censor box is only overlay, which one can take away, :-4 because pdftoppm adds own `.jpg` postfix (can be seen in firefox)
-        subprocess.check_output("convert " + jpgFile + " " + self.outPDFFilePath, shell=True) #epspdf much better quality than `convert EPS PDF`
+        subprocess.check_output("magick " + jpgFile + " " + self.outPDFFilePath, shell=True) #epspdf much better quality than `convert EPS PDF`
         self.root.destroy()
 
 
@@ -156,7 +158,7 @@ if __name__ == '__main__':
 
         #INFO If multiple pages, then names are in-0.png, in-0.png, ...
 #        shellOutput("convert -density 300 {} -quality 100 -colorspace RGB  {}/in.png".format(fullFileNameIn, tmpFolderInPDFImages))
-        shellOutput("convert -density 150 {} -quality 100 -colorspace RGB  {}/in.png".format(fullFileNameIn, tmpFolderInPDFImages))
+        shellOutput("magick -density 150 {} -quality 100 -colorspace RGB  {}/in.png".format(fullFileNameIn, tmpFolderInPDFImages))
         imagesFromPDF = os.listdir(tmpFolderInPDFImages)
         imagesFromPDF.reverse() #Want in-0.png as first entry
 

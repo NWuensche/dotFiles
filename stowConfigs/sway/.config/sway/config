@@ -21,6 +21,8 @@ input type:touchpad {
 
 
 output "*" bg /home/nwuensche/.background-image stretch
+output eDP-1 mode 2880x1800 scale 0 
+
 
 set $mod Mod4
 
@@ -326,6 +328,7 @@ exec kdeconnectd
 exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
 #Needed by https://github.com/xdbob/sway-services/
 exec /etc/sway/config.d/10-service.conf
+exec emacs --daemon
 
 # Don't idle on games, see https://github.com/swaywm/swayidle/issues/68#issuecomment-670779101
 for_window [class="steam_app*"] inhibit_idle focus

@@ -20,7 +20,7 @@ export ANDROID_HOME
 MAVEN_OPTS="-Xmx1024m -Xms512m"
 export MAVEN_OPTS
 #export PATH="/home/nwuensche/anaconda3/bin:$PATH"
-export PATH=$PATH:/home/nwuensche/Android/Sdk/emulator:/home/nwuensche/Android/Sdk/tools:/home/nwuensche/Android/Sdk/platform-tools:~/.nix-profile/bin:~/.local/bin:~/.cabal/bin:~/saveFolder/privateScripts:~/.dotFiles/scripts:/home/nwuensche/.gem/ruby/2.6.0/bin:~/.dotnet/tools
+export PATH=~/saveFolder/privateScripts:$PATH:/home/nwuensche/Android/Sdk/emulator:/home/nwuensche/Android/Sdk/tools:/home/nwuensche/Android/Sdk/platform-tools:~/.nix-profile/bin:~/.local/bin:~/.cabal/bin:~/.dotFiles/scripts:/home/nwuensche/.gem/ruby/2.6.0/bin:~/.dotnet/tools:~/.emacs.d/bin:~/.config/emacs/bin
 export PATH=$PATH:/usr/lib/python3.7/site-packages
 
 export HISTORY_IGNORE='(pass *|getIt *|getit *|shred *)'
@@ -33,10 +33,11 @@ export FZF_DEFAULT_COMMAND='fd --type f'
 
 export BROWSER="/usr/bin/firefox"
 
-alias calcurse='c'
+#alias calcurse='c'
 alias convert='magick' #Ignore warning
 #alias gf='/usr/bin/gf'
 alias feh='feh --auto-rotate'
+alias e="emacsclient -c -a 'emacs'"
 alias screenshotXVFB="DISPLAY=:19 import -window root /tmp/screenshot.png; feh /tmp/screenshot.png"
 alias android-file-transfer="aft-mtp-cli"
 alias git='hub'

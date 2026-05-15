@@ -20,3 +20,4 @@ export SDKMAN_DIR="/home/nwuensche/.sdkman"
 export PATH="$PATH:/home/nwuensche/.lmstudio/bin"
 # End of LM Studio CLI section
 
+source "$HOME/.cargo/env"

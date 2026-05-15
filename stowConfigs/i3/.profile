@@ -6,3 +6,4 @@ export PATH="$PATH:$HOME/saveFolder/privateScripts:$HOME/.dotFiles/scripts"
 export PATH="$PATH:/home/nwuensche/.lmstudio/bin"
 # End of LM Studio CLI section
 
+source "$HOME/.cargo/env"
