@@ -34,7 +34,6 @@ export FZF_DEFAULT_COMMAND='fd --type f'
 export BROWSER="/usr/bin/firefox"
 
 #alias calcurse='c'
-alias convert='magick' #Ignore warning
 #alias gf='/usr/bin/gf'
 alias feh='feh --auto-rotate'
 alias e="emacsclient -c -a 'emacs'"
