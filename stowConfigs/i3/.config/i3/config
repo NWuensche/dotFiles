@@ -245,7 +245,7 @@ exec xss-lock --transfer-sleep-lock -- myi3lock --nofork #transfer + nofork fixe
 
 # Easier xautolock
 # Lock Screen after 10 Minutes, 120 seconds before that black the screen
-exec xautolock -time 10 -locker "easyi3lock lock" -notify 120 -notifier "easyi3lock notifier" &
+#exec xautolock -time 10 -locker "easyi3lock lock" -notify 120 -notifier "easyi3lock notifier" &
 
 
 

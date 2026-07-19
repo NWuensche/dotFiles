@@ -35,6 +35,8 @@ export BROWSER="/usr/bin/firefox"
 
 #alias calcurse='c'
 #alias gf='/usr/bin/gf'
+alias ack='rg'
+alias bluetuith='bluetui'
 alias feh='feh --auto-rotate'
 alias e="emacsclient -c -a 'emacs'"
 alias screenshotXVFB="DISPLAY=:19 import -window root /tmp/screenshot.png; feh /tmp/screenshot.png"

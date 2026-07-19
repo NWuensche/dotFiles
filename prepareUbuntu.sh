@@ -160,12 +160,12 @@ function yayPackages {
     yay -S linux-lts --noconfirm --needed #If normal kernel breaks
     yay -S gvim vim-spell-de vim-spell-en --noconfirm --needed #Vim 
     yay -S xorg-xeyes sway swaylock swayidle i3status bemenu-wayland wl-clipboard wf-recorder wl-mirror wdisplay wlr-randr grim slurp gammastep imv aur/sway-services-git xorg-xwayland xorg-xhost dosfstools --noconfirm --needed #wayland/sway stuff (grim+slurp = scrot, imv =feh) , sway-services always sway trigger in systemd, need i3status for sway statusbar xhost + dosfstools for gparted
-    yay -S bluez-utils bluez bluetuith-bin  playerctl  --noconfirm --needed #Should be in bluetuith now - mpris-proxy-service #Bluetooth, mpris-proxy allows next/prev button on headset to work
+    yay -S bluez-utils bluez bluetui  playerctl  --noconfirm --needed #Should be in bluetuith now - mpris-proxy-service #Bluetooth, mpris-proxy allows next/prev button on headset to work
     yay -S xdotool ydotool expect --noconfirm --needed # Automation Tools
     yay -S tmux rxvt-unicode xterm alacritty zsh man-db  --noconfirm --needed #Terminator Environment 
-    yay -S zip unzip trash-cli curl mitmproxy wget ack ansifilter progress htop offlineimap neomutt vifm feh pdfgrep pdftk python-pypdf calcurse w3m mplayer irssi docker stow perl-image-exiftool --noconfirm --needed #Terminal Tools 
-    yay -S powertop python-selenium geckodriver jq rsync pwgen xclip ffmpeg xss-lock xautolock scrot udiskie	exfat-utils ntfs-3g unrar cronie ttf-liberation openssh imapfilter urlview pandoc-bin jpegoptim --noconfirm --needed #Terminal Support Tools , pandoc-bin from AUR and not pandoc from community because I don't want 60 dynamic Haskell Library dependencies, but only the binary
-    yay -S tcsh cups sane brscan2 brscan3 simple-scan --noconfirm --needed #Printer Tools 
+    yay -S imagemagick zip unzip trash-cli curl mitmproxy wget ripgrep ansifilter progress htop offlineimap neomutt vifm feh pdfgrep pdftk python-pypdf calcurse w3m mplayer irssi docker stow perl-image-exiftool --noconfirm --needed #Terminal Tools 
+    yay -S powertop python-selenium geckodriver jq rsync pwgen xclip ffmpeg xss-lock xautolock scrot udiskie	exfat-utils ntfs-3g unrar cronie ttf-liberation openssh imapfilter urlscan pandoc-bin jpegoptim --noconfirm --needed #Terminal Support Tools , pandoc-bin from AUR and not pandoc from community because I don't want 60 dynamic Haskell Library dependencies, but only the binary
+    yay -S tcsh cups sane brscan3 simple-scan --noconfirm --needed #Printer Tools 
     yay -S xf86-input-synaptics xf86-input-mtrack  --noconfirm --needed #Touchpad Tools 
     yay -S solaar  --noconfirm --needed #Mouse Tools
     yay -S xf86-input-wacom xbindkeys --noconfirm --needed #Wacom Tablet Tools
@@ -173,7 +173,7 @@ function yayPackages {
     yay -S alsa-utils pipewire-pulse pavucontrol pulsemixer easyeffects --noconfirm --needed #Audio, pipewire better with bluetooth than pulseaudio
     yay -S kdeconnect element-desktop torbrowser-launcher steam legendary heroic-games-launcher-bin sqlitebrowser calibre vlc mpv gimp inkscape audacity firefox chromium kdenlive libreoffice-fresh-de  evince xournalpp zathura zathura-pdf-poppler gnucash brightnessctl --noconfirm --needed #X Tools 
     yay -S wine lib32-libpulse --noconfirm --needed # Wine stuff
-    yay -S redshift gparted arandr android-file-transfer simple-mtpfs fnott cheese vlc-plugin-ffmpeg  --noconfirm --needed # X Support Tools , vlc-plugin is for h.265
+    yay -S redshift gparted arandr android-file-transfer  fnott vlc-plugin-ffmpeg  --noconfirm --needed # X Support Tools , vlc-plugin is for h.265
     yay -S virtualbox virtualbox-host-modules-arch virtualbox-guest-iso  --noconfirm --needed #Virtualbox 
     yay -S qemu gnome-boxes  --noconfirm --needed #Virtualbox 
    # yay -S texlive-basic texlive-latexextra texlive-latexrecommended biber tllocalmgr-git texlive-binextra  texlive-langgerman  --noconfirm --needed #Latex + latexmk TODO Add, but don't download texlive-full. This is downloaded twice here and each round takes >1h 
