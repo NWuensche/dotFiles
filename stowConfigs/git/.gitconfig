@@ -25,6 +25,22 @@
   ff = "!g() { B=$(git for-each-ref --sort=committerdate refs --format='%(refname:short)' | grep -i $1 | tail -n1); git checkout $B --force; }; g" #f + force
   sclone = "!g() { B=$(echo $1 | sed 's|https://github.com/|git@github.com:|') ; git clone $B; }; g"
   c = checkout
+  spush = "!f() { \
+      url=$(git remote get-url origin); \
+      case \"$url\" in \
+          https://github.com/*) \
+              ssh=\"git@github.com:${url#https://github.com/}\" ;; \
+          https://gitlab.com/*) \
+              ssh=\"git@gitlab.com:${url#https://gitlab.com/}\" ;; \
+          https://bitbucket.org/*) \
+              ssh=\"git@bitbucket.org:${url#https://bitbucket.org/}\" ;; \
+          *) \
+              echo \"Unsupported HTTPS remote: $url\" >&2; \
+              exit 1 ;; \
+      esac; \
+      git remote set-url --push origin \"$ssh\" && \
+      git push \"$@\"; \
+  }; f"
 [pull]
 	rebase = true
 [merge]

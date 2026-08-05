@@ -132,11 +132,16 @@ function installAndroidStudio {
 }
 
 function yayPackages {
+    #Do not install debug packages, they just take away space, that is, right a ! in front of the debug option
+    sudo sed -i 's/^\([[:space:]]*OPTIONS=.* \)debug/\1!debug/' /etc/makepkg.conf
+
     sudo pacman -Syu --noconfirm
     sudo pacman -S debugedit --noconfirm #Else yay makepkg -si will crash
     git clone https://aur.archlinux.org/yay-bin.git yay && cd yay && makepkg -si  --noconfirm && cd ~ && rm -rf yay #Install yay
     sudo yay -Syu --noconfirm
     sudo killall dirmngr || true #Else key import for tomb does not work
+
+
     yay -Rs vim --noconfirm --needed || true #will conflict to gvim, thus when installed for debugging, we have to remove it
     yay -S ruby jdk-openjdk maven python3 gradle python-pip git hub bc --noconfirm --needed #Programming
     #yay -Rs acpilight --noconfirm --needed || true #Just for sanity, when I restart script here, xorg would complain otherwise TODO delete might fix startip
@@ -164,7 +169,7 @@ function yayPackages {
     yay -S xdotool ydotool expect --noconfirm --needed # Automation Tools
     yay -S tmux rxvt-unicode xterm alacritty zsh man-db  --noconfirm --needed #Terminator Environment 
     yay -S imagemagick zip unzip trash-cli curl mitmproxy wget ripgrep ansifilter progress htop offlineimap neomutt vifm feh pdfgrep pdftk python-pypdf calcurse w3m mplayer irssi docker stow perl-image-exiftool --noconfirm --needed #Terminal Tools 
-    yay -S powertop python-selenium geckodriver jq rsync pwgen xclip ffmpeg xss-lock xautolock scrot udiskie	exfat-utils ntfs-3g unrar cronie ttf-liberation openssh imapfilter urlscan pandoc-bin jpegoptim --noconfirm --needed #Terminal Support Tools , pandoc-bin from AUR and not pandoc from community because I don't want 60 dynamic Haskell Library dependencies, but only the binary
+    yay -S powertop python-selenium geckodriver jq rsync pwgen xclip ffmpeg xss-lock scrot udiskie	exfat-utils ntfs-3g unrar cronie ttf-liberation openssh urlscan pandoc-bin jpegoptim --noconfirm --needed #Terminal Support Tools , pandoc-bin from AUR and not pandoc from community because I don't want 60 dynamic Haskell Library dependencies, but only the binary
     yay -S tcsh cups sane brscan3 simple-scan --noconfirm --needed #Printer Tools 
     yay -S xf86-input-synaptics xf86-input-mtrack  --noconfirm --needed #Touchpad Tools 
     yay -S solaar  --noconfirm --needed #Mouse Tools
@@ -173,13 +178,12 @@ function yayPackages {
     yay -S alsa-utils pipewire-pulse pavucontrol pulsemixer easyeffects --noconfirm --needed #Audio, pipewire better with bluetooth than pulseaudio
     yay -S kdeconnect element-desktop torbrowser-launcher steam legendary heroic-games-launcher-bin sqlitebrowser calibre vlc mpv gimp inkscape audacity firefox chromium kdenlive libreoffice-fresh-de  evince xournalpp zathura zathura-pdf-poppler gnucash brightnessctl --noconfirm --needed #X Tools 
     yay -S wine lib32-libpulse --noconfirm --needed # Wine stuff
-    yay -S redshift gparted arandr android-file-transfer  fnott vlc-plugin-ffmpeg  --noconfirm --needed # X Support Tools , vlc-plugin is for h.265
+    yay -S redshift gnome-disks arandr android-file-transfer  fnott vlc-plugin-ffmpeg  --noconfirm --needed # X Support Tools , vlc-plugin is for h.265
     yay -S virtualbox virtualbox-host-modules-arch virtualbox-guest-iso  --noconfirm --needed #Virtualbox 
     yay -S qemu gnome-boxes  --noconfirm --needed #Virtualbox 
    # yay -S texlive-basic texlive-latexextra texlive-latexrecommended biber tllocalmgr-git texlive-binextra  texlive-langgerman  --noconfirm --needed #Latex + latexmk TODO Add, but don't download texlive-full. This is downloaded twice here and each round takes >1h 
     yay -S texlive-binextra texlive-langgerman texlive-fonts texlive-fontsrecommended   --noconfirm --needed #Latex + latexmk, don't download texlive-full. This is downloaded twice here and each round takes >1h ; texlive-fontsrecommended needed because otherwise weird .sly errors when compiling
     yay -S slack-desktop openconnect telegram-desktop signal-desktop macchanger --noconfirm --needed #Other Stuff 
-    yay -S wpa_actiond --noconfirm --needed # For auto search WiFi
     yay -S qutebrowser pdfjs --noconfirm --needed || true #Alternative browser, might fail because of python packages, pdfjs needed for pdf viewer qutebrowser
     yay -S lutris lib32-gnutls lib32-libpulse --noconfirm --needed #lutris + programs for epic store TODO If still no sound, do https://www.reddit.com/r/wine_gaming/comments/7qm8wp/for_anyone_with_sound_issues_on_grand_theft_auto/
     yay -S libstdc++5 --noconfirm --needed #needed for cups/printer
@@ -417,6 +421,7 @@ function moveConfigs {
 
     sudo ln -s /home/nwuensche/.dotFiles/X/my_dvorak  /usr/share/X11/xkb/symbols/my_dvorak
 
+    sudo ln -s ~/.dotFiles/rules/90-logitech-wakeup.rules /etc/udev/rules.d #Fixes enable logitech keyboard can start laptop from suspend
     sudo ln -s ~/.dotFiles/rules/99-udisks2.rules /etc/udev/rules.d
     sudo ln -s ~/.dotFiles/services/rfkill-own.service /etc/systemd/system/rfkill-own.service
 
@@ -546,7 +551,7 @@ function setUpPrinter {
     while true; do
         read -p "Is DCP145C connected and powered? (y/n)" yn
         case $yn in
-            [YyJj]* ) setUpDCP; break;;
+            [YyJj]* ) setUpDCP && fixDCP145CLibreoffice ; break;;
             [Nn]* ) break;;
             * ) echo "Please answer y or n.";;
         esac
@@ -677,6 +682,24 @@ function fixGrubStuffAMD {
   sudo grub-mkconfig -o /boot/grub/grub.cfg
 }
 
+function fixSteam {
+  #see https://wiki.archlinux.org/title/Steam/Troubleshooting?utm_source=chatgpt.com#Cannot_access_store_page_(client_displays_error_-105_or_-102)
+  sudo systemctl enable --now systemd-resolved
+  sudo trash /etc/resolv.conf
+  sudo ln -s /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
+}
+
+function fixDCP145CLibreoffice {
+  #Fixes issue that libreoffice by default wants to print in wrong page size and orientation. Changes to A4 and Portrait
+  sudo cp /etc/cups/ppd/DCP145C.ppd \
+  /etc/cups/ppd/DCP145C.ppd.backup
+  sudo sed -i \
+  -e 's|^\*PaperDimension A4/A4:.*|*PaperDimension A4/A4:                          "595 842"|' \
+  -e 's|^\*ImageableArea A4/A4:.*|*ImageableArea A4/A4:                                   "9 9 586 833"|' \
+  /etc/cups/ppd/DCP145C.ppd
+  sudo cupstestppd /etc/cups/ppd/DCP145C.ppd && sudo systemctl restart cups && pkill -x soffice.bin 2>/dev/null || true
+}
+
 
 function main {
     if [[ "$CPU" != "Intel" && "$CPU" != "AMD" ]]; then
@@ -703,6 +726,7 @@ function main {
       fixAudioAMD
     fi
     enableBatteryConservationModeIdeapad
+    fixSteam
     #fixAudio Not Necessary
     #master
     setUpPrinter
@@ -729,7 +753,7 @@ fi
 #fixAudioAMD
 #setUpPrinter
 #fixScreenTearingAndAMDDockingStation
-#installAndroidStudio
-installIJCommunity
+installAndroidStudio
+#installIJCommunity
 #fixWifi
 #addFirefoxProfile

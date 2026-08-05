@@ -6,8 +6,8 @@ plugins=(git gitfast)
 ZSH_THEME="agnoster"
 EDITOR=vim
 
-xset b off #Disable beep sound for urxvt (and terminals in general)
-xhost +SI:localuser:root > /dev/null #Needed for gparted to work under wayland
+#xset b off #Disable beep sound for urxvt (and terminals in general)
+#xhost +SI:localuser:root > /dev/null #Needed for gparted to work under wayland
 
 #Enable Wayland for firefox
 export MOZ_WEBRENDER=1
@@ -36,6 +36,7 @@ export BROWSER="/usr/bin/firefox"
 #alias calcurse='c'
 #alias gf='/usr/bin/gf'
 alias ack='rg'
+alias gparted='gnome-disks'
 alias bluetuith='bluetui'
 alias feh='feh --auto-rotate'
 alias e="emacsclient -c -a 'emacs'"
@@ -137,3 +138,40 @@ autoload -U compinit && compinit
 export PATH="$PATH:/home/nwuensche/.lmstudio/bin"
 # End of LM Studio CLI section
 
+# Remove hostname from zsh prmpt
+prompt_context() {
+  prompt_segment black default "" #"%n"
+}
+
+# only show first letter of parent folders in zsh prompt, show home still as ~
+# e.g. $HOME/test/abc/def -> ~/t/a/def
+prompt_dir() {
+  local current_dir=${PWD:t}
+  local parent_dir=${PWD:h}
+
+  if [[ "$PWD" == "$HOME" ]]; then
+    prompt_segment blue black "~"
+    return
+  fi
+
+  if [[ "$PWD" == "$HOME"/* ]]; then
+    parent_dir=${PWD#$HOME/}
+    local parts=("${(@s:/:)parent_dir}")
+
+    local short="~/"
+    for ((i=1; i<${#parts[@]}; i++)); do
+      short+="${parts[i][1]}/"
+    done
+
+    prompt_segment blue black "${short}${current_dir}"
+  else
+    local parts=("${(@s:/:)parent_dir}")
+    local short=""
+
+    for part in $parts; do
+      [[ -n "$part" ]] && short+="${part[1]}/"
+    done
+
+    prompt_segment blue black "${short}${current_dir}"
+  fi
+}
