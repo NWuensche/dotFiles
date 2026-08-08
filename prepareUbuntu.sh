@@ -186,7 +186,7 @@ function yayPackages {
     yay -S slack-desktop openconnect telegram-desktop signal-desktop macchanger --noconfirm --needed #Other Stuff 
     yay -S qutebrowser pdfjs --noconfirm --needed || true #Alternative browser, might fail because of python packages, pdfjs needed for pdf viewer qutebrowser
     yay -S lutris lib32-gnutls lib32-libpulse --noconfirm --needed #lutris + programs for epic store TODO If still no sound, do https://www.reddit.com/r/wine_gaming/comments/7qm8wp/for_anyone_with_sound_issues_on_grand_theft_auto/
-    yay -S libstdc++5 --noconfirm --needed #needed for cups/printer
+    #yay -S libstdc++5 --noconfirm --needed #needed for cups/printer
     yay -S ifplugd --noconfirm --needed #LAN
     yay -S libdvdcss --noconfirm --needed #VLC Extension read DRM-DVDs
     yay -S ltunify --noconfirm --needed #Wireless Keyboard
@@ -433,7 +433,7 @@ function moveConfigs {
     gpg --import "$CONFIGNOSTOWFOLDER/gpg/gpg_key_pub.asc"
     gpg --import "$CONFIGNOSTOWFOLDER/gpg/gpg_key.asc"
     expect ~/saveFolder/privateScripts/trustGPG Wuensche-N
-    yay -S pass-tomb --noconfirm --needed #Can only install this after gpg import, else build will fail
+#    yay -S pass-tomb --noconfirm --needed #Can only install this after gpg import, else build will fail
 
     mkdir -p ~/.cache/mutt/messages #Else mutt warnings
 }
@@ -448,10 +448,17 @@ function setUpVimPlugins {
     vim +PlugInstall +q +q
 }
 
-function lowerTimeoutGRUB {
+function updateGrub {
     cat /etc/default/grub | sed 's/GRUB_TIMEOUT=5/GRUB_TIMEOUT=2/g' > /tmp/grub #File data will be lost when piping directly back into the file
     sudo cp /tmp/grub /etc/default/grub
     sudo grub-mkconfig -o /boot/grub/grub.cfg
+
+    # Make grub pre-select the last selected kernel. helpful when changing from linux to linux-lts
+    sudo sed -Ei \
+    -e 's/^[[:space:]]*#?[[:space:]]*GRUB_DEFAULT=.*/GRUB_DEFAULT=saved/' \
+    -e 's/^[[:space:]]*#?[[:space:]]*GRUB_SAVEDEFAULT=.*/GRUB_SAVEDEFAULT=true/' \
+    -e 's/^[[:space:]]*#?[[:space:]]*GRUB_DISABLE_SUBMENU=.*/GRUB_DISABLE_SUBMENU=y/' \
+    /etc/default/grub
 }
 
 function addFirefoxProfile {
@@ -470,7 +477,7 @@ function addConfigs {
     setUpTmux
     moveConfigs
     setUpVimPlugins
-    lowerTimeoutGRUB
+    updateGrub
     addFirefoxProfile
 }
 
