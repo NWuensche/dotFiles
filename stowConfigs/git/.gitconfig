@@ -56,3 +56,6 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+[safe]
+	directory = /home/nwuensche/test23/testCalendar.bak4
+	directory = /home/nwuensche/test24

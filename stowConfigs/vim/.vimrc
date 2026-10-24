@@ -196,4 +196,14 @@ set title titlestring=
 set noincsearch
 
 " Otherwise, .md Files will ignore tabstop=2 and just use tabstop=4 (Fedora)
+" Copy visual selection to clipboard as Confluence-ready rich text
+let g:confluence_script = '/home/nwuensche/.vim/confluence_uv.py'
+function! s:Confluence() abort
+  if line("'>") < line("'<") | echoerr 'confluence: select lines first (V)' | return | endif
+  let l:content = join(getline(line("'<"), line("'>")), "\n")
+  let l:out = system('env -u PYTHONHOME -u PYTHONPATH uv run ' . shellescape(g:confluence_script), l:content)
+  if v:shell_error | echoerr 'confluence: ' . trim(l:out) | else | echo 'confluence: copied — paste into Confluence' | endif
+endfunction
+vnoremap <leader>c :<C-u>call <SID>Confluence()<CR>
+
 let g:markdown_recommnded_style=0

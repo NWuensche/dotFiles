@@ -10,9 +10,13 @@ EDITOR=vim
 #xhost +SI:localuser:root > /dev/null #Needed for gparted to work under wayland
 
 #Enable Wayland for firefox
+#When I enable these, Youtube videos scroll when i scroll down and then up on them
 export MOZ_WEBRENDER=1
 export MOZ_ENABLE_WAYLAND=1
 LESS=${LESS}i #Case insensitve
+
+# Do not save (adjacent) duplicate entries
+setopt HIST_IGNORE_DUPS
 
 export EDITOR
 ANDROID_HOME=/home/nwuensche/Android/Sdk
@@ -20,7 +24,7 @@ export ANDROID_HOME
 MAVEN_OPTS="-Xmx1024m -Xms512m"
 export MAVEN_OPTS
 #export PATH="/home/nwuensche/anaconda3/bin:$PATH"
-export PATH=~/saveFolder/privateScripts:$PATH:/home/nwuensche/Android/Sdk/emulator:/home/nwuensche/Android/Sdk/tools:/home/nwuensche/Android/Sdk/platform-tools:~/.nix-profile/bin:~/.local/bin:~/.cabal/bin:~/.dotFiles/scripts:/home/nwuensche/.gem/ruby/2.6.0/bin:~/.dotnet/tools:~/.emacs.d/bin:~/.config/emacs/bin
+export PATH=~/saveFolder/privateScripts:$PATH:/home/nwuensche/Android/Sdk/emulator:/home/nwuensche/Android/Sdk/tools:/home/nwuensche/Android/Sdk/platform-tools:~/.nix-profile/bin:~/.local/bin:~/.cabal/bin:~/.dotFiles/scripts:/home/nwuensche/.gem/ruby/2.6.0/bin:~/.dotnet/tools:~/.emacs.d/bin:~/.config/emacs/bin:/home/nwuensche/.bun/bin:$PATH
 export PATH=$PATH:/usr/lib/python3.7/site-packages
 
 export HISTORY_IGNORE='(pass *|getIt *|getit *|shred *)'
@@ -44,6 +48,7 @@ alias screenshotXVFB="DISPLAY=:19 import -window root /tmp/screenshot.png; feh /
 alias android-file-transfer="aft-mtp-cli"
 alias git='hub'
 alias cao='copyAndOpen'
+alias yt-dlp='yt-dlp -f "bestvideo[height<=480]+bestaudio/best[height<=480]"'
 source $ZSH/oh-my-zsh.sh
 
 alias -s sh=sh

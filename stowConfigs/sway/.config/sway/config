@@ -21,7 +21,8 @@ input type:touchpad {
 
 
 output "*" bg /home/nwuensche/.background-image stretch
-output eDP-1 mode 2880x1800 scale 0 
+output eDP-1 mode 2880x1800 scale 2
+output DP-2 scale 1.15
 
 
 set $mod Mod4
